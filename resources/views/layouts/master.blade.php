@@ -7,6 +7,8 @@
 
         <title>My Project</title>
 
+        <link rel="stylesheet" href="/css/app.css">
+
         @yield('head-extras')
     </head>
     <body>
@@ -21,5 +23,10 @@
 
             @include('layouts.footer')
         </div>
+
+        {{-- Footer JS files --}}
+        <script src="/js/app.js"></script>
+
+        @yield('footer-extras')
     </body>
 </html>
