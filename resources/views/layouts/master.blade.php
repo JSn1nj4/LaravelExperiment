@@ -12,12 +12,12 @@
         @yield('head-extras')
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="">
             @include('layouts.header')
 
             @include('layouts.nav')
 
-            <div class="content">
+            <div class="">
                 @yield('content')
             </div>
 
