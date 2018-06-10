@@ -12,7 +12,7 @@
         @yield('head-extras')
     </head>
     <body>
-        <div class="">
+        <div class="container mx-auto px-4">
             @include('layouts.header')
 
             @include('layouts.nav')
