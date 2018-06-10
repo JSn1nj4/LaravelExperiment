@@ -12,17 +12,15 @@
         @yield('head-extras')
     </head>
     <body>
+        @include('layouts.header')
+
+        @include('layouts.nav')
+
         <div class="container mx-auto px-4">
-            @include('layouts.header')
-
-            @include('layouts.nav')
-
-            <div class="">
-                @yield('content')
-            </div>
-
-            @include('layouts.footer')
+            @yield('content')
         </div>
+
+        @include('layouts.footer')
 
         {{-- Footer JS files --}}
         <script src="/js/app.js"></script>

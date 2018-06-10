@@ -1,4 +1,4 @@
-@if (Route::has('login'))
+{{-- @if (Route::has('login'))
     <div class="">
         @auth
             <a href="{{ url('/home') }}">Home</a>
@@ -7,4 +7,9 @@
             <a href="{{ route('register') }}">Register</a>
         @endauth
     </div>
-@endif
+@endif --}}
+<nav>
+    <div class="container mx-auto px-4">
+
+    </div>
+</nav>
