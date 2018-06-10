@@ -16,9 +16,11 @@
 
         @include('layouts.nav')
 
-        <div class="container mx-auto px-4">
-            @yield('content')
-        </div>
+        <main>
+            <div class="container mx-auto px-4">
+                @yield('content')
+            </div>
+        </main>
 
         @include('layouts.footer')
 
