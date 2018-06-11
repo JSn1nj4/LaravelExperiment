@@ -37,6 +37,11 @@
  */
 @import "variables";
 
+body {
+    background: #151515;
+    color: #fff;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
