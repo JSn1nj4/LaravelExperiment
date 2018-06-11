@@ -1,5 +1,5 @@
-<footer>
-    <div class="container mx-auto px-4">
+<footer class="bg-black w-full absolute pin-b">
+    <div class="p-6">
 
     </div>
 </footer>
