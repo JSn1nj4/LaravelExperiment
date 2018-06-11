@@ -1,7 +1,9 @@
 <header class="mb-4">
     <nav class="flex items-center justify-between flex-wrap bg-black p-6">
         <div class="flex items-center flex-no-shrink text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight">My Project</span>
+            <a href="/" class="text-white no-underline hover:text-teal">
+                <span class="font-semibold text-xl tracking-tight">My Project</span>
+            </a>
         </div>
         <div class="block lg:hidden">
             <button class="flex items-center px-3 py-2 border rounded text-teal border-teal hover:text-white hover:border-white">
