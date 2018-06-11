@@ -2,7 +2,9 @@
     <nav class="flex items-center justify-between flex-wrap bg-black p-6">
         <div class="flex items-center flex-no-shrink text-white mr-6">
             <a href="/" class="text-white no-underline hover:text-teal">
-                <span class="font-semibold text-xl tracking-tight">My Project</span>
+                <span class="font-semibold text-xl tracking-tight">
+                    My Project
+                </span>
             </a>
         </div>
         <div class="block lg:hidden">
