@@ -8,8 +8,3 @@
         @endauth
     </div>
 @endif --}}
-<nav>
-    <div class="container mx-auto px-4">
-
-    </div>
-</nav>
