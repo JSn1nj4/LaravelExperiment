@@ -1,7 +1,7 @@
 <header class="mb-4">
     <nav class="flex items-center justify-between flex-wrap bg-black">
         <div class="flex items-center flex-no-shrink text-white">
-            <a href="/" class="text-white no-underline hover:text-sea-green px-5 py-5">
+            <a href="/" class="text-white no-underline px-5 py-5">
                 <span class="text-3xl tracking-tight py-px2">
                     My Project
                 </span>
