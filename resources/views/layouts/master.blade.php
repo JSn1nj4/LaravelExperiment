@@ -11,7 +11,7 @@
 
         @yield('head-extras')
     </head>
-    <body>
+    <body class="bg-grey-darkest text-white font-mono">
         @include('layouts.header')
 
         <main>

@@ -698,12 +698,6 @@ button,
  * @import "components/forms";
  */
 
-body {
-  background: #151515;
-  color: #fff;
-  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
-
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
