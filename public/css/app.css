@@ -1,4 +1,4 @@
-/**
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700);@import url(https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css);@import url(https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh);/**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
  *
@@ -701,6 +701,7 @@ button,
 body {
   background: #151515;
   color: #fff;
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 /**
@@ -2124,7 +2125,7 @@ body {
 }
 
 .font-mono {
-  font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-family: Source Code Pro, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .font-hairline {
@@ -2303,8 +2304,16 @@ body {
   margin: 1rem;
 }
 
+.m-5 {
+  margin: 1.25rem;
+}
+
 .m-6 {
   margin: 1.5rem;
+}
+
+.m-7 {
+  margin: 1.75rem;
 }
 
 .m-8 {
@@ -2369,6 +2378,16 @@ body {
   margin-right: 1rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -2377,6 +2396,16 @@ body {
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.mx-7 {
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
 }
 
 .my-8 {
@@ -2489,6 +2518,22 @@ body {
   margin-left: 1rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -2503,6 +2548,22 @@ body {
 
 .ml-6 {
   margin-left: 1.5rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mr-7 {
+  margin-right: 1.75rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
+
+.ml-7 {
+  margin-left: 1.75rem;
 }
 
 .mt-8 {
@@ -2941,8 +3002,16 @@ body {
   padding: 1rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-7 {
+  padding: 1.75rem;
 }
 
 .p-8 {
@@ -2951,6 +3020,10 @@ body {
 
 .p-px {
   padding: 1px;
+}
+
+.p-px2 {
+  padding: 2px;
 }
 
 .py-0 {
@@ -3003,6 +3076,16 @@ body {
   padding-right: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -3011,6 +3094,16 @@ body {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 
 .py-8 {
@@ -3031,6 +3124,16 @@ body {
 .px-px {
   padding-left: 1px;
   padding-right: 1px;
+}
+
+.py-px2 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.px-px2 {
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .pt-0 {
@@ -3113,6 +3216,22 @@ body {
   padding-left: 1rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -3127,6 +3246,22 @@ body {
 
 .pl-6 {
   padding-left: 1.5rem;
+}
+
+.pt-7 {
+  padding-top: 1.75rem;
+}
+
+.pr-7 {
+  padding-right: 1.75rem;
+}
+
+.pb-7 {
+  padding-bottom: 1.75rem;
+}
+
+.pl-7 {
+  padding-left: 1.75rem;
 }
 
 .pt-8 {
@@ -3159,6 +3294,22 @@ body {
 
 .pl-px {
   padding-left: 1px;
+}
+
+.pt-px2 {
+  padding-top: 2px;
+}
+
+.pr-px2 {
+  padding-right: 2px;
+}
+
+.pb-px2 {
+  padding-bottom: 2px;
+}
+
+.pl-px2 {
+  padding-left: 2px;
 }
 
 .pointer-events-none {
@@ -5443,7 +5594,7 @@ body {
   }
 
   .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .sm\:font-hairline {
@@ -5622,8 +5773,16 @@ body {
     margin: 1rem;
   }
 
+  .sm\:m-5 {
+    margin: 1.25rem;
+  }
+
   .sm\:m-6 {
     margin: 1.5rem;
+  }
+
+  .sm\:m-7 {
+    margin: 1.75rem;
   }
 
   .sm\:m-8 {
@@ -5688,6 +5847,16 @@ body {
     margin-right: 1rem;
   }
 
+  .sm\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sm\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
   .sm\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -5696,6 +5865,16 @@ body {
   .sm\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  .sm\:my-7 {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .sm\:mx-7 {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
   }
 
   .sm\:my-8 {
@@ -5808,6 +5987,22 @@ body {
     margin-left: 1rem;
   }
 
+  .sm\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .sm\:mr-5 {
+    margin-right: 1.25rem;
+  }
+
+  .sm\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .sm\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .sm\:mt-6 {
     margin-top: 1.5rem;
   }
@@ -5822,6 +6017,22 @@ body {
 
   .sm\:ml-6 {
     margin-left: 1.5rem;
+  }
+
+  .sm\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .sm\:mr-7 {
+    margin-right: 1.75rem;
+  }
+
+  .sm\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .sm\:ml-7 {
+    margin-left: 1.75rem;
   }
 
   .sm\:mt-8 {
@@ -6260,8 +6471,16 @@ body {
     padding: 1rem;
   }
 
+  .sm\:p-5 {
+    padding: 1.25rem;
+  }
+
   .sm\:p-6 {
     padding: 1.5rem;
+  }
+
+  .sm\:p-7 {
+    padding: 1.75rem;
   }
 
   .sm\:p-8 {
@@ -6270,6 +6489,10 @@ body {
 
   .sm\:p-px {
     padding: 1px;
+  }
+
+  .sm\:p-px2 {
+    padding: 2px;
   }
 
   .sm\:py-0 {
@@ -6322,6 +6545,16 @@ body {
     padding-right: 1rem;
   }
 
+  .sm\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .sm\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .sm\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -6330,6 +6563,16 @@ body {
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .sm\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .sm\:py-8 {
@@ -6350,6 +6593,16 @@ body {
   .sm\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .sm\:py-px2 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .sm\:px-px2 {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .sm\:pt-0 {
@@ -6432,6 +6685,22 @@ body {
     padding-left: 1rem;
   }
 
+  .sm\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .sm\:pr-5 {
+    padding-right: 1.25rem;
+  }
+
+  .sm\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
+  .sm\:pl-5 {
+    padding-left: 1.25rem;
+  }
+
   .sm\:pt-6 {
     padding-top: 1.5rem;
   }
@@ -6446,6 +6715,22 @@ body {
 
   .sm\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .sm\:pt-7 {
+    padding-top: 1.75rem;
+  }
+
+  .sm\:pr-7 {
+    padding-right: 1.75rem;
+  }
+
+  .sm\:pb-7 {
+    padding-bottom: 1.75rem;
+  }
+
+  .sm\:pl-7 {
+    padding-left: 1.75rem;
   }
 
   .sm\:pt-8 {
@@ -6478,6 +6763,22 @@ body {
 
   .sm\:pl-px {
     padding-left: 1px;
+  }
+
+  .sm\:pt-px2 {
+    padding-top: 2px;
+  }
+
+  .sm\:pr-px2 {
+    padding-right: 2px;
+  }
+
+  .sm\:pb-px2 {
+    padding-bottom: 2px;
+  }
+
+  .sm\:pl-px2 {
+    padding-left: 2px;
   }
 
   .sm\:pointer-events-none {
@@ -8740,7 +9041,7 @@ body {
   }
 
   .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .md\:font-hairline {
@@ -8919,8 +9220,16 @@ body {
     margin: 1rem;
   }
 
+  .md\:m-5 {
+    margin: 1.25rem;
+  }
+
   .md\:m-6 {
     margin: 1.5rem;
+  }
+
+  .md\:m-7 {
+    margin: 1.75rem;
   }
 
   .md\:m-8 {
@@ -8985,6 +9294,16 @@ body {
     margin-right: 1rem;
   }
 
+  .md\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .md\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
   .md\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -8993,6 +9312,16 @@ body {
   .md\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  .md\:my-7 {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .md\:mx-7 {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
   }
 
   .md\:my-8 {
@@ -9105,6 +9434,22 @@ body {
     margin-left: 1rem;
   }
 
+  .md\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .md\:mr-5 {
+    margin-right: 1.25rem;
+  }
+
+  .md\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .md\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .md\:mt-6 {
     margin-top: 1.5rem;
   }
@@ -9119,6 +9464,22 @@ body {
 
   .md\:ml-6 {
     margin-left: 1.5rem;
+  }
+
+  .md\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .md\:mr-7 {
+    margin-right: 1.75rem;
+  }
+
+  .md\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .md\:ml-7 {
+    margin-left: 1.75rem;
   }
 
   .md\:mt-8 {
@@ -9557,8 +9918,16 @@ body {
     padding: 1rem;
   }
 
+  .md\:p-5 {
+    padding: 1.25rem;
+  }
+
   .md\:p-6 {
     padding: 1.5rem;
+  }
+
+  .md\:p-7 {
+    padding: 1.75rem;
   }
 
   .md\:p-8 {
@@ -9567,6 +9936,10 @@ body {
 
   .md\:p-px {
     padding: 1px;
+  }
+
+  .md\:p-px2 {
+    padding: 2px;
   }
 
   .md\:py-0 {
@@ -9619,6 +9992,16 @@ body {
     padding-right: 1rem;
   }
 
+  .md\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .md\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .md\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -9627,6 +10010,16 @@ body {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .md\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .md\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .md\:py-8 {
@@ -9647,6 +10040,16 @@ body {
   .md\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .md\:py-px2 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .md\:px-px2 {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .md\:pt-0 {
@@ -9729,6 +10132,22 @@ body {
     padding-left: 1rem;
   }
 
+  .md\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .md\:pr-5 {
+    padding-right: 1.25rem;
+  }
+
+  .md\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
+  .md\:pl-5 {
+    padding-left: 1.25rem;
+  }
+
   .md\:pt-6 {
     padding-top: 1.5rem;
   }
@@ -9743,6 +10162,22 @@ body {
 
   .md\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .md\:pt-7 {
+    padding-top: 1.75rem;
+  }
+
+  .md\:pr-7 {
+    padding-right: 1.75rem;
+  }
+
+  .md\:pb-7 {
+    padding-bottom: 1.75rem;
+  }
+
+  .md\:pl-7 {
+    padding-left: 1.75rem;
   }
 
   .md\:pt-8 {
@@ -9775,6 +10210,22 @@ body {
 
   .md\:pl-px {
     padding-left: 1px;
+  }
+
+  .md\:pt-px2 {
+    padding-top: 2px;
+  }
+
+  .md\:pr-px2 {
+    padding-right: 2px;
+  }
+
+  .md\:pb-px2 {
+    padding-bottom: 2px;
+  }
+
+  .md\:pl-px2 {
+    padding-left: 2px;
   }
 
   .md\:pointer-events-none {
@@ -12037,7 +12488,7 @@ body {
   }
 
   .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .lg\:font-hairline {
@@ -12216,8 +12667,16 @@ body {
     margin: 1rem;
   }
 
+  .lg\:m-5 {
+    margin: 1.25rem;
+  }
+
   .lg\:m-6 {
     margin: 1.5rem;
+  }
+
+  .lg\:m-7 {
+    margin: 1.75rem;
   }
 
   .lg\:m-8 {
@@ -12282,6 +12741,16 @@ body {
     margin-right: 1rem;
   }
 
+  .lg\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .lg\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
   .lg\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -12290,6 +12759,16 @@ body {
   .lg\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  .lg\:my-7 {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .lg\:mx-7 {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
   }
 
   .lg\:my-8 {
@@ -12402,6 +12881,22 @@ body {
     margin-left: 1rem;
   }
 
+  .lg\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .lg\:mr-5 {
+    margin-right: 1.25rem;
+  }
+
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .lg\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .lg\:mt-6 {
     margin-top: 1.5rem;
   }
@@ -12416,6 +12911,22 @@ body {
 
   .lg\:ml-6 {
     margin-left: 1.5rem;
+  }
+
+  .lg\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .lg\:mr-7 {
+    margin-right: 1.75rem;
+  }
+
+  .lg\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .lg\:ml-7 {
+    margin-left: 1.75rem;
   }
 
   .lg\:mt-8 {
@@ -12854,8 +13365,16 @@ body {
     padding: 1rem;
   }
 
+  .lg\:p-5 {
+    padding: 1.25rem;
+  }
+
   .lg\:p-6 {
     padding: 1.5rem;
+  }
+
+  .lg\:p-7 {
+    padding: 1.75rem;
   }
 
   .lg\:p-8 {
@@ -12864,6 +13383,10 @@ body {
 
   .lg\:p-px {
     padding: 1px;
+  }
+
+  .lg\:p-px2 {
+    padding: 2px;
   }
 
   .lg\:py-0 {
@@ -12916,6 +13439,16 @@ body {
     padding-right: 1rem;
   }
 
+  .lg\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .lg\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .lg\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -12924,6 +13457,16 @@ body {
   .lg\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .lg\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .lg\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .lg\:py-8 {
@@ -12944,6 +13487,16 @@ body {
   .lg\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .lg\:py-px2 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .lg\:px-px2 {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .lg\:pt-0 {
@@ -13026,6 +13579,22 @@ body {
     padding-left: 1rem;
   }
 
+  .lg\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .lg\:pr-5 {
+    padding-right: 1.25rem;
+  }
+
+  .lg\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
+  .lg\:pl-5 {
+    padding-left: 1.25rem;
+  }
+
   .lg\:pt-6 {
     padding-top: 1.5rem;
   }
@@ -13040,6 +13609,22 @@ body {
 
   .lg\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .lg\:pt-7 {
+    padding-top: 1.75rem;
+  }
+
+  .lg\:pr-7 {
+    padding-right: 1.75rem;
+  }
+
+  .lg\:pb-7 {
+    padding-bottom: 1.75rem;
+  }
+
+  .lg\:pl-7 {
+    padding-left: 1.75rem;
   }
 
   .lg\:pt-8 {
@@ -13072,6 +13657,22 @@ body {
 
   .lg\:pl-px {
     padding-left: 1px;
+  }
+
+  .lg\:pt-px2 {
+    padding-top: 2px;
+  }
+
+  .lg\:pr-px2 {
+    padding-right: 2px;
+  }
+
+  .lg\:pb-px2 {
+    padding-bottom: 2px;
+  }
+
+  .lg\:pl-px2 {
+    padding-left: 2px;
   }
 
   .lg\:pointer-events-none {
@@ -15334,7 +15935,7 @@ body {
   }
 
   .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .xl\:font-hairline {
@@ -15513,8 +16114,16 @@ body {
     margin: 1rem;
   }
 
+  .xl\:m-5 {
+    margin: 1.25rem;
+  }
+
   .xl\:m-6 {
     margin: 1.5rem;
+  }
+
+  .xl\:m-7 {
+    margin: 1.75rem;
   }
 
   .xl\:m-8 {
@@ -15579,6 +16188,16 @@ body {
     margin-right: 1rem;
   }
 
+  .xl\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .xl\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
   .xl\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -15587,6 +16206,16 @@ body {
   .xl\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+
+  .xl\:my-7 {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .xl\:mx-7 {
+    margin-left: 1.75rem;
+    margin-right: 1.75rem;
   }
 
   .xl\:my-8 {
@@ -15699,6 +16328,22 @@ body {
     margin-left: 1rem;
   }
 
+  .xl\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
+  .xl\:mr-5 {
+    margin-right: 1.25rem;
+  }
+
+  .xl\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  .xl\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .xl\:mt-6 {
     margin-top: 1.5rem;
   }
@@ -15713,6 +16358,22 @@ body {
 
   .xl\:ml-6 {
     margin-left: 1.5rem;
+  }
+
+  .xl\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
+  .xl\:mr-7 {
+    margin-right: 1.75rem;
+  }
+
+  .xl\:mb-7 {
+    margin-bottom: 1.75rem;
+  }
+
+  .xl\:ml-7 {
+    margin-left: 1.75rem;
   }
 
   .xl\:mt-8 {
@@ -16151,8 +16812,16 @@ body {
     padding: 1rem;
   }
 
+  .xl\:p-5 {
+    padding: 1.25rem;
+  }
+
   .xl\:p-6 {
     padding: 1.5rem;
+  }
+
+  .xl\:p-7 {
+    padding: 1.75rem;
   }
 
   .xl\:p-8 {
@@ -16161,6 +16830,10 @@ body {
 
   .xl\:p-px {
     padding: 1px;
+  }
+
+  .xl\:p-px2 {
+    padding: 2px;
   }
 
   .xl\:py-0 {
@@ -16213,6 +16886,16 @@ body {
     padding-right: 1rem;
   }
 
+  .xl\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .xl\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .xl\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -16221,6 +16904,16 @@ body {
   .xl\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .xl\:py-7 {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .xl\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   .xl\:py-8 {
@@ -16241,6 +16934,16 @@ body {
   .xl\:px-px {
     padding-left: 1px;
     padding-right: 1px;
+  }
+
+  .xl\:py-px2 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .xl\:px-px2 {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .xl\:pt-0 {
@@ -16323,6 +17026,22 @@ body {
     padding-left: 1rem;
   }
 
+  .xl\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .xl\:pr-5 {
+    padding-right: 1.25rem;
+  }
+
+  .xl\:pb-5 {
+    padding-bottom: 1.25rem;
+  }
+
+  .xl\:pl-5 {
+    padding-left: 1.25rem;
+  }
+
   .xl\:pt-6 {
     padding-top: 1.5rem;
   }
@@ -16337,6 +17056,22 @@ body {
 
   .xl\:pl-6 {
     padding-left: 1.5rem;
+  }
+
+  .xl\:pt-7 {
+    padding-top: 1.75rem;
+  }
+
+  .xl\:pr-7 {
+    padding-right: 1.75rem;
+  }
+
+  .xl\:pb-7 {
+    padding-bottom: 1.75rem;
+  }
+
+  .xl\:pl-7 {
+    padding-left: 1.75rem;
   }
 
   .xl\:pt-8 {
@@ -16369,6 +17104,22 @@ body {
 
   .xl\:pl-px {
     padding-left: 1px;
+  }
+
+  .xl\:pt-px2 {
+    padding-top: 2px;
+  }
+
+  .xl\:pr-px2 {
+    padding-right: 2px;
+  }
+
+  .xl\:pb-px2 {
+    padding-bottom: 2px;
+  }
+
+  .xl\:pl-px2 {
+    padding-left: 2px;
   }
 
   .xl\:pointer-events-none {
