@@ -14,13 +14,11 @@
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-center lg:text-right text-xl">
             <div class="text-md lg:flex-grow">
-                <a href="/" class="block lg:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
-                    Home
-                </a><a href="#" class="block lg:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
-                    Projects
-                </a><a href="#" class="block lg:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
-                    Updates
+              @foreach (['home','projects','updates'] as $key => $value)
+                <a href="{{ route($value) }}" class="block lg:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
+                    {{ $value }}
                 </a>
+              @endforeach
             </div>
         </div>
     </nav>
