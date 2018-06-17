@@ -68,5 +68,5 @@
 
 
 .trans-color {
-  @include transitions((color $default-speed));
+    @include transitions((color $default-speed));
 }

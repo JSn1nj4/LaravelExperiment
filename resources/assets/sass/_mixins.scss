@@ -9,13 +9,13 @@
  * with vendor variants included.
  */
 @mixin transitions($settings...) {
-  $set: null;
-  @each $transition in $settings {
-    $set: $set, $transition;
-  }
+    $set: null;
+    @each $transition in $settings {
+        $set: $set, $transition;
+    }
 
-  -webkit-transition: $set;
-  -moz-transition: $set;
-  -o-transition: $set;
-  transition: $set;
+    -webkit-transition: $set;
+    -moz-transition: $set;
+    -o-transition: $set;
+    transition: $set;
 }
