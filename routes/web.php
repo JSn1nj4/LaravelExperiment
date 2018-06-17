@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'home')->name('home');
+
+Route::view('/projects', 'coming-soon')->name('projects');
+
+Route::view('/updates', 'coming-soon')->name('updates');
