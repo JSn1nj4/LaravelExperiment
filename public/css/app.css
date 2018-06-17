@@ -698,6 +698,17 @@ button,
  * @import "components/forms";
  */
 
+/*
+ * All SCSS mixins will be listed below
+ */
+
+/*
+ * transitions
+ *
+ * This generates as many transitions as required by the requesting element,
+ * with vendor variants included.
+ */
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -3986,6 +3997,11 @@ button,
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+.trans-color {
+  -webkit-transition: color .3s;
+          transition: color .3s;
+}
 
 @media (min-width: 576px) {
   .sm\:list-reset {

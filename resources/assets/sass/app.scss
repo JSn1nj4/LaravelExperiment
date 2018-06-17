@@ -36,6 +36,7 @@
  * @import "components/forms";
  */
 @import "variables";
+@import "mixins";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
 @import url('https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css');
 @import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
@@ -64,3 +65,8 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+
+.trans-color {
+  @include transitions((color $default-speed));
+}
