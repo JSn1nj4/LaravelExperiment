@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1 class="font-thin mb-4 text-sea-green-dark">
+    <h1 class="content-title">
         Test title
     </h1>
 

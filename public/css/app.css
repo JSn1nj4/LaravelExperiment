@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700);@import url(https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css);@import url(https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh);/**
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700);@import url(https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh);/**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
  *
@@ -708,6 +708,31 @@ button,
  * This generates as many transitions as required by the requesting element,
  * with vendor variants included.
  */
+
+h1.content-title,
+h2.content-title,
+h3.content-title,
+h4.content-title,
+h5.content-title,
+h6.content-title {
+  margin-bottom: 1rem;
+  color: #00c49a;
+}
+
+h1.content-title {
+  font-weight: 200;
+}
+
+h2.content-title,
+h3.content-title {
+  font-weight: 400;
+}
+
+h4.content-title,
+h5.content-title,
+h6.content-title {
+  font-weight: 700;
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

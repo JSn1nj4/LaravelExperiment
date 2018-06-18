@@ -41,6 +41,30 @@
 // @import url('https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css');
 @import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
 
+h1, h2, h3, h4, h5, h6 {
+    &.content-title {
+        @apply .mb-4 .text-sea-green;
+    }
+}
+
+h1.content-title {
+    @apply .font-thin;
+}
+
+h2, h3 {
+    &.content-title {
+        @apply .font-normal;
+    }
+}
+
+h4, h5, h6 {
+    &.content-title {
+        @apply .font-bold;
+    }
+}
+
+
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
