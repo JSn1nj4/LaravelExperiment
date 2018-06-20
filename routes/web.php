@@ -13,6 +13,8 @@
 
 Route::view('/', 'home')->name('home');
 
-Route::view('/projects', 'coming-soon')->name('projects');
+Route::view('/projects', 'layouts.coming-soon')->name('projects');
 
-Route::view('/updates', 'coming-soon')->name('updates');
+Route::view('/updates', 'layouts.coming-soon')->name('updates');
+
+Route::view('/coming-soon', 'site-coming-soon')->name('site.coming-soon');
