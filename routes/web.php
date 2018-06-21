@@ -36,3 +36,4 @@ Route::get('/updates', function() {
 })->name('updates');
 
 Route::view('/coming-soon', 'site-coming-soon')->name('site.coming-soon');
+// Route::view('/coming-soon', 'site-maintenance')->name('site.maintenance');
