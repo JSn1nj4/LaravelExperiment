@@ -11,10 +11,28 @@
 |
 */
 
-Route::view('/', 'home')->name('home');
+Route::get('/', function() {
+    if(!Auth::check()) {
+        return redirect()->route('site.coming-soon');
+    }
 
-Route::view('/projects', 'layouts.coming-soon')->name('projects');
+    return view('home');
+})->name('home');
 
-Route::view('/updates', 'layouts.coming-soon')->name('updates');
+Route::get('/projects', function() {
+    if(!Auth::check()) {
+        return redirect()->route('site.coming-soon');
+    }
+
+    return view('projects');
+})->name('projects');
+
+Route::get('/updates', function() {
+    if(!Auth::check()) {
+        return redirect()->route('site.coming-soon');
+    }
+
+    return view('updates');
+})->name('updates');
 
 Route::view('/coming-soon', 'site-coming-soon')->name('site.coming-soon');
