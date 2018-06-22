@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="max-w-lg mx-auto">
-        
-        <div style="display: inline-block; height: 100%; verbatim">
+        <div style="display: flex; flex-direction: column; justify-content: center; max-height: 100vh; height: 500px;">
 
             <h1 class="mb-4 text-center text-5xl font-normal">
                 ElliotDerhay(<span class="text-sea-green text-4xl leading-none py-3" style="vertical-align: middle;">/{{ Request::path() }}</span>)
