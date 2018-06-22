@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.splash')
 
 @section('content')
     <h1 class="font-thin mb-4 text-sea-green-dark text-center">
