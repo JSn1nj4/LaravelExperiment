@@ -709,6 +709,14 @@ button,
  * with vendor variants included.
  */
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
 h1.content-title,
 h2.content-title,
 h3.content-title,
