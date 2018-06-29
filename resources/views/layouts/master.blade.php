@@ -11,7 +11,7 @@
 
         @yield('head-extras')
     </head>
-    <body class="bg-grey-darkest text-white font-mono">
+    <body class="bg-grey-darkest text-white font-mono {{ $bodyClasses }}">
         @yield('body')
 
         @yield('footer-extras')

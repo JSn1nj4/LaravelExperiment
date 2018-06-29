@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['bodyClasses' => 'backlight'])
 
 @section('head-extras')
     @yield('head-extras')

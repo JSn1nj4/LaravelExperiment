@@ -97,7 +97,14 @@ h4, h5, h6 {
  * @import "utilities/skew-transforms";
  */
 
+.backlight {
+    background-image: linear-gradient(to top, #00A87E, #00A87E44 5px, transparent 75%);
+}
 
 .trans-color {
     @include transitions((color $default-speed));
+}
+
+.text-glow-white {
+    text-shadow: 0 0 10px #fff;
 }

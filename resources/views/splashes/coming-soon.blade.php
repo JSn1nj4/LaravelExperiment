@@ -4,7 +4,7 @@
     <div class="max-w-lg mx-auto">
         <div style="display: flex; flex-direction: column; justify-content: center; max-height: 100vh; height: 500px;">
 
-            <h1 class="mb-4 text-center text-5xl font-normal">
+            <h1 class="mb-4 text-center text-5xl font-normal text-glow-white">
                 Coming Soon
             </h1>
 
