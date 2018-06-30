@@ -4032,7 +4032,7 @@ h6.content-title {
  */
 
 .backlight {
-  background-image: linear-gradient(to top, #00a87e, #00a87e44 5px, transparent 75%);
+  background-image: linear-gradient(to top, #00a87e, rgba(0, 168, 126, .266667) 5px, transparent 75%);
 }
 
 .construction {
