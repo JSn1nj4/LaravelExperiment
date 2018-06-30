@@ -4035,6 +4035,10 @@ h6.content-title {
   background-image: linear-gradient(to top, #00a87e, #00a87e44 5px, transparent 75%);
 }
 
+.construction {
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 50px, rgba(69, 52, 17, .8) 50px, rgba(69, 52, 17, .8) 100px, transparent 100px);
+}
+
 .trans-color {
   -webkit-transition: color .3s;
           transition: color .3s;

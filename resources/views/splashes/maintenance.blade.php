@@ -1,4 +1,4 @@
-@extends('layouts.splash')
+@extends('layouts.splash', ['bodyClasses' => 'construction'])
 
 @section('content')
     <div class="max-w-lg mx-auto">
