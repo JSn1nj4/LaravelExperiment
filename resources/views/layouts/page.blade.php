@@ -6,7 +6,8 @@
 
 @section('body')
 
-    @include('layouts.header')
+    @include('layouts.header', ['menuItems' => []])
+    {{-- @include('layouts.header', ['menuItems' => ['home','projects','updates']]) --}}
 
     <main>
         <div class="container mx-auto px-4">

@@ -1,15 +1,15 @@
 <header class="mb-4">
     <nav class="flex items-center justify-between flex-wrap bg-black">
 
-        @if (count($menuItems = ['home','projects','updates']) > 0)
+        <div class="flex items-center flex-no-shrink text-white">
+            <a href="/" class="text-white no-underline px-5 py-5">
+                <span class="text-3xl tracking-tight py-px2">
+                    My Project
+                </span>
+            </a>
+        </div>
 
-            <div class="flex items-center flex-no-shrink text-white">
-                <a href="/" class="text-white no-underline px-5 py-5">
-                    <span class="text-3xl tracking-tight py-px2">
-                        My Project
-                    </span>
-                </a>
-            </div>
+        @if (count($menuItems) > 0)
 
             <div class="block lg:hidden mr-5">
                 <button class="flex items-center px-3 py-2 border rounded text-sea-green border-sea-green hover:text-white hover:border-white">
