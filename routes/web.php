@@ -24,16 +24,41 @@ Route::get('/', function() {
      * actual page that says "coming soon" on it, not a "coming soon" splash
      * screen.
      */
-    return !Auth::check() ? redirect()->route('splash.coming-soon') : view('home');
+
+    if(!Auth::check()) {
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
+    }
+
+    return view('home');
 
 })->name('home');
 
 Route::get('/projects', function() {
-    return !Auth::check() ? redirect()->route('splash.coming-soon') : view('projects');
+    if(!Auth::check()) {
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
+    }
+
+    return view('projects');
 })->name('projects');
 
 Route::get('/updates', function() {
-    return !Auth::check() ? redirect()->route('splash.coming-soon') : view('updates');
+    if(!Auth::check()) {
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
+    }
+
+    return view('updates');
 })->name('updates');
 
 Route::view('/coming-soon', 'splashes.coming-soon')->name('splash.coming-soon');
