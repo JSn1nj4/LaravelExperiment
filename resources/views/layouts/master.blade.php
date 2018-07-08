@@ -11,19 +11,8 @@
 
         @yield('head-extras')
     </head>
-    <body class="bg-grey-darkest text-white font-mono">
-        @include('layouts.header')
-
-        <main>
-            <div class="container mx-auto px-4">
-                @yield('content')
-            </div>
-        </main>
-
-        @include('layouts.footer')
-
-        {{-- Footer JS files --}}
-        <script src="/js/app.js"></script>
+    <body class="bg-grey-darkest text-white font-mono {{ $bodyClasses }}">
+        @yield('body')
 
         @yield('footer-extras')
     </body>

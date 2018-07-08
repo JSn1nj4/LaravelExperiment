@@ -709,6 +709,14 @@ button,
  * with vendor variants included.
  */
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
 h1.content-title,
 h2.content-title,
 h3.content-title,
@@ -4023,9 +4031,21 @@ h6.content-title {
  * @import "utilities/skew-transforms";
  */
 
+.backlight {
+  background-image: linear-gradient(to top, #00a87e, rgba(0, 168, 126, .266667) 5px, transparent 75%);
+}
+
+.construction {
+  background-image: repeating-linear-gradient(45deg, transparent 0, transparent 50px, rgba(69, 52, 17, .8) 50px, rgba(69, 52, 17, .8) 100px, transparent 100px);
+}
+
 .trans-color {
   -webkit-transition: color .3s;
           transition: color .3s;
+}
+
+.text-glow-white {
+  text-shadow: 0 0 10px #fff;
 }
 
 @media (min-width: 576px) {

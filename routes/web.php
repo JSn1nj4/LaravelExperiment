@@ -11,17 +11,39 @@
 |
 */
 
+// Enable/disable maintenance splash page
+$maintenance = false;
+
 Route::get('/', function() {
+
+    /*
+     * Temporary redirect until site is built
+     *
+     * Once the homepage and overall look are built, this will be removed. The
+     * others will still show a "coming soon" page of sorts, but it'll be an
+     * actual page that says "coming soon" on it, not a "coming soon" splash
+     * screen.
+     */
+
     if(!Auth::check()) {
-        return redirect()->route('site.coming-soon');
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
     }
 
     return view('home');
+
 })->name('home');
 
 Route::get('/projects', function() {
     if(!Auth::check()) {
-        return redirect()->route('site.coming-soon');
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
     }
 
     return view('projects');
@@ -29,11 +51,15 @@ Route::get('/projects', function() {
 
 Route::get('/updates', function() {
     if(!Auth::check()) {
-        return redirect()->route('site.coming-soon');
+        return redirect()->route('splash.coming-soon');
+    }
+
+    if($maintenance) {
+        return redirect()->route('splash.maintenance');
     }
 
     return view('updates');
 })->name('updates');
 
-Route::view('/coming-soon', 'site-coming-soon')->name('site.coming-soon');
-// Route::view('/coming-soon', 'site-maintenance')->name('site.maintenance');
+Route::view('/coming-soon', 'splashes.coming-soon')->name('splash.coming-soon');
+Route::view('/maintenance', 'splashes.maintenance')->name('splash.maintenance');

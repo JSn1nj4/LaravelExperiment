@@ -41,6 +41,13 @@
 // @import url('https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css');
 @import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
 
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
     &.content-title {
         @apply .mb-4 .text-sea-green;
@@ -90,7 +97,18 @@ h4, h5, h6 {
  * @import "utilities/skew-transforms";
  */
 
+.backlight {
+    background-image: linear-gradient(to top, #00A87E, rgba(0, 168, 126, 0.26666666666666666) 5px, transparent 75%);
+}
+
+.construction {
+    background-image: repeating-linear-gradient(45deg, transparent 0px, transparent 50px, rgba(69, 52, 17, 0.8) 50px, rgba(69, 52, 17, 0.8) 100px, transparent 100px);
+}
 
 .trans-color {
     @include transitions((color $default-speed));
+}
+
+.text-glow-white {
+    text-shadow: 0 0 10px #fff;
 }
