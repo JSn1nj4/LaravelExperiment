@@ -4041,7 +4041,7 @@ h6.content-title {
 
 .trans-color {
   -webkit-transition: color .3s;
-          transition: color .3s;
+  transition: color .3s;
 }
 
 .text-glow-white {
