@@ -25,7 +25,7 @@ Route::get('/', function() {
      * screen.
      */
 
-    if(!Auth::check()) {
+    if(Auth::guest()) {
         return redirect()->route('splash.coming-soon');
     }
 
@@ -38,7 +38,7 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/projects', function() {
-    if(!Auth::check()) {
+    if(Auth::guest()) {
         return redirect()->route('splash.coming-soon');
     }
 
@@ -50,7 +50,7 @@ Route::get('/projects', function() {
 })->name('projects');
 
 Route::get('/updates', function() {
-    if(!Auth::check()) {
+    if(Auth::guest()) {
         return redirect()->route('splash.coming-soon');
     }
 
