@@ -11,9 +11,6 @@
 |
 */
 
-// Enable/disable maintenance splash page
-$maintenance = false;
-
 Route::get('/', function() {
 
     /*
@@ -25,11 +22,11 @@ Route::get('/', function() {
      * screen.
      */
 
-    if(Auth::guest()) {
+    if(App::environment('production')) {
         return redirect()->route('splash.coming-soon');
     }
 
-    if($maintenance) {
+    if(config('app.maintenance')) {
         return redirect()->route('splash.maintenance');
     }
 
@@ -38,11 +35,11 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/projects', function() {
-    if(Auth::guest()) {
+    if(App::environment('production')) {
         return redirect()->route('splash.coming-soon');
     }
 
-    if($maintenance) {
+    if(config('app.maintenance')) {
         return redirect()->route('splash.maintenance');
     }
 
@@ -50,11 +47,11 @@ Route::get('/projects', function() {
 })->name('projects');
 
 Route::get('/updates', function() {
-    if(Auth::guest()) {
+    if(App::environment('production')) {
         return redirect()->route('splash.coming-soon');
     }
 
-    if($maintenance) {
+    if(config('app.maintenance')) {
         return redirect()->route('splash.maintenance');
     }
 
