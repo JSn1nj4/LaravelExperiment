@@ -70,6 +70,21 @@ h4, h5, h6 {
     }
 }
 
+.mobile-menu {
+    top: 100%;
+    @apply .bg-black;
+    height: 0;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu {
+        top: auto;
+        @apply .bg-transparent .h-auto;
+        overflow: auto;
+    }
+}
+
 
 
 /**

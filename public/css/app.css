@@ -742,6 +742,22 @@ h6.content-title {
   font-weight: 700;
 }
 
+.mobile-menu {
+  top: 100%;
+  background-color: #090909;
+  height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    top: auto;
+    background-color: transparent;
+    height: auto;
+    overflow: auto;
+  }
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -4041,7 +4057,7 @@ h6.content-title {
 
 .trans-color {
   -webkit-transition: color .3s;
-          transition: color .3s;
+  transition: color .3s;
 }
 
 .text-glow-white {
