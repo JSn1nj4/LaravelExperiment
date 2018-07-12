@@ -724,22 +724,19 @@ h4.content-title,
 h5.content-title,
 h6.content-title {
   margin-bottom: 1rem;
-  color: #00c49a;
+  font-weight: 400;
 }
 
-h1.content-title {
-  font-weight: 200;
-}
-
+h1.content-title,
 h2.content-title,
 h3.content-title {
-  font-weight: 400;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
 }
 
 h4.content-title,
 h5.content-title,
 h6.content-title {
-  font-weight: 700;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
 }
 
 .mobile-menu {
@@ -4061,7 +4058,11 @@ h6.content-title {
 }
 
 .text-glow-white {
-  text-shadow: 0 0 10px #fff;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
+}
+
+.text-glow-sea-green {
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
 }
 
 @media (min-width: 576px) {
