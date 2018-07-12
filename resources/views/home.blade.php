@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('content')
-    <div class="flex sm:block md:flex">
+    <div class="block md:flex">
         <div class="flex-1">
             <h1 class="content-title">
                 Test title
