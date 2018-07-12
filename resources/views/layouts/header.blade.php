@@ -15,7 +15,7 @@
 @endphp
 
 <header class="mb-4">
-    <nav class="{{ $headerClasses }} bg-black">
+    <nav class="{{ $headerClasses }} bg-black relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
             <a href="/" class="{{ $logoClasses }} text-white no-underline p-2">
@@ -34,7 +34,7 @@
                 </button>
             </div>
 
-            <div class="w-full block flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl">
+            <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu">
                 <div class="text-md md:flex-grow">
 
                     @foreach ($menuItems as $key => $value)

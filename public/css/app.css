@@ -742,6 +742,13 @@ h6.content-title {
   font-weight: 700;
 }
 
+.mobile-menu {
+  top: 100%;
+  background-color: #090909;
+  height: 0;
+  overflow: hidden;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

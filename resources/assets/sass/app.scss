@@ -70,6 +70,13 @@ h4, h5, h6 {
     }
 }
 
+.mobile-menu {
+    top: 100%;
+    @apply .bg-black;
+    height: 0;
+    overflow: hidden;
+}
+
 
 
 /**
