@@ -749,6 +749,15 @@ h6.content-title {
   overflow: hidden;
 }
 
+@media (min-width: 768px) {
+  .mobile-menu {
+    top: auto;
+    background-color: transparent;
+    height: auto;
+    overflow: auto;
+  }
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
