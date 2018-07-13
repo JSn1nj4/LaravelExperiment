@@ -1,21 +1,23 @@
-@extends('layouts.page')
+@extends('layouts.page', ['bodyClasses' => 'status-page'])
 
 @section('content')
-    <div class="status-code">
-        {{ $errorCode }}
-    </div>
-
-    <div class="status-message">
-        <div class="status-title">
-            {{ $errorTitle }}
+    <div class="flex">
+        <div class="status-code w-1/3 md:pr-4 leading-none">
+            {{ $errorCode }}
         </div>
 
-        <div class="status-message">
-            {{ $errorMessage }}
-        </div>
+        <div class="status-description w-2/3">
+            <h1 class="status-title">
+                {{ $errorTitle }}
+            </h1>
 
-        <div class="status-extra-content">
-            @yield('extra-content')
+            <p class="status-message">
+                {{ $errorMessage }}
+            </p>
+
+            <div class="status-extra-content">
+                @yield('extra-content')
+            </div>
         </div>
     </div>
 @endsection

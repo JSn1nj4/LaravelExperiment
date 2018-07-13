@@ -752,6 +752,17 @@ h6.content-title {
   overflow: hidden;
 }
 
+.status-code {
+  font-size: 200px;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
+}
+
+.status-description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding-top: 1rem;
+}
+
 @media (min-width: 768px) {
   .mobile-menu {
     top: auto;

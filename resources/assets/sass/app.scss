@@ -85,6 +85,23 @@ h6 {
     overflow: hidden;
 }
 
+.status-code {
+    font-size: 200px;
+    @include text-glow(5);
+}
+
+.status-description {
+    @apply .text-2xl .leading-normal .pt-4;
+}
+
+.status-title {
+
+}
+
+.status-message {
+
+}
+
 @media (min-width: 768px) {
     .mobile-menu {
         top: auto;
