@@ -78,6 +78,10 @@ h6 {
     }
 }
 
+a {
+    @apply .text-sea-green;
+}
+
 .mobile-menu {
     top: 100%;
     @apply .bg-black;

@@ -745,6 +745,10 @@ h6.content-title {
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a;
 }
 
+a {
+  color: #00c49a;
+}
+
 .mobile-menu {
   top: 100%;
   background-color: #090909;
