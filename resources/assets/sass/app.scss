@@ -79,7 +79,11 @@ h6 {
 }
 
 a {
-    @apply .text-sea-green;
+    @apply .text-sea-green .trans-color;
+
+    &:hover {
+        @apply .text-sea-green-lighter;
+    }
 }
 
 .mobile-menu {

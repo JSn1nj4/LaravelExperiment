@@ -747,6 +747,12 @@ h6.content-title {
 
 a {
   color: #00c49a;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+a:hover {
+  color: #8bffff;
 }
 
 .mobile-menu {
