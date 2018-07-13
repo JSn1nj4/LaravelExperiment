@@ -96,6 +96,7 @@ a {
 .status-code {
     font-size: 200px;
     @include text-glow(5);
+    @apply .font-thin;
 }
 
 .status-description {

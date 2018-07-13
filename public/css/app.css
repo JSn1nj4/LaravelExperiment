@@ -765,6 +765,7 @@ a:hover {
 .status-code {
   font-size: 200px;
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
+  font-weight: 200;
 }
 
 .status-description {
