@@ -16,3 +16,15 @@
 
     transition: $set;
 }
+
+@mixin text-glow($number: 1, $color: #00C49A) {
+    $base: 2;
+    $size: 2;
+    $set: null;
+    @for $i from 1 through $number {
+        $set: $set, 0 0 #{$size}px $color;
+        $size: $size * $base;
+    }
+
+    text-shadow: $set;
+}

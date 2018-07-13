@@ -54,15 +54,27 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-h1, h2, h3 {
+h1 {
     &.content-title {
-        @apply .text-glow-sea-green;
+        @include text-glow(5);
     }
 }
 
-h4, h5, h6 {
+h2, h3 {
     &.content-title {
-        @apply .text-glow-white;
+        @include text-glow(4);
+    }
+}
+
+h4, h5 {
+    &.content-title {
+        @include text-glow(3);
+    }
+}
+
+h6 {
+    &.content-title {
+        @include text-glow(2);
     }
 }
 
@@ -118,12 +130,4 @@ h4, h5, h6 {
 
 .trans-color {
     @include transitions((color $default-speed));
-}
-
-.text-glow-white {
-    text-shadow: 0 0 2px #fff, 0 0 4px #fff;
-}
-
-.text-glow-sea-green {
-    text-shadow: 0 0 2px #00C49A, 0 0 4px #00C49A, 0 0 8px #00C49A, 0 0 16px #00C49A;
 }
