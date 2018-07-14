@@ -774,6 +774,10 @@ a:hover {
   padding-top: 1rem;
 }
 
+.status-title {
+  font-weight: 200;
+}
+
 @media (min-width: 768px) {
   .mobile-menu {
     top: auto;

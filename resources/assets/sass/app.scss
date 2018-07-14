@@ -104,11 +104,7 @@ a {
 }
 
 .status-title {
-
-}
-
-.status-message {
-
+    @apply .font-thin;
 }
 
 @media (min-width: 768px) {
