@@ -78,11 +78,33 @@ h6 {
     }
 }
 
+a {
+    @apply .text-sea-green .trans-color;
+
+    &:hover {
+        @apply .text-sea-green-lighter;
+    }
+}
+
 .mobile-menu {
     top: 100%;
     @apply .bg-black;
     height: 0;
     overflow: hidden;
+}
+
+.status-code {
+    font-size: 200px;
+    @include text-glow(5);
+    @apply .font-thin;
+}
+
+.status-description {
+    @apply .text-2xl .leading-normal .pt-4;
+}
+
+.status-title {
+    @apply .font-thin;
 }
 
 @media (min-width: 768px) {

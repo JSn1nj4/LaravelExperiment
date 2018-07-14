@@ -745,11 +745,37 @@ h6.content-title {
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a;
 }
 
+a {
+  color: #00c49a;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+a:hover {
+  color: #8bffff;
+}
+
 .mobile-menu {
   top: 100%;
   background-color: #090909;
   height: 0;
   overflow: hidden;
+}
+
+.status-code {
+  font-size: 200px;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
+  font-weight: 200;
+}
+
+.status-description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding-top: 1rem;
+}
+
+.status-title {
+  font-weight: 200;
 }
 
 @media (min-width: 768px) {
