@@ -10,7 +10,7 @@
     {{-- @include('layouts.header', ['menuItems' => ['home','projects','updates']]) --}}
 
     <main>
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 pt-6">
             @yield('content')
         </div>
     </main>

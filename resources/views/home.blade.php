@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="block md:flex">
-        <div class="md:w-1/2 lg:w-2/3">
-            <div class="px-1">
+        <div class="md:w-1/2 lg:w-2/3 pb-6">
+            <div class="px-2">
 
                 <h1 class="content-title">
                     Test title
@@ -32,8 +32,8 @@
             </div>
         </div>
 
-        <div class="md:w-1/2 lg:w-1/3">
-            <div class="px-1">
+        <div class="md:w-1/2 lg:w-1/3 pb-8">
+            <div class="px-2">
 
                 <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full">
 
