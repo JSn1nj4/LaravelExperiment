@@ -2,29 +2,21 @@
 
 @section('content')
     <div class="block md:flex">
-        <div class="flex-1">
+        <div class="md:w-1/2 lg:w-1/3">
             <h1 class="content-title">
                 Test title
             </h1>
-
-            <h2 class="content-title">
-                Test title h2
-            </h2>
-
-            <p class="mb-4">
-                Lorem ipsum dolor sit amet, ei quo velit dicunt indoctum. Usu malis epicurei in, qui ne alia tempor rationibus. Minim nostro an sed, te vim audire blandit, no ornatus vulputate has. Zril utinam suscipiantur ut per, vim no persius omnesque officiis, ad semper impetus est. Ut mel dolor tollit delicata. Ne mei doctus dolorum, ex per paulo recusabo definiebas.
-            </p>
 
             <h4 class="content-title">
                 Test small title
             </h4>
 
             <p class="mb-4">
-                Pro at munere eirmod facilisis, brute ubique intellegebat cu sit. In integre percipit periculis qui. Vim in alia nusquam, per in soluta sanctus corrumpit, wisi paulo delicatissimi id vim. Cum ex phaedrum explicari principes, sea zril volumus eu, ut praesent laboramus urbanitas has. Vix nonumy commodo periculis te, ex ius clita putent consequuntur, dicat paulo forensibus sit et. Ei mel graeci oblique fierent, platonem inciderint ad sit, mundi noster admodum has at.
+                Lorem ipsum dolor sit amet, ei quo velit dicunt indoctum. Usu malis epicurei in, qui ne alia tempor rationibus. Minim nostro an sed, te vim audire blandit, no ornatus vulputate has. Zril utinam suscipiantur ut per, vim no persius omnesque officiis, ad semper impetus est. Ut mel dolor tollit delicata. Ne mei doctus dolorum, ex per paulo recusabo definiebas.
             </p>
         </div>
 
-        <div class="flex-1">
+        <div class="md:w-1/2 lg:w-2/3">
             <h1 class="content-title">
                 Test title
             </h1>
