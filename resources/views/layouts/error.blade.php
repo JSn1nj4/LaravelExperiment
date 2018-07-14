@@ -17,10 +17,6 @@
 
             <div class="status-footer">
                 @yield('status-footer')
-
-                <p>
-                    <a href="/">Back to homepage</a>
-                </p>
             </div>
         </div>
     </div>
