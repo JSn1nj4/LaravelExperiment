@@ -29,17 +29,13 @@
                     Est eu quaeque fabulas ancillae, ex tation praesent hendrerit sit. Est doctus corrumpit ut, stet cetero euripidis ex mel. Ea nam habeo dicit vivendum, sumo dissentiunt eos id, eos no erroribus abhorreant. Melius quaestio qui ei. In per conceptam elaboraret, ei lucilius patrioque disputando ius. Oportere reformidans id vis.
                 </p>
 
-                <p class="mb-4">
-                    Alia postea sed ut. Cum impedit maluisset definiebas ei. Et ferri complectitur interpretaris usu, sint mediocritatem cu sed. Te debet dolores his, id wisi tempor vis, per habeo adipisci ne. Iuvaret definitiones est et. Per an libris mandamus assueverit, mei labore comprehensam necessitatibus ea.
-                </p>
-
             </div>
         </div>
 
         <div class="md:w-1/2 lg:w-1/3">
             <div class="px-1">
 
-                <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-portrait.jpg" alt="Photo of Elliot Derhay">
+                <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full">
 
             </div>
         </div>
