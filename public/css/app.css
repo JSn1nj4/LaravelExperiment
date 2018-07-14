@@ -4089,6 +4089,11 @@ a:hover {
   transition: color .3s;
 }
 
+.box-glow {
+  -webkit-box-shadow: 0 0 20px 0 #fff;
+          box-shadow: 0 0 20px 0 #fff;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
