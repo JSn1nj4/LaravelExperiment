@@ -17,6 +17,8 @@
 
             <div class="status-extra-content">
                 @yield('extra-content')
+
+                <a href="/">Back to homepage</a>
             </div>
         </div>
     </div>
