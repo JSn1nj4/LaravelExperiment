@@ -11,14 +11,16 @@
                 {{ $errorTitle }}
             </h1>
 
-            <p class="status-message">
-                {{ $errorMessage }}
-            </p>
+            <div class="status-body">
+                @yield('status-body')
+            </div>
 
-            <div class="status-extra-content">
-                @yield('extra-content')
+            <div class="status-footer">
+                @yield('status-footer')
 
-                <a href="/">Back to homepage</a>
+                <p>
+                    <a href="/">Back to homepage</a>
+                </p>
             </div>
         </div>
     </div>
