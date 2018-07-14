@@ -5,7 +5,9 @@
 
 @section('status-body')
     <p>
-        Sorry, we couldn't locate the resource you were looking for.
+        We're sorry, but the resource you were looking for seems to be missing. Please go back to the homepage and see if you can find it again.
+    </p>
+@endsection
 
 @section('status-footer')
     <p>
