@@ -12,6 +12,13 @@
                 This site is under repair. Please check back later.
             </p>
 
+            <p class="mb-4">
+                @include('partials.socials', [
+                    'classes' => 'text-3xl text-center',
+                    'linkClasses' => 'text-white hover:text-yellow'
+                ])
+            </p>
+
         </div>
     </div>
 @endsection
