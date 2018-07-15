@@ -50,23 +50,39 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     &.content-title {
-        @apply .mb-4 .text-sea-green;
+        @apply .mb-4 .font-normal;
     }
 }
 
-h1.content-title {
-    @apply .font-thin;
+h1 {
+    &.content-title {
+        @include text-glow(5);
+    }
 }
 
 h2, h3 {
     &.content-title {
-        @apply .font-normal;
+        @include text-glow(4);
     }
 }
 
-h4, h5, h6 {
+h4, h5 {
     &.content-title {
-        @apply .font-bold;
+        @include text-glow(3);
+    }
+}
+
+h6 {
+    &.content-title {
+        @include text-glow(2);
+    }
+}
+
+a {
+    @apply .text-sea-green .trans-color;
+
+    &:hover {
+        @apply .text-sea-green-lighter;
     }
 }
 
@@ -75,6 +91,20 @@ h4, h5, h6 {
     @apply .bg-black;
     height: 0;
     overflow: hidden;
+}
+
+.status-code {
+    font-size: 200px;
+    @include text-glow(5);
+    @apply .font-thin;
+}
+
+.status-description {
+    @apply .text-2xl .leading-normal .pt-4;
+}
+
+.status-title {
+    @apply .font-thin;
 }
 
 @media (min-width: 768px) {
@@ -124,6 +154,6 @@ h4, h5, h6 {
     @include transitions((color $default-speed));
 }
 
-.text-glow-white {
-    text-shadow: 0 0 10px #fff;
+.box-glow {
+    box-shadow: 0 0 20px 0 #fff;
 }

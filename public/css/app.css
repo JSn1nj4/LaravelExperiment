@@ -724,22 +724,35 @@ h4.content-title,
 h5.content-title,
 h6.content-title {
   margin-bottom: 1rem;
-  color: #00c49a;
+  font-weight: 400;
 }
 
 h1.content-title {
-  font-weight: 200;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
 }
 
 h2.content-title,
 h3.content-title {
-  font-weight: 400;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
 }
 
 h4.content-title,
-h5.content-title,
+h5.content-title {
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a;
+}
+
 h6.content-title {
-  font-weight: 700;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a;
+}
+
+a {
+  color: #00c49a;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+a:hover {
+  color: #8bffff;
 }
 
 .mobile-menu {
@@ -747,6 +760,22 @@ h6.content-title {
   background-color: #090909;
   height: 0;
   overflow: hidden;
+}
+
+.status-code {
+  font-size: 200px;
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
+  font-weight: 200;
+}
+
+.status-description {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding-top: 1rem;
+}
+
+.status-title {
+  font-weight: 200;
 }
 
 @media (min-width: 768px) {
@@ -4060,8 +4089,9 @@ h6.content-title {
   transition: color .3s;
 }
 
-.text-glow-white {
-  text-shadow: 0 0 10px #fff;
+.box-glow {
+  -webkit-box-shadow: 0 0 20px 0 #fff;
+          box-shadow: 0 0 20px 0 #fff;
 }
 
 @media (min-width: 576px) {
