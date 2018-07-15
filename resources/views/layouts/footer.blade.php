@@ -3,6 +3,8 @@
         <p>Copyright &copy; {{today()->year}} Elliot Derhay</p>
     </div>
     <div class="p-6 pt-0 text-center text-sea-green">
-        @include('partials.socials')
+        @include('partials.socials', [
+            'classes' => 'text-2xl'
+        ])
     </div>
 </footer>
