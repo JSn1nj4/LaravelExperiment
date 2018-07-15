@@ -22,7 +22,7 @@ Route::get('/', function() {
      * screen.
      */
 
-    if(App::environment('production')) {
+    if(config('app.coming_soon')) {
         return redirect()->route('coming-soon');
     }
 
@@ -35,7 +35,7 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/projects', function() {
-    if(App::environment('production')) {
+    if(config('app.coming_soon')) {
         return redirect()->route('coming-soon');
     }
 
@@ -47,7 +47,7 @@ Route::get('/projects', function() {
 })->name('projects');
 
 Route::get('/updates', function() {
-    if(App::environment('production')) {
+    if(config('app.coming_soon')) {
         return redirect()->route('coming-soon');
     }
 
@@ -59,7 +59,7 @@ Route::get('/updates', function() {
 })->name('updates');
 
 Route::get('/coming-soon', function() {
-    if(!App::environment('production')) {
+    if(!config('app.coming_soon')) {
         return redirect()->route('home');
     }
 
@@ -71,7 +71,7 @@ Route::get('/coming-soon', function() {
 })->name('coming-soon');
 
 Route::get('/maintenance', function() {
-    if(App::environment('production')) {
+    if(config('app.coming_soon')) {
         return redirect()->route('coming-soon');
     }
 
