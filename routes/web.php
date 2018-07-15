@@ -23,11 +23,11 @@ Route::get('/', function() {
      */
 
     if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
+        return redirect()->route('coming-soon');
     }
 
     if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
+        return redirect()->route('maintenance');
     }
 
     return view('home');
@@ -36,11 +36,11 @@ Route::get('/', function() {
 
 Route::get('/projects', function() {
     if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
+        return redirect()->route('coming-soon');
     }
 
     if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
+        return redirect()->route('maintenance');
     }
 
     return view('projects');
@@ -48,15 +48,36 @@ Route::get('/projects', function() {
 
 Route::get('/updates', function() {
     if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
+        return redirect()->route('coming-soon');
     }
 
     if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
+        return redirect()->route('maintenance');
     }
 
     return view('updates');
 })->name('updates');
 
-Route::view('/coming-soon', 'splashes.coming-soon')->name('splash.coming-soon');
-Route::view('/maintenance', 'splashes.maintenance')->name('splash.maintenance');
+Route::get('/coming-soon', function() {
+    if(!App::environment('production') && !App::environment('local')) {
+        return redirect()->route('home');
+    }
+
+    if(config('app.maintenance')) {
+        redirect()->route('maintenance');
+    }
+
+    return view('splashes.coming-soon');
+})->name('coming-soon');
+
+Route::get('/maintenance', function() {
+    if(App::environment('production')) {
+        return redirect()->route('coming-soon');
+    }
+
+    if(!config('app.maintenance') && !App::environment('local')) {
+        redirect()->route('home');
+    }
+
+    return view('splashes.maintenance');
+})->name('maintenance');
