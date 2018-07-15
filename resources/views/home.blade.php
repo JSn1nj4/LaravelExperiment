@@ -15,19 +15,19 @@
             <div class="px-2">
 
                 <h1 class="content-title">
-                    Test title
+                    About Me
                 </h1>
 
                 <p class="mb-4">
-                    Lorem ipsum dolor sit amet, adhuc cetero aliquid ei sed, usu possim option tincidunt no. Quo an ludus alterum deserunt. Meis paulo pro ex, vitae eligendi cu sit. Alia justo saperet mel cu. Ludus oblique deleniti te vim, iudico nostro incorrupte est in. Ullum quaestio et mel.
+                    I am a web developer primarily with experience in building WordPress websites. I have learned the basics of HTML and CSS along with JavaScript and PHP.
                 </p>
 
-                <h4 class="content-title">
-                    Test small title
-                </h4>
+                <p class="mb-4">
+                    Regarding JavaScript frameworks, I have primarily used jQuery, though I did dive into MeteorJS for a while for a personal project -- and it was quite fun to learn and use. I have also learned a bit of React and Vue, though I'm definitely leaning towards Vue.
+                </p>
 
                 <p class="mb-4">
-                    No duo esse signiferumque, at agam iriure cum. Ad ius eirmod fabulas. Ne qui option singulis. Vis porro semper recusabo ei. Utroque graecis corrumpit eu cum, pri quis labore adipiscing no.
+                     For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently; in fact, this website is built using Laravel, and will continue to make use of it for different learning experiments.
                 </p>
 
             </div>
