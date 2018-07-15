@@ -12,6 +12,13 @@
                 This site is in the works.
             </p>
 
+            <p class="mb-4">
+                @include('partials.socials', [
+                    'classes' => 'text-3xl text-center',
+                    'linkClasses' => 'text-white'
+                ])
+            </p>
+
         </div>
     </div>
 @endsection
