@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('content')
-    <div class="block md:flex">
+    <section class="block md:flex">
 
         <div class="block lg:flex lg:w-1/6 pb-8">
             <div class="px-2">
@@ -41,5 +41,5 @@
             </div>
         </div>
 
-    </div>
+    </section>
 @endsection
