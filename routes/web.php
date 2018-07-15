@@ -59,7 +59,7 @@ Route::get('/updates', function() {
 })->name('updates');
 
 Route::get('/coming-soon', function() {
-    if(!App::environment('production') && !App::environment('local')) {
+    if(!App::environment('production')) {
         return redirect()->route('home');
     }
 
@@ -75,7 +75,7 @@ Route::get('/maintenance', function() {
         return redirect()->route('coming-soon');
     }
 
-    if(!config('app.maintenance') && !App::environment('local')) {
+    if(!config('app.maintenance')) {
         redirect()->route('home');
     }
 
