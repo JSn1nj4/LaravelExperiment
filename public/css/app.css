@@ -766,11 +766,6 @@ a:hover {
   color: #8bffff;
 }
 
-main {
-  -webkit-box-shadow: 0 2px 4px #000;
-          box-shadow: 0 2px 4px #000;
-}
-
 .mobile-menu {
   top: 100%;
   background-color: #090909;
@@ -4151,6 +4146,11 @@ main {
 .box-glow {
   -webkit-box-shadow: 0 0 20px 0 #fff;
           box-shadow: 0 0 20px 0 #fff;
+}
+
+.layer-shadow {
+  -webkit-box-shadow: 0 2px 4px #000;
+          box-shadow: 0 2px 4px #000;
 }
 
 @media (min-width: 576px) {
