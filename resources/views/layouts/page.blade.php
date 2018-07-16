@@ -9,7 +9,7 @@
     @include('layouts.header', ['menuItems' => []])
     {{-- @include('layouts.header', ['menuItems' => ['home','projects','updates']]) --}}
 
-    <main class="bg-grey-darkest layer-shadow">
+    <main class="bg-grey-darkest layer-shadow pt-4">
         @yield('content')
     </main>
 

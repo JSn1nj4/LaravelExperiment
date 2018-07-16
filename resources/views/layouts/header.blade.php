@@ -14,7 +14,7 @@
     }
 @endphp
 
-<header class="mb-4">
+<header>
     <nav class="{{ $headerClasses }} bg-black relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
