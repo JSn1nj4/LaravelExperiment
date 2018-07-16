@@ -42,7 +42,7 @@
                         </p>
 
                         <p class="mb-4 text-xl">
-                            Backend built on Laravel PHP
+                            Built on Laravel PHP
                         </p>
 
                     </div>
@@ -58,7 +58,7 @@
                         </p>
 
                         <p class="mb-4 text-xl">
-                            UI designed with Tailwind CSS
+                            Designed with Tailwind CSS
                         </p>
 
                     </div>
