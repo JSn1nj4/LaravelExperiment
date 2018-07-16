@@ -95,14 +95,6 @@ module.exports = __webpack_require__(2);
 // const app = new Vue({
 //     el: '#app'
 // });
-function mainPaddingbottom() {
-  var main = document.querySelector('main');
-  var footer = document.querySelector('footer');
-  main.style.paddingBottom = footer.offsetHeight + 'px';
-}
-
-document.addEventListener('resize', mainPaddingbottom);
-mainPaddingbottom();
 
 /***/ }),
 /* 2 */

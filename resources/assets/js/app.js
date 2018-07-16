@@ -18,11 +18,3 @@
 // const app = new Vue({
 //     el: '#app'
 // });
-function mainPaddingbottom() {
-    let main = document.querySelector('main');
-    let footer = document.querySelector('footer');
-    main.style.paddingBottom = `${footer.offsetHeight}px`;
-}
-
-document.addEventListener('resize', mainPaddingbottom);
-mainPaddingbottom();
