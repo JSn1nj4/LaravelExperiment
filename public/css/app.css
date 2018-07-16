@@ -766,6 +766,11 @@ a:hover {
   color: #8bffff;
 }
 
+main {
+  -webkit-box-shadow: 0 2px 4px #000;
+          box-shadow: 0 2px 4px #000;
+}
+
 .mobile-menu {
   top: 100%;
   background-color: #090909;
@@ -776,6 +781,8 @@ a:hover {
 .banner-section {
   background-size: cover;
   background-position: center top;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
 }
 
 .home-banner {
