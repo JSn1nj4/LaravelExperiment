@@ -28,45 +28,37 @@
         <div class="container mx-auto px-4 pt-6">
             <div class="block md:flex">
 
+                <div class="hidden lg:flex lg:w-1/6">
 
-                <div class="block lg:flex lg:w-1/6 pb-8">
-                    <div class="px-2">
-
-                        <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow md:hidden">
-
-                    </div>
                 </div>
 
-                <div class="md:w-1/2 lg:w-1/3 pb-6">
+                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
                     <div class="px-2">
 
-                        <h1 class="content-title">
-                            About Me
-                        </h1>
-
-                        <p class="mb-4">
-                            I am a web developer primarily with experience in building WordPress websites. I have learned the basics of HTML and CSS along with JavaScript and PHP.
+                        <p class="my-4">
+                            <a href="#" title="Laravel - The PHP Framework For Web Artisans">[Laravel]</a>
                         </p>
 
-                        <p class="mb-4">
-                            Regarding JavaScript frameworks, I have primarily used jQuery, though I did dive into MeteorJS for a while for a personal project -- and it was quite fun to learn and use. I have also learned a bit of React and Vue, though I'm definitely leaning towards Vue.
-                        </p>
-
-                        <p class="mb-4">
-                             For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently; in fact, this website is built using Laravel, and will continue to make use of it for different learning experiments.
+                        <p class="mb-4 text-xl">
+                            Backend built on Laravel PHP
                         </p>
 
                     </div>
                 </div>
 
-                <div class="hidden md:flex md:w-1/2 lg:w-1/3 pb-8">
+                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
                     <div class="px-2">
 
-                        <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow">
+                        <p class="my-4">
+                            <a href="#" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development">[Tailwind CSS]</a>
+                        </p>
+
+                        <p class="mb-4 text-xl">
+                            UI designed with Tailwind CSS
+                        </p>
 
                     </div>
                 </div>
-
 
             </div>
         </div>
