@@ -36,7 +36,7 @@
                     <div class="px-2">
 
                         <p class="my-4">
-                            <a href="https://laravel.com/">
+                            <a href="https://laravel.com/" target="_blank">
                                 <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/Laravel-l-slant-no-padding.svg" title="Laravel - The PHP Framework For Web Artisans" alt="Laravel logo" height="100">
                             </a>
                         </p>
@@ -52,7 +52,7 @@
                     <div class="px-2">
 
                         <p class="my-4">
-                            <a href="https://tailwindcss.com/">
+                            <a href="https://tailwindcss.com/" target="_blank">
                                 <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/tailwindcss-no-shadow.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" height="100">
                             </a>
                         </p>
