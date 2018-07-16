@@ -6,7 +6,12 @@
 
 @section('body')
 
-    @include('layouts.header', ['menuItems' => []])
+    @include('layouts.header', [
+        'menuItems' => [
+            'home',
+            'about'
+        ]
+    ])
     {{-- @include('layouts.header', ['menuItems' => ['home','projects','updates']]) --}}
 
     <main class="bg-grey-darkest layer-shadow pt-4">
