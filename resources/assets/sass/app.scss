@@ -58,6 +58,11 @@ h1 {
     &.content-title {
         @include text-glow(5);
     }
+
+    &.banner-title {
+        @apply .text-3xl .font-normal;
+        @include text-glow(3, #fff);
+    }
 }
 
 h2, h3 {
@@ -78,6 +83,13 @@ h6 {
     }
 }
 
+p {
+    &.banner-paragraph {
+        @apply .text-base;
+        @include text-glow(2, #fff);
+    }
+}
+
 a {
     @apply .text-sea-green .trans-color;
 
@@ -91,6 +103,19 @@ a {
     @apply .bg-black;
     height: 0;
     overflow: hidden;
+}
+
+.banner-section {
+    background-size: cover;
+    background-position: center top;
+}
+
+.home-banner {
+    background-image: url(https://s3.amazonaws.com/elliotderhay-com/banners/Elliot.green-layered.jpg);
+}
+
+.banner-content-wrapper {
+    padding-top: 15vw;
 }
 
 .status-code {
@@ -107,14 +132,40 @@ a {
     @apply .font-thin;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 600px) {
+    .banner-section {
+        height: 56.25vw;
+        min-height: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
     .mobile-menu {
         top: auto;
         @apply .bg-transparent .h-auto;
         overflow: auto;
     }
+
+    h1.banner-title {
+        @apply .text-5xl .font-normal;
+    }
+
+    p.banner-paragraph {
+        @apply .text-3xl;
+    }
 }
 
+@media only screen and (min-width: 992px) {
+    .banner-section {
+        height: 46.875vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .banner-section {
+        height: 37.5vw;
+    }
+}
 
 
 /**
