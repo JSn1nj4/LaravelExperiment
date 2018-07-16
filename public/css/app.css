@@ -766,6 +766,10 @@ a:hover {
   color: #8bffff;
 }
 
+.container-flexible-large {
+  max-width: 1600px;
+}
+
 .mobile-menu {
   top: 100%;
   background-color: #090909;

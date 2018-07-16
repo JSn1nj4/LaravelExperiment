@@ -98,6 +98,10 @@ a {
     }
 }
 
+.container-flexible-large {
+    max-width: 1600px;
+}
+
 .mobile-menu {
     top: 100%;
     @apply .bg-black;
