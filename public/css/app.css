@@ -755,9 +755,8 @@ a:hover {
   color: #8bffff;
 }
 
-main {
-  -webkit-box-shadow: 0 2px 4px #000;
-          box-shadow: 0 2px 4px #000;
+.container-flexible-large {
+  max-width: 1600px;
 }
 
 .mobile-menu {
