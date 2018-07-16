@@ -38,8 +38,8 @@
                 <div class="text-md md:flex-grow">
 
                     @foreach ($menuItems as $key => $value)
-                        <a href="{{ route($value) }}" class="block md:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
-                            {{ $value }}
+                        <a href="{{ route($value) }}" class="{{ $value === 'home' ? "fas fa-home " : ''}}block md:inline-block px-4 py-6 no-underline uppercase"{{ $value === 'home' ? ' title=Home' : ''}}>
+                            {{ $value !== 'home' ? $value : '' }}
                         </a>
                     @endforeach
 
