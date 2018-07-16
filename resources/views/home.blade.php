@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="banner-section home-banner">
+    <section class="banner-section home-banner -mt-4">
         <div class="container mx-auto px-4 py-6">
             <div class="block md:flex banner-content-wrapper">
 
