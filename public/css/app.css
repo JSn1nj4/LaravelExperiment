@@ -762,8 +762,13 @@ a {
   transition: color .3s;
 }
 
-a:hover {
+a:hover,
+a.active {
   color: #fff;
+}
+
+a.active {
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
 }
 
 .container-flexible-large {

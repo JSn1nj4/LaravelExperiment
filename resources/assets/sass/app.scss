@@ -93,8 +93,13 @@ p {
 a {
     @apply .text-sea-green .trans-color;
 
-    &:hover {
+    &:hover,
+    &.active {
         @apply .text-white;
+    }
+
+    &.active {
+        @include text-glow(4);
     }
 }
 
