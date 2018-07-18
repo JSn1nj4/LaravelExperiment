@@ -12,7 +12,7 @@
                         ElliotDerhay.com
                     </h1>
                     <p class="banner-paragraph leading-tight">
-                        A small website for a personal profile and web development portfolio
+                        A personal profile and future web development portfolio
                     </p>
                 </div>
 
