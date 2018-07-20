@@ -10,85 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function() {
-
-    /*
-     * Temporary redirect until site is built
-     *
-     * Once the homepage and overall look are built, this will be removed. The
-     * others will still show a "coming soon" page of sorts, but it'll be an
-     * actual page that says "coming soon" on it, not a "coming soon" splash
-     * screen.
-     */
-
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('maintenance');
-    }
-
-    return view('home');
-
-})->name('home');
-
-Route::get('/about', function() {
-
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('maintenance');
-    }
-
-    return view('about');
-
-})->name('about');
-
-Route::get('/projects', function() {
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('maintenance');
-    }
-
-    return view('projects');
-})->name('projects');
-
-Route::get('/updates', function() {
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('maintenance');
-    }
-
-    return view('updates');
-})->name('updates');
+Route::view('/', 'home')->name('home');
+Route::view('/about', 'about')->name('about');
+Route::view('/projects', 'projects')->name('projects');
+Route::view('/updates', 'updates')->name('updates');
 
 Route::get('/coming-soon', function() {
     if(!config('app.coming_soon')) {
         return redirect()->route('home');
     }
 
-    if(config('app.maintenance')) {
-        redirect()->route('maintenance');
-    }
-
     return view('splashes.coming-soon');
 })->name('coming-soon');
 
 Route::get('/maintenance', function() {
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
     if(!config('app.maintenance')) {
         redirect()->route('home');
     }
@@ -97,27 +32,20 @@ Route::get('/maintenance', function() {
 })->name('maintenance');
 
 /*
- * A catch-all route
+ * Coming Soon and Maintenance redirects
  *
- * This is specifically for catching every request that doesn't match a disk
- * resource or one of the named routes above. The only real reason this is here
- * is to show the maintenance or coming soonn pages when their environment
- * variables are set.
+ * These are necessary to globally redirect browser requests website visitors to
+ * Coming Soon and Maintenance pages, respectively. Putting them at the bottom
+ * should mean that the above routes will have finished building before these
+ * redirects are run.
  *
- * This is not ideal for this purpose, considering it doesn't solve the problem
- * for 100% of the possible requested routes, but it will do for the time being.
+ * That last bit is important since these redirects use named routes.
  */
 
-Route::get('/{view}', function($view) {
+if(config('app.coming_soon')) {
+    return redirect()->route('coming-soon');
+}
 
-    if(config('app.coming_soon')) {
-        return redirect()->route('coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('maintenance');
-    }
-
-    abort(404);
-
-})->where('view', '.*');
+if(config('app.maintenance')) {
+    return redirect()->route('maintenance');
+}
