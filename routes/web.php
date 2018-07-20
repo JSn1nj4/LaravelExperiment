@@ -96,6 +96,18 @@ Route::get('/maintenance', function() {
     return view('splashes.maintenance');
 })->name('maintenance');
 
+/*
+ * A catch-all route
+ *
+ * This is specifically for catching every request that doesn't match a disk
+ * resource or one of the named routes above. The only real reason this is here
+ * is to show the maintenance or coming soonn pages when their environment
+ * variables are set.
+ *
+ * This is not ideal for this purpose, considering it doesn't solve the problem
+ * for 100% of the possible requested routes, but it will do for the time being.
+ */
+
 Route::get('/{view}', function($view) {
 
     if(config('app.coming_soon')) {
@@ -107,5 +119,5 @@ Route::get('/{view}', function($view) {
     }
 
     abort(404);
-    
+
 })->where('view', '.*');
