@@ -16,7 +16,7 @@ Route::view('/projects', 'projects')->name('projects');
 Route::view('/updates', 'updates')->name('updates');
 
 Route::get('/coming-soon', function() {
-    if(!config('app.coming_soon')) {
+    if(!config('app.coming_soon') && !App::environment('local')) {
         return redirect()->route('home');
     }
 
@@ -24,7 +24,7 @@ Route::get('/coming-soon', function() {
 })->name('coming-soon');
 
 Route::get('/maintenance', function() {
-    if(!config('app.maintenance')) {
+    if(!config('app.maintenance') && !App::environment('local')) {
         redirect()->route('home');
     }
 
