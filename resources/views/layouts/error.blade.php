@@ -1,8 +1,8 @@
 @extends('layouts.page', ['bodyClasses' => 'status-page'])
 
 @section('content')
-    <div class="container mx-auto px-4 pt-6">
-        <div class="flex">
+    <div class="container mx-auto px-4 py-6">
+        <div class="flex pb-4">
             <div class="status-code w-1/3 md:pr-4 leading-none">
                 {{ $errorCode }}
             </div>
