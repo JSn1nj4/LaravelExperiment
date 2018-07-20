@@ -34,6 +34,20 @@ Route::get('/', function() {
 
 })->name('home');
 
+Route::get('/about', function() {
+
+    if(config('app.coming_soon')) {
+        return redirect()->route('coming-soon');
+    }
+
+    if(config('app.maintenance')) {
+        return redirect()->route('maintenance');
+    }
+
+    return view('about');
+
+})->name('about');
+
 Route::get('/projects', function() {
     if(config('app.coming_soon')) {
         return redirect()->route('coming-soon');
@@ -81,3 +95,17 @@ Route::get('/maintenance', function() {
 
     return view('splashes.maintenance');
 })->name('maintenance');
+
+Route::get('/{view}', function($view) {
+
+    if(config('app.coming_soon')) {
+        return redirect()->route('coming-soon');
+    }
+
+    if(config('app.maintenance')) {
+        return redirect()->route('maintenance');
+    }
+
+    abort(404);
+    
+})->where('view', '.*');

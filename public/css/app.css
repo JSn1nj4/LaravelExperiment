@@ -731,6 +731,12 @@ h1.content-title {
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a, 0 0 32px #00c49a;
 }
 
+h1.banner-title {
+  font-size: 1.875rem;
+  font-weight: 400;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 8px #fff;
+}
+
 h2.content-title,
 h3.content-title {
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
@@ -745,14 +751,24 @@ h6.content-title {
   text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a;
 }
 
+p.banner-paragraph {
+  font-size: 1rem;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
+}
+
 a {
   color: #00c49a;
   -webkit-transition: color .3s;
   transition: color .3s;
 }
 
-a:hover {
-  color: #8bffff;
+a:hover,
+a.active {
+  color: #fff;
+}
+
+a.active {
+  text-shadow: 0 0 2px #00c49a, 0 0 4px #00c49a, 0 0 8px #00c49a, 0 0 16px #00c49a;
 }
 
 .container-flexible-large {
@@ -769,8 +785,8 @@ a:hover {
 .banner-section {
   background-size: cover;
   background-position: center top;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 2px 4px #000;
+          box-shadow: 0 2px 4px #000;
 }
 
 .home-banner {
@@ -797,12 +813,40 @@ a:hover {
   font-weight: 200;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 600px) {
+  .banner-section {
+    height: 56.25vw;
+    min-height: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   .mobile-menu {
     top: auto;
     background-color: transparent;
     height: auto;
     overflow: auto;
+  }
+
+  h1.banner-title {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  p.banner-paragraph {
+    font-size: 1.875rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .banner-section {
+    height: 46.875vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .banner-section {
+    height: 37.5vw;
   }
 }
 
@@ -4111,6 +4155,11 @@ a:hover {
 .box-glow {
   -webkit-box-shadow: 0 0 20px 0 #fff;
           box-shadow: 0 0 20px 0 #fff;
+}
+
+.layer-shadow {
+  -webkit-box-shadow: 0 2px 4px #000;
+          box-shadow: 0 2px 4px #000;
 }
 
 @media (min-width: 576px) {
