@@ -12,8 +12,8 @@
 */
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
-Route::view('/projects', 'projects')->name('projects');
-Route::view('/updates', 'updates')->name('updates');
+// Route::view('/projects', 'projects')->name('projects');
+// Route::view('/updates', 'updates')->name('updates');
 
 Route::get('/coming-soon', function() {
     if(!config('app.coming_soon') && !App::environment('local')) {
