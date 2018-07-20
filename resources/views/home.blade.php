@@ -32,7 +32,7 @@
 
                 </div>
 
-                <div class="lg:w-2/3 text-justify">
+                {{-- <div class="lg:w-2/3 text-justify">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -43,7 +43,7 @@
                         </p>
 
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
