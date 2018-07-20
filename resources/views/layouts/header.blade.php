@@ -14,7 +14,7 @@
     }
 @endphp
 
-<header class="mb-4">
+<header class="container-flexible-large m-auto">
     <nav class="{{ $headerClasses }} bg-black relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
@@ -38,8 +38,23 @@
                 <div class="text-md md:flex-grow">
 
                     @foreach ($menuItems as $key => $value)
-                        <a href="{{ route($value) }}" class="block md:inline-block px-4 py-6 text-sea-green hover:text-white trans-color no-underline uppercase">
-                            {{ $value }}
+                        @php
+                            $extraClasses = '';
+                            $titleText = '';
+                            $itemText = $value;
+
+                            if($value === 'home') {
+                                $extraClasses = 'fas fa-home ';
+                                $titleText = 'title=Home';
+                                $itemText = '';
+                            }
+                        @endphp
+
+                        <a
+                            href="{{ route($value, [], false) }}"
+                            class="{{ $extraClasses }}block md:inline-block px-4 py-6 no-underline uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
+                            {{ $titleText }}>
+                            {{ $itemText }}
                         </a>
                     @endforeach
 

@@ -10,53 +10,42 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/', 'home')->name('home');
+Route::view('/about', 'about')->name('about');
+// Route::view('/projects', 'projects')->name('projects');
+// Route::view('/updates', 'updates')->name('updates');
 
-Route::get('/', function() {
-
-    /*
-     * Temporary redirect until site is built
-     *
-     * Once the homepage and overall look are built, this will be removed. The
-     * others will still show a "coming soon" page of sorts, but it'll be an
-     * actual page that says "coming soon" on it, not a "coming soon" splash
-     * screen.
-     */
-
-    if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
+Route::get('/coming-soon', function() {
+    if(!config('app.coming_soon') && !App::environment('local')) {
+        return redirect()->route('home');
     }
 
-    if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
+    return view('splashes.coming-soon');
+})->name('coming-soon');
+
+Route::get('/maintenance', function() {
+    if(!config('app.maintenance') && !App::environment('local')) {
+        redirect()->route('home');
     }
 
-    return view('home');
+    return view('splashes.maintenance');
+})->name('maintenance');
 
-})->name('home');
+/*
+ * Coming Soon and Maintenance redirects
+ *
+ * These are necessary to globally redirect browser requests website visitors to
+ * Coming Soon and Maintenance pages, respectively. Putting them at the bottom
+ * should mean that the above routes will have finished building before these
+ * redirects are run.
+ *
+ * That last bit is important since these redirects use named routes.
+ */
 
-Route::get('/projects', function() {
-    if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
-    }
+if(config('app.coming_soon')) {
+    return redirect()->route('coming-soon');
+}
 
-    if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
-    }
-
-    return view('projects');
-})->name('projects');
-
-Route::get('/updates', function() {
-    if(App::environment('production')) {
-        return redirect()->route('splash.coming-soon');
-    }
-
-    if(config('app.maintenance')) {
-        return redirect()->route('splash.maintenance');
-    }
-
-    return view('updates');
-})->name('updates');
-
-Route::view('/coming-soon', 'splashes.coming-soon')->name('splash.coming-soon');
-Route::view('/maintenance', 'splashes.maintenance')->name('splash.maintenance');
+if(config('app.maintenance')) {
+    return redirect()->route('maintenance');
+}

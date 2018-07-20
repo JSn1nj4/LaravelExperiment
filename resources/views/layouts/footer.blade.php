@@ -1,4 +1,4 @@
-<footer class="bg-black w-full absolute pin-b p-3">
+<footer class="container-flexible-large m-auto pin-b p-3">
     <div class="p-6 text-center text-sea-green">
         <p>Copyright &copy; {{today()->year}} Elliot Derhay</p>
     </div>

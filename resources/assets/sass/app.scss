@@ -58,6 +58,11 @@ h1 {
     &.content-title {
         @include text-glow(5);
     }
+
+    &.banner-title {
+        @apply .text-3xl .font-normal;
+        @include text-glow(3, #fff);
+    }
 }
 
 h2, h3 {
@@ -78,12 +83,28 @@ h6 {
     }
 }
 
+p {
+    &.banner-paragraph {
+        @apply .text-base;
+        @include text-glow(2, #fff);
+    }
+}
+
 a {
     @apply .text-sea-green .trans-color;
 
-    &:hover {
-        @apply .text-sea-green-lighter;
+    &:hover,
+    &.active {
+        @apply .text-white;
     }
+
+    &.active {
+        @include text-glow(4);
+    }
+}
+
+.container-flexible-large {
+    max-width: 1600px;
 }
 
 .mobile-menu {
@@ -93,6 +114,20 @@ a {
     overflow: hidden;
 }
 
+.banner-section {
+    background-size: cover;
+    background-position: center top;
+    box-shadow: 0px 2px 4px #000;
+}
+
+.home-banner {
+    background-image: url(https://s3.amazonaws.com/elliotderhay-com/banners/Elliot.green-layered.jpg);
+}
+
+.banner-content-wrapper {
+    padding-top: 15vw;
+}
+
 .status-code {
     font-size: 200px;
     @include text-glow(5);
@@ -100,21 +135,47 @@ a {
 }
 
 .status-description {
-    @apply .text-2xl .leading-normal .pt-4;
+    @apply .text-2xl .leading-normal .py-4;
 }
 
 .status-title {
     @apply .font-thin;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 600px) {
+    .banner-section {
+        height: 56.25vw;
+        min-height: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
     .mobile-menu {
         top: auto;
         @apply .bg-transparent .h-auto;
         overflow: auto;
     }
+
+    h1.banner-title {
+        @apply .text-5xl .font-normal;
+    }
+
+    p.banner-paragraph {
+        @apply .text-3xl;
+    }
 }
 
+@media only screen and (min-width: 992px) {
+    .banner-section {
+        height: 46.875vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .banner-section {
+        height: 37.5vw;
+    }
+}
 
 
 /**
@@ -156,4 +217,8 @@ a {
 
 .box-glow {
     box-shadow: 0 0 20px 0 #fff;
+}
+
+.layer-shadow {
+    box-shadow: 0px 2px 4px #000;
 }

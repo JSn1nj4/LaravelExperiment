@@ -9,12 +9,12 @@
 
         <link rel="stylesheet" href="/css/app.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        
+
         <link rel="shortcut icon" href="https://s3.amazonaws.com/elliotderhay-com/favicon.png">
 
         @yield('head-extras')
     </head>
-    <body class="bg-grey-darkest text-white font-mono relative {{ $bodyClasses }}">
+    <body class="bg-black text-white font-mono relative {{ $bodyClasses }}">
         @yield('body')
 
         @yield('footer-extras')
