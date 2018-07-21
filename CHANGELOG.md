@@ -1,5 +1,10 @@
 # Changelog
 
+### Release 0.4.1
+- Setup ComingSoon middleware
+- Setup MaintenanceMode middleware
+- Remove `if` statements that were supposed to check for the "Coming Soon" and "Maintenance" settings
+
 ### Release 0.4
 - Remove "Coming Soon" page view
 - Simplify routes
