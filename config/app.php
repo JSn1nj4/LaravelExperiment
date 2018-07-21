@@ -110,6 +110,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Custom environment variables
+    |--------------------------------------------------------------------------
+    |
+    | These are set for this specific project only.
+    |
+    */
+
+    'coming_soon' => env('APP_COMING_SOON', false),
+    'maintenance' => env('APP_MAINTENANCE', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
