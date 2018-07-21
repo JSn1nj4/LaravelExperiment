@@ -15,6 +15,10 @@ class MaintenanceMode
      */
     public function handle($request, Closure $next)
     {
+        if(config('app.maintenance')) {
+            return redirect()->route('maintenance');
+        }
+
         return $next($request);
     }
 }

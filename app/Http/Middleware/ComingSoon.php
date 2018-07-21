@@ -18,7 +18,7 @@ class ComingSoon
         if(config('app.coming_soon')) {
             return redirect()->route('coming-soon');
         }
-        
+
         return $next($request);
     }
 }
