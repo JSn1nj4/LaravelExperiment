@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware('comingsoon', 'maintenance')->group(function() {
     Route::view('/', 'home')->name('home');
     Route::view('/about', 'about')->name('about');
     // Route::view('/projects', 'projects')->name('projects');
     // Route::view('/updates', 'updates')->name('updates');
+});
 
 Route::get('/coming-soon', function() {
     if(!config('app.coming_soon') && !App::environment('local')) {
@@ -21,7 +23,7 @@ Route::get('/coming-soon', function() {
     }
 
     return view('splashes.coming-soon');
-})->name('coming-soon');
+})->name('coming-soon')->middleware('maintenance');
 
 Route::get('/maintenance', function() {
     if(!config('app.maintenance') && !App::environment('local')) {
@@ -29,5 +31,4 @@ Route::get('/maintenance', function() {
     }
 
     return view('splashes.maintenance');
-})->name('maintenance');
-
+})->name('maintenance')->middleware('comingsoon');
