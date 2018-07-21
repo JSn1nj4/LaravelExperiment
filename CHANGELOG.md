@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 0.4.1.1
+- Finally setup Changelog
+
 ### Release 0.4.1
 - Setup ComingSoon middleware
 - Setup MaintenanceMode middleware
