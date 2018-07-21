@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 0.3.1
+- Remove GitLab icon
+
 ### Release 0.3
 - Setup views for some HTTP errors
 - Add inline social icons
