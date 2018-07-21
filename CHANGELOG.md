@@ -1,5 +1,12 @@
 # Changelog
 
+### Release 0.3
+- Setup views for some HTTP errors
+- Add inline social icons
+- Add first hosted image file
+- Tweak homepage some more
+- Update general styles
+
 ### Release 0.2
 - Update website title
 - Use environment vars for Coming Soon and Maintenance splash pages
