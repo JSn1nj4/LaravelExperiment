@@ -1,5 +1,21 @@
 # Changelog
 
+### Release 0.4
+- Remove "Coming Soon" page view
+- Simplify routes
+- Disable 2 currently-unnecessary routes
+- Use environment var for enabling/disabling "Coming Soon" mode
+- Rework homepage
+- Update styles
+- Allow viewing splash pages on local dev when their related environment vars are set to false or unset
+
+##### Notes
+To clear up confusion about the "Coming Soon" changes above:
+
+Early on, I was playing with the idea of a "Coming Soon" view for pages that were in the works. I decided later that showing a 404 page would be more normal; I wouldn't need to commit to having a specific page in this case, whereas showing a "Coming Soon" view feels more like a commitment.
+
+The other "Coming Soon" mentioned above, however, is a splash page for the entire website.
+
 ### Release 0.3.1
 - Remove GitLab icon
 
