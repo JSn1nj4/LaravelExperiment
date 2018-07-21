@@ -1,5 +1,14 @@
 # Changelog
 
+### Release 0.2
+- Update website title
+- Use environment vars for Coming Soon and Maintenance splash pages
+- Finish initial work on header nav
+- Tweak homepage
+- Fix display of footer when page content is long
+- Begin working on error pages
+- Add base64-encoded favicon
+
 ### Release 0.1.1
 - Correct public-facing directory in Procfile
 
