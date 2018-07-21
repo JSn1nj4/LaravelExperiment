@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 0.1.1
+- Correct public-facing directory in Procfile
+
 ### Release 0.1
 - Setup first splash pages
 - Setup first routes
