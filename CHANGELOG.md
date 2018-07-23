@@ -10,7 +10,8 @@ home and Coming Soon pages. It was caused by flawed logic in the
 ### Release 1.0
 - Move all currently-defined routes to default route group
 - Move remaining coming-soon and maintenance mode redirect logic to middlewares
-- Add catch-all route to ensure coming-soon and maintenance modes can't be circumvented
+- Add catch-all route to ensure coming-soon and maintenance modes can't be
+  circumvented
 - Add CHANGELOG link to README
 
 ### Release 0.4.1.1
@@ -19,7 +20,8 @@ home and Coming Soon pages. It was caused by flawed logic in the
 ### Release 0.4.1
 - Setup ComingSoon middleware
 - Setup MaintenanceMode middleware
-- Remove `if` statements that were supposed to check for the "Coming Soon" and "Maintenance" settings
+- Remove `if` statements that were supposed to check for the "Coming Soon" and
+  "Maintenance" settings
 
 ### Release 0.4
 - Remove "Coming Soon" page view
@@ -28,14 +30,19 @@ home and Coming Soon pages. It was caused by flawed logic in the
 - Use environment var for enabling/disabling "Coming Soon" mode
 - Rework homepage
 - Update styles
-- Allow viewing splash pages on local dev when their related environment vars are set to false or unset
+- Allow viewing splash pages on local dev when their related environment vars
+  are set to false or unset
 
 ##### Notes
 To clear up confusion about the "Coming Soon" changes above:
 
-Early on, I was playing with the idea of a "Coming Soon" view for pages that were in the works. I decided later that showing a 404 page would be more normal; I wouldn't need to commit to having a specific page in this case, whereas showing a "Coming Soon" view feels more like a commitment.
+Early on, I was playing with the idea of a "Coming Soon" view for pages that
+were in the works. I decided later that showing a 404 page would be more normal;
+I wouldn't need to commit to having a specific page in this case, whereas
+showing a "Coming Soon" view feels more like a commitment.
 
-The other "Coming Soon" mentioned above, however, is a splash page for the entire website.
+The other "Coming Soon" mentioned above, however, is a splash page for the
+entire website.
 
 ### Release 0.3.1
 - Remove GitLab icon
@@ -66,4 +73,7 @@ The other "Coming Soon" mentioned above, however, is a splash page for the entir
 - First bit of work on menu items and general layout
 - Add Procfile
 
-Most of this first release involves playing around with layout, routes, and Heroku-related settings. It contains more changes than necessary for the release, honestly. But I didn't worry about it since visitors would see a Coming Soon page anyway.
+Most of this first release involves playing around with layout, routes, and
+Heroku-related settings. It contains more changes than necessary for the
+release, honestly. But I didn't worry about it since visitors would see a
+Coming Soon page anyway.
