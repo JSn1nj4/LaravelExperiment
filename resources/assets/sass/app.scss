@@ -114,7 +114,7 @@ button {
 .mobile-menu {
     top: 100%;
     @apply .bg-black;
-    @include transitions((height $default-speed));
+    @include transitions((opacity $default-speed));
     z-index: -10;
     opacity: 0;
 }

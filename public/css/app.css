@@ -783,8 +783,8 @@ button {
 .mobile-menu {
   top: 100%;
   background-color: #090909;
-  -webkit-transition: height .3s;
-  transition: height .3s;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
   z-index: -10;
   opacity: 0;
 }
