@@ -19,6 +19,10 @@ class ComingSoon
             return redirect()->route('coming-soon');
         }
 
+        if(!config('app.coming_soon') && !$request->is('/') && !(config('app.env') === 'local')) {
+            return redirect()->route('home');
+        }
+
         return $next($request);
     }
 }

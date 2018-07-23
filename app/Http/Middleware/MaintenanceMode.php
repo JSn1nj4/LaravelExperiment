@@ -19,6 +19,10 @@ class MaintenanceMode
             return redirect()->route('maintenance');
         }
 
+        if(!config('app.maintenance') && !$request->is('/') && !(config('app.env') === 'local')) {
+            return redirect()->route('home');
+        }
+
         return $next($request);
     }
 }
