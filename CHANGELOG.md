@@ -1,5 +1,11 @@
 # Changelog
 
+### Release 1.0
+- Move all currently-defined routes to default route group
+- Move remaining coming-soon and maintenance mode redirect logic to middlewares
+- Add catch-all route to ensure coming-soon and maintenance modes can't be circumvented
+- Add CHANGELOG link to README
+
 ### Release 0.4.1.1
 - Finally setup Changelog
 
