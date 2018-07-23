@@ -15,7 +15,7 @@ class ComingSoon
      */
     public function handle($request, Closure $next)
     {
-        if(config('app.coming_soon')) {
+        if(config('app.coming_soon') && !$request->is('coming-soon')) {
             return redirect()->route('coming-soon');
         }
 
