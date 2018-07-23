@@ -1,5 +1,12 @@
 # Changelog
 
+### Release 1.1
+- Fix issue causing `ERR_TOO_MANY_REDIRECTS`
+
+The issue was basically an infinite loop of redirects back and forth between the
+home and Coming Soon pages. It was caused by flawed logic in the
+`MaintenanceMode::handle` method. This issue should now be resolved.
+
 ### Release 1.0
 - Move all currently-defined routes to default route group
 - Move remaining coming-soon and maintenance mode redirect logic to middlewares
