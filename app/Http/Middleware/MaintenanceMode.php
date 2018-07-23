@@ -15,8 +15,12 @@ class MaintenanceMode
      */
     public function handle($request, Closure $next)
     {
-        if(config('app.maintenance')) {
+        if(config('app.maintenance') && !$request->is('maintenance') && !$request->is('coming-soon')) {
             return redirect()->route('maintenance');
+        }
+
+        if(!config('app.maintenance') && !$request->is('/') && !(config('app.env') === 'local')) {
+            return redirect()->route('home');
         }
 
         return $next($request);

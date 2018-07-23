@@ -11,24 +11,28 @@
 |
 */
 Route::middleware('comingsoon', 'maintenance')->group(function() {
+    // splash page views
+    Route::view('/coming-soon', 'splashes.coming-soon')->name('coming-soon');
+    Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
+
+    // standard views
     Route::view('/', 'home')->name('home');
     Route::view('/about', 'about')->name('about');
     // Route::view('/projects', 'projects')->name('projects');
     // Route::view('/updates', 'updates')->name('updates');
+
+    /*
+     * A catch-all route for throwing 404s
+     *
+     * This route will be used automatically when another pre-defined route
+     * isn't hit by the web browser. The browser would normally throw 404s
+     * anyway, but the coming-soon and maintenance routes could also be
+     * circumvented.
+     *
+     * This catch-all route should prevent that from happening
+     * while still throwing 404s otherwise.
+     */
+     Route::any('/{any?}', function($any = null) {
+         abort(404);
+     })->where('any', '.*');
 });
-
-Route::get('/coming-soon', function() {
-    if(!config('app.coming_soon') && !App::environment('local')) {
-        return redirect()->route('home');
-    }
-
-    return view('splashes.coming-soon');
-})->name('coming-soon')->middleware('maintenance');
-
-Route::get('/maintenance', function() {
-    if(!config('app.maintenance') && !App::environment('local')) {
-        redirect()->route('home');
-    }
-
-    return view('splashes.maintenance');
-})->name('maintenance')->middleware('comingsoon');
