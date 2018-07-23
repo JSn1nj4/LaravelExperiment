@@ -19,7 +19,7 @@ class ComingSoon
             return redirect()->route('coming-soon');
         }
 
-        if($this->shouldNotRedirect($request)) {
+        if($this->shouldRedirectHome($request)) {
             return redirect()->route('home');
         }
 
@@ -42,19 +42,19 @@ class ComingSoon
     }
 
     /**
-     * Check if the user should not be redirected
+     * Check if the user should be redirected home
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      *
-     * This method is used to check if the user should not be redirected to the
-     * Coming Soon page. Similar to the previous method, this method is used
+     * This method is used to check if the user should be redirected to the
+     * homepage instead. Similar to the previous method, this method is used
      * in place of inlining the below logic in an `if` statement.
      *
      * Also, the reason for the last part of the expression is that I want to be
      * able to manually open the Coming Soon page in case I need to work on it.
      */
-    private function shouldNotRedirect($request)
+    private function shouldRedirectHome($request)
     {
         return !config('app.coming_soon') && !$request->is('/') && !(config('app.env') === 'local');
     }
