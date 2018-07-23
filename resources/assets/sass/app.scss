@@ -103,6 +103,10 @@ a {
     }
 }
 
+button {
+    @include transitions((color $default-speed, border-color $default-speed));
+}
+
 .container-flexible-large {
     max-width: 1600px;
 }
