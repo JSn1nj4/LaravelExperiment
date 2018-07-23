@@ -783,8 +783,15 @@ button {
 .mobile-menu {
   top: 100%;
   background-color: #090909;
-  height: 0;
-  overflow: hidden;
+  -webkit-transition: height .3s;
+  transition: height .3s;
+  z-index: -10;
+  opacity: 0;
+}
+
+.mobile-menu.show {
+  z-index: 10;
+  opacity: 1;
 }
 
 .banner-section {
@@ -827,13 +834,6 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-  .mobile-menu {
-    top: auto;
-    background-color: transparent;
-    height: auto;
-    overflow: auto;
-  }
-
   h1.banner-title {
     font-size: 3rem;
     font-weight: 400;

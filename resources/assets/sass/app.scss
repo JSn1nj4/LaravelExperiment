@@ -114,8 +114,14 @@ button {
 .mobile-menu {
     top: 100%;
     @apply .bg-black;
-    height: 0;
-    overflow: hidden;
+    @include transitions((height $default-speed));
+    z-index: -10;
+    opacity: 0;
+}
+
+.mobile-menu.show {
+    z-index: 10;
+    opacity: 1;
 }
 
 .banner-section {
@@ -154,12 +160,6 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
-    .mobile-menu {
-        top: auto;
-        @apply .bg-transparent .h-auto;
-        overflow: auto;
-    }
-
     h1.banner-title {
         @apply .text-5xl .font-normal;
     }
