@@ -38,7 +38,8 @@ class ComingSoon
      */
     private function shouldRedirect($request)
     {
-        return config('app.coming_soon') && !$request->is('coming-soon');
+        return config('app.coming_soon')
+            && !$request->is('coming-soon');
     }
 
     /**
@@ -56,6 +57,8 @@ class ComingSoon
      */
     private function shouldRedirectHome($request)
     {
-        return !config('app.coming_soon') && !$request->is('/') && !(config('app.env') === 'local');
+        return !config('app.coming_soon')
+            && $request->is('/coming-soon')
+            && !(config('app.env') === 'local');
     }
 }

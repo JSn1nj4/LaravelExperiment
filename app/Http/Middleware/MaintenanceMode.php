@@ -38,7 +38,9 @@ class MaintenanceMode
      */
     private function shouldRedirect($request)
     {
-        return config('app.maintenance') && !$request->is('maintenance') && !$request->is('coming-soon');
+        return config('app.maintenance')
+            && !config('app.coming_soon')
+            && !$request->is('maintenance');
     }
 
     /**
@@ -60,8 +62,7 @@ class MaintenanceMode
     private function shouldRedirectHome($request)
     {
         return !config('app.maintenance')
-            && !config('app.coming_soon')
-            && !$request->is('/')
+            && $request->is('/maintenance')
             && !(config('app.env') === 'local');
     }
 }
