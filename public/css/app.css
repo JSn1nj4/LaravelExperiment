@@ -789,11 +789,6 @@ button {
   opacity: 0;
 }
 
-.mobile-menu.show {
-  z-index: 10;
-  opacity: 1;
-}
-
 .banner-section {
   background-size: cover;
   background-position: center top;
@@ -834,6 +829,14 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
+  .mobile-menu {
+    top: auto;
+    background-color: transparent;
+    height: auto;
+    z-index: 10;
+    opacity: 1;
+  }
+
   h1.banner-title {
     font-size: 3rem;
     font-weight: 400;
