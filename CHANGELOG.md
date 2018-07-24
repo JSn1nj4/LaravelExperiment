@@ -1,5 +1,9 @@
 # Changelog
 
+### Release 1.2
+- Add border and text color transitions to buttons
+- Setup first Vue-based menu system
+
 ### Release 1.1
 - Fix issue causing `ERR_TOO_MANY_REDIRECTS`
 
