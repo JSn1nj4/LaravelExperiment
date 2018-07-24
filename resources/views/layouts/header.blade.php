@@ -14,7 +14,7 @@
     }
 @endphp
 
-<header class="container-flexible-large m-auto">
+<header id="header" class="container-flexible-large m-auto">
     <nav class="{{ $headerClasses }} bg-black relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
@@ -29,38 +29,41 @@
         @if ($fullHeader)
 
             <div class="block md:hidden mr-5">
-                <button class="flex items-center px-3 py-2 border rounded text-sea-green border-sea-green hover:text-white hover:border-white">
-                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-                </button>
+                <menu-button inline-template>
+                    <button @click="toggle" class="flex items-center px-3 py-2 border rounded text-sea-green border-sea-green hover:text-white hover:border-white">
+                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                    </button>
+                </menu-button>
             </div>
 
-            <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu">
-                <div class="text-md md:flex-grow">
+            <header-menu inline-template>
+                <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu" :style="{'z-index': zIndex, opacity: opacity}">
+                    <div class="text-md md:flex-grow">
 
-                    @foreach ($menuItems as $key => $value)
-                        @php
-                            $extraClasses = '';
-                            $titleText = '';
-                            $itemText = $value;
+                        @foreach ($menuItems as $key => $value)
+                            @php
+                                $extraClasses = '';
+                                $titleText = '';
+                                $itemText = $value;
 
-                            if($value === 'home') {
-                                $extraClasses = 'fas fa-home ';
-                                $titleText = 'title=Home';
-                                $itemText = '';
-                            }
-                        @endphp
+                                if($value === 'home') {
+                                    $extraClasses = 'fas fa-home ';
+                                    $titleText = 'title=Home';
+                                    $itemText = '';
+                                }
+                            @endphp
 
-                        <a
-                            href="{{ route($value, [], false) }}"
-                            class="{{ $extraClasses }}block md:inline-block px-4 py-6 no-underline uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
-                            {{ $titleText }}>
-                            {{ $itemText }}
-                        </a>
-                    @endforeach
+                            <a
+                                href="{{ route($value, [], false) }}"
+                                class="{{ $extraClasses }}block md:inline-block px-4 py-6 no-underline uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
+                                {{ $titleText }}>
+                                {{ $itemText }}
+                            </a>
+                        @endforeach
 
+                    </div>
                 </div>
-            </div>
-
+            </header-menu>
         @endif
 
     </nav>
