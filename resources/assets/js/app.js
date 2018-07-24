@@ -5,16 +5,55 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// window.Vue = require('vue');
+window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+window.Event = new Vue();
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
+Vue.component('menu-button', {
+    methods: {
+        toggle() {
+            Event.$emit('menuToggled');
+        }
+    }
+});
+
+Vue.component('header-menu', {
+    data() {
+        return {
+            menuVisible: false,
+            opacity: '',
+            zIndex: '',
+            toggleDelay: 300
+        };
+    },
+
+    methods: {
+        toggleMenu() {
+            this.menuVisible = !this.menuVisible;
+
+            if(this.menuVisible) {
+
+                this.zIndex = 50;
+                setTimeout(() => {
+                    this.opacity = 1;
+                }, this.toggleDelay);
+
+            } else {
+
+                this.opacity = '';
+                setTimeout(() => {
+                    this.zIndex = '';
+                }, this.toggleDelay);
+
+            }
+        }
+    },
+
+    created() {
+        Event.$on('menuToggled', this.toggleMenu);
+    }
+});
+
+const header = new Vue({
+    el: '#header'
+});

@@ -103,6 +103,10 @@ a {
     }
 }
 
+button {
+    @include transitions((color $default-speed, border-color $default-speed));
+}
+
 .container-flexible-large {
     max-width: 1600px;
 }
@@ -110,8 +114,9 @@ a {
 .mobile-menu {
     top: 100%;
     @apply .bg-black;
-    height: 0;
-    overflow: hidden;
+    @include transitions((opacity $default-speed));
+    z-index: -10;
+    opacity: 0;
 }
 
 .banner-section {
@@ -153,7 +158,8 @@ a {
     .mobile-menu {
         top: auto;
         @apply .bg-transparent .h-auto;
-        overflow: auto;
+        z-index: 10;
+        opacity: 1;
     }
 
     h1.banner-title {
