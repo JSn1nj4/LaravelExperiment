@@ -1,13 +1,28 @@
 <template>
-  <div id="">
+    <div id="">
 
-  </div>
+    </div>
 </template>
 <script>
 export default {
-  name: "card",
-  data: () => ({
-
-  })
+    name: "card",
+    props: {
+        icon: String,
+        title: String,
+        blurb: String,
+        link: String
+    },
+    data: () => ({
+        icon: '',
+        title: '',
+        blurb: '',
+        link: ''
+    }),
+    created() {
+        console.log(`Icon value: ${this.icon}`);
+        console.log(`Title value: ${this.title}`);
+        console.log(`Blurb value: ${this.blurb}`);
+        console.log(`Link value: ${this.link}`);
+    }
 }
 </script>
