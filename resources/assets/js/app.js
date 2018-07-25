@@ -12,7 +12,7 @@ window.Event = new Vue();
 let ToggleButton = {
     methods: {
         toggle() {
-            Event.$emit('menuToggled');
+            this.$root.$emit('menuToggled');
         }
     }
 };
@@ -50,7 +50,7 @@ let HeaderMenu = {
     },
 
     created() {
-        Event.$on('menuToggled', this.toggleMenu);
+        this.$root.$on('menuToggled', this.toggleMenu);
     }
 };
 
