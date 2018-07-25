@@ -8,9 +8,10 @@
 window.Vue = require('vue');
 
 let ToggleButton = {
+    props: ['clickHandler'],
     methods: {
         toggle() {
-            this.$root.$emit('menuToggled');
+            this.clickHandler();
         }
     }
 };
@@ -48,14 +49,19 @@ let HeaderMenu = {
     },
 
     created() {
-        this.$root.$on('menuToggled', this.toggleMenu);
+        this.$root.$on('menu-toggled', this.toggleMenu);
     }
 };
 
 const header = new Vue({
     el: '#header',
     components: {
-      'toggle-button': ToggleButton,
-      'header-menu': HeaderMenu
+        'toggle-button': ToggleButton,
+        'header-menu': HeaderMenu
+    },
+    methods: {
+        buttonClick() {
+            this.$emit('menu-toggled');
+        }
     }
 });
