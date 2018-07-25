@@ -9,15 +9,15 @@ window.Vue = require('vue');
 
 window.Event = new Vue();
 
-Vue.component('menu-button', {
+let Button = {
     methods: {
         toggle() {
             Event.$emit('menuToggled');
         }
     }
-});
+};
 
-Vue.component('header-menu', {
+let Menu = {
     data() {
         return {
             menuVisible: false,
@@ -52,8 +52,12 @@ Vue.component('header-menu', {
     created() {
         Event.$on('menuToggled', this.toggleMenu);
     }
-});
+};
 
 const header = new Vue({
-    el: '#header'
+    el: '#header',
+    components: {
+      'menu-button': Button,
+      'header-menu': Menu
+    }
 });
