@@ -7,53 +7,18 @@
 
 window.Vue = require('vue');
 
-window.Event = new Vue();
-
-Vue.component('menu-button', {
-    methods: {
-        toggle() {
-            Event.$emit('menuToggled');
-        }
-    }
-});
-
-Vue.component('header-menu', {
-    data() {
-        return {
-            menuVisible: false,
-            opacity: '',
-            zIndex: '',
-            toggleDelay: 300
-        };
-    },
-
-    methods: {
-        toggleMenu() {
-            this.menuVisible = !this.menuVisible;
-
-            if(this.menuVisible) {
-
-                this.zIndex = 50;
-                setTimeout(() => {
-                    this.opacity = 1;
-                }, this.toggleDelay);
-
-            } else {
-
-                this.opacity = '';
-                setTimeout(() => {
-                    this.zIndex = '';
-                }, this.toggleDelay);
-
-            }
-        }
-    },
-
-    created() {
-        Event.$on('menuToggled', this.toggleMenu);
-    }
-});
+import { ToggleButton } from './components/Button';
+import { HeaderMenu } from './components/HeaderMenu';
 
 const header = new Vue({
-    el: '#header'
+    el: '#header',
+    components: {
+        'toggle-button': ToggleButton,
+        'header-menu': HeaderMenu
+    },
+    methods: {
+        buttonClick() {
+            this.$emit('menu-toggled');
+        }
+    }
 });

@@ -15,7 +15,7 @@
             <div class="md:w-1/2 lg:w-1/3 pb-6">
                 <div class="px-2">
 
-                    <h1 class="content-title">
+                    <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
                         About Me
                     </h1>
 
