@@ -1,5 +1,12 @@
 # Changelog
 
+### Release 1.2.1
+- Convert globally-registered components to locally-registered components
+- Rework event handling between button and menu
+- Make button event handler generic for reuse
+- Use root Vue instance in place of dedicated event dispatcher
+- Move Button and HeaderMenu components to their own files
+
 ### Release 1.2
 - Add border and text color transitions to buttons
 - Setup first Vue-based menu system
