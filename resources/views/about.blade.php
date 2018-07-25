@@ -43,5 +43,11 @@
             </div>
 
         </section>
+
+        <section id="twitter" class="block md:flex"></section>
     </div>
+@endsection
+
+@section('footer-extras')
+    <script src="/js/twitter.js" charset="utf-8"></script>
 @endsection

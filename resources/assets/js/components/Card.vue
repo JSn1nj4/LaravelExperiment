@@ -12,12 +12,6 @@ export default {
         blurb: String,
         link: String
     },
-    data: () => ({
-        icon: '',
-        title: '',
-        blurb: '',
-        link: ''
-    }),
     created() {
         console.log(`Icon value: ${this.icon}`);
         console.log(`Title value: ${this.title}`);
