@@ -18,7 +18,7 @@ let ToggleButton = {
 let HeaderMenu = {
     data() {
         return {
-            menuVisible: false,
+            visible: false,
             opacity: '',
             zIndex: '',
             toggleDelay: 300
@@ -27,9 +27,9 @@ let HeaderMenu = {
 
     methods: {
         toggleMenu() {
-            this.menuVisible = !this.menuVisible;
+            this.visible = !this.visible;
 
-            if(this.menuVisible) {
+            if(this.visible) {
 
                 this.zIndex = 50;
                 setTimeout(() => {
