@@ -7,8 +7,6 @@
 
 window.Vue = require('vue');
 
-window.Event = new Vue();
-
 let ToggleButton = {
     methods: {
         toggle() {
