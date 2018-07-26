@@ -8,10 +8,13 @@
             </div>
             <div class="pl-4 flex flex-col">
                 <p>
-                    <a :href="tweet.link" target="_blank">
+                    <a :href="tweet.link" target="_blank" class="no-underline">
                         {{ tweet.name }}
-                        <span class="text-grey-dark">{{ tweet.username }}</span>
-                    </a></p>
+                    </a>
+                    <a :href="tweet.link" target="_blank" class="no-underline text-grey-dark">
+                        {{ tweet.username }}
+                    </a>
+                </p>
                 <p>{{ tweet.blurb }}</p>
             </div>
         </card>
