@@ -1,5 +1,5 @@
 <template>
-    <div id="twitter-app">
+    <div id="twitter-app" class="max-w-sm m-auto pb-4">
         <card v-for="(tweet, index) in tweets"
             :icon="tweet.icon"
             :title="`${tweet.name} ${tweet.username}`"
