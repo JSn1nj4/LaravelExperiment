@@ -1,6 +1,6 @@
 <template>
     <div id="twitter-app" class="max-w-sm m-auto pb-4">
-        <card v-for="(tweet, index) in tweets" :size="'sm'" :key="`tweet-${index}`">
+        <card v-for="(tweet, index) in tweets" :size="'sm'" :url="tweet.link" :key="`tweet-${index}`">
             <div class="flex-none">
                 <a :href="tweet.link" target="_blank">
                     <img width="48" height="48" :src="tweet.icon" class="border-solid border-2 border-white rounded-full">
