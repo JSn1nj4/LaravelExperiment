@@ -1,5 +1,6 @@
 <template>
-  <div id="">
+  <div class="timeline">
+
     <slot></slot>
   </div>
 </template>
