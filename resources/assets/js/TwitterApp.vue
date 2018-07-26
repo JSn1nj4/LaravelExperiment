@@ -19,7 +19,7 @@
               {{ tweet.username }}
             </a>
           </p>
-          <p>{{ tweet.blurb }}</p>
+          <p class="pt-3">{{ tweet.blurb }}</p>
         </div>
 
       </card>
