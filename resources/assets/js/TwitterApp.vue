@@ -1,6 +1,11 @@
 <template>
     <div id="twitter-app">
-        <card :icon="icon" :title="title" :blurb="blurb" :link="link"></card>
+        <card v-for="(tweet, index) in tweets"
+            :icon="tweet.icon"
+            :title="`${tweet.name} ${tweet.username}`"
+            :blurb="tweet.blurb"
+            :link="tweet.link"
+            :key="`tweet-${index}`"></card>
     </div>
 </template>
 <script>
@@ -12,10 +17,36 @@ export default {
         Card
     },
     data: () => ({
-        icon: 'Twitter Icon',
-        title: 'Tweet Title',
-        blurb: 'For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently.',
-        link: 'http://example.com'
+        tweets: [
+            {
+                icon: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_bigger.jpg',
+                name: 'Elliot Derhay',
+                username: '@JSn1nj4',
+                blurb: 'Had a @Wendys double cheeseburger today. Best burger I\'ve had in ages.',
+                link: 'https://twitter.com/JSn1nj4/status/990660014984650753'
+            },
+            {
+                icon: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_bigger.jpg',
+                name: 'Elliot Derhay',
+                username: '@JSn1nj4',
+                blurb: 'Twitter has some nice keyboard shortcuts. \`Shift+?\`',
+                link: 'https://twitter.com/JSn1nj4/status/989678620598853635'
+            },
+            {
+                icon: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_bigger.jpg',
+                name: 'Elliot Derhay',
+                username: '@JSn1nj4',
+                blurb: 'By the way, will you have a Disney-themed series in the near future, considering your recent daddy/daughter entertainment? 😉',
+                link: 'https://twitter.com/JSn1nj4/status/972624583365939200'
+            },
+            {
+                icon: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_bigger.jpg',
+                name: 'Elliot Derhay',
+                username: '@JSn1nj4',
+                blurb: 'For to us a child is born, to us a son is given, and the government will be on his shoulders. And he will be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.\nIsaiah 9:6',
+                link: 'https://twitter.com/JSn1nj4/status/945260403893985281'
+            }
+        ]
     })
 }
 </script>
