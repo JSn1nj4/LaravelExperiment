@@ -1,11 +1,20 @@
 <template>
     <div id="twitter-app" class="max-w-sm m-auto pb-4">
-        <card v-for="(tweet, index) in tweets"
-            :icon="tweet.icon"
-            :title="`${tweet.name} ${tweet.username}`"
-            :blurb="tweet.blurb"
-            :link="tweet.link"
-            :key="`tweet-${index}`"></card>
+        <card v-for="(tweet, index) in tweets" :size="'sm'" :key="`tweet-${index}`">
+            <div class="flex-none">
+                <a :href="tweet.link" target="_blank">
+                    <img width="48" height="48" :src="tweet.icon" class="border-solid border-2 border-white rounded-full">
+                </a>
+            </div>
+            <div class="pl-4 flex flex-col">
+                <p>
+                    <a :href="tweet.link" target="_blank">
+                        {{ tweet.name }}
+                        <span class="text-grey-dark">{{ tweet.username }}</span>
+                    </a></p>
+                <p>{{ tweet.blurb }}</p>
+            </div>
+        </card>
     </div>
 </template>
 <script>
