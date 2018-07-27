@@ -12,7 +12,7 @@
 
         <div class="pl-4 flex-grow relative">
           <p>
-            <a :href="tweet.user.profile" target="_blank" class="no-underline" @click.stop>
+            <a :href="tweet.user.profile" target="_blank" class="no-underline font-bold" @click.stop>
               {{ tweet.user.name }}
             </a><br>
             <a :href="tweet.user.profile" target="_blank" class="no-underline text-grey-dark" @click.stop>
@@ -28,20 +28,20 @@
         </div>
       </div>
 
-      <div class="pt-4 flex flex-row relative">
+      <div class="pt-4 flex flex-row relative font-bold">
         <p @click.stop>{{ tweet.blurb }}</p>
       </div>
 
       <div class="pt-4 flex flex-row relative">
         <div class="flex-grow">
           <p>
-            <a class="no-underline" :href="tweet.link" target="_blank" @click.stop>View on Twitter</a>
+            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>View on Twitter</a>
           </p>
         </div>
 
         <div class="pl-4 flex-none relative">
           <p>
-            <a class="no-underline" :href="tweet.link" target="_blank" @click.stop>26 Apr 2018</a>
+            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>26 Apr 2018</a>
           </p>
         </div>
       </div>
@@ -63,3 +63,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .twitter-card {
+    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+</style>
