@@ -59,7 +59,7 @@ export default {
     Card
   },
   props: {
-    tweet
+    tweet: Object
   }
 }
 </script>
