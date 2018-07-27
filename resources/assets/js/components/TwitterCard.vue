@@ -29,20 +29,20 @@
       </div>
 
       <div class="pt-4 flex flex-row relative">
-        <p>{{ tweet.blurb }}</p>
+        <p @click.stop>{{ tweet.blurb }}</p>
       </div>
 
       <div class="pt-4 flex flex-row relative">
         <div class="flex-grow">
-          <p class="text-sea-green">
-            <i class="far fa-comment hover:text-white trans-color"></i>
-            <i class="fas fa-retweet hover:text-white trans-color"></i>
-            <i class="far fa-heart hover:text-white trans-color"></i>
+          <p>
+            <a class="no-underline" :href="tweet.link" target="_blank" @click.stop>View on Twitter</a>
           </p>
         </div>
 
         <div class="pl-4 flex-none relative">
-          <p class="text-sea-green" @click.stop>26 Apr 2018</p>
+          <p>
+            <a class="no-underline" :href="tweet.link" target="_blank" @click.stop>26 Apr 2018</a>
+          </p>
         </div>
       </div>
 
