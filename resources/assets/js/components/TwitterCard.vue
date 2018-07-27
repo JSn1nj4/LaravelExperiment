@@ -23,7 +23,7 @@
 
         <div class="pl-4 flex-none relative">
           <a :href="baseLink" target="_blank" @click.stop>
-            <i class="fab fa-twitter text-3xl text-white" @click.stop></i>
+            <i class="fab fa-twitter text-4xl text-white" @click.stop></i>
           </a>
         </div>
       </div>
