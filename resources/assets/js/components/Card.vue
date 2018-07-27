@@ -19,7 +19,7 @@ export default {
 
   computed: {
     classes() {
-      return `relative bg-grey-darkest p-4 my-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green overflow-hidden flex max-w-${this.size} w-full${this.cursorClass} z-50`;
+      return `relative bg-grey-darkest p-4 my-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green max-w-${this.size} w-full${this.cursorClass} z-50`;
     }
   },
 
