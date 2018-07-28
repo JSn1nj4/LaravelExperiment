@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'twitter' => [
+        'model' => App\Tweet::class,
+        'key' => env('TWITTER_API_KEY'),
+        'secret' => env('TWITTER_API_SECRET'),
+    ]
+
 ];
