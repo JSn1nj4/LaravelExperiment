@@ -32,7 +32,6 @@ export default {
         link: 'https://twitter.com/JSn1nj4/status/989678620598853635'
       }
     ],
-    baseLink: 'https://twitter.com/'
   })
 
 }
