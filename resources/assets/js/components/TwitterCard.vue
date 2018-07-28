@@ -41,7 +41,9 @@
 
         <div class="pl-4 flex-none relative">
           <p>
-            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>26 Apr 2018</a>
+            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>
+              {{formatDate(tweet.created_at)}}
+            </a>
           </p>
         </div>
       </div>
@@ -51,6 +53,7 @@
   </div>
 </template>
 <script>
+import moment from 'moment';
 import Card from './Card.vue';
 
 export default {
@@ -63,7 +66,12 @@ export default {
   },
   data: () => ({
     baseLink: 'https://twitter.com/'
-  })
+  }),
+  methods: {
+    formatDate(created_at) {
+      return moment(created_at).local().format('D MMM YYYY');
+    }
+  }
 }
 </script>
 <style lang="scss">
