@@ -8,6 +8,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import TwitterCard from './components/TwitterCard.vue';
 import Timeline from './components/Timeline.vue';
 
@@ -20,19 +21,18 @@ export default {
   },
 
   data: () => ({
-    tweets: [
-      {
-        user: {
-          avatar: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_bigger.jpg',
-          name: 'Elliot Derhay',
-          handle: '@JSn1nj4',
-          profile: 'https://twitter.com/JSn1nj4/'
-        },
-        blurb: 'Twitter has some nice keyboard shortcuts. \`Shift+?\`',
-        link: 'https://twitter.com/JSn1nj4/status/989678620598853635'
-      }
-    ],
-  })
+    tweets: []
+  }),
+
+  mounted() {
+    axios.get('/api/tweets')
+      .then(response => {
+        this.tweets = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
 }
 </script>
