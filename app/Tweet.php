@@ -6,9 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
 {
+    /**
+     * The base Twitter API URL
+     *
+     * @var string
+     */
     private $api_url = 'https://api.twitter.com';
+
+    /**
+     * The token used for retrieving tweet information from the Twitter API
+     *
+     * @var string
+     */
     private $token;
+
+    /**
+     * The API key used for generating the token
+     *
+     * @var string
+     */
     private $key;
+
+    /**
+     * The API secret key part used for generating the token
+     *
+     * @var string
+     */
     private $secret;
 
     /**
