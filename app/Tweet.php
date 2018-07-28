@@ -75,14 +75,14 @@ class Tweet extends Model
     }
 
     /**
-     * Retrieve tweets via Twitter's GET API
+     * Retrieve raw tweets via Twitter's GET API
      *
      * @param string    $screen_name
      * @param int       $count
      * @param bool      $retweets
      * @return string
      */
-    public function getTweets($screen_name = 'jsn1nj4', $count = 5, $retweets = false)
+    public function getRawTweets($screen_name = 'jsn1nj4', $count = 5, $retweets = false)
     {
         if(!$this->token) {
             $this->createToken();
@@ -102,5 +102,22 @@ class Tweet extends Model
         }
 
         return $tweets;
+    }
+
+    /**
+     * Retrieve formatted tweets via Twitter's GET API
+     *
+     * @param string    $screen_name
+     * @param int       $count
+     * @param bool      $retweets
+     * @return string
+     *
+     * This method reduces the amount of data sent back to the client. If the
+     * raw tweets are needed instead, the function called within can be called
+     * directly instead.
+     */
+    public function getTweets($screen_name = 'jsn1nj4', $count = 5, $retweets = false)
+    {
+        return $this->getRawTweets($screen_name, $count, $retweets);
     }
 }
