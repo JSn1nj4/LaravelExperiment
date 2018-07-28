@@ -60,7 +60,10 @@ export default {
   },
   props: {
     tweet: Object
-  }
+  },
+  data: () => ({
+    baseLink: 'https://twitter.com/'
+  })
 }
 </script>
 <style lang="scss">
