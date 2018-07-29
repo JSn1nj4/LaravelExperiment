@@ -112,7 +112,7 @@ class Tweet extends Model
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name");
+        curl_setopt($ch, CURLOPT_URL, "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name&include_rts=false");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer $this->token"
         ]);
