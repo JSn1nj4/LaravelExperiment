@@ -1,22 +1,22 @@
 <template>
   <div class="twitter-card">
 
-    <card :size="'sm'" :url="tweet.link">
+    <card :size="'sm'" :url="tweet_url">
 
       <div class="flex flex-row relative">
         <div>
-          <a :href="tweet.user.profile" target="_blank" @click.stop>
-            <img width="48" height="48" :src="tweet.user.avatar" class="border-solid border-2 border-white rounded-full" @click.stop>
+          <a :href="profile_url" target="_blank" @click.stop>
+            <img width="48" height="48" :src="tweet.user.profile_image_url_https" class="border-solid border-2 border-white rounded-full" @click.stop>
           </a>
         </div>
 
         <div class="pl-4 flex-grow relative">
           <p>
-            <a :href="tweet.user.profile" target="_blank" class="no-underline font-bold" @click.stop>
+            <a :href="profile_url" target="_blank" class="no-underline font-bold" @click.stop>
               {{ tweet.user.name }}
             </a><br>
-            <a :href="tweet.user.profile" target="_blank" class="no-underline text-grey-dark" @click.stop>
-              {{ tweet.user.handle }}
+            <a :href="profile_url" target="_blank" class="no-underline text-grey-dark" @click.stop>
+              {{ tweet.user.screen_name }}
             </a>
           </p>
         </div>
@@ -29,19 +29,19 @@
       </div>
 
       <div class="pt-4 flex flex-row relative font-bold">
-        <p @click.stop>{{ tweet.blurb }}</p>
+        <p @click.stop>{{ tweet.text }}</p>
       </div>
 
       <div class="pt-4 flex flex-row relative">
         <div class="flex-grow">
           <p>
-            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>View on Twitter</a>
+            <a class="no-underline font-bold" :href="tweet_url" target="_blank" @click.stop>View on Twitter</a>
           </p>
         </div>
 
         <div class="pl-4 flex-none relative">
           <p>
-            <a class="no-underline font-bold" :href="tweet.link" target="_blank" @click.stop>
+            <a class="no-underline font-bold" :href="tweet_url" target="_blank" @click.stop>
               {{formatDate(tweet.created_at)}}
             </a>
           </p>
@@ -69,7 +69,23 @@ export default {
   }),
   methods: {
     formatDate(created_at) {
-      return moment(created_at).local().format('D MMM YYYY');
+      // `moment` has a warning about the date format in `created_at`
+      // return moment(created_at).local().format('D MMM YYYY');
+      return moment(new Date(created_at)).local().format('D MMM YYYY');
+    },
+  },
+  computed: {
+    profile_url() {
+      return this.baseLink + this.tweet.user.screen_name;
+    },
+    /**
+     * Tweet URL computed property
+     *
+     * This works because `profile_url` is treated as a property that's
+     * recalculated when dependencies update.
+     */
+    tweet_url() {
+      return `${this.profile_url}/status/${this.tweet.id_str}`;
     }
   }
 }
