@@ -100,19 +100,17 @@ class Tweet extends Model
     /**
      * Retrieve raw tweets via Twitter's GET API
      *
-     * @param string    $screen_name
-     * @param int       $count
-     * @param bool      $retweets
+     * @param string    $curl_url
      * @return string
      */
-    public function getRawTweets($screen_name = 'jsn1nj4', $count = 5, $retweets = false)
+    public function getRawTweets(string $curl_url)
     {
         if(!$this->token) {
             $this->createToken();
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name&include_rts=false");
+        curl_setopt($ch, CURLOPT_URL, $curl_url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer $this->token"
         ]);
@@ -128,22 +126,19 @@ class Tweet extends Model
     }
 
     /**
-     * Retrieve formatted tweets via Twitter's GET API
+     * Format tweet data
      *
-     * @param string    $screen_name
-     * @param int       $count
-     * @param bool      $retweets
-     * @return string
+     * @param string    $tweets
+     * @return array
      *
-     * This method reduces the amount of data sent back to the client. If the
-     * raw tweets are needed instead, the function called within can be called
-     * directly instead.
+     * Strip down tweet data returned by Twitter API. Most of the data returned
+     * by the Twitter API isn't necessary in this case.
      */
-    public function getTweets($screen_name = 'jsn1nj4', $count = 5, $retweets = false)
+    private function formatTweetData($tweets)
     {
-        $tweets = [];
+        $formattedTweets = [];
 
-        foreach(json_decode($this->getRawTweets($screen_name, $count, $retweets)) as $tweet) {
+        foreach(json_decode($tweets) as $tweet) {
             $tmp = new \stdClass;
             $tmp->created_at = $tweet->created_at;
             $tmp->id_str = $tweet->id_str;
@@ -164,9 +159,47 @@ class Tweet extends Model
                 array_push($tmp->entities->user_mentions, $user_mention->screen_name);
             }
 
-            array_push($tweets, $tmp);
+            array_push($formattedTweets, $tmp);
         }
 
-        return $tweets;
+        return $formattedTweets;
+    }
+
+    /**
+     * Retrieve tweets
+     *
+     * @param array     $options: count, screen_name, retweets
+     * @return string
+     *
+     * This method returns a list of tweets that their initial API data trimmed
+     * down first.
+     */
+    public function getTweets(array $options = [])
+    {
+        $count = isset($options['count']) && $options['count'] > 0 ?
+            $options['count'] : 5;
+        $screen_name = isset($options['screen_name']) && mb_strlen($options['screen_name']) ?
+            $options['screen_name'] : 'jsn1nj4';
+        $retweets = isset($options['retweets']) && is_bool($options['retweets']) ?
+            $options['retweets'] : false;
+
+        $url = "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name&include_rts=$retweets";
+        return $this->formatTweetData($this->getRawTweets($url));
+    }
+
+    /**
+     * Retrieve a single tweet
+     *
+     * @param string    $tweet_id
+     * @return string
+     *
+     * This method returns a single tweet in an array. It currently needs to be
+     * in this format due to the formateTweetData method being made to work on
+     * arrays.
+     */
+    public function getTweet($tweet_id)
+    {
+        $url = "$this->api_url/1.1/statuses/show.json?id=$tweet_id";
+        return $this->formatTweetData("[" . $this->getRawTweets($url) . "]");
     }
 }
