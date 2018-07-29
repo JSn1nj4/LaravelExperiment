@@ -29,7 +29,7 @@
       </div>
 
       <div class="pt-4 flex flex-row relative font-bold">
-        <p @click.stop>{{ tweet.text }}</p>
+        <p @click.stop v-html="formattedText(tweet.text)"></p>
       </div>
 
       <div class="pt-4 flex flex-row relative">
@@ -73,6 +73,26 @@ export default {
       // return moment(created_at).local().format('D MMM YYYY');
       return moment(new Date(created_at)).local().format('D MMM YYYY');
     },
+    formattedText(text) {
+      // Link hashtags, according to Twitter's guidelines
+      this.tweet.entities.hashtags.map(elem => {
+        text = text.replace(
+          `#${elem.text}`,
+          `<a class="no-underline" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
+        );
+      });
+
+      // Link @mentions, according to Twitter's guidelines
+      this.tweet.entities.user_mentions.map(elem => {
+        text = text.replace(
+          `@${elem.screen_name}`,
+          `<a class="no-underline" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
+        );
+      });
+
+      // Insert HTML line breaks where necessary
+      return text.replace('\n', '<br>');
+    }
   },
   computed: {
     profile_url() {
