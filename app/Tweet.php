@@ -147,7 +147,7 @@ class Tweet extends Model
             $tmp = new \stdClass;
             $tmp->created_at = $tweet->created_at;
             $tmp->id_str = $tweet->id_str;
-            $tmp->test = $tweet->text;
+            $tmp->text = $tweet->text;
             $tmp->entities = new \stdClass;
             $tmp->entities->hashtags = [];
             $tmp->entities->user_mentions = [];
