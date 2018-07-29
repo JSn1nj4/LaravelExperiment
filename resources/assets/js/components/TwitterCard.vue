@@ -16,7 +16,7 @@
               {{ tweet.user.name }}
             </a><br>
             <a :href="profile_url" target="_blank" class="no-underline text-grey-dark" @click.stop>
-              {{ tweet.user.screen_name }}
+              @{{ tweet.user.screen_name }}
             </a>
           </p>
         </div>
