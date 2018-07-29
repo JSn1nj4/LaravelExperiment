@@ -78,7 +78,7 @@ export default {
       this.tweet.entities.hashtags.map(elem => {
         text = text.replace(
           `#${elem.text}`,
-          `<a class="no-underline" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
+          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
         );
       });
 
@@ -86,7 +86,7 @@ export default {
       this.tweet.entities.user_mentions.map(elem => {
         text = text.replace(
           `@${elem.screen_name}`,
-          `<a class="no-underline" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
+          `<a class="no-underline" target="_blank" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
         );
       });
 
