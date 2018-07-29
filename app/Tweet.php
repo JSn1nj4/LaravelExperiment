@@ -112,7 +112,7 @@ class Tweet extends Model
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name");
+        curl_setopt($ch, CURLOPT_URL, "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name&include_rts=false");
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             "Authorization: Bearer $this->token"
         ]);
@@ -147,7 +147,7 @@ class Tweet extends Model
             $tmp = new \stdClass;
             $tmp->created_at = $tweet->created_at;
             $tmp->id_str = $tweet->id_str;
-            $tmp->test = $tweet->text;
+            $tmp->text = $tweet->text;
             $tmp->entities = new \stdClass;
             $tmp->entities->hashtags = [];
             $tmp->entities->user_mentions = [];
@@ -157,17 +157,11 @@ class Tweet extends Model
             $tmp->user->profile_image_url_https = $tweet->user->profile_image_url_https;
 
             foreach($tweet->entities->hashtags as $hashtag) {
-                $ht = new \stdClass;
-                $ht->text = $hashtag->text;
-                $ht->indices = $hashtag->indices;
-                array_push($tmp->entities->hashtags, $ht);
+                array_push($tmp->entities->hashtags, $hashtag->text);
             }
 
             foreach($tweet->entities->user_mentions as $user_mention) {
-                $um = new \stdClass;
-                $um->screen_name = $user_mention->screen_name;
-                $um->indices = $user_mention->indices;
-                array_push($tmp->entities->user_mentions, $um);
+                array_push($tmp->entities->user_mentions, $user_mention->screen_name);
             }
 
             array_push($tweets, $tmp);
