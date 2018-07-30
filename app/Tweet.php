@@ -68,11 +68,15 @@ class Tweet extends Model
      */
     public function createToken()
     {
-        $post_url = "$this->api_url/oauth2/token";
+        if(!$this->token) {
+            return true;
+        }
 
         if(!$this->key || !$this->secret) {
             abort(500);
         }
+
+        $post_url = "$this->api_url/oauth2/token";
 
         $twitter_str = base64_encode(urlencode($this->key) . ':' . urlencode($this->secret));
 
