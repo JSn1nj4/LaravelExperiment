@@ -82,14 +82,16 @@ class Tweet extends Model
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $post_url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Basic $twitter_str",
-            "Content-Type: application/x-www-form-urlencoded;charset=UTF-8"
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $post_url,
+            CURLOPT_POST => 1,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Basic $twitter_str",
+                "Content-Type: application/x-www-form-urlencoded;charset=UTF-8"
+            ],
+            CURLOPT_POSTFIELDS => "grant_type=client_credentials",
+            CURLOPT_RETURNTRANSFER => true
         ]);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $result = json_decode(curl_exec($ch));
         curl_close($ch);
@@ -114,17 +116,22 @@ class Tweet extends Model
         }
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $curl_url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            "Authorization: Bearer $this->token"
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $curl_url,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer $this->token"
+            ],
+            CURLOPT_RETURNTRANSFER => true
         ]);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $tweets = curl_exec($ch);
 
         if(isset(json_decode($tweets)->errors)) {
             abort(500);
         }
+
+        curl_close($ch);
 
         return $tweets;
     }
