@@ -39,6 +39,7 @@ return [
         'model' => App\Tweet::class,
         'key' => env('TWITTER_API_KEY'),
         'secret' => env('TWITTER_API_SECRET'),
+        'token' => env('TWITTER_API_TOKEN'),
     ]
 
 ];
