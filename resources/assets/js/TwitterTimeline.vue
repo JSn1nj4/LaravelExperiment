@@ -13,7 +13,7 @@ import TwitterCard from './components/TwitterCard.vue';
 import Timeline from './components/Timeline.vue';
 
 export default {
-  name: "twitter-app",
+  name: "twitter-timeline",
 
   components: {
     Timeline,
