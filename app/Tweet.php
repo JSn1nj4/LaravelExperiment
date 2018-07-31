@@ -192,7 +192,7 @@ class Tweet extends Model
         $screen_name = isset($options['screen_name']) && mb_strlen($options['screen_name']) ?
             $options['screen_name'] : 'jsn1nj4';
         $retweets = isset($options['retweets']) && is_bool($options['retweets']) ?
-            $options['retweets'] : false;
+            $options['retweets'] : true;
 
         $url = "$this->api_url/1.1/statuses/user_timeline.json?count=$count&screen_name=$screen_name&include_rts=$retweets";
         return $this->formatTweetData($this->getRawTweets($url));
