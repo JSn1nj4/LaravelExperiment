@@ -14,6 +14,12 @@ import Timeline from './components/Timeline.vue';
 
 export default {
   name: "twitter-timeline",
+  props: {
+    count: {
+      default: 5,
+      type: Number
+    }
+  },
 
   components: {
     Timeline,
@@ -25,7 +31,7 @@ export default {
   }),
 
   mounted() {
-    axios.get('/api/tweets')
+    axios.get(`/api/tweets/${this.count}`)
       .then(response => {
         this.tweets = response.data;
       })
