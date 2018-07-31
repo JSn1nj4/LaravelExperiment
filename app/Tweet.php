@@ -68,7 +68,7 @@ class Tweet extends Model
      */
     public function createToken()
     {
-        if(!$this->token) {
+        if($this->token) {
             return true;
         }
 
