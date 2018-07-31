@@ -1,22 +1,21 @@
 <template>
   <div id="twitter-app" class="max-w-sm m-auto pb-4">
 
-    <timeline>
-      <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
-    </timeline>
+    <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
 
   </div>
 </template>
 <script>
 import axios from 'axios';
 import TwitterCard from './components/TwitterCard.vue';
-import Timeline from './components/Timeline.vue';
 
 export default {
-  name: "twitter-app",
+  name: "tweet",
+  props: {
+    tweetId: String
+  },
 
   components: {
-    Timeline,
     TwitterCard
   },
 
@@ -25,7 +24,7 @@ export default {
   }),
 
   mounted() {
-    axios.get('/api/tweets')
+    axios.get(`/api/tweet/${this.tweetId}`)
       .then(response => {
         this.tweets = response.data;
       })
