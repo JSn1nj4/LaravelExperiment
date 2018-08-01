@@ -1,7 +1,7 @@
 <template>
   <div id="twitter-app" class="max-w-sm m-auto pb-4">
 
-    <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
+    <twitter-card v-if="tweet" :tweet="tweet"></twitter-card>
 
   </div>
 </template>
@@ -20,13 +20,13 @@ export default {
   },
 
   data: () => ({
-    tweets: []
+    tweet: undefined
   }),
 
   mounted() {
     axios.get(`/api/tweet/${this.tweetId}`)
       .then(response => {
-        this.tweets = response.data;
+        this.tweet = Array.isArray(response.data) ? response.data[0] : response.data;
       })
       .catch(error => {
         console.error(error);
