@@ -147,31 +147,68 @@ class Tweet extends Model
      */
     private function formatTweetData($tweets)
     {
-        $formattedTweets = [];
+        $formattedTweets = collect([]);
 
-        foreach(json_decode($tweets) as $tweet) {
-            $tmp = new \stdClass;
-            $tmp->created_at = $tweet->created_at;
-            $tmp->id_str = $tweet->id_str;
-            $tmp->text = $tweet->text;
-            $tmp->entities = new \stdClass;
-            $tmp->entities->hashtags = [];
-            $tmp->entities->user_mentions = [];
-            $tmp->user = new \stdClass;
-            $tmp->user->name = $tweet->user->name;
-            $tmp->user->screen_name = $tweet->user->screen_name;
-            $tmp->user->profile_image_url_https = $tweet->user->profile_image_url_https;
+        foreach(json_decode($tweets, true) as $tweet) {
+            $tweet = collect($tweet)->reject(function($val, $key) {
+                return !in_array($key, [
+                    'created_at',
+                    'id_str',
+                    'text',
+                    'entities',
+                    'user',
+                    'retweeted_status'
+                ]);
+            });
 
-            foreach($tweet->entities->hashtags as $hashtag) {
-                array_push($tmp->entities->hashtags, $hashtag->text);
-            }
+            $user = collect($tweet->get('user'))->reject(function($val, $key) {
+                return !in_array($key, [
+                    'name',
+                    'screen_name',
+                    'profile_image_url_https'
+                ]);
+            });
+            $tweet->put('user', $user->toArray());
 
-            foreach($tweet->entities->user_mentions as $user_mention) {
-                array_push($tmp->entities->user_mentions, $user_mention->screen_name);
-            }
+            $rt = collect($tweet->get('retweeted_status'))->reject(function($val, $key) {
+                return !in_array($key, [
+                    'text',
+                    'entities'
+                ]);
+            });
+            // $entities = collect($rt->get('entities'));
+            // $media = collect($entities->get('media'))->each(function($item, $key) {
+            //     return collect($item)->reject(function($val, $key) {
+            //         return
+            //     })->toArray();
+            // });
+            $tweet->put('retweeted_status', $rt->toArray());
 
-            array_push($formattedTweets, $tmp);
+            $formattedTweets->push($tweet->toArray());
         }
+        // foreach(json_decode($tweets) as $tweet) {
+        //     $tmp = new \stdClass;
+        //     $tmp->created_at = $tweet->created_at;
+        //     $tmp->id_str = $tweet->id_str;
+        //     $tmp->text = $tweet->text;
+        //     $tmp->entities = new \stdClass;
+        //     $tmp->entities->hashtags = [];
+        //     $tmp->entities->user_mentions = [];
+        //     $tmp->user = new \stdClass;
+        //     $tmp->user->name = $tweet->user->name;
+        //     $tmp->user->screen_name = $tweet->user->screen_name;
+        //     $tmp->user->profile_image_url_https = $tweet->user->profile_image_url_https;
+        //
+        //     foreach($tweet->entities->hashtags as $hashtag) {
+        //         array_push($tmp->entities->hashtags, $hashtag->text);
+        //     }
+        //
+        //     foreach($tweet->entities->user_mentions as $user_mention) {
+        //         array_push($tmp->entities->user_mentions, $user_mention->screen_name);
+        //     }
+        //
+        //     array_push($formattedTweets, $tmp);
+        // }
 
         return $formattedTweets;
     }
