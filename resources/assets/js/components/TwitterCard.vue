@@ -77,8 +77,8 @@ export default {
       // Link hashtags, according to Twitter's guidelines
       this.tweet.entities.hashtags.map(elem => {
         text = text.replace(
-          `#${elem}`,
-          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%23${elem}">#${elem}</a>`
+          `#${elem.text}`,
+          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
         );
       });
 
