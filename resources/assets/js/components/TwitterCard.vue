@@ -107,12 +107,14 @@ export default {
       });
 
       // Render images
-      this.tweet.entities.media.map(elem => {
-        text = text.replace(
-          elem.url,
-          `<a class="no-underline" target="_blank" href="${elem.expanded_url}"><img class="mt-4" src="${elem.media_url_https}" width="${elem.sizes.small.w}" height="${elem.sizes.small.h}"></a>`
-        );
-      });
+      if(this.tweet.entities.media) {
+        this.tweet.entities.media.map(elem => {
+          text = text.replace(
+            elem.url,
+            `<a class="no-underline" target="_blank" href="${elem.expanded_url}"><img class="mt-4" src="${elem.media_url_https}" width="${elem.sizes.small.w}" height="${elem.sizes.small.h}"></a>`
+          );
+        });
+      }
 
       // Insert HTML line breaks where necessary
       return text.replace('\n', '<br>');
