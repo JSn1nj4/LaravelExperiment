@@ -135,9 +135,9 @@ export default {
     }
   },
 
-  mounted() {
-    window.tweet = this.tweet;
-  }
+  // mounted() {
+  //   window.tweet = this.tweet;
+  // }
 }
 </script>
 <style lang="scss">
