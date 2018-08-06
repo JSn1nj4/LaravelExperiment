@@ -65,7 +65,7 @@ export default {
     tweet: Object
   },
   data: () => ({
-    baseLink: 'https://twitter.com/'
+    baseLink: 'https://twitter.com'
   }),
   methods: {
     formatDate(created_at) {
@@ -98,13 +98,21 @@ export default {
         );
       });
 
+      // Link symbols to Twitter searches
+      this.tweet.entities.symbols.map(elem => {
+        text = text.replace(
+          `$${elem.text}`,
+          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%24${elem.text}&src=ctag">$${elem.text}</a>`
+        );
+      });
+
       // Insert HTML line breaks where necessary
       return text.replace('\n', '<br>');
     }
   },
   computed: {
     profile_url() {
-      return this.baseLink + this.tweet.user.screen_name;
+      return `${this.baseLink}/${this.tweet.user.screen_name}`;
     },
     /**
      * Tweet URL computed property
