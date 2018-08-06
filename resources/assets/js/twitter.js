@@ -5,7 +5,7 @@ const TweetWidget = new Vue({
   el: '#tweet',
   render: h => h(Tweet, {
     props: {
-      tweetId: '1019739715434696704'
+      tweetId: '834734319503552513'
     }
   })
 });
