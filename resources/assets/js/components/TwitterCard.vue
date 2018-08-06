@@ -85,8 +85,16 @@ export default {
       // Link @mentions, according to Twitter's guidelines
       this.tweet.entities.user_mentions.map(elem => {
         text = text.replace(
-          `@${elem}`,
-          `<a class="no-underline" target="_blank" href="${this.baseLink}/${elem}">@${elem}</a>`
+          `@${elem.screen_name}`,
+          `<a class="no-underline" target="_blank" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
+        );
+      });
+
+      // Link URLs, according to Twitter's guidelines
+      this.tweet.entities.urls.map(elem => {
+        text = text.replace(
+          elem.url,
+          `<a class="no-underline" target="_blank" href="${elem.expanded_url}">${elem.display_url}</a>`
         );
       });
 
@@ -107,6 +115,10 @@ export default {
     tweet_url() {
       return `${this.profile_url}/status/${this.tweet.id_str}`;
     }
+  },
+
+  mounted() {
+    window.tweet = this.tweet;
   }
 }
 </script>
