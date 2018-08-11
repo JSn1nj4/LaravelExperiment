@@ -1,7 +1,7 @@
 <template>
   <div id="twitter-app" class="max-w-sm m-auto pb-4">
 
-    <timeline>
+    <timeline :show-line="count >= 2">
       <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
     </timeline>
 

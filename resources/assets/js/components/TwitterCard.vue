@@ -117,7 +117,7 @@ export default {
       }
 
       // Insert HTML line breaks where necessary
-      return text.replace('\n', '<br>');
+      return text.replace(/(?:\r\n|\r|\n)/g, '<br>');
     }
   },
   computed: {

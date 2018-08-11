@@ -1,16 +1,25 @@
 import TwitterTimeline from './TwitterTimeline.vue';
 import Tweet from './Tweet.vue';
 
-const TweetWidget = new Vue({
-  el: '#tweet',
-  render: h => h(Tweet, {
+const NewestTweet = new Vue({
+  el: '#newest-tweet',
+  render: h => h(TwitterTimeline, {
     props: {
-      tweetId: '834734319503552513'
+      count: 1
     }
   })
 });
 
-const TwitterTimelineWidget = new Vue({
-  el: '#twitter',
-  render: h => h(TwitterTimeline)
-});
+// const TweetWidget = new Vue({
+//   el: '#tweet',
+//   render: h => h(Tweet, {
+//     props: {
+//       tweetId: '834734319503552513'
+//     }
+//   })
+// });
+//
+// const TwitterTimelineWidget = new Vue({
+//   el: '#twitter',
+//   render: h => h(TwitterTimeline)
+// });
