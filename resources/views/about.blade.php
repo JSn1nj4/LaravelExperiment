@@ -28,7 +28,7 @@
                     </p>
 
                     <p class="mb-4">
-                         For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently; in fact, this website is built using Laravel, and will continue to make use of it for different learning experiments.
+                        For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently; in fact, this website is built using Laravel, and will continue to make use of it for different learning experiments.
                     </p>
 
                 </div>
