@@ -1,5 +1,15 @@
 # Changelog
 
+### Release 1.3
+1. Create Vue card component
+2. Create timeline for displaying multiple cards
+3. Create Twitter-specific cards
+    - These make use of the generic card, but are used for rendering tweets
+    - Parse tweet data for proper tweet display
+4. Setup connection to Twitter API
+5. Add support for displaying a single, specific tweet by ID
+6. Add support for displaying single, newest tweet in timeline
+
 ### Release 1.2.1
 - Convert globally-registered components to locally-registered components
 - Rework event handling between button and menu
