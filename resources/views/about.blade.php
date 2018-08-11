@@ -20,7 +20,7 @@
                     </h1>
 
                     <p class="mb-4">
-                        I am a web developer primarily with experience in building WordPress websites. I have learned the basics of HTML and CSS along with JavaScript and PHP.
+                        I am a web developer primarily with experience in building WordPress websites. I have learned HTML and CSS along with JavaScript and PHP.
                     </p>
 
                     <p class="mb-4">
