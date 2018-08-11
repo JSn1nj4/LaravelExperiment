@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.3.1
+Small change to bio text
+
 ### Release 1.3
 1. Create Vue card component
 2. Create timeline for displaying multiple cards
