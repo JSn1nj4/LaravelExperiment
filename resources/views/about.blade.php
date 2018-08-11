@@ -44,8 +44,9 @@
 
         </section>
 
-        <section id="tweet" class="block md:flex"></section>
-        <section id="twitter" class="block md:flex"></section>
+        <section id="newest-tweet" class="block md:flex"></section>
+        {{-- <section id="tweet" class="block md:flex"></section> --}}
+        {{-- <section id="twitter" class="block md:flex"></section> --}}
     </div>
 @endsection
 
