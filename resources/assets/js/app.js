@@ -11,14 +11,16 @@ import { ToggleButton } from './components/Button';
 import { HeaderMenu } from './components/HeaderMenu';
 
 const header = new Vue({
-    el: '#header',
-    components: {
-        'toggle-button': ToggleButton,
-        'header-menu': HeaderMenu
-    },
-    methods: {
-        buttonClick() {
-            this.$emit('menu-toggled');
-        }
+  el: '#header',
+
+  components: {
+    'toggle-button': ToggleButton,
+    'header-menu': HeaderMenu
+  },
+  
+  methods: {
+    buttonClick() {
+      this.$emit('menu-toggled');
     }
+  }
 });

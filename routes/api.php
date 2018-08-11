@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Retrieve list of tweets
+Route::get('/tweets', 'TweetController@index');
+Route::get('/tweets/{count}', 'TweetController@index');
+
+// Retrieve single tweets
+Route::get('/tweet/{id}', 'TweetController@show');

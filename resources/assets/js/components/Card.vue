@@ -1,0 +1,41 @@
+<template>
+  <div :class="classes" @click="click">
+    <slot></slot>
+  </div>
+</template>
+<script>
+export default {
+  name: "card",
+
+  props: {
+    size: String,
+    url: String
+  },
+
+  data: () => ({
+    urlIsSet: false,
+    cursorClass: ''
+  }),
+
+  computed: {
+    classes() {
+      return `relative bg-black p-4 my-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green max-w-${this.size} w-full${this.cursorClass} z-50`;
+    }
+  },
+
+  methods: {
+    click() {
+      if(this.urlIsSet) {
+        open(this.url, '_blank');
+      }
+    }
+  },
+
+  mounted() {
+    if(this.url && this.url.length > 0) {
+      this.cursorClass = ' cursor-pointer';
+      this.urlIsSet = true;
+    }
+  }
+}
+</script>
