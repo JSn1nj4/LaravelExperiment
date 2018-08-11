@@ -44,7 +44,12 @@
 
         </section>
 
-        <section id="newest-tweet" class="block md:flex"></section>
+        <section class="block md:flex">
+            <div class="w-full pb-6">
+                <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">Latest Tweet</h2>
+                <div id="newest-tweet"></div>
+            </div>
+        </section>
         {{-- <section id="tweet" class="block md:flex"></section> --}}
         {{-- <section id="twitter" class="block md:flex"></section> --}}
     </div>
