@@ -19,8 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Retrieve list of tweets
 Route::get('/tweets', 'TweetController@index');
-Route::get('/tweets/demo', 'TweetController@index');
 Route::get('/tweets/{count}', 'TweetController@index');
+Route::get('/tweets/{count}/demo', 'TweetController@index');
 
 // Retrieve single tweets
 Route::get('/tweet/{id}', 'TweetController@show');
