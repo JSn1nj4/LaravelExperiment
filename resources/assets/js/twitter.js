@@ -19,7 +19,7 @@ const NewestTweet = new Vue({
 //   })
 // });
 //
-// const TwitterTimelineWidget = new Vue({
-//   el: '#twitter',
-//   render: h => h(TwitterTimeline)
-// });
+const TwitterTimelineWidget = new Vue({
+  el: '#twitter',
+  render: h => h(TwitterTimeline)
+});
