@@ -50,8 +50,6 @@
                 <div id="newest-tweet"></div>
             </div>
         </section>
-        {{-- <section id="tweet" class="block md:flex"></section> --}}
-        {{-- <section id="twitter" class="block md:flex"></section> --}}
     </div>
 @endsection
 
