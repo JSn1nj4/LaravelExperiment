@@ -21,9 +21,6 @@ export default {
 .spinner--hexagon .spinner-inner {
   box-sizing: content-box;
 }
-.spinner--hexagon .spinner-inner:after {
-  display: none !important;
-}
 .hexagon {
   background-color: #00c49a !important;
 }
