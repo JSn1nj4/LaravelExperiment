@@ -1,5 +1,5 @@
 <template>
-  <div :class="`load-animation ${show ? 'show' : 'hide'}-animation`">
+  <div :class="`loading-animation ${this.show ? 'show' : 'hide'}`">
     <socket size="80px" background="#00c49a"></socket>
   </div>
 </template>
@@ -14,10 +14,20 @@ export default {
 
   data: () => ({
     show: true
-  })
+  }),
+
+  methods: {
+    fadeOut() {
+      alert('Fading out');
+      this.show = false;
+    }
+  }
 }
 </script>
 <style lang="scss">
+.loading-animation.hide {
+  display: none;
+}
 .hex-brick {
   animation-name: socket-fade !important;
 }

@@ -2,7 +2,7 @@
   <div id="twitter-app" class="max-w-sm m-auto pb-4">
 
     <timeline :show-line="count >= 2">
-      <loading-animation></loading-animation>
+      <loading-animation ref="socketLoader"></loading-animation>
 
       <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
     </timeline>
@@ -37,11 +37,14 @@ export default {
   mounted() {
     axios.get(`/api/tweets/${this.count}`)
       .then(response => {
+        this.$refs.socketLoader.fadeOut();
         this.tweets = response.data;
       })
       .catch(error => {
         console.error(error);
       });
+
+    window.twitterfeed = this;
   }
 
 }
