@@ -1,15 +1,15 @@
 <template>
   <div :class="`load-animation ${show ? 'show' : 'hide'}-animation`">
-    <hexagon size="80px"></hexagon>
+    <socket size="80px" background="#00c49a"></socket>
   </div>
 </template>
 <script>
-import { Hexagon } from 'vue-loading-spinner';
+import { Socket } from 'vue-loading-spinner';
 export default {
   name: "load-animation",
 
   components: {
-    Hexagon
+    Socket
   },
 
   data: () => ({
@@ -18,17 +18,19 @@ export default {
 }
 </script>
 <style lang="scss">
-.spinner--hexagon .spinner-inner {
-  box-sizing: content-box;
+.hex-brick {
+  animation-name: socket-fade !important;
 }
-.hexagon {
-  background-color: #00c49a !important;
-}
-.hexagon:before {
-  border-bottom-color: #00c49a !important;
-}
-.hexagon:after {
-  border-top-color: #00c49a !important;
+@keyframes socket-fade {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: #00c49a;
+  }
+  100% {
+    background: #fff;
+  }
 }
 </style>
 <style lang="scss" scoped>
