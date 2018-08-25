@@ -1,6 +1,9 @@
 <template>
-  <div :class="`loading-animation ${this.show ? 'show' : 'hide'} z-${zIndex}`">
-    <socket size="80px" background="#00c49a"></socket>
+  <div class="loading-animation absolute pin-t pin-l w-full"
+    :class="[{ hide: isHidden }, zIndex]">
+    <div class="loader-wrapper mx-auto" :style="`max-width: ${this.size}`">
+      <socket :size="size" background="#00c49a"></socket>
+    </div>
   </div>
 </template>
 <script>
@@ -8,38 +11,42 @@ import { Socket } from 'vue-loading-spinner';
 export default {
   name: "load-animation",
 
+  props: {
+    size: {
+      type: String,
+      default: '80px'
+    }
+  },
+
   components: {
     Socket
   },
 
   data: () => ({
-    show: true,
-    zIndex: '10'
+    isHidden: false,
+    zIndex: 'z-50',
   }),
 
   methods: {
     fadeOut() {
-      this.show = false;
+      this.isHidden = true;
       setTimeout(function() {
-        this.zIndex = '0';
+        this.zIndex = 'z-0';
         console.log("zIndex: " + this.zIndex);
       }, 1000);
     },
 
     fadeIn() {
-      this.zIndex = '10';
-      this.show = true;
+      this.zIndex = 'z-50';
+      this.isHidden = false;
     }
   }
 }
 </script>
 <style lang="scss">
 .loading-animation {
+  opacity: 1;
   transition: opacity 1s;
-
-  &.show {
-    opacity: 1;
-  }
 
   &.hide {
     opacity: 0;
