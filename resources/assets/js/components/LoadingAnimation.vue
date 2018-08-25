@@ -30,7 +30,7 @@ export default {
   methods: {
     fadeOut() {
       this.isHidden = true;
-      setTimeout(function() {
+      setTimeout(() => {
         this.zIndex = 'z-0';
         console.log("zIndex: " + this.zIndex);
       }, 1000);
