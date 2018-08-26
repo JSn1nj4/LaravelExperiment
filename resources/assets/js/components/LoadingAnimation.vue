@@ -28,6 +28,15 @@ export default {
   }),
 
   methods: {
+    /**
+     * @method fadeOut
+     *
+     * @return void
+     *
+     * @description This method is meant to be called by a parent
+     * component. The purpose is for the parent component to fade this
+     * component out when loading is complete.
+     */
     fadeOut() {
       this.isHidden = true;
       setTimeout(() => {
@@ -35,6 +44,14 @@ export default {
       }, 1000);
     },
 
+    /**
+     * @method fadeIn
+     * @return void
+     *
+     * @description This method fades the loader animation back in. This
+     * method may not be needed in the future. However, it's nice to
+     * have a way to undo the affects of the fadeOut method.
+     */
     fadeIn() {
       this.zIndex = 'z-50';
       this.isHidden = false;
@@ -51,6 +68,11 @@ export default {
     opacity: 0;
   }
 }
+
+/**
+ * A new animation was necessary to override the colors since they were
+ * being set by the animation that came with the Socket component.
+ */
 .hex-brick {
   animation-name: socket-fade !important;
 }
