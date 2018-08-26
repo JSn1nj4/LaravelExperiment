@@ -32,7 +32,6 @@ export default {
       this.isHidden = true;
       setTimeout(() => {
         this.zIndex = 'z-0';
-        console.log("zIndex: " + this.zIndex);
       }, 1000);
     },
 
