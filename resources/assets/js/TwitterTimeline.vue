@@ -41,8 +41,8 @@ export default {
   mounted() {
     axios.get(`/api/tweets/${this.count}`)
       .then(response => {
-        this.$refs.socketLoader.fadeOut();
         this.tweets = response.data;
+        this.$refs.socketLoader.fadeOut();
       })
       .catch(error => {
         console.error(error);
