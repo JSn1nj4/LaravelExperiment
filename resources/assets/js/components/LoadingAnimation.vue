@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-animation absolute pin-t pin-l w-full"
+  <div class="loading-animation absolute pin-t pin-l w-full h-full"
     :class="[{ hide: isHidden }, zIndex]">
     <div class="loader-content mx-auto" :style="`max-width: ${this.size}`">
       <socket :size="size" background="#00c49a"></socket>
@@ -63,6 +63,7 @@ export default {
 .loading-animation {
   opacity: 1;
   transition: opacity 1s;
+  background: rgba(21, 21, 21, 0.8);
 
   &.hide {
     opacity: 0;
