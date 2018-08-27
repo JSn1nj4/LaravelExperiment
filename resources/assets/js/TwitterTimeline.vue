@@ -1,5 +1,5 @@
 <template>
-  <div id="twitter-app" class="max-w-sm m-auto pb-4" :style="`min-height: ${this.loaderSize}`">
+  <div id="twitter-app" class="max-w-sm m-auto mb-4" :style="`min-height: ${this.loaderSize}`">
 
     <timeline :show-line="count >= 2">
       <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
