@@ -2,7 +2,7 @@
   <div id="twitter-app" class="max-w-sm m-auto pb-4">
 
     <timeline :show-line="count >= 2">
-      <loading-animation ref="socketLoader"></loading-animation>
+      <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
 
       <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
     </timeline>
@@ -21,6 +21,10 @@ export default {
     count: {
       default: 5,
       type: Number
+    },
+    loaderSize: {
+      default: '80px',
+      type: String
     }
   },
 
