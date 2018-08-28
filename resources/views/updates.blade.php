@@ -34,5 +34,5 @@
 @endsection
 
 @section('footer-extras')
-    <script src="/js/twitter.js" charset="utf-8"></script>
+    <script src="/js/TwitterTimelineWidget.js" charset="utf-8"></script>
 @endsection
