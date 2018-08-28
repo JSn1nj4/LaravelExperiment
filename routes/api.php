@@ -24,3 +24,7 @@ Route::get('/tweets/{count}/demo', 'TweetController@index');
 
 // Retrieve single tweets
 Route::get('/tweet/{id}', 'TweetController@show');
+
+// Retrieve GitHub activity
+Route::get('/github/activity', 'GitHubActivityController@index');
+Route::get('/github/activity/{count}', 'GitHubActivityController@index');
