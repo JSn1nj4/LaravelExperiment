@@ -15,6 +15,6 @@ class GitHubActivityController extends Controller
 
     public function index(int $count = 5)
     {
-        return $this->github_activity->getRawActivity( "$this->github_activity->api_url/users/JSn1nj4/events" );
+        return $this->github_activity->getActivity();
     }
 }

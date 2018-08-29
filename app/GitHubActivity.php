@@ -34,7 +34,7 @@ class GitHubActivity extends Model
     {
         parent::__construct($attributes);
 
-        $this->token = config('service.github.token', false);
+        $this->token = config('services.github.token', false);
     }
 
     /**
@@ -58,7 +58,8 @@ class GitHubActivity extends Model
             CURLOPT_URL => $curl_url,
             CURLOPT_HTTPHEADER => [
                 "Accept: application/vnd.github.v3+json",
-                "Authorization: token $this->token"
+                "Authorization: token $this->token",
+                "User-Agent: Elliot-Derhay-App"
             ],
             CURLOPT_RETURNTRANSFER => true
         ]);
@@ -72,5 +73,26 @@ class GitHubActivity extends Model
         curl_close($ch);
 
         return $activity;
+    }
+
+    /**
+     * Format tweet data
+     *
+     * @param string    $activity
+     * @return array
+     *
+     * Strip down tweet data returned by Twitter API. Most of the data returned
+     * by the Twitter API isn't necessary in this case.
+     */
+    public function formatActivityData($activity)
+    {
+        return $activity;
+    }
+
+    public function getActivity(array $options = [])
+    {
+        return $this->formatActivityData(json_decode(
+            $this->getRawActivity("$this->api_url/users/JSn1nj4/events")
+        ));
     }
 }
