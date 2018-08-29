@@ -36,4 +36,41 @@ class GitHubActivity extends Model
 
         $this->token = config('service.github.token', false);
     }
+
+    /**
+     * Retrieve raw activity via GitHub's API
+     *
+     * @param string    $curl_url
+     * @return string
+     *
+     * @todo: check for error message
+     */
+    public function getRawActivity(string $curl_url)
+    {
+        if(!this->token) {
+            dump('GitHub token not set!');
+            abort(500);
+        }
+
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $curl_url,
+            CURLOPT_HTTPHEADER => [
+                "Accept: application/vnd.github.v3+json",
+                "Authorization: token $this->token"
+            ],
+            CURLOPT_RETURNTRANSFER => true
+        ]);
+
+        $activity = curl_exec($ch);
+
+        /**
+         * check for cURL errors here
+         */
+
+        curl_close($ch);
+
+        return $activity;
+    }
 }
