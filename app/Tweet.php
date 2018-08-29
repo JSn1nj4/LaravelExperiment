@@ -48,7 +48,7 @@ class Tweet extends Model
     {
         parent::__construct($attributes);
 
-        $this->token = config('service.twitter.token', false);
+        $this->token = config('services.twitter.token', false);
         $this->key = config('services.twitter.key', false);
         $this->secret = config('services.twitter.secret', false);
     }
