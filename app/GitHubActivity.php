@@ -47,7 +47,7 @@ class GitHubActivity extends Model
      */
     public function getRawActivity(string $curl_url)
     {
-        if(!this->token) {
+        if(!$this->token) {
             dump('GitHub token not set!');
             abort(500);
         }
