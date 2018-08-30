@@ -107,7 +107,7 @@ class GitHubActivity extends Model
     public function getActivity(array $options = [])
     {
         return $this->formatActivityData(json_decode(
-            $this->getRawActivity("$this->api_url/users/JSn1nj4/events")
+            $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public")
         ));
     }
 }
