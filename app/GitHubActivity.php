@@ -98,16 +98,16 @@ class GitHubActivity extends Model
      * Retrieve GitHub activity
      *
      * @method          getActivity
-     * @param array     $options: count, screen_name, retweets
+     * @param int       $count
      * @return string
      *
      * This method returns a list of tweets that their initial API data trimmed
      * down first.
      */
-    public function getActivity(array $options = [])
+    public function getActivity(int $count = 5)
     {
         return $this->formatActivityData(json_decode(
-            $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public")
+            $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public?per_page=$count")
         ));
     }
 }
