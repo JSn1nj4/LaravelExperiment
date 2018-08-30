@@ -91,7 +91,38 @@ class GitHubActivity extends Model
      */
     public function formatActivityData($activity)
     {
-        return $activity;
+        $formattedActivity = collect([]);
+
+        foreach(json_decode($formattedActivity, true) as $item) {
+            $item = collect($item);
+
+            // Remove unnecessary items from 'actor' data
+            $actor = collect($item->get('actor'))->reject(function($val, $key) {
+                // filter
+            });
+            $item->put('actor', $actor->toArray());
+
+            // Remove unnecessary items from 'repo' data
+            $repo = collect($item->get('repo'))->reject(function($val, $key) {
+                // filter
+            });
+            $item->put('repo', $repo->toArray());
+
+            // Remove unnecessary items from 'payload' data
+            $payload = collect($item->get('payload'))->reject(function($val, $key) {
+                // filter
+            });
+            $commits = $payload->get(commits);
+            for($i = 0; $i < count($commits); $i++) {
+                $commits[$i] = collect($commits[$i])->reject(function($val, $key) {
+                    // filter
+                })->toArray();    
+            }
+            $payload->put('commits', $commits);
+            $item->put('payload', $payload->toArray());
+        }
+
+        return $formattedActivity;
     }
 
     /**
