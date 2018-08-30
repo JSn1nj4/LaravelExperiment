@@ -9,6 +9,7 @@ class GitHubActivity extends Model
     /**
      * The base GitHub API URL
      *
+     * @property        $api_url
      * @var string
      */
     private $api_url = 'https://api.github.com';
@@ -16,6 +17,7 @@ class GitHubActivity extends Model
     /**
      * The token used for retrieving information from the GitHub API
      *
+     * @property        $token
      * @var string
      */
     private $token;
@@ -23,6 +25,7 @@ class GitHubActivity extends Model
     /**
      * Create a new instance of the GitHubActivity model
      *
+     * @method          __construct
      * @param array     $attributes
      * @return void
      *
@@ -40,6 +43,7 @@ class GitHubActivity extends Model
     /**
      * Retrieve raw activity via GitHub's API
      *
+     * @method          getRawActivity
      * @param string    $curl_url
      * @return string
      *
@@ -76,8 +80,9 @@ class GitHubActivity extends Model
     }
 
     /**
-     * Format tweet data
+     * Format activity data
      *
+     * @method          formatActivityData
      * @param string    $activity
      * @return array
      *
@@ -89,6 +94,16 @@ class GitHubActivity extends Model
         return $activity;
     }
 
+    /**
+     * Retrieve GitHub activity
+     *
+     * @method          getActivity
+     * @param array     $options: count, screen_name, retweets
+     * @return string
+     *
+     * This method returns a list of tweets that their initial API data trimmed
+     * down first.
+     */
     public function getActivity(array $options = [])
     {
         return $this->formatActivityData(json_decode(
