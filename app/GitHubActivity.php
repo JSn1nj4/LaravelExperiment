@@ -83,11 +83,11 @@ class GitHubActivity extends Model
      * Format activity data
      *
      * @method          formatActivityData
-     * @param string    $activity
+     * @param array     $activity
      * @return array
      *
-     * Strip down tweet data returned by Twitter API. Most of the data returned
-     * by the Twitter API isn't necessary in this case.
+     * Strip down data returned by GitHub API. Most of the data returned by the
+     * GitHub API isn't necessary in this case.
      */
     public function formatActivityData($activity)
     {
@@ -134,8 +134,7 @@ class GitHubActivity extends Model
      * @param int       $count
      * @return string
      *
-     * This method returns a list of tweets that their initial API data trimmed
-     * down first.
+     * This method returns a list of activity that has been trimmed first.
      */
     public function getActivity(int $count = 5)
     {
