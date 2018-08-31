@@ -93,33 +93,33 @@ class GitHubActivity extends Model
     {
         $formattedActivity = collect([]);
 
-        foreach(json_decode($formattedActivity, true) as $item) {
+        foreach($activity as $item) {
             $item = collect($item);
+            $item->forget('id');
+            $item->forget('public');
 
             // Remove unnecessary items from 'actor' data
-            $actor = collect($item->get('actor'))->reject(function($val, $key) {
-                // filter
-            });
-            $item->put('actor', $actor->toArray());
+            $item->put('actor', collect($item->get('actor'))->filter(function($val, $key) {
+                return !in_array($key, [
+                    'id',
+                    'gravatar_id'
+                ]);
+            })->toArray());
 
-            // Remove unnecessary items from 'repo' data
-            $repo = collect($item->get('repo'))->reject(function($val, $key) {
-                // filter
-            });
-            $item->put('repo', $repo->toArray());
+            $item->put('repo', collect($item->get('repo'))->forget('id')->toArray());
 
             // Remove unnecessary items from 'payload' data
-            $payload = collect($item->get('payload'))->reject(function($val, $key) {
-                // filter
-            });
-            $commits = $payload->get(commits);
-            for($i = 0; $i < count($commits); $i++) {
-                $commits[$i] = collect($commits[$i])->reject(function($val, $key) {
-                    // filter
-                })->toArray();    
-            }
-            $payload->put('commits', $commits);
-            $item->put('payload', $payload->toArray());
+            $item->put('payload', collect($item->get('payload'))->filter(function($val, $key) {
+                return !in_array($key, [
+                    'push_id',
+                    'size',
+                    'distinct_size',
+                    'head',
+                    'before'
+                ]);
+            })->toArray());
+
+            $formattedActivity->push($item->toArray());
         }
 
         return $formattedActivity;
