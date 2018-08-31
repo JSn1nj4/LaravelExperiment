@@ -115,7 +115,9 @@ class GitHubActivity extends Model
                     'size',
                     'distinct_size',
                     'head',
-                    'before'
+                    'before',
+                    'description',
+                    'pusher_type'
                 ]);
             })->toArray());
 
