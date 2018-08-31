@@ -15,6 +15,6 @@ class GitHubActivityController extends Controller
 
     public function index(int $count = 5)
     {
-        return $this->github_activity->getActivity();
+        return $this->github_activity->getActivity($count);
     }
 }
