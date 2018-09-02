@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="github-activity-item">
-    <card :size="'sm'">
+    <card :size="'sm'" type="transparent">
 
       <div class="flex flex-row relative">
-        <div class="text-grey fab arrow-alt-circle-up"></div>
+        <div class="text-grey far fa-arrow-alt-circle-up"></div>
 
         <div class="pl-4 flex-grow relative">
           <p class="text-grey">
@@ -39,12 +39,12 @@ import moment from 'moment';
 import Card from './Card.vue';
 
 export default {
-  name: "github-activity-item",
+  name: "git-hub-activity-item",
   components: {
     Card
   },
   props: {
-    'github-activity': Object
+    event: Object
   },
   data: () => ({
     baseLink: 'https://github.com'

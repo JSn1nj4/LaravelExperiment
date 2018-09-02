@@ -1,6 +1,7 @@
 {
     "/js/TwitterTimelineWidget.js": "/js/TwitterTimelineWidget.js",
     "/js/NewestTweetWidget.js": "/js/NewestTweetWidget.js",
+    "/js/GitHubActivityTimelineWidget.js": "/js/GitHubActivityTimelineWidget.js",
     "/js/vendor.js": "/js/vendor.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
