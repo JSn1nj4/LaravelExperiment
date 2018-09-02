@@ -1,5 +1,5 @@
 <template>
-  <div id="twitter-app" class="max-w-sm m-auto mb-4" :style="`min-height: ${this.loaderSize}`">
+  <div class="max-w-sm m-auto mb-4" :style="`min-height: ${this.loaderSize}`">
 
     <timeline :show-line="count >= 2">
       <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
@@ -47,8 +47,6 @@ export default {
       .catch(error => {
         console.error(error);
       });
-
-    window.twitterfeed = this;
   }
 
 }
