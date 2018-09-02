@@ -10,21 +10,21 @@
             about X hours ago
           </p>
 
-          <p class="font-white">
+          <p class="font-white mt-1">
             <strong>
-              <a href="#" target="_blank">JSn1nj4</a> pushed to <a href="#" target="_blank">master</a> at <a href="#" target="_blank">JSn1nj4/ElliotDerhay.com</a>
+              <a href="#" target="_blank" class="no-underline">JSn1nj4</a> pushed to <a href="#" target="_blank" class="no-underline">master</a> at <a href="#" target="_blank" class="no-underline">JSn1nj4/ElliotDerhay.com</a>
             </strong>
           </p>
 
           <!-- Repeat for each commit pushed -->
-          <p class="font-grey">
+          <p class="font-grey align-middle mt-1">
             <a href="#" target="_blank" class="no-underline font-bold">
-              <img width="16" height="16" src="https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg" class="inline-block">
+              <img width="18" height="18" class="align-bottom" src="https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg">
             </a> <a href="#" target="_blank" class="no-underline">ffffff</a> Lorem ipsum dolor sit amet
           </p>
-          <p class="font-grey">
+          <p class="font-grey align-middle mt-1">
             <a href="#" target="_blank" class="no-underline font-bold">
-              <img width="24" height="24" src="https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg">
+              <img width="18" height="18" class="align-bottom" src="https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg">
             </a> <a href="#" target="_blank" class="no-underline">ffffff</a> Lorem ipsum dolor sit amet
           </p>
         </div>
