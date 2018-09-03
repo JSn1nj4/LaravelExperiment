@@ -7,7 +7,7 @@
 
         <div class="pl-4 flex-grow relative">
           <p class="text-grey">
-            about X hours ago
+            about {{ formattedDate }}
           </p>
 
           <div v-if="event.type == 'CreateEvent'">
@@ -69,6 +69,11 @@ export default {
       'DeleteEvent': 'far fa-trash-alt'
     }
   }),
+  computed: {
+    formattedDate() {
+      return moment(this.event.created_at).fromNow();
+    }
+  },
   mounted() {
     console.log(this['github-activity']);
   }
