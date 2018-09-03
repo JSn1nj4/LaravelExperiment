@@ -29,7 +29,7 @@
             <p v-for="commit in event.payload.commits" :key="commit.sha" class="font-grey align-middle mt-1">
               <a href="#" target="_blank" class="no-underline font-bold">
                 <img width="18" height="18" class="align-bottom" src="https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg">
-              </a> <a href="#" target="_blank" class="no-underline">ffffff</a> Lorem ipsum dolor sit amet
+              </a> <a href="#" target="_blank" class="no-underline">{{ shortHash(commit.sha) }}</a> {{ shortMsg(commit.message) }}
             </p>
           </div>
 
@@ -72,6 +72,15 @@ export default {
   computed: {
     formattedDate() {
       return moment(this.event.created_at).fromNow();
+    }
+  },
+  methods: {
+    shortMsg(msg) {
+      let msgEnd = msg.indexOf('\n');
+      return msgEnd >= 0 ? msg.slice(0, msgEnd) : msg;
+    },
+    shortHash(hash) {
+      return hash.slice(0, 6);
     }
   },
   mounted() {
