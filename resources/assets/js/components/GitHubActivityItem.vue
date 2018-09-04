@@ -3,7 +3,7 @@
     <card :size="'sm'" type="transparent">
 
       <div class="flex flex-row relative">
-        <div class="text-grey text-center flex-none github-activity-icon" :class="this[event.type].icon" style="width: 48px; font-size: 22px;"></div>
+        <div class="text-grey text-center flex-none github-activity-icon" :class="this[event.type].icon" style="width: 2rem; font-size: 22px;"></div>
 
         <div class="pl-4 flex-grow relative">
           <p class="text-grey">
