@@ -19,11 +19,17 @@ export default {
     showDottedLine: {
       type: Boolean,
       default: false
+    },
+    linePositionClass: {
+      type: String,
+      default: 'w-10'
     }
   },
 
-  data: () => ({
-    commonClasses: 'absolute w-10 border-r border-grey-dark'
-  }),
+  computed: {
+    commonClasses() {
+      return `absolute ${this.linePositionClass} border-r border-grey-dark`
+    }
+  },
 }
 </script>
