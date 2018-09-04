@@ -7,5 +7,9 @@ import GitHubActivityFeed from './GitHubActivityFeed.vue';
 
 const GitHubActivityFeedWidget = new Vue({
   el: '#github_activity_feed',
-  render: h => h(GitHubActivityFeed)
+  render: h => h(GitHubActivityFeed, {
+    props: {
+      loaderSize: '40px'
+    }
+  })
 });
