@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-sm m-auto mb-4" :style="`min-height: ${this.loaderSize}`">
 
-    <timeline :show-line="count >= 2">
+    <timeline :show-line="count >= 2" :line-position-class="'w-8'">
       <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
 
       <git-hub-activity-item v-for="(event, index) in events" :event="event" :key="`gh-event-${index}`"></git-hub-activity-item>
