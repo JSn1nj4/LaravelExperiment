@@ -48,8 +48,6 @@ export default {
       .catch(error => {
         console.error(error);
       });
-
-    window.ghActivity = this;
   }
 }
 </script>
