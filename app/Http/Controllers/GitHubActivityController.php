@@ -32,9 +32,9 @@ class GitHubActivityController extends Controller
      * @return array
      *
      * This will return an asociative array that should automatically be
-     * converted to JSON on the front-end.        
+     * converted to JSON on the front-end.
      */
-    public function index(int $count = 5)
+    public function index(int $count = 7)
     {
         return $this->github_activity->getActivity($count);
     }

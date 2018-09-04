@@ -136,7 +136,7 @@ class GitHubActivity extends Model
      *
      * This method returns a list of activity that has been trimmed first.
      */
-    public function getActivity(int $count = 5)
+    public function getActivity(int $count = 7)
     {
         return $this->formatActivityData(json_decode(
             $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public?per_page=$count")

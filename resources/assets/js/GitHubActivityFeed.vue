@@ -20,7 +20,7 @@ export default {
   name: "git-hub-activity-feed",
   props: {
     count: {
-      default: 5,
+      default: 7,
       type: Number
     },
     loaderSize: {
