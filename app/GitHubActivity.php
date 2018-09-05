@@ -80,29 +80,17 @@ class GitHubActivity extends Model
     }
 
     /**
-     * Filter data from issue comments
+     * Filter comment data from issue comment event payloads
      *
-     * @method          filterIssueCommentPayload
-     * @param array     $payload
+     * @method          filterIssueComment
+     * @param array     $comment
      * @return array
      *
      * This helps reduce the size of the payload sent with issue comment event
-     * data sent back to the client.
+     * data to be used on the client.
      */
-    public function filterIssueCommentPayload($payload)
+    public function filterIssueComment($comment)
     {
-        $payload = collect($payload);
-
-        $payload->put('issue',
-            collect($payload->get('issue'))->filter(function($key, $val) {
-                return !in_array($key, [
-                    'html_url',
-                    'number',
-                    'title'
-                ]);
-            })
-        );
-
         $comment = collect($payload->get('comment'))->filter(function($key, $val) {
             return !in_array($key, [
                 'html_url',
@@ -119,7 +107,39 @@ class GitHubActivity extends Model
                 ]);
             })
         );
-        $payload->put('comment', $comment->toArray());
+
+        return $comment->toArray();
+    }
+
+    /**
+     * Filter payload from issue event
+     *
+     * @method          filterIssueEventPayload
+     * @param array     $payload
+     * @return array
+     *
+     * This helps reduce the size of the payload sent with issue event data for
+     * use on the client.
+     */
+    public function filterIssueEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        $payload->put('issue',
+            collect($payload->get('issue'))->filter(function($key, $val) {
+                return !in_array($key, [
+                    'html_url',
+                    'number',
+                    'title'
+                ]);
+            })
+        );
+
+        if($payload->has('comment')) {
+            $payload->put('comment', $this->filterIssueComment(
+                $payload->get('comment')
+            ));
+        }
 
         return $payload->toArray();
     }
