@@ -10,7 +10,7 @@
             about {{ formattedDate }}
           </p>
 
-          <p class="font-white mt-1">
+          <p class="font-white mt-1 text-sm">
             <strong>
               <a :href="profileUrl" target="_blank" class="no-underline">
                 {{ event.actor.display_login }}
@@ -34,7 +34,7 @@
           </p>
 
           <template v-if="event.type == 'PushEvent'">
-            <p v-for="commit in event.payload.commits" :key="commit.sha" class="font-grey align-middle mt-1">
+            <p v-for="commit in event.payload.commits" :key="commit.sha" class="font-grey align-middle mt-2">
               <a :href="profileUrl" target="_blank" class="no-underline font-bold">
                 <img width="18" height="18" class="align-bottom" :src="tmpAvatarUrl">
               </a>
