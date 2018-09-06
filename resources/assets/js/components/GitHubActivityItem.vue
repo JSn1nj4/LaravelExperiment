@@ -160,7 +160,7 @@ export default {
     }
 
     if(this.event.type == 'IssuesEvent' && this.event.payload.action == 'closed') {
-      this.IssuesEvent.icon = 'fas fa-comment-slash';
+      this.IssuesEvent.icon = 'fas fa-minus-circle';
     }
 
     if(this.event.type == 'IssueCommentEvent' && this.event.payload.action == 'deleted') {
