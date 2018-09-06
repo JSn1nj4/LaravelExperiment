@@ -111,7 +111,7 @@ export default {
       preposition: 'at'
     },
     IssueCommentEvent: {
-      icon: 'far fa-comment-alt',
+      icon: 'fas fa-comment',
       action: 'commented on',
       preposition: 'at'
     },
