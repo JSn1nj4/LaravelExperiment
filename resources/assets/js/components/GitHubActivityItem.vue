@@ -159,12 +159,13 @@ export default {
       this.IssuesEvent.action = this.event.payload.action;
     }
 
-    if(this.event.type == 'IssueCommentEvent' && this.event.payload.action == 'created') {
-      this.IssueCommentEvent.action = 'commented on';
+    if(this.event.type == 'IssuesEvent' && this.event.payload.action == 'closed') {
+      this.IssuesEvent.icon = 'fas fa-comment-slash';
     }
 
     if(this.event.type == 'IssueCommentEvent' && this.event.payload.action == 'deleted') {
-      this.IssueCommentEvent.action = 'deleted comment from'
+      this.IssueCommentEvent.action = 'deleted comment from';
+      this.IssueCommentEvent.icon = 'fas fa-comment-slash';
     }
   }
 }
