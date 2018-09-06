@@ -18,7 +18,13 @@
 
               {{ this[event.type].action }}
 
-              <span v-if="event.type == 'DeleteEvent'" class="no-underline text-sea-green-darker">
+              <a v-if="event.type == 'IssuesEvent'" :href="this.event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
+                {{ issueNumberString }}
+              </a>
+              <a v-else-if="event.type == 'IssueCommentEvent'" :href="this.event.payload.comment.html_url" target="_blank" class="no-underline text-sea-green">
+                {{ issueNumberString }}
+              </a>
+              <span v-else-if="event.type == 'DeleteEvent'" class="no-underline text-sea-green-darker">
                 {{ branchName }}
               </span>
               <a v-else :href="branchUrl" target="_blank" class="no-underline">
@@ -42,6 +48,24 @@
                 {{ shortHash(commit.sha) }}
               </a>
               {{ shortMsg(commit.message) }}
+            </p>
+          </template>
+          <template v-else-if="event.type == 'IssuesEvent'">
+            <p class="font-grey align-middle mt-2">
+              <a :href="event.payload.issue.user.html_url">
+                <img width="18" height="18" class="align-bottom" :src="event.payload.issue.user.avatar_url">
+              </a>
+
+              {{ event.payload.issue.title }}
+            </p>
+          </template>
+          <template v-else-if="event.type == 'IssueCommentEvent'">
+            <p class="font-grey align-middle mt-2">
+              <a :href="event.payload.comment.user.html_url">
+                <img width="18" height="18" class="align-bottom" :src="event.payload.comment.user.avatar_url">
+              </a>
+
+              {{ issueComment }}
             </p>
           </template>
 
@@ -81,6 +105,16 @@ export default {
       action: 'deleted',
       preposition: 'from'
     },
+    IssuesEvent: {
+      icon: 'far fa-file-alt',
+      action: 'opened',
+      preposition: 'at'
+    },
+    IssueCommentEvent: {
+      icon: 'far fa-comment-alt',
+      action: 'commented on',
+      preposition: 'at'
+    },
     tmpAvatarUrl: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg',
   }),
   computed: {
@@ -98,6 +132,14 @@ export default {
     },
     branchUrl() {
       return `${this.repoUrl}/tree/${this.branchName}`;
+    },
+    issueNumberString() {
+      return `Issue #${this.event.payload.issue.number}`;
+    },
+    issueComment() {
+      let body = this.event.payload.comment.body;
+      let limit = 280;
+      return (body.length > limit) ? body.slice(0, 280).slice(0, body.lastIndexOf(' ')) + '...' : body;
     }
   },
   methods: {
@@ -110,6 +152,19 @@ export default {
     },
     commitUrl(hash) {
       return `${this.repoUrl}/commit/${hash}`;
+    }
+  },
+  mounted() {
+    if(this.event.type == 'IssuesEvent') {
+      this.IssuesEvent.action = this.event.payload.action;
+    }
+
+    if(this.event.type == 'IssueCommentEvent' && this.event.payload.action == 'created') {
+      this.IssueCommentEvent.action = 'commented on';
+    }
+
+    if(this.event.type == 'IssueCommentEvent' && this.event.payload.action == 'deleted') {
+      this.IssueCommentEvent.action = 'deleted comment from'
     }
   }
 }
