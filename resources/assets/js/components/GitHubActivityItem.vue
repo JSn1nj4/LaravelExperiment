@@ -27,15 +27,21 @@
               <span v-else-if="event.type == 'DeleteEvent'" class="no-underline text-sea-green-darker">
                 {{ branchName }}
               </span>
+              <a v-else-if="event.type == 'WatchEvent'" :href="repoUrl" target="_blank" class="no-underline">
+                {{ event.repo.name }}
+              </a>
               <a v-else :href="branchUrl" target="_blank" class="no-underline">
                 {{ branchName }}
               </a>
 
-              {{ this[event.type].preposition }}
+              <template v-if="!['WatchEvent'].includes(event.type)">
+                {{ this[event.type].preposition }}
 
-              <a :href="repoUrl" target="_blank" class="no-underline">
-                {{ event.repo.name }}
-              </a>
+                <a :href="repoUrl" target="_blank" class="no-underline">
+                  {{ event.repo.name }}
+                </a>
+              </template>
+
             </strong>
           </p>
 
@@ -114,6 +120,10 @@ export default {
       icon: 'fas fa-comment',
       action: 'commented on',
       preposition: 'at'
+    },
+    WatchEvent: {
+      icon: 'fas fa-star',
+      action: 'starred'
     },
     tmpAvatarUrl: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg',
   }),
