@@ -9,17 +9,25 @@ export default {
 
   props: {
     size: String,
-    url: String
+    url: String,
+    type: {
+      type: String,
+      default: 'default'
+    }
   },
 
   data: () => ({
     urlIsSet: false,
-    cursorClass: ''
+    cursorClass: '',
+    typeClasses: {
+      'default': 'p-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green bg-black',
+      'transparent': 'px-4'
+    }
   }),
 
   computed: {
     classes() {
-      return `relative bg-black p-4 my-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green max-w-${this.size} w-full${this.cursorClass} z-30`;
+      return `relative my-4 max-w-${this.size} w-full${this.cursorClass} z-30 ${this.typeClasses[this.type]}`;
     }
   },
 

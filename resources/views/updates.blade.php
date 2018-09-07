@@ -26,7 +26,7 @@
 
             <div class="block md:w-1/2 pb-8">
                 <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
-                {{-- <section id="twitter" class="block md:flex"></section> --}}
+                <section id="github_activity_feed" class="block md:flex"></section>
             </div>
 
         </section>
@@ -35,4 +35,5 @@
 
 @section('footer-extras')
     <script src="/js/TwitterTimelineWidget.js" charset="utf-8"></script>
+    <script src="/js/GitHubActivityTimelineWidget.js" charset="utf-8"></script>
 @endsection
