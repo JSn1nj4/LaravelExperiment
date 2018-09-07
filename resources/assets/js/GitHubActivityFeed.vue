@@ -24,7 +24,7 @@ export default {
       type: Number
     },
     loaderSize: {
-      default: '80px',
+      default: '40px',
       type: String
     }
   },

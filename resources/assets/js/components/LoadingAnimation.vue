@@ -14,7 +14,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: '80px'
+      default: '40px'
     }
   },
 
