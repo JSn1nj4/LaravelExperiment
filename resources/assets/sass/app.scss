@@ -103,6 +103,10 @@ a {
     }
 }
 
+img {
+    height: auto;
+}
+
 button {
     @include transitions((color $default-speed, border-color $default-speed));
 }
