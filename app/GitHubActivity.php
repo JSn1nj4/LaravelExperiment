@@ -91,7 +91,7 @@ class GitHubActivity extends Model
      */
     public function filterIssueComment($comment)
     {
-        $comment = collect($payload->get('comment'))->filter(function($key, $val) {
+        $comment = collect($comment)->filter(function($key, $val) {
             return !in_array($key, [
                 'html_url',
                 'user',
