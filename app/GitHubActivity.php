@@ -145,6 +145,35 @@ class GitHubActivity extends Model
     }
 
     /**
+     * Default method for filtering event payloads
+     *
+     * @method          filterEventPayload
+     * @param array     $payload
+     * @return array
+     *
+     * This is the default method used for filtering an event payload.
+     * It will be used if no special method is needed for filtering a
+     * payload of a given event type, such as for events that don't have
+     * multiple levels of payload data to sift through. If looking at
+     * only the first level of an event's payload is enough, then this
+     * is the method that should be used.
+     */
+    public function filterEventPayload($payload)
+    {
+        return collect($payload)->filter(function($val, $key) {
+            return !in_array($key, [
+                'push_id',
+                'size',
+                'distinct_size',
+                'head',
+                'before',
+                'description',
+                'pusher_type'
+            ]);
+        })->toArray();
+    }
+
+    /**
      * Format activity data
      *
      * @method          formatActivityData
@@ -174,17 +203,13 @@ class GitHubActivity extends Model
             $item->put('repo', collect($item->get('repo'))->forget('id')->toArray());
 
             // Remove unnecessary items from 'payload' data
-            $item->put('payload', collect($item->get('payload'))->filter(function($val, $key) {
-                return !in_array($key, [
-                    'push_id',
-                    'size',
-                    'distinct_size',
-                    'head',
-                    'before',
-                    'description',
-                    'pusher_type'
-                ]);
-            })->toArray());
+            $type = $item->get('type');
+            switch($type) {
+                default:
+                    $item->put('payload', $this->filterEventPayload(
+                        $item->get('payload')
+                    ));
+            }
 
             $formattedActivity->push($item->toArray());
         }
