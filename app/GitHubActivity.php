@@ -91,16 +91,16 @@ class GitHubActivity extends Model
      */
     public function filterIssueComment($comment)
     {
-        $comment = collect($comment)->filter(function($key, $val) {
-            return !in_array($key, [
+        $comment = collect($comment)->filter(function($val, $key) {
+            return in_array($key, [
                 'html_url',
                 'user',
                 'body'
             ]);
         });
         $comment->put('user',
-            collect($comment->get('user'))->filter(function($key, $val) {
-                return !in_array($key, [
+            collect($comment->get('user'))->filter(function($val, $key) {
+                return in_array($key, [
                     'login',
                     'avatar_url',
                     'html_url'
@@ -126,13 +126,13 @@ class GitHubActivity extends Model
         $payload = collect($payload);
 
         $payload->put('issue',
-            collect($payload->get('issue'))->filter(function($key, $val) {
-                return !in_array($key, [
+            collect($payload->get('issue'))->filter(function($val, $key) {
+                return in_array($key, [
                     'html_url',
                     'number',
                     'title'
                 ]);
-            })
+            })->toArray()
         );
 
         if($payload->has('comment')) {
