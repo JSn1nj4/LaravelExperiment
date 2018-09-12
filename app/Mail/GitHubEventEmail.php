@@ -11,14 +11,25 @@ class GitHubEventEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $fromName       = 'ElliotDerhay.com';
+    private $fromAddress    = 'web@elliotderhay.com';
+
+    public $subject        = 'New GitHub Activity Event Type';
+
+    public $types;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $eventTypes)
     {
-        //
+        if( !(count($eventTypes) >= 1) ) {
+            return abort(500);
+        }
+
+        $this->types = $eventTypes;
     }
 
     /**
@@ -28,6 +39,9 @@ class GitHubEventEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.github.new-event-type')
+                    ->from($this->fromAddress, $this->fromName)
+                    ->replyTo($this->fromAddress, $this->fromName)
+                    ->subject($this->subject);
     }
 }
