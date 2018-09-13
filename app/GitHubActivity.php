@@ -23,6 +23,24 @@ class GitHubActivity extends Model
     private $token;
 
     /**
+     * The list of event types currently supported
+     *
+     * @property        $eventTypes
+     * @var array
+     *
+     * I will make sure to sort these in the order they're listed on GitHub.
+     * Reference: https://developer.github.com/v3/activity/events/types/
+     */
+    private $eventTypes = [
+        'CreateEvent',
+        'DeleteEvent',
+        'IssueCommentEvent',
+        'IssuesEvent',
+        'PushEvent',
+        'WatchEvent'
+    ];
+
+    /**
      * Create a new instance of the GitHubActivity model
      *
      * @method          __construct
