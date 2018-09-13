@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Mail\GitHubEventEmail;
+use App\Mail\GitHubEventEmail;
 
 class GitHubActivity extends Model
 {
@@ -259,7 +259,10 @@ class GitHubActivity extends Model
             $formattedActivity->push($item->toArray());
         }
 
-        Mail::to($this->alertRecipients)->send(new GitHubEventEmail($newEventTypes));
+        if(count($newEventTypes) >= 1) {
+            \Mail::to($this->alertRecipients)->send(new GitHubEventEmail($newEventTypes));
+        }
+
         return $formattedActivity;
     }
 
