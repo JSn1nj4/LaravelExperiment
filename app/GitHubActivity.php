@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Mail\GitHubEventEmail;
 
 class GitHubActivity extends Model
 {
