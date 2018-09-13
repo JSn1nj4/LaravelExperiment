@@ -193,16 +193,16 @@ class GitHubActivity extends Model
     }
 
     /**
-     * Format activity data
+     * Filter activity data
      *
-     * @method          formatActivityData
+     * @method          filterActivityData
      * @param array     $activity
      * @return array
      *
      * Strip down data returned by GitHub API. Most of the data returned by the
      * GitHub API isn't necessary in this case.
      */
-    public function formatActivityData($activity)
+    public function filterActivityData($activity)
     {
         $formattedActivity = collect([]);
 
@@ -252,7 +252,7 @@ class GitHubActivity extends Model
      */
     public function getActivity(int $count = 7)
     {
-        return $this->formatActivityData(json_decode(
+        return $this->filterActivityData(json_decode(
             $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public?per_page=$count")
         ));
     }
