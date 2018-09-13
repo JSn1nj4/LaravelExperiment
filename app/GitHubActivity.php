@@ -24,6 +24,14 @@ class GitHubActivity extends Model
     private $token;
 
     /**
+     * The email address to send notifications to
+     *
+     * @property        $email
+     * @var string
+     */
+    private $alertRecipients = [];
+
+    /**
      * The list of event types currently supported
      *
      * @property        $eventTypes
@@ -57,6 +65,11 @@ class GitHubActivity extends Model
         parent::__construct($attributes);
 
         $this->token = config('services.github.token', false);
+
+        array_push($this->alertRecipients, [
+            'name' => config('mail.to.name'),
+            'address' => config('mail.to.address')
+        ]);
     }
 
     /**
@@ -205,9 +218,18 @@ class GitHubActivity extends Model
     public function filterActivityData($activity)
     {
         $formattedActivity = collect([]);
+        $newEventTypes = [];
 
         foreach($activity as $item) {
             $item = collect($item);
+            $type = $item->get('type');
+
+            // Skip $item if type is currently unsupported
+            if(!in_array($type, $this->eventTypes)) {
+                array_push($newEventTypes, $type);
+                continue;
+            }
+
             $item->forget('id');
             $item->forget('public');
 
@@ -222,7 +244,6 @@ class GitHubActivity extends Model
             $item->put('repo', collect($item->get('repo'))->forget('id')->toArray());
 
             // Remove unnecessary items from 'payload' data
-            $type = $item->get('type');
             switch($type) {
                 case preg_match('/Issue(s|Comment)?Event/', $type) === 1:
                     $item->put('payload', $this->filterIssueEventPayload(
@@ -238,6 +259,7 @@ class GitHubActivity extends Model
             $formattedActivity->push($item->toArray());
         }
 
+        Mail::to($this->alertRecipients)->send(new GitHubEventEmail($newEventTypes));
         return $formattedActivity;
     }
 
