@@ -101,24 +101,24 @@ export default {
       action: 'created',
       preposition: 'at'
     },
-    PushEvent: {
-      icon: 'far fa-arrow-alt-circle-up',
-      action: 'pushed to',
-      preposition: 'at'
-    },
     DeleteEvent: {
       icon: 'far fa-trash-alt',
       action: 'deleted',
       preposition: 'from'
+    },
+    IssueCommentEvent: {
+      icon: 'fas fa-comment',
+      action: 'commented on',
+      preposition: 'at'
     },
     IssuesEvent: {
       icon: 'far fa-file-alt',
       action: 'opened',
       preposition: 'at'
     },
-    IssueCommentEvent: {
-      icon: 'fas fa-comment',
-      action: 'commented on',
+    PushEvent: {
+      icon: 'far fa-arrow-alt-circle-up',
+      action: 'pushed to',
       preposition: 'at'
     },
     WatchEvent: {

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Mail\GitHubEventEmail;
 
 class GitHubActivity extends Model
 {
@@ -23,6 +24,32 @@ class GitHubActivity extends Model
     private $token;
 
     /**
+     * The email address to send notifications to
+     *
+     * @property        $email
+     * @var string
+     */
+    private $alertRecipients = [];
+
+    /**
+     * The list of event types currently supported
+     *
+     * @property        $eventTypes
+     * @var array
+     *
+     * I will make sure to sort these in the order they're listed on GitHub.
+     * Reference: https://developer.github.com/v3/activity/events/types/
+     */
+    private $eventTypes = [
+        'CreateEvent',
+        'DeleteEvent',
+        'IssueCommentEvent',
+        'IssuesEvent',
+        'PushEvent',
+        'WatchEvent'
+    ];
+
+    /**
      * Create a new instance of the GitHubActivity model
      *
      * @method          __construct
@@ -38,6 +65,11 @@ class GitHubActivity extends Model
         parent::__construct($attributes);
 
         $this->token = config('services.github.token', false);
+
+        array_push($this->alertRecipients, [
+            'name' => config('mail.to.name'),
+            'email' => config('mail.to.address')
+        ]);
     }
 
     /**
@@ -174,21 +206,30 @@ class GitHubActivity extends Model
     }
 
     /**
-     * Format activity data
+     * Filter activity data
      *
-     * @method          formatActivityData
+     * @method          filterActivityData
      * @param array     $activity
      * @return array
      *
      * Strip down data returned by GitHub API. Most of the data returned by the
      * GitHub API isn't necessary in this case.
      */
-    public function formatActivityData($activity)
+    public function filterActivityData($activity)
     {
         $formattedActivity = collect([]);
+        $newEventTypes = [];
 
         foreach($activity as $item) {
             $item = collect($item);
+            $type = $item->get('type');
+
+            // Skip $item if type is currently unsupported
+            if(!in_array($type, $this->eventTypes)) {
+                array_push($newEventTypes, $type);
+                continue;
+            }
+
             $item->forget('id');
             $item->forget('public');
 
@@ -203,7 +244,6 @@ class GitHubActivity extends Model
             $item->put('repo', collect($item->get('repo'))->forget('id')->toArray());
 
             // Remove unnecessary items from 'payload' data
-            $type = $item->get('type');
             switch($type) {
                 case preg_match('/Issue(s|Comment)?Event/', $type) === 1:
                     $item->put('payload', $this->filterIssueEventPayload(
@@ -217,6 +257,10 @@ class GitHubActivity extends Model
             }
 
             $formattedActivity->push($item->toArray());
+        }
+
+        if(count($newEventTypes) >= 1) {
+            \Mail::to($this->alertRecipients)->send(new GitHubEventEmail($newEventTypes));
         }
 
         return $formattedActivity;
@@ -233,7 +277,7 @@ class GitHubActivity extends Model
      */
     public function getActivity(int $count = 7)
     {
-        return $this->formatActivityData(json_decode(
+        return $this->filterActivityData(json_decode(
             $this->getRawActivity("$this->api_url/users/JSn1nj4/events/public?per_page=$count")
         ));
     }
