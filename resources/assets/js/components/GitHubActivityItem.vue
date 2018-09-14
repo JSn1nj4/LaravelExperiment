@@ -18,15 +18,18 @@
 
               {{ this[event.type].action }}
 
-              <a v-if="event.type == 'IssuesEvent'" :href="this.event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
+              <span v-if="event.type == 'DeleteEvent'" class="no-underline text-sea-green-darker">
+                {{ branchName }}
+              </span>
+              <a v-else-if="event.type == 'IssuesEvent'" :href="this.event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
                 {{ issueNumberString }}
+              </a>
+              <a v-else-if="event.type == 'ForkEvent'" :href="repoUrl" target="_blank" class="no-underline text-sea-green">
+                {{ event.repo.name }}
               </a>
               <a v-else-if="event.type == 'IssueCommentEvent'" :href="this.event.payload.comment.html_url" target="_blank" class="no-underline text-sea-green">
                 {{ issueNumberString }}
               </a>
-              <span v-else-if="event.type == 'DeleteEvent'" class="no-underline text-sea-green-darker">
-                {{ branchName }}
-              </span>
               <a v-else-if="event.type == 'WatchEvent'" :href="repoUrl" target="_blank" class="no-underline">
                 {{ event.repo.name }}
               </a>
@@ -37,7 +40,10 @@
               <template v-if="!['WatchEvent'].includes(event.type)">
                 {{ this[event.type].preposition }}
 
-                <a :href="repoUrl" target="_blank" class="no-underline">
+                <a v-if="event.type == 'ForkEvent'" :href="event.payload.forkee.html_url" target="_blank" class="no-underline">
+                  {{ event.payload.forkee.full_name }}
+                </a>
+                <a v-else :href="repoUrl" target="_blank" class="no-underline">
                   {{ event.repo.name }}
                 </a>
               </template>
@@ -105,6 +111,11 @@ export default {
       icon: 'far fa-trash-alt',
       action: 'deleted',
       preposition: 'from'
+    },
+    ForkEvent: {
+      icon: 'fas fa-code-branch',
+      action: 'forked',
+      preposition: 'into'
     },
     IssueCommentEvent: {
       icon: 'fas fa-comment',
