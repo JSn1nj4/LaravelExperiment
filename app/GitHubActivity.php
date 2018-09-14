@@ -68,7 +68,7 @@ class GitHubActivity extends Model
 
         array_push($this->alertRecipients, [
             'name' => config('mail.to.name'),
-            'address' => config('mail.to.address')
+            'email' => config('mail.to.address')
         ]);
     }
 
