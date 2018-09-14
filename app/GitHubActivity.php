@@ -43,6 +43,7 @@ class GitHubActivity extends Model
     private $eventTypes = [
         'CreateEvent',
         'DeleteEvent',
+        'ForkEvent',
         'IssueCommentEvent',
         'IssuesEvent',
         'PushEvent',
@@ -177,6 +178,29 @@ class GitHubActivity extends Model
     }
 
     /**
+     * Filter payload from fork event
+     *
+     * @method          filterForkEventPayload
+     * @param array     $payload
+     * @return array
+     */
+    private function filterForkEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        $payload->put('forkee',
+            collect($payload->get('forkee'))->filter(function($val, $key) {
+                return in_array($key, [
+                    'full_name',
+                    'html_url'
+                ]);
+            })->toArray()
+        )->toArray();
+
+        return $payload->toArray();
+    }
+
+    /**
      * Default method for filtering event payloads
      *
      * @method          filterEventPayload
@@ -250,6 +274,13 @@ class GitHubActivity extends Model
                         $item->get('payload')
                     ));
                     break;
+
+                case 'ForkEvent':
+                    $item->put('payload', $this->filterForkEventPayload(
+                        $item->get('payload')
+                    ));
+                    break;
+
                 default:
                     $item->put('payload', $this->filterEventPayload(
                         $item->get('payload')
