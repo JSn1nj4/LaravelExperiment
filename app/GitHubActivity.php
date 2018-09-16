@@ -242,7 +242,7 @@ class GitHubActivity extends Model
     public function filterActivityData($activity)
     {
         $formattedActivity = collect([]);
-        $newEventTypes = [];
+        $newEventTypes = collect([]);
 
         foreach($activity as $item) {
             $item = collect($item);
@@ -250,7 +250,7 @@ class GitHubActivity extends Model
 
             // Skip $item if type is currently unsupported
             if(!in_array($type, $this->eventTypes)) {
-                array_push($newEventTypes, $type);
+                $newEventTypes->push($type);
                 continue;
             }
 
@@ -290,8 +290,10 @@ class GitHubActivity extends Model
             $formattedActivity->push($item->toArray());
         }
 
-        if(count($newEventTypes) >= 1) {
-            \Mail::to($this->alertRecipients)->send(new GitHubEventEmail($newEventTypes));
+        if($newEventTypes->count() >= 1) {
+            \Mail::to($this->alertRecipients)->send(new GitHubEventEmail(
+                $newEventTypes->unique()->values()->toArray()
+            ));
         }
 
         return $formattedActivity;
