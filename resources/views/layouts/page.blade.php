@@ -6,13 +6,18 @@
 
 @section('body')
 
-    @include('layouts.header', [
-        'menuItems' => [
+    @php
+        $menuItems = [
             'home',
-            'about',
-            'updates'
-        ]
-    ])
+            'about'
+        ];
+
+        if(config('app.env') === 'local') {
+            array_push($menuItems, 'updates');
+        }
+    @endphp
+
+    @include('layouts.header', $menuItems)
 
     <main class="bg-grey-darkest layer-shadow pt-4">
         @yield('content')
