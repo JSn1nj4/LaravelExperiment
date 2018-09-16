@@ -19,7 +19,14 @@ Route::middleware('comingsoon', 'maintenance')->group(function() {
     Route::view('/', 'home')->name('home');
     Route::view('/about', 'about')->name('about');
     // Route::view('/projects', 'projects')->name('projects');
-    Route::view('/updates', 'updates')->name('updates');
+    // Route::view('/updates', 'updates')->name('updates');
+    Route::get('/updates', function() {
+        if(!(config('app.env') === 'local')) {
+            abort(404);
+        }
+        
+        return view('updates');
+    })->name('updates');
 
     /*
      * A catch-all route for throwing 404s
