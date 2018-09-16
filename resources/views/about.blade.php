@@ -50,11 +50,9 @@
                 <div id="newest-tweet"></div>
             </div>
         </section>
-        {{-- <section id="tweet" class="block md:flex"></section> --}}
-        {{-- <section id="twitter" class="block md:flex"></section> --}}
     </div>
 @endsection
 
 @section('footer-extras')
-    <script src="/js/twitter.js" charset="utf-8"></script>
+    <script src="/js/NewestTweetWidget.js" charset="utf-8"></script>
 @endsection

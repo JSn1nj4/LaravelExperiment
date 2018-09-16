@@ -3,7 +3,7 @@
 
     <div v-if="showLine" :class="`${commonClasses} pin-t border-solid h-full`">&nbsp;</div>
     <slot></slot>
-    <div v-if="showLine" :class="`${commonClasses} pin-b border-dashed h-4 -mb-4`">&nbsp;</div>
+    <div v-if="showDottedLine" :class="`${commonClasses} pin-b border-dashed h-4 -mb-4`">&nbsp;</div>
 
   </div>
 </template>
@@ -15,11 +15,21 @@ export default {
     showLine: {
       type: Boolean,
       default: true
+    },
+    showDottedLine: {
+      type: Boolean,
+      default: false
+    },
+    linePositionClass: {
+      type: String,
+      default: 'w-10'
     }
   },
 
-  data: () => ({
-    commonClasses: 'absolute w-10 border-r border-grey-dark'
-  }),
+  computed: {
+    commonClasses() {
+      return `absolute ${this.linePositionClass} border-r border-grey-dark`
+    }
+  },
 }
 </script>

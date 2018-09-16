@@ -6,13 +6,18 @@
 
 @section('body')
 
-    @include('layouts.header', [
-        'menuItems' => [
+    @php
+        $menuItems = [
             'home',
             'about'
-        ]
-    ])
-    {{-- @include('layouts.header', ['menuItems' => ['home','projects','updates']]) --}}
+        ];
+
+        if(config('app.env') === 'local') {
+            array_push($menuItems, 'updates');
+        }
+    @endphp
+
+    @include('layouts.header', $menuItems)
 
     <main class="bg-grey-darkest layer-shadow pt-4">
         @yield('content')
@@ -21,6 +26,8 @@
     @include('layouts.footer')
 
     {{-- Footer JS files --}}
+    <script src="/js/manifest.js"></script>
+    <script src="/js/vendor.js"></script>
     <script src="/js/app.js"></script>
 
 @endsection

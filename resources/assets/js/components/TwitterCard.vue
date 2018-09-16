@@ -134,10 +134,6 @@ export default {
       return `${this.profile_url}/status/${this.tweet.id_str}`;
     }
   },
-
-  // mounted() {
-  //   window.tweet = this.tweet;
-  // }
 }
 </script>
 <style lang="scss">

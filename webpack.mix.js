@@ -14,6 +14,9 @@ require('laravel-mix-tailwind');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/twitter.js', 'public/js')
+   .js('resources/assets/js/TwitterTimelineWidget.js', 'public/js')
+   .js('resources/assets/js/NewestTweetWidget.js', 'public/js')
+   .js('resources/assets/js/GitHubActivityTimelineWidget.js', 'public/js')
+   .extract(['vue'])
    .sass('resources/assets/sass/app.scss', 'public/css')
    .tailwind();

@@ -1,25 +1,26 @@
 <template>
   <div class="max-w-sm m-auto mb-4" :style="`min-height: ${this.loaderSize}`">
 
-    <timeline :show-line="count >= 2">
+    <timeline :show-line="count >= 2" :line-position-class="'w-8'">
       <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
 
-      <twitter-card v-for="(tweet, index) in tweets" :tweet="tweet" :key="`tweet-${index}`"></twitter-card>
+      <git-hub-activity-item v-for="(event, index) in events" :event="event" :key="`gh-event-${index}`"></git-hub-activity-item>
     </timeline>
 
   </div>
 </template>
+
 <script>
 import axios from 'axios';
-import TwitterCard from './components/TwitterCard.vue';
+import GitHubActivityItem from './components/GitHubActivityItem.vue';
 import LoadingAnimation from './components/LoadingAnimation.vue';
 import Timeline from './components/Timeline.vue';
 
 export default {
-  name: "twitter-timeline",
+  name: "git-hub-activity-feed",
   props: {
     count: {
-      default: 5,
+      default: 7,
       type: Number
     },
     loaderSize: {
@@ -31,23 +32,22 @@ export default {
   components: {
     Timeline,
     LoadingAnimation,
-    TwitterCard
+    GitHubActivityItem
   },
 
   data: () => ({
-    tweets: []
+    events: []
   }),
 
   mounted() {
-    axios.get(`/api/tweets/${this.count}`)
+    axios.get(`/api/github/activity/${this.count}`)
       .then(response => {
-        this.tweets = response.data;
+        this.events = response.data;
         this.$refs.socketLoader.fadeOut();
       })
       .catch(error => {
         console.error(error);
       });
   }
-
 }
 </script>

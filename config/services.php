@@ -40,6 +40,11 @@ return [
         'key' => env('TWITTER_API_KEY'),
         'secret' => env('TWITTER_API_SECRET'),
         'token' => env('TWITTER_API_TOKEN'),
+    ],
+
+    'github' => [
+        'model' => App\GitHubActivity::class,
+        'token' => env('GITHUB_API_TOKEN'),
     ]
 
 ];
