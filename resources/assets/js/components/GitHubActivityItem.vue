@@ -52,7 +52,7 @@
           </p>
 
           <template v-if="event.type == 'PushEvent'">
-            <p v-for="commit in event.payload.commits" :key="commit.sha" class="font-grey align-middle mt-2">
+            <p v-for="commit in displayCommits" :key="commit.sha" class="font-grey align-middle mt-2">
               <a :href="profileUrl" target="_blank" class="no-underline font-bold">
                 <img width="18" height="18" class="align-bottom" :src="tmpAvatarUrl">
               </a>
@@ -60,6 +60,11 @@
                 {{ shortHash(commit.sha) }}
               </a>
               {{ shortMsg(commit.message) }}
+            </p>
+            <p v-if="extraCommitsCount > 0" class="font-grey align-middle mt-2">
+              <a :href="branchCommitsUrl" target="_blank" class="no-underline font-bold">
+                +{{extraCommitsCount}} more
+              </a>
             </p>
           </template>
           <template v-else-if="event.type == 'IssuesEvent'">
@@ -153,6 +158,17 @@ export default {
     },
     branchUrl() {
       return `${this.repoUrl}/tree/${this.branchName}`;
+    },
+    branchCommitsUrl() {
+      return `${this.repoUrl}/commits/${this.branchName}`;
+    },
+    displayCommits() {
+      let commits = this.event.payload.commits;
+      return commits.length > 4 ? commits.slice(0, 4) : commits;
+    },
+    extraCommitsCount() {
+      let commits = this.event.payload.commits;
+      return commits.length > 4 ? commits.length - 4 : 0;
     },
     issueNumberString() {
       return `Issue #${this.event.payload.issue.number}`;
