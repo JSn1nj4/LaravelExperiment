@@ -53,9 +53,9 @@
         <div class="container mx-auto px-4 pt-6">
             <div class="block md:flex">
 
-                <div class="hidden lg:flex lg:w-1/6">
+                {{-- <div class="hidden lg:flex lg:w-1/6">
 
-                </div>
+                </div> --}}
 
                 <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
                     <div class="px-2">
@@ -84,6 +84,22 @@
 
                         <p class="mb-4 text-xl">
                             Designed with Tailwind CSS
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
+                    <div class="px-2">
+
+                        <p class="my-4">
+                            <a href="https://vuejs.org/" target="_blank">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/vue-logo.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="116" height="100">
+                            </a>
+                        </p>
+
+                        <p class="mb-4 text-xl">
+                            Injected with Vue.js
                         </p>
 
                     </div>
