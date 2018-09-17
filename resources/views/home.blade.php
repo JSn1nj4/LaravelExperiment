@@ -24,7 +24,7 @@
         </div>
     </section>
 
-    <section>
+    {{-- <section>
         <div class="container mx-auto px-4 pt-6">
             <div class="block md:flex">
 
@@ -32,7 +32,7 @@
 
                 </div>
 
-                {{-- <div class="lg:w-2/3 text-justify">
+                <div class="lg:w-2/3 text-justify">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -43,11 +43,11 @@
                         </p>
 
                     </div>
-                </div> --}}
+                </div>
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section>
         <div class="container mx-auto px-4 pt-6">
