@@ -57,7 +57,7 @@
 
                 </div> --}}
 
-                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
+                <div class="md:w-1/3 pb-6 text-center">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
+                <div class="md:w-1/3 pb-6 text-center">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/2 lg:w-1/3 pb-6 text-center">
+                <div class="md:w-1/3 pb-6 text-center">
                     <div class="px-2">
 
                         <p class="my-4">
