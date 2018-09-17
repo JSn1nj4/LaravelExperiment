@@ -67,7 +67,7 @@
                         </p>
 
                         <p class="mb-4 text-xl">
-                            Built on Laravel PHP
+                            Built on Laravel
                         </p>
 
                     </div>
