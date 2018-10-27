@@ -99,7 +99,7 @@
                         </p>
 
                         <p class="mb-4 text-xl">
-                            Injected with Vue.js
+                            Sprinkled with Vue.js
                         </p>
 
                     </div>
