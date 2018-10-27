@@ -24,7 +24,7 @@
                     </p>
 
                     <p class="mb-4">
-                        My PHP experience is mostly a mix of vanilla PHP and WordPress's framework. Aside from that, I've taken up learning Laravel and have made it the foundation for my personal website.
+                        My PHP experience is mostly a mix of vanilla PHP and WordPress's framework. Aside from that, I've taken up learning Laravel and have made it the foundation for my personal web project.
                     </p>
 
                     <p class="mb-4">
