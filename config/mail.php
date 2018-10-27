@@ -68,12 +68,12 @@ return [
     | This is for use with email notifications that come from the website. Any
     | part of the website that needs to send alerts should use this address by
     | default.
-    | 
+    |
     */
 
     'to' => [
-        'address' => env('MAIL_FROM_ADDRESS'),
-        'name' => env('MAIL_FROM_NAME'),
+        'address' => env('MAIL_TO_ADDRESS'),
+        'name' => env('MAIL_TO_NAME'),
     ],
 
     /*
