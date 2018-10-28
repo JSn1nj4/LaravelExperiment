@@ -20,15 +20,15 @@
                     </h1>
 
                     <p class="mb-4">
-                        I am a web developer primarily with experience in building WordPress websites. I have learned HTML and CSS along with JavaScript and PHP.
+                        I am a web developer primarily with experience in building WordPress websites. I use CSS, PHP and JS when working on these projects.
                     </p>
 
                     <p class="mb-4">
-                        Regarding JavaScript frameworks, I have primarily used jQuery, though I did dive into MeteorJS for a while for a personal project -- and it was quite fun to learn and use. I have also learned a bit of React and Vue, though I'm definitely leaning towards Vue.
+                        My PHP experience is mostly a mix of vanilla PHP and WordPress's framework. Aside from that, I've taken up learning Laravel and have made it the foundation for my personal web project.
                     </p>
 
                     <p class="mb-4">
-                        For PHP, I have primarily not used a framework (outside of WordPress), though I have been learning Laravel recently; in fact, this website is built using Laravel, and will continue to make use of it for different learning experiments.
+                        My JavaScript experience is mostly a mix of vanilla JS and jQuery. Next in line is Meteor JS with Blaze (Meteor's default front-end framework). I used Meteor for several months worth of work on another project, and it was quite fun to work with. After Meteor, I began learning React and Vue, though I'm leaning more towards Vue at the moment.
                     </p>
 
                 </div>
@@ -50,11 +50,9 @@
                 <div id="newest-tweet"></div>
             </div>
         </section>
-        {{-- <section id="tweet" class="block md:flex"></section> --}}
-        {{-- <section id="twitter" class="block md:flex"></section> --}}
     </div>
 @endsection
 
 @section('footer-extras')
-    <script src="/js/twitter.js" charset="utf-8"></script>
+    <script src="/js/NewestTweetWidget.js" charset="utf-8"></script>
 @endsection

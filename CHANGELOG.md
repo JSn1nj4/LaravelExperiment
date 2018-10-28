@@ -1,5 +1,16 @@
 # Changelog
 
+### Release 1.4
+1. Upgrade Laravel version 5.7
+2. Extract third-party libraries into "vendor.js"
+3. Add GitHub activity feed to website
+4. Add a loading animation for Twitter/GitHub feeds
+5. Setup email notifications for when new GitHub activity types are detected in feed
+6. Show Vue logo on Homepage
+7. Other homepage text changes
+8. Rewrite About content
+9. Work some more on Updates page (hidden for now)
+
 ### Release 1.3.1
 Small change to bio text
 
