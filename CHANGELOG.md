@@ -1,5 +1,7 @@
 # Changelog
 
+### Release 1.4.1
+
 ### Release 1.4
 1. Upgrade Laravel version 5.7
 2. Extract third-party libraries into "vendor.js"
