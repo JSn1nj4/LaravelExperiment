@@ -1,79 +1,47 @@
 <template lang="html">
-  <div class="github-activity-item">
-    <card :size="'sm'" type="transparent">
+  <div class="flex flex-row relative">
+    <div class="text-grey text-center flex-none github-activity-icon" :class="this.icon" style="width: 2rem; font-size: 22px;"></div>
 
-      <div class="flex flex-row relative">
-        <div class="text-grey text-center flex-none github-activity-icon" :class="this.icon" style="width: 2rem; font-size: 22px;"></div>
+    <div class="pl-4 flex-grow relative">
+      <p class="text-grey">
+        about {{ formattedDate }}
+      </p>
 
-        <div class="pl-4 flex-grow relative">
-          <p class="text-grey">
-            about {{ formattedDate }}
-          </p>
+      <p class="font-white mt-1 text-sm">
+        <strong>
+          <a :href="profileUrl" target="_blank" class="no-underline">
+            {{ event.actor.display_login }}
+          </a>
 
-          <p class="font-white mt-1 text-sm">
-            <strong>
-              <a :href="profileUrl" target="_blank" class="no-underline">
-                {{ event.actor.display_login }}
-              </a>
+          {{ this.action }}
 
-              {{ this.action }}
+          <a :href="repoUrl" target="_blank" class="no-underline text-sea-green">
+            {{ event.repo.name }}
+          </a>
 
-              <a :href="repoUrl" target="_blank" class="no-underline text-sea-green">
-                {{ event.repo.name }}
-              </a>
+          {{ this.preposition }}
 
-              {{ this.preposition }}
+          <a :href="event.payload.forkee.html_url" target="_blank" class="no-underline">
+            {{ event.payload.forkee.full_name }}
+          </a>
 
-              <a :href="event.payload.forkee.html_url" target="_blank" class="no-underline">
-                {{ event.payload.forkee.full_name }}
-              </a>
+        </strong>
+      </p>
 
-            </strong>
-          </p>
-
-        </div>
-      </div>
-
-    </card>
+    </div>
   </div>
 </template>
 
 <script>
-import moment from 'moment';
-import Card from './Card.vue';
+import GitHubActivityMixin from '../../mixins/GitHubActivity';
 
 export default {
-  name: "git-hub-activity-item",
-  components: {
-    Card
-  },
-  props: {
-    event: Object
-  },
+  name: "git-hub-fork-event",
+  mixins: [GitHubActivityMixin],
   data: () => ({
-    baseLink: 'https://github.com',
     icon: 'fas fa-code-branch',
     action: 'forked',
-    preposition: 'into',
-    tmpAvatarUrl: 'https://pbs.twimg.com/profile_images/936031034168172545/TwJzUf5p_normal.jpg',
-  }),
-  computed: {
-    formattedDate() {
-      return moment(this.event.created_at).fromNow();
-    },
-    profileUrl() {
-      return `${this.baseLink}/${this.event.actor.login}`;
-    },
-    repoUrl() {
-      return `${this.baseLink}/${this.event.repo.name}`;
-    },
-  }
+    preposition: 'into'
+  })
 }
 </script>
-<style lang="scss">
-  .github-activity-icon {
-    &:before {
-      background: #151515;
-    }
-  }
-</style>
