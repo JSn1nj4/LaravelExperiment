@@ -65,10 +65,10 @@ export default {
     },
   },
   mounted() {
-    this.IssuesEvent.action = this.event.payload.action;
+    this.action = this.event.payload.action;
 
     if(this.event.payload.action == 'closed') {
-      this.IssuesEvent.icon = 'fas fa-minus-circle';
+      this.icon = 'fas fa-minus-circle';
     }
   }
 }

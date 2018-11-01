@@ -53,8 +53,8 @@ export default {
   }),
   mounted() {
     if(this.event.payload.action == 'deleted') {
-      this.IssueCommentEvent.action = 'deleted comment from';
-      this.IssueCommentEvent.icon = 'fas fa-comment-slash';
+      this.action = 'deleted comment from';
+      this.icon = 'fas fa-comment-slash';
     }
   }
 }
