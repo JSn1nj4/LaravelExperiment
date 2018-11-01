@@ -2,11 +2,7 @@
   <div class="github-activity-item">
     <card :size="'sm'" type="transparent">
 
-      <div class="flex flex-row relative">
-
-        <slot></slot>
-
-      </div>
+      <slot></slot>
 
     </card>
   </div>
