@@ -9,7 +9,12 @@
 </template>
 
 <script>
+import Card from './Card.vue';
+
 export default {
-  name: "git-hub-activity-wrapper"
+  name: "git-hub-activity-wrapper",
+  components: {
+    Card
+  }
 }
 </script>
