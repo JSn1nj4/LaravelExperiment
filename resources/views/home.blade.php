@@ -129,5 +129,5 @@
 @endsection
 
 @section('footer-extras')
-    <script src="/js/home.js" charset="utf-8"></script>
+    <script src="{{ mix('/js/home.js') }}" charset="utf-8"></script>
 @endsection

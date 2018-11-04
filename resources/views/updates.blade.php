@@ -34,6 +34,6 @@
 @endsection
 
 @section('footer-extras')
-    <script src="/js/TwitterTimelineWidget.js" charset="utf-8"></script>
-    <script src="/js/GitHubActivityTimelineWidget.js" charset="utf-8"></script>
+    <script src="{{ mix('/js/TwitterTimelineWidget.js') }}" charset="utf-8"></script>
+    <script src="{{ mix('/js/GitHubActivityTimelineWidget.js') }}" charset="utf-8"></script>
 @endsection

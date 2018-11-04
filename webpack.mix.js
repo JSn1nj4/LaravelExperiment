@@ -13,11 +13,17 @@ require('laravel-mix-tailwind');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/TwitterTimelineWidget.js', 'public/js')
-   .js('resources/assets/js/NewestTweetWidget.js', 'public/js')
-   .js('resources/assets/js/home.js', 'public/js')
-   .js('resources/assets/js/GitHubActivityTimelineWidget.js', 'public/js')
-   .extract(['vue', 'axios', 'moment'])
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .tailwind();
+mix.webpackConfig({
+  output: {
+    publicPath: '/',
+    chunkFilename: 'js/modules/[name].js'
+  }
+}).js('resources/assets/js/app.js', 'public/js')
+  .js('resources/assets/js/TwitterTimelineWidget.js', 'public/js')
+  .js('resources/assets/js/NewestTweetWidget.js', 'public/js')
+  .js('resources/assets/js/home.js', 'public/js')
+  .js('resources/assets/js/GitHubActivityTimelineWidget.js', 'public/js')
+  .extract(['vue', 'axios', 'moment'])
+  .sass('resources/assets/sass/app.scss', 'public/css')
+  .tailwind()
+  .version();
