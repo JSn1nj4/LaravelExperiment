@@ -4,7 +4,7 @@
     <timeline :show-line="count >= 2" :line-position-class="'w-8'">
       <loading-animation :size="loaderSize" ref="socketLoader"></loading-animation>
 
-      <git-hub-activity-item v-for="(event, index) in events" :event="event" :key="`gh-event-${index}`"></git-hub-activity-item>
+      <git-hub-activity-wrapper v-for="(event, index) in events" :event="event" :key="`gh-event-${index}`"></git-hub-activity-wrapper>
     </timeline>
 
   </div>
@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios';
-import GitHubActivityItem from './components/GitHubActivityItem.vue';
+import GitHubActivityWrapper from './components/GitHubActivityWrapper.vue';
 import LoadingAnimation from './components/LoadingAnimation.vue';
 import Timeline from './components/Timeline.vue';
 
@@ -32,7 +32,7 @@ export default {
   components: {
     Timeline,
     LoadingAnimation,
-    GitHubActivityItem
+    GitHubActivityWrapper
   },
 
   data: () => ({
