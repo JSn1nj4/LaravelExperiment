@@ -54,5 +54,5 @@
 @endsection
 
 @section('footer-extras')
-    <script src="/js/NewestTweetWidget.js" charset="utf-8"></script>
+    <script src="{{ mix('/js/NewestTweetWidget.js') }}" charset="utf-8"></script>
 @endsection
