@@ -16,7 +16,7 @@ require('laravel-mix-tailwind');
 mix.webpackConfig({
   output: {
     publicPath: '/',
-    chunkFilename: 'js/[name].js'
+    chunkFilename: 'js/modules/[name].js'
   }
 }).js('resources/assets/js/app.js', 'public/js')
   .js('resources/assets/js/TwitterTimelineWidget.js', 'public/js')
