@@ -21,7 +21,7 @@
 
           {{ this.preposition }}
 
-          <a v-else :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank" class="no-underline">
             {{ event.repo.name }}
           </a>
 
