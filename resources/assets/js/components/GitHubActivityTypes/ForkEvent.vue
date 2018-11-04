@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="flex flex-row relative">
-    <div class="text-grey text-center flex-none github-activity-icon" :class="this.icon" style="width: 2rem; font-size: 22px;"></div>
+    <div class="text-grey text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
 
     <div class="pl-4 flex-grow relative">
       <p class="text-grey">
@@ -13,13 +13,13 @@
             {{ event.actor.display_login }}
           </a>
 
-          {{ this.action }}
+          {{ action }}
 
           <a :href="repoUrl" target="_blank" class="no-underline text-sea-green">
             {{ event.repo.name }}
           </a>
 
-          {{ this.preposition }}
+          {{ preposition }}
 
           <a :href="event.payload.forkee.html_url" target="_blank" class="no-underline">
             {{ event.payload.forkee.full_name }}
