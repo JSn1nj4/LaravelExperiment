@@ -25,4 +25,5 @@ mix.webpackConfig({
   .js('resources/assets/js/GitHubActivityTimelineWidget.js', 'public/js')
   .extract(['vue', 'axios', 'moment'])
   .sass('resources/assets/sass/app.scss', 'public/css')
-  .tailwind();
+  .tailwind()
+  .version();
