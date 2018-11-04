@@ -1,6 +1,11 @@
 # Changelog
 
 ### Release 1.4.1
+1. Split bloated GitHub event component into separate components
+2. Implement dynamic imports for displaying GitHub events
+3. Relocate new module chunks to specific public resource folder
+4. Generate versioned hashes for front-end resources
+    - This will force downloading new resource version when requested by the browser
 
 ### Release 1.4
 1. Upgrade Laravel version 5.7
