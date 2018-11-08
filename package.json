@@ -16,6 +16,7 @@
         "cross-env": "^5.1",
         "imagemin": "^6.0.0",
         "laravel-mix": "^2.1.14",
+        "laravel-mix-purgecss": "^3.0.0",
         "laravel-mix-tailwind": "^0.1.0",
         "popper.js": "^1.12",
         "tailwindcss": "^0.5.3",
