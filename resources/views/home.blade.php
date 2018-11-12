@@ -62,7 +62,7 @@
 
                         <p class="my-4">
                             <a href="https://laravel.com/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/Laravel-l-slant-no-padding.svg" title="Laravel - The PHP Framework For Web Artisans" alt="Laravel logo" width="144" height="100">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/Laravel-l-slant-no-padding.svg" title="Laravel - The PHP Framework For Web Artisans" alt="Laravel logo" width="123" height="85">
                             </a>
                         </p>
 
@@ -78,7 +78,7 @@
 
                         <p class="my-4">
                             <a href="https://tailwindcss.com/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/tailwindcss-no-shadow.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="100" height="100">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/tailwindcss-no-shadow.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="85" height="85">
                             </a>
                         </p>
 
@@ -94,7 +94,7 @@
 
                         <p class="my-4">
                             <a href="https://vuejs.org/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/vue-logo.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="116" height="100">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/vue-logo.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="98" height="85">
                             </a>
                         </p>
 
