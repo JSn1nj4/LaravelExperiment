@@ -1,5 +1,7 @@
 # Changelog
 
+### Release 1.4.2
+
 ### Release 1.4.1
 1. Split bloated GitHub event component into separate components
 2. Implement dynamic imports for displaying GitHub events
