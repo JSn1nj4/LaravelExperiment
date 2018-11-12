@@ -1,6 +1,12 @@
 # Changelog
 
 ### Release 1.4.2
+1. Update Laravel Mix to version 2.1.14
+2. Fix a number of vulnerabilities
+3. Update Vue to version 2.5.17
+4. Install `imagemin@^6.0.0`
+5. Install `laravel-mix-purgecss@^3.0.0` to implement PurgeCSS
+6. Scale down SVG logos on homepage
 
 ### Release 1.4.1
 1. Split bloated GitHub event component into separate components
