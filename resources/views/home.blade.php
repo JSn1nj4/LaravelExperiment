@@ -24,88 +24,49 @@
         </div>
     </section>
 
-    {{-- <section>
+    <section class="pt-4">
         <div class="container mx-auto px-4 pt-6">
-            <div class="block md:flex">
+            <section class="block md:flex">
 
-                <div class="hidden lg:flex lg:w-1/6">
-
-                </div>
-
-                <div class="lg:w-2/3 text-justify">
+                <div class="block lg:flex lg:w-1/6 pb-8">
                     <div class="px-2">
 
-                        <p class="my-4">
-                            Lorem ipsum dolor sit amet, pri in dolor verear maiestatis, per omnis indoctum vituperata ad. Iusto prompta cu per, vero vocent vocibus pro ea. Ex dicat moderatius vis, no ius ludus noluisse, molestie consulatu cu eam. Veri tempor sea in, cu vis possim praesent cotidieque. Ex quas honestatis per. Per fastidii qualisque ne. Vis no diam aeterno definiebas, congue option suscipiantur cu pro.
+                        <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow md:hidden">
+
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 lg:w-1/3 pb-6">
+                    <div class="px-2">
+
+                        <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
+                            About Me
+                        </h1>
+
+                        <p class="mb-4">
+                            I am a web developer primarily with experience in building WordPress websites. I use CSS, PHP and JS when working on these projects.
                         </p>
-                        <p class="my-4">
-                            Nam dolor lucilius eu, ut per dictas sapientem vulputate, in feugiat evertitur concludaturque pri. Facilis ocurreret nam at. Te duo suscipit intellegat. Saperet minimum vulputate eos cu, error appareat patrioque et mel. Liber nobis honestatis no usu, nam sint prompta ei, ut sed rebum civibus voluptaria. Ei vide aliquando theophrastus eam, accumsan efficiendi nam at. Et sed vivendo persequeris, cu enim nulla oportere per, ad sea praesent dignissim dissentias.
+
+                        <p class="mb-4">
+                            My PHP experience is mostly a mix of vanilla PHP and WordPress's framework. Aside from that, I've taken up learning Laravel and have made it the foundation for my personal web project.
+                        </p>
+
+                        <p class="mb-4">
+                            My JavaScript experience is mostly a mix of vanilla JS and jQuery. Next in line is Meteor JS with Blaze (Meteor's default front-end framework). I used Meteor for several months worth of work on another project, and it was quite fun to work with. After Meteor, I began learning React and Vue, though I'm leaning more towards Vue at the moment.
                         </p>
 
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section> --}}
-
-    <section>
-        <div class="container mx-auto px-4 pt-6">
-            <div class="block md:flex">
-
-                {{-- <div class="hidden lg:flex lg:w-1/6">
-
-                </div> --}}
-
-                <div class="md:w-1/3 pb-6 text-center">
+                <div class="hidden md:flex md:w-1/2 lg:w-1/3 pb-8">
                     <div class="px-2">
 
-                        <p class="my-4">
-                            <a href="https://laravel.com/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/Laravel-l-slant-no-padding.svg" title="Laravel - The PHP Framework For Web Artisans" alt="Laravel logo" width="123" height="85">
-                            </a>
-                        </p>
-
-                        <p class="mb-4 text-xl">
-                            Built on Laravel
-                        </p>
+                        <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow">
 
                     </div>
                 </div>
 
-                <div class="md:w-1/3 pb-6 text-center">
-                    <div class="px-2">
-
-                        <p class="my-4">
-                            <a href="https://tailwindcss.com/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/tailwindcss-no-shadow.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="85" height="85">
-                            </a>
-                        </p>
-
-                        <p class="mb-4 text-xl">
-                            Designed with Tailwind CSS
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="md:w-1/3 pb-6 text-center">
-                    <div class="px-2">
-
-                        <p class="my-4">
-                            <a href="https://vuejs.org/" target="_blank">
-                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/vue-logo.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="98" height="85">
-                            </a>
-                        </p>
-
-                        <p class="mb-4 text-xl">
-                            Sprinkled with Vue.js
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
+            </section>
         </div>
     </section>
 
@@ -121,6 +82,62 @@
                 <div class="block md:w-1/2 pb-8">
                     <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
                     <section id="github_activity_feed-home" class="block md:flex"></section>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mx-auto px-4 pt-6">
+            <div class="block md:flex">
+
+                <div class="md:w-1/3 pb-6 text-center">
+                    <div class="px-2">
+
+                        <p class="my-4">
+                            <a href="https://laravel.com/" target="_blank">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/Laravel-l-slant-no-padding.svg" title="Laravel - The PHP Framework For Web Artisans" alt="Laravel logo" width="123" height="85">
+                            </a>
+                        </p>
+
+                        <p class="mb-4 text-xl">
+                            Laravel
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 pb-6 text-center">
+                    <div class="px-2">
+
+                        <p class="my-4">
+                            <a href="https://tailwindcss.com/" target="_blank">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/tailwindcss-no-shadow.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="85" height="85">
+                            </a>
+                        </p>
+
+                        <p class="mb-4 text-xl">
+                            Tailwind CSS
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 pb-6 text-center">
+                    <div class="px-2">
+
+                        <p class="my-4">
+                            <a href="https://vuejs.org/" target="_blank">
+                                <img src="https://s3.amazonaws.com/elliotderhay-com/vectors/vue-logo.svg" title="Tailwind CSS - A Utility-First CSS Framework for Rapid UI Development" alt="Tailwind CSS logo" width="98" height="85">
+                            </a>
+                        </p>
+
+                        <p class="mb-4 text-xl">
+                            Vue.js
+                        </p>
+
+                    </div>
                 </div>
 
             </div>
