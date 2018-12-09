@@ -1,5 +1,15 @@
 # Changelog
 
+### Release 1.4.3
+1. Update required node version to 8.11.2 for development
+    - Trying to keep it the same between machines
+2. Update laravel-mix to 3.0.0
+3. Manually update har-validator to 5.1.3
+    - NPM was looking for a slightly lower version that it couldn't find
+4. Update Vue to 2.5.18
+    - Fixes a version mismatch between it and `vue-template-compiler`
+5. Update home banner image
+
 ### Release 1.4.2
 1. Update Laravel Mix to version 2.1.14
 2. Fix a number of vulnerabilities
