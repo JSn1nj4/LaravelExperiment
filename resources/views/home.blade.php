@@ -28,7 +28,7 @@
         <div class="container mx-auto px-4 pt-6">
             <section class="block md:flex">
 
-                <div class="block lg:flex lg:w-1/6 pb-8">
+                <div class="block lg:flex lg:w-1/6">
                     <div class="px-2">
 
                         <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow md:hidden">
@@ -36,10 +36,10 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/2 lg:w-1/3 pb-6">
+                <div class="md:w-1/2 lg:w-1/3">
                     <div class="px-2">
 
-                        <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
+                        <h1 class="content-title pt-6 mt-4 text-center md:text-left">
                             About Me
                         </h1>
 
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="hidden md:flex md:w-1/2 lg:w-1/3 pb-8">
+                <div class="hidden md:flex md:w-1/2 lg:w-1/3">
                     <div class="px-2">
 
                         <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow">
@@ -71,16 +71,16 @@
     </section>
 
     <section>
-        <div class="container mx-auto px-4 pt-6">
+        <div class="container mx-auto px-4">
             <div class="block md:flex">
 
-                <div class="block md:w-1/2 pb-8">
-                    <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">Recent Tweets</h2>
+                <div class="block md:w-1/2">
+                    <h2 class="content-title pt-6 mt-4 text-center">Recent Tweets</h2>
                     <section id="twitter_timeline-home" class="block md:flex"></section>
                 </div>
 
-                <div class="block md:w-1/2 pb-8">
-                    <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
+                <div class="block md:w-1/2">
+                    <h2 class="content-title pt-6 mt-4 text-center">GitHub Activity</h2>
                     <section id="github_activity_feed-home" class="block md:flex"></section>
                 </div>
 
@@ -89,10 +89,11 @@
     </section>
 
     <section>
-        <div class="container mx-auto px-4 pt-6">
-            <div class="block md:flex">
+        <div class="container mx-auto px-4">
+            <div class="block text-center">
+                <h2 class="content-title pt-6 mt-4 text-center">Technologies Used</h2>
 
-                <div class="md:w-1/3 pb-6 text-center">
+                <div class="pb-6 text-center sm:inline-block">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -108,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/3 pb-6 text-center">
+                <div class="pb-6 text-center sm:inline-block">
                     <div class="px-2">
 
                         <p class="my-4">
@@ -124,7 +125,7 @@
                     </div>
                 </div>
 
-                <div class="md:w-1/3 pb-6 text-center">
+                <div class="pb-6 text-center sm:inline-block">
                     <div class="px-2">
 
                         <p class="my-4">
