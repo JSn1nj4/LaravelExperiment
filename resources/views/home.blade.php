@@ -39,7 +39,7 @@
                 <div class="md:w-1/2 lg:w-1/3">
                     <div class="px-2">
 
-                        <h1 class="content-title pt-6 mt-4 text-center md:text-left">
+                        <h1 class="content-title pt-6 mt-4 md:mt-0 md:pt-0 text-center md:text-left">
                             About Me
                         </h1>
 
