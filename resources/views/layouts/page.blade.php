@@ -9,7 +9,6 @@
     @php
         $menuItems = [
             'home',
-            'about'
         ];
 
         if(config('app.env') === 'local') {
