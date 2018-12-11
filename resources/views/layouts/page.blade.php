@@ -7,11 +7,10 @@
 @section('body')
 
     @php
-        $menuItems = [
-            'home',
-        ];
+        $menuItems = [];
 
         if(config('app.env') === 'local') {
+            array_push($menuItems, 'home');
             array_push($menuItems, 'updates');
         }
     @endphp
