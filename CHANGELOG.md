@@ -1,5 +1,13 @@
 # Changelog
 
+### Release 1.4.4
+1. Move 'About' content to homepage
+2. Kill 'About' route since it's no longer needed
+3. Remove 'About' menu item
+4. Fix new spacing issues on homepage
+5. Move tech logos to bottom, and add a heading
+6. Update `.node-version` file to "8.12.0"
+
 ### Release 1.4.3
 1. Update required node version to 8.11.2 for development
     - Trying to keep it the same between machines
