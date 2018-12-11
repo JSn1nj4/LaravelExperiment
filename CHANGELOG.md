@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.4.5
+Remove home from menu by default to switch header layouts.
+
 ### Release 1.4.4
 1. Move 'About' content to homepage
 2. Kill 'About' route since it's no longer needed
