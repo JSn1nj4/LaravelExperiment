@@ -91,7 +91,7 @@
     <section>
         <div class="container mx-auto px-4">
             <div class="block text-center">
-                <h2 class="content-title pt-6 mt-4 text-center">Technologies Used</h2>
+                <h2 class="content-title pt-6 mt-4 text-center">Built With</h2>
 
                 <div class="pb-6 text-center sm:inline-block">
                     <div class="px-2">
