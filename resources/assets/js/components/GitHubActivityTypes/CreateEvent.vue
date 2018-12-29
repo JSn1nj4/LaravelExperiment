@@ -15,11 +15,13 @@
 
           {{ action }}
 
-          <a :href="branchUrl" target="_blank" class="no-underline">
-            {{ branchName }}
-          </a>
+          <template v-if="event.payload.ref_type !== 'repository'">
+            <a :href="branchUrl" target="_blank" class="no-underline">
+              {{ branchName }}
+            </a>
 
-          {{ preposition }}
+            {{ preposition }}
+          </template>
 
           <a :href="repoUrl" target="_blank" class="no-underline">
             {{ event.repo.name }}
