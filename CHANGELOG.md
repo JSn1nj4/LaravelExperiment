@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.4.6
+Fix issue displaying create events for creating a repository.
+
 ### Release 1.4.5
 Remove home from menu by default to switch header layouts.
 
