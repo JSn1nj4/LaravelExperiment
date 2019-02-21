@@ -46,6 +46,7 @@ class GitHubActivity extends Model
         'ForkEvent',
         'IssueCommentEvent',
         'IssuesEvent',
+        'PullRequestEvent',
         'PushEvent',
         'WatchEvent'
     ];
@@ -196,6 +197,54 @@ class GitHubActivity extends Model
                 ]);
             })->toArray()
         )->toArray();
+
+        return $payload->toArray();
+    }
+
+    /**
+     * Filter payload from pull request event
+     *
+     * @method          filterPullRequestEventPayload
+     * @param array     $payload
+     * @return array
+     */
+    private function filterPullRequestEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        $payload = $payload->filter(function($val, $key) {
+            return in_array($key, [
+                'action',
+                'pull_request'
+            ]);
+        });
+
+        $pull_request = collect($payload->get('pull_request'))->filter(function($val, $key) {
+            return in_array($key, [
+                'html_url',
+                'number',
+                'title',
+                'body',
+                'head'
+            ]);
+        });
+
+        $head = collect($pull_request->get('head'))->filter(function($val, $key) {
+            return in_array($key, [
+                'user'
+            ]);
+        });
+
+        $head->put('user', collect($head->get('user'))->filter(function($val, $key) {
+            return in_array($key, [
+                'login',
+                'html_url'
+            ]);
+        }));
+
+        $pull_request->put('head', $head->toArray());
+
+        $payload->put('pull_request', $pull_request->toArray());
 
         return $payload->toArray();
     }
