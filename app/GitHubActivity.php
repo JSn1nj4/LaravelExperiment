@@ -330,6 +330,11 @@ class GitHubActivity extends Model
                     ));
                     break;
 
+                case 'PullRequestEvent':
+                    $item->put('payload', $this->filterPullRequestEventPayload(
+                        $item->get('payload')
+                    ));
+
                 default:
                     $item->put('payload', $this->filterEventPayload(
                         $item->get('payload')
