@@ -214,7 +214,8 @@ class GitHubActivity extends Model
             // Return only desired payload data
             return in_array($key, [
                 'action',
-                'pull_request'
+                'pull_request',
+                'merged'
             ]);
         // Transform the 'pull_request' data inline
         })->transform(function($val, $key) {
@@ -225,19 +226,13 @@ class GitHubActivity extends Model
                     'number',
                     'title',
                     'body',
-                    'head'
+                    'user'
                 ]);
             // Transform the 'head' data inline
             })->transform(function($val, $key) {
-                return $key !== 'head' ? $val : collect($val)->filter(function($val, $key) {
-                    // Return only desired 'head' data
-                    return in_array($key, ['user']);
-                // Transform the 'user' data inline
-                })->transform(function($val, $key) {
-                    return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
-                        // return only desired 'user' data
-                        return in_array($key, ['login', 'html_url']);
-                    })->toArray();
+                return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
+                    // Return only desired 'user' data
+                    return in_array($key, ['login', 'html_url', 'avatar_url']);
                 })->toArray();
             })->toArray();
         })->toArray();
