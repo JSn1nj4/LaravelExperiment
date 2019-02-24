@@ -46,7 +46,7 @@ export default {
   name: "git-hub-pull-request-event",
   mixins: [GitHubActivityMixin],
   data: () => ({
-    icon: 'far fa-file-alt',
+    icon: 'fas fa-file-upload',
     action: 'opened',
     preposition: 'at'
   }),
