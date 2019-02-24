@@ -51,9 +51,6 @@ export default {
     preposition: 'at'
   }),
   computed: {
-    formattedDate() {
-      return moment(this.event.created_at).fromNow();
-    },
     profileUrl() {
       return `${this.baseLink}/${this.event.actor.login}`;
     },
