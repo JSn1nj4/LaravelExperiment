@@ -210,43 +210,37 @@ class GitHubActivity extends Model
      */
     private function filterPullRequestEventPayload($payload)
     {
-        $payload = collect($payload);
-
-        $payload = $payload->filter(function($val, $key) {
+        return collect($payload)->filter(function($val, $key) {
+            // Return only desired payload data
             return in_array($key, [
                 'action',
                 'pull_request'
             ]);
-        });
-
-        $pull_request = collect($payload->get('pull_request'))->filter(function($val, $key) {
-            return in_array($key, [
-                'html_url',
-                'number',
-                'title',
-                'body',
-                'head'
-            ]);
-        });
-
-        $head = collect($pull_request->get('head'))->filter(function($val, $key) {
-            return in_array($key, [
-                'user'
-            ]);
-        });
-
-        $head->put('user', collect($head->get('user'))->filter(function($val, $key) {
-            return in_array($key, [
-                'login',
-                'html_url'
-            ]);
-        }));
-
-        $pull_request->put('head', $head->toArray());
-
-        $payload->put('pull_request', $pull_request->toArray());
-
-        return $payload->toArray();
+        // Transform the 'pull_request' data inline
+        })->transform(function($val, $key) {
+            return $key !== 'pull_request' ? $val : collect($val)->filter(function($val, $key) {
+                // Return only desired 'pull_request' data
+                return in_array($key, [
+                    'html_url',
+                    'number',
+                    'title',
+                    'body',
+                    'head'
+                ]);
+            // Transform the 'head' data inline
+            })->transform(function($val, $key) {
+                return $key !== 'head' ? $val : collect($val)->filter(function($val, $key) {
+                    // Return only desired 'head' data
+                    return in_array($key, ['user']);
+                // Transform the 'user' data inline
+                })->transform(function($val, $key) {
+                    return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
+                        // return only desired 'user' data
+                        return in_array($key, ['login', 'html_url']);
+                    })->toArray();
+                })->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
