@@ -214,7 +214,8 @@ class GitHubActivity extends Model
             // Return only desired payload data
             return in_array($key, [
                 'action',
-                'pull_request'
+                'pull_request',
+                'merged'
             ]);
         // Transform the 'pull_request' data inline
         })->transform(function($val, $key) {
