@@ -183,18 +183,14 @@ class GitHubActivity extends Model
      */
     private function filterForkEventPayload($payload)
     {
-        $payload = collect($payload);
-
-        $payload->put('forkee',
-            collect($payload->get('forkee'))->filter(function($val, $key) {
+        return collect($payload)->transform(function($val, $key) {
+            return $key !== 'forkee' ? $val : $val->filter(function($val, $key) {
                 return in_array($key, [
                     'full_name',
                     'html_url'
                 ]);
-            })->toArray()
-        )->toArray();
-
-        return $payload->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
