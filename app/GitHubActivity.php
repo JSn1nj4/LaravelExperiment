@@ -132,7 +132,7 @@ class GitHubActivity extends Model
                 'body'
             ]);
         })->transform(function($val, $key) {
-            return $key !== 'user' ? $val : $val->filter(function($val, $key) {
+            return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'login',
                     'avatar_url',
@@ -156,7 +156,7 @@ class GitHubActivity extends Model
     {
         return collect($payload)->transform(function($val, $key){
             if($key === 'issue') { // filter issue data
-                $val->filter(function($val, $key) {
+                return collect($val)->filter(function($val, $key) {
                     return in_array($key, [
                         'html_url',
                         'number',
@@ -184,7 +184,7 @@ class GitHubActivity extends Model
     private function filterForkEventPayload($payload)
     {
         return collect($payload)->transform(function($val, $key) {
-            return $key !== 'forkee' ? $val : $val->filter(function($val, $key) {
+            return $key !== 'forkee' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'full_name',
                     'html_url'
