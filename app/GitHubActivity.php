@@ -125,24 +125,21 @@ class GitHubActivity extends Model
      */
     public function filterIssueComment($comment)
     {
-        $comment = collect($comment)->filter(function($val, $key) {
+        return collect($comment)->filter(function($val, $key) {
             return in_array($key, [
                 'html_url',
                 'user',
                 'body'
             ]);
-        });
-        $comment->put('user',
-            collect($comment->get('user'))->filter(function($val, $key) {
+        })->transform(function($val, $key) {
+            return $key !== 'user' ? $val : $val->filter(function($val, $key) {
                 return in_array($key, [
                     'login',
                     'avatar_url',
                     'html_url'
                 ]);
-            })
-        );
-
-        return $comment->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
