@@ -16,7 +16,7 @@
           {{ action }}
 
           <a :href="event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
-            {{ issueNumberString }}
+            {{ pullRequestNumberString }}
           </a>
 
           {{ preposition }}
@@ -60,8 +60,8 @@ export default {
     repoUrl() {
       return `${this.baseLink}/${this.event.repo.name}`;
     },
-    issueNumberString() {
-      return `Issue #${this.event.payload.issue.number}`;
+    pullRequestNumberString() {
+      return `Pull Request #${this.event.payload.pull_request.number}`;
     },
   },
   mounted() {
