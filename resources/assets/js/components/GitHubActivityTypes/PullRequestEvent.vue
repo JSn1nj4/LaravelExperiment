@@ -67,8 +67,46 @@ export default {
   mounted() {
     this.action = this.event.payload.action;
 
-    if(this.event.payload.action == 'closed') {
-      this.icon = 'fas fa-minus-circle';
+    switch (this.event.payload.action) {
+      case 'assigned':
+
+        break;
+
+      case 'review_requested':
+
+        break;
+
+      case 'review_request_removed':
+
+        break;
+
+      case 'labeled':
+
+        break;
+
+      case 'unlabeled':
+
+        break;
+
+      case 'edited':
+
+        break;
+
+      case 'closed':
+        if(this.event.payload.merged) {
+          this.action = 'merged';
+          this.icon = 'fas fa-download';
+        } else {
+          this.icon = 'fas fa-minus-circle';
+        }
+        break;
+
+      case 'reopened':
+
+        break;
+
+      default:
+
     }
   }
 }
