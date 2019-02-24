@@ -154,25 +154,24 @@ class GitHubActivity extends Model
      */
     public function filterIssueEventPayload($payload)
     {
-        $payload = collect($payload);
+        return collect($payload)->transform(function($val, $key){
+            if($key === 'issue') { // filter issue data
+                $val->filter(function($val, $key) {
+                    return in_array($key, [
+                        'html_url',
+                        'number',
+                        'title'
+                    ]);
+                })->toArray();
+            }
 
-        $payload->put('issue',
-            collect($payload->get('issue'))->filter(function($val, $key) {
-                return in_array($key, [
-                    'html_url',
-                    'number',
-                    'title'
-                ]);
-            })->toArray()
-        );
+            if ($key === 'comment') { // filter comment data if it exists
+                return $this->filterIssueComment($val);
+            }
 
-        if($payload->has('comment')) {
-            $payload->put('comment', $this->filterIssueComment(
-                $payload->get('comment')
-            ));
-        }
-
-        return $payload->toArray();
+             // return all other values outright
+            return $val;
+        });
     }
 
     /**
