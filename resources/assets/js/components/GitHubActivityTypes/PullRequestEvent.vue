@@ -15,7 +15,7 @@
 
           {{ action }}
 
-          <a :href="event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
+          <a :href="event.payload.pull_request.html_url" target="_blank" class="no-underline text-sea-green">
             {{ pullRequestNumberString }}
           </a>
 
@@ -28,11 +28,11 @@
       </p>
 
       <p class="font-grey align-middle mt-2">
-        <a :href="event.payload.issue.user.html_url">
-          <img width="18" height="18" class="align-bottom" :src="event.payload.issue.user.avatar_url">
+        <a :href="event.payload.pull_request.user.html_url">
+          <img width="18" height="18" class="align-bottom" :src="event.payload.pull_request.user.avatar_url">
         </a>
 
-        {{ event.payload.issue.title }}
+        {{ event.payload.pull_request.title }}
       </p>
 
     </div>
