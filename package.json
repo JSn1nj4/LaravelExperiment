@@ -20,8 +20,11 @@
         "laravel-mix-purgecss": "^4.1.0",
         "laravel-mix-tailwind": "^0.1.0",
         "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.17.2",
         "tailwindcss": "^0.5.3",
-        "vue": "^2.5.18"
+        "vue": "^2.6.7",
+        "vue-template-compiler": "^2.6.7"
     },
     "dependencies": {
         "moment": "^2.22.2",
