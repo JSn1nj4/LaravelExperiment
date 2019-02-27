@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="flex flex-row relative">
     <div class="text-grey text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
 
