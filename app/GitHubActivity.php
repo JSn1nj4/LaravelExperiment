@@ -46,6 +46,7 @@ class GitHubActivity extends Model
         'ForkEvent',
         'IssueCommentEvent',
         'IssuesEvent',
+        'PublicEvent',
         'PullRequestEvent',
         'PushEvent',
         'WatchEvent'
@@ -194,6 +195,22 @@ class GitHubActivity extends Model
     }
 
     /**
+     *  Filter payload from public event
+     *
+     *  @method         filterPublicEventPayload
+     *  @param array    $payload
+     *  @return array
+     */
+    private function filterPublicEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        // Build out when first non-empty payload comes through
+
+        return $payload->toArray();
+    }
+
+    /**
      * Filter payload from pull request event
      *
      * @method          filterPullRequestEventPayload
@@ -310,6 +327,11 @@ class GitHubActivity extends Model
                         $item->get('payload')
                     ));
                     break;
+
+                case 'PublicEvent':
+                    $item->put('payload', $this->filterPublicEventPayload(
+                        $item->get('payload')
+                    ));
 
                 case 'PullRequestEvent':
                     $item->put('payload', $this->filterPullRequestEventPayload(
