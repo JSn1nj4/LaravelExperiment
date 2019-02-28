@@ -1,5 +1,19 @@
 # Changelog
 
+### Release 1.4.7
+1. Add support for the `PullRequestEvent` GitHub event type
+2. Refactor some GitHub event filtering methods
+    - This is an attempt at inlining some event filtering logic
+3. Update Vue and Vue Template Compiler
+    - Both are updated to version 2.6.7, since they have to match
+4. Add Node Sass as a direct dev dependency
+    - I was previously using a version that I had installed globally.
+    This probably isn't the best idea when working on a project across
+    multiple OS installs.
+5. Add basic support for the `PublicEvent` GitHub event type
+    - The support is basic since I only need to mention that a repo
+    was open-sourced. Will update if that changes.
+
 ### Release 1.4.6
 Fix issue displaying create events for creating a repository.
 
