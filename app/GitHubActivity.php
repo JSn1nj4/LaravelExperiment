@@ -46,6 +46,8 @@ class GitHubActivity extends Model
         'ForkEvent',
         'IssueCommentEvent',
         'IssuesEvent',
+        'PublicEvent',
+        'PullRequestEvent',
         'PushEvent',
         'WatchEvent'
     ];
@@ -124,24 +126,21 @@ class GitHubActivity extends Model
      */
     public function filterIssueComment($comment)
     {
-        $comment = collect($comment)->filter(function($val, $key) {
+        return collect($comment)->filter(function($val, $key) {
             return in_array($key, [
                 'html_url',
                 'user',
                 'body'
             ]);
-        });
-        $comment->put('user',
-            collect($comment->get('user'))->filter(function($val, $key) {
+        })->transform(function($val, $key) {
+            return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'login',
                     'avatar_url',
                     'html_url'
                 ]);
-            })
-        );
-
-        return $comment->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
@@ -156,25 +155,24 @@ class GitHubActivity extends Model
      */
     public function filterIssueEventPayload($payload)
     {
-        $payload = collect($payload);
+        return collect($payload)->transform(function($val, $key){
+            if($key === 'issue') { // filter issue data
+                return collect($val)->filter(function($val, $key) {
+                    return in_array($key, [
+                        'html_url',
+                        'number',
+                        'title'
+                    ]);
+                })->toArray();
+            }
 
-        $payload->put('issue',
-            collect($payload->get('issue'))->filter(function($val, $key) {
-                return in_array($key, [
-                    'html_url',
-                    'number',
-                    'title'
-                ]);
-            })->toArray()
-        );
+            if ($key === 'comment') { // filter comment data if it exists
+                return $this->filterIssueComment($val);
+            }
 
-        if($payload->has('comment')) {
-            $payload->put('comment', $this->filterIssueComment(
-                $payload->get('comment')
-            ));
-        }
-
-        return $payload->toArray();
+             // return all other values outright
+            return $val;
+        });
     }
 
     /**
@@ -186,18 +184,67 @@ class GitHubActivity extends Model
      */
     private function filterForkEventPayload($payload)
     {
-        $payload = collect($payload);
-
-        $payload->put('forkee',
-            collect($payload->get('forkee'))->filter(function($val, $key) {
+        return collect($payload)->transform(function($val, $key) {
+            return $key !== 'forkee' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'full_name',
                     'html_url'
                 ]);
-            })->toArray()
-        )->toArray();
+            })->toArray();
+        })->toArray();
+    }
+
+    /**
+     *  Filter payload from public event
+     *
+     *  @method         filterPublicEventPayload
+     *  @param array    $payload
+     *  @return array
+     */
+    private function filterPublicEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        // Build out when first non-empty payload comes through
 
         return $payload->toArray();
+    }
+
+    /**
+     * Filter payload from pull request event
+     *
+     * @method          filterPullRequestEventPayload
+     * @param array     $payload
+     * @return array
+     */
+    private function filterPullRequestEventPayload($payload)
+    {
+        return collect($payload)->filter(function($val, $key) {
+            // Return only desired payload data
+            return in_array($key, [
+                'action',
+                'pull_request',
+                'merged'
+            ]);
+        // Transform the 'pull_request' data inline
+        })->transform(function($val, $key) {
+            return $key !== 'pull_request' ? $val : collect($val)->filter(function($val, $key) {
+                // Return only desired 'pull_request' data
+                return in_array($key, [
+                    'html_url',
+                    'number',
+                    'title',
+                    'body',
+                    'user'
+                ]);
+            // Transform the 'head' data inline
+            })->transform(function($val, $key) {
+                return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
+                    // Return only desired 'user' data
+                    return in_array($key, ['login', 'html_url', 'avatar_url']);
+                })->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
@@ -280,6 +327,16 @@ class GitHubActivity extends Model
                         $item->get('payload')
                     ));
                     break;
+
+                case 'PublicEvent':
+                    $item->put('payload', $this->filterPublicEventPayload(
+                        $item->get('payload')
+                    ));
+
+                case 'PullRequestEvent':
+                    $item->put('payload', $this->filterPullRequestEventPayload(
+                        $item->get('payload')
+                    ));
 
                 default:
                     $item->put('payload', $this->filterEventPayload(

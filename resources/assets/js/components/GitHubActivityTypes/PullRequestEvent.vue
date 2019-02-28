@@ -15,8 +15,8 @@
 
           {{ action }}
 
-          <a :href="event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
-            {{ issueNumberString }}
+          <a :href="event.payload.pull_request.html_url" target="_blank" class="no-underline text-sea-green">
+            {{ pullRequestNumberString }}
           </a>
 
           {{ preposition }}
@@ -28,11 +28,11 @@
       </p>
 
       <p class="font-grey align-middle mt-2">
-        <a :href="event.payload.issue.user.html_url">
-          <img width="18" height="18" class="align-bottom" :src="event.payload.issue.user.avatar_url">
+        <a :href="event.payload.pull_request.user.html_url">
+          <img width="18" height="18" class="align-bottom" :src="event.payload.pull_request.user.avatar_url">
         </a>
 
-        {{ event.payload.issue.title }}
+        {{ event.payload.pull_request.title }}
       </p>
 
     </div>
@@ -43,32 +43,67 @@
 import GitHubActivityMixin from '../../mixins/GitHubActivity';
 
 export default {
-  name: "git-hub-issues-event",
+  name: "git-hub-pull-request-event",
   mixins: [GitHubActivityMixin],
   data: () => ({
-    icon: 'far fa-file-alt',
+    icon: 'fas fa-file-upload',
     action: 'opened',
     preposition: 'at'
   }),
   computed: {
-    formattedDate() {
-      return moment(this.event.created_at).fromNow();
-    },
     profileUrl() {
       return `${this.baseLink}/${this.event.actor.login}`;
     },
     repoUrl() {
       return `${this.baseLink}/${this.event.repo.name}`;
     },
-    issueNumberString() {
-      return `Issue #${this.event.payload.issue.number}`;
+    pullRequestNumberString() {
+      return `Pull Request #${this.event.payload.pull_request.number}`;
     },
   },
   mounted() {
     this.action = this.event.payload.action;
 
-    if(this.event.payload.action == 'closed') {
-      this.icon = 'fas fa-minus-circle';
+    switch (this.event.payload.action) {
+      case 'assigned':
+
+        break;
+
+      case 'review_requested':
+
+        break;
+
+      case 'review_request_removed':
+
+        break;
+
+      case 'labeled':
+
+        break;
+
+      case 'unlabeled':
+
+        break;
+
+      case 'edited':
+
+        break;
+
+      case 'closed':
+        if(this.event.payload.merged) {
+          this.action = 'merged';
+          this.icon = 'fas fa-download';
+        } else {
+          this.icon = 'fas fa-minus-circle';
+        }
+        break;
+
+      case 'reopened':
+
+        break;
+
+      default:
+
     }
   }
 }
