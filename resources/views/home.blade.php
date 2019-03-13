@@ -76,12 +76,16 @@
 
                 <div class="block md:w-1/2">
                     <h2 class="content-title pt-6 mt-4 text-center">Recent Tweets</h2>
-                    <section id="twitter_timeline-home" class="block md:flex"></section>
+                    <section id="twitter_timeline-home" class="block md:flex">
+                        {{-- SSR Twitter timeline --}}
+                    </section>
                 </div>
 
                 <div class="block md:w-1/2">
                     <h2 class="content-title pt-6 mt-4 text-center">GitHub Activity</h2>
-                    <section id="github_activity_feed-home" class="block md:flex"></section>
+                    <section id="github_activity_feed-home" class="block md:flex">
+                        {{-- SSR GitHub activity feed --}}
+                    </section>
                 </div>
 
             </div>
