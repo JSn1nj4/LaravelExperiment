@@ -18,6 +18,10 @@
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
+        "files": [
+            "app/Helpers/GitHubActivity.php",
+            "app/Helpers/Tweet.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"
