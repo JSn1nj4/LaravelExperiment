@@ -1,7 +1,9 @@
 # Changelog
 
 ### Release 1.4.8
-1. 
+1. Create new helper classes for GitHub activities and tweets
+2. Add new classes to autoloader
+3. Add Tweet helper methods for formatting data/content
 
 ### Release 1.4.7
 1. Add support for the `PullRequestEvent` GitHub event type
