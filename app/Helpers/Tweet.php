@@ -8,17 +8,15 @@ namespace App\Helpers;
 class Tweet
 {
     /**
-     * @param string                        $date
+     * @param DateTime                      $date
      *
      * @return string
      *
-     * Format a date from a given date string
+     * Format a date string from a given date
      */
-    public static function formatDate(string $date)
+    public static function formatDate(DateTime $date)
     {
-        // format date
-
-        return $date;
+        return $date->setTimezone(new DateTimeZone('America/New_York'))->format('D MMM YYYY');
     }
 
     /**
