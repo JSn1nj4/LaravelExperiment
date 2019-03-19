@@ -48,17 +48,19 @@ class Tweet
     }
 
     /**
-     * @param string                        $text
+     * @param array                         $tweet
      *
      * @return void
      *
      * Render a given tweet body as HTML
      */
-    public static function formatBody(string $text)
+    public static function formatBody(array $tweet)
     {
         // HTML formatting
 
-        return $text; // TEMP: see method description
+        $tweet = collect($tweet);
+
+        return $tweet->get('text'); // TEMP: see method description
     }
 }
 
