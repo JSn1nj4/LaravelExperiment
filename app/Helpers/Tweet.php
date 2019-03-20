@@ -20,14 +20,14 @@ class Tweet
     }
 
     /**
-     * @param string                        $baseLink
      * @param string                        $screen_name
+     * @param string                        $baseLink
      *
      * @return string
      *
      * Return a valid Twitter profile URL
      */
-    public static function profileUrl(string $baseLink, string $screen_name)
+    public static function profileUrl(string $screen_name, string $baseLink = 'https://twitter.com')
     {
         return "$baseLink/$screen_name";
     }
