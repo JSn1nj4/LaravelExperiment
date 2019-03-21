@@ -223,7 +223,7 @@ module.exports = {
     |
     */
 
-    fonts: {
+    fontFamily: {
       'sans': [
         'system-ui',
         'BlinkMacSystemFont',
@@ -281,7 +281,7 @@ module.exports = {
     |
     */
 
-    textSizes: {
+    fontSize: {
       'xs': '.75rem',     // 12px
       'sm': '.875rem',    // 14px
       'base': '1rem',     // 16px
@@ -308,7 +308,7 @@ module.exports = {
     |
     */
 
-    fontWeights: {
+    fontWeight: {
       // 'hairline': 100,
       'thin': 200,
       // 'light': 300,
@@ -323,17 +323,16 @@ module.exports = {
 
     /*
     |-----------------------------------------------------------------------------
-    | Leading (line height)              https://tailwindcss.com/docs/line-height
+    | Line height              https://tailwindcss.com/docs/line-height
     |-----------------------------------------------------------------------------
     |
-    | Here is where you define your line height values, or as we call
-    | them in Tailwind, leadings.
+    | Here is where you define your line height values.
     |
     | Class name: .leading-{size}
     |
     */
 
-    leading: {
+    lineHeight: {
       'none': 1,
       'tight': 1.25,
       'normal': 1.5,
@@ -343,17 +342,16 @@ module.exports = {
 
     /*
     |-----------------------------------------------------------------------------
-    | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
+    | Letter Spacing       https://tailwindcss.com/docs/letter-spacing
     |-----------------------------------------------------------------------------
     |
-    | Here is where you define your letter spacing values, or as we call
-    | them in Tailwind, tracking.
+    | Here is where you define your letter spacing values.
     |
     | Class name: .tracking-{size}
     |
     */
 
-    tracking: {
+    letterSpacing: {
       'tight': '-0.05em',
       'normal': '0',
       'wide': '0.05em',
@@ -373,7 +371,7 @@ module.exports = {
     |
     */
 
-    textColors: colors,
+    textColor: colors,
 
 
     /*
@@ -389,7 +387,7 @@ module.exports = {
     |
     */
 
-    backgroundColors: colors,
+    backgroundColor: colors,
 
 
     /*
@@ -425,7 +423,7 @@ module.exports = {
     |
     */
 
-    borderWidths: {
+    borderWidth: {
       default: '1px',
       '0': '0',
       '2': '2px',
@@ -451,7 +449,7 @@ module.exports = {
     |
     */
 
-    borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+    borderColor: global.Object.assign({ default: colors['grey-light'] }, colors),
 
 
     /*
@@ -762,7 +760,7 @@ module.exports = {
     |
     */
 
-    shadows: {
+    boxShadow: {
       default: '0 2px 4px 0 rgba(0,0,0,0.10)',
       'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
       'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
@@ -831,7 +829,7 @@ module.exports = {
     |
     */
 
-    svgFill: {
+    fill: {
       'current': 'currentColor',
     },
 
@@ -850,7 +848,7 @@ module.exports = {
     |
     */
 
-    svgStroke: {
+    stroke: {
       'current': 'currentColor',
     },
 
@@ -878,22 +876,26 @@ module.exports = {
   variants: {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
-    backgroundColors: ['responsive', 'hover'],
+    backgroundColor: ['responsive', 'hover'],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
-    borderColors: ['responsive', 'hover'],
+    borderColor: ['responsive', 'hover'],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
-    borderWidths: ['responsive'],
+    borderWidth: ['responsive'],
+    boxShadow: ['responsive'],
     cursor: ['responsive'],
     display: ['responsive'],
+    fill: [],
     flexbox: ['responsive'],
     float: ['responsive'],
-    fonts: ['responsive'],
-    fontWeights: ['responsive', 'hover'],
+    fontFamily: ['responsive'],
+    fontSize: ['responsive'],
+    fontWeight: ['responsive', 'hover'],
     height: ['responsive'],
-    leading: ['responsive'],
+    letterSpacing: ['responsive'],
+    lineHeight: ['responsive'],
     lists: ['responsive'],
     margin: ['responsive'],
     maxHeight: ['responsive'],
@@ -907,14 +909,10 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     resize: ['responsive'],
-    shadows: ['responsive'],
-    svgFill: [],
-    svgStroke: [],
+    stroke: [],
     textAlign: ['responsive'],
-    textColors: ['responsive', 'hover'],
-    textSizes: ['responsive'],
+    textColor: ['responsive', 'hover'],
     textStyle: ['responsive', 'hover'],
-    tracking: ['responsive'],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
     visibility: ['responsive'],
