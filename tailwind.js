@@ -820,7 +820,7 @@ module.exports = {
     svgStroke: {
       'current': 'currentColor',
     },
-    
+
   },
 
   /*
@@ -842,7 +842,7 @@ module.exports = {
   |
   */
 
-  modules: {
+  variants: {
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundColors: ['responsive', 'hover'],
