@@ -138,7 +138,30 @@ let colors = {
 }
 
 module.exports = {
+  /*
+  |-----------------------------------------------------------------------------
+  | Advanced Options         https://tailwindcss.com/docs/configuration#options
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you can tweak advanced configuration options. We recommend
+  | leaving these options alone unless you absolutely need to change them.
+  |
+  */
+  prefix: '',
+  important: false,
+  separator: ':',
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Theme Options
+  |-----------------------------------------------------------------------------
+  | ...
+  |
+  */
+
   theme: {
+
     /*
     |-----------------------------------------------------------------------------
     | Colors                                  https://tailwindcss.com/docs/colors
@@ -153,6 +176,7 @@ module.exports = {
     */
 
     colors: colors,
+
 
     /*
     |-----------------------------------------------------------------------------
@@ -179,6 +203,7 @@ module.exports = {
       'lg': '992px',
       'xl': '1200px',
     },
+
 
     /*
     |-----------------------------------------------------------------------------
@@ -236,6 +261,7 @@ module.exports = {
       ]
     },
 
+
     /*
     |-----------------------------------------------------------------------------
     | Text sizes                         https://tailwindcss.com/docs/text-sizing
@@ -267,6 +293,7 @@ module.exports = {
       '5xl': '3rem',      // 48px
     },
 
+
     /*
     |-----------------------------------------------------------------------------
     | Font weights                       https://tailwindcss.com/docs/font-weight
@@ -293,6 +320,7 @@ module.exports = {
       // 'black': 900,
     },
 
+
     /*
     |-----------------------------------------------------------------------------
     | Leading (line height)              https://tailwindcss.com/docs/line-height
@@ -312,6 +340,7 @@ module.exports = {
       'loose': 2,
     },
 
+
     /*
     |-----------------------------------------------------------------------------
     | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
@@ -330,6 +359,7 @@ module.exports = {
       'wide': '0.05em',
     },
 
+
     /*
     |-----------------------------------------------------------------------------
     | Text colors                         https://tailwindcss.com/docs/text-color
@@ -345,6 +375,7 @@ module.exports = {
 
     textColors: colors,
 
+
     /*
     |-----------------------------------------------------------------------------
     | Background colors             https://tailwindcss.com/docs/background-color
@@ -359,6 +390,7 @@ module.exports = {
     */
 
     backgroundColors: colors,
+
 
     /*
     |-----------------------------------------------------------------------------
@@ -378,6 +410,7 @@ module.exports = {
       'cover': 'cover',
       'contain': 'contain',
     },
+
 
     /*
     |-----------------------------------------------------------------------------
@@ -911,22 +944,5 @@ module.exports = {
       // padding: '1rem',
     }),
   ],
-
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Advanced Options         https://tailwindcss.com/docs/configuration#options
-  |-----------------------------------------------------------------------------
-  |
-  | Here is where you can tweak advanced configuration options. We recommend
-  | leaving these options alone unless you absolutely need to change them.
-  |
-  */
-
-  options: {
-    prefix: '',
-    important: false,
-    separator: ':',
-  },
 
 }
