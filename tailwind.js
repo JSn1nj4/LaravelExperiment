@@ -936,6 +936,10 @@ module.exports = {
   },
 
 
+  corePlugins: {
+    container: false
+  }
+
   /*
   |-----------------------------------------------------------------------------
   | Plugins                                https://tailwindcss.com/docs/plugins
@@ -950,11 +954,6 @@ module.exports = {
   |
   */
 
-  plugins: [
-    require('tailwindcss/plugins/container')({
-      // center: true,
-      // padding: '1rem',
-    }),
-  ],
+  plugins: [],
 
 }
