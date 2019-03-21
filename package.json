@@ -18,7 +18,6 @@
         "imagemin": "^6.0.0",
         "laravel-mix": "^3.0.0",
         "laravel-mix-purgecss": "^3.0.0",
-        "laravel-mix-tailwind": "^0.1.0",
         "node-sass": "^4.11.0",
         "popper.js": "^1.12",
         "tailwindcss": "^1.0.0-beta.3",
