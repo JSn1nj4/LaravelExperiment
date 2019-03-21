@@ -29,21 +29,22 @@ module.exports = {
   theme: {
 
     colors: {
-      'transparent': 'transparent',
+      transparent: 'transparent',
 
-      'black': '#090909',
+      black: '#090909',
       'grey-darkest': '#151515',
       'grey-darker': '#606f7b',
       'grey-dark': '#8795a1',
-      'grey': '#b8c2cc',
+      grey: '#b8c2cc',
       'grey-light': '#dae1e7',
       'grey-lighter': '#f1f5f8',
       'grey-lightest': '#f8fafc',
+      white: "#ffffff",
 
       'red-darkest': '#3b0d0c',
       'red-darker': '#621b18',
       'red-dark': '#cc1f1a',
-      'red': '#e3342f',
+      red: '#e3342f',
       'red-light': '#ef5753',
       'red-lighter': '#f9acaa',
       'red-lightest': '#fcebea',
@@ -104,10 +105,10 @@ module.exports = {
     },
 
     screens: {
-      'sm': '576px',
-      'md': '768px',
-      'lg': '992px',
-      'xl': '1200px',
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
     },
 
     fontWeight: {
