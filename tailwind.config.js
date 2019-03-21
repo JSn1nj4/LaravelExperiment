@@ -130,7 +130,7 @@ module.exports = {
 
     borderColor: theme => ({
       default: theme('colors.grey-light'),
-      ...colors,
+      ...theme('colors'),
     }),
 
     maxWidth: {
@@ -217,7 +217,7 @@ module.exports = {
 
   corePlugins: {
     container: false
-  }
+  },
 
   plugins: [],
 
