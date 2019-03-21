@@ -917,6 +917,7 @@ module.exports = {
     padding: ['responsive'],
     pointerEvents: ['responsive'],
     position: ['responsive'],
+    inset: ['responsive'],
     resize: ['responsive'],
     stroke: [],
     textAlign: ['responsive'],
