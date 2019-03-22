@@ -216,9 +216,7 @@ module.exports = {
     zIndex: ['responsive'],
   },
 
-  corePlugins: {
-    container: false
-  },
+  corePlugins: {},
 
   plugins: [],
 
