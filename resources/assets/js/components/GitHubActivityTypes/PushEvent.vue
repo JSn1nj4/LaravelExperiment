@@ -30,7 +30,7 @@
 
       <p v-for="commit in displayCommits" :key="commit.sha" class="font-grey align-middle mt-2">
         <a :href="profileUrl" target="_blank" class="no-underline font-bold">
-          <img width="18" height="18" class="align-bottom" :src="tmpAvatarUrl">
+          <img width="18" height="18" class="inline align-bottom" :src="tmpAvatarUrl">
         </a>
         <a :href="commitUrl(commit.sha)" target="_blank" class="no-underline">
           {{ shortHash(commit.sha) }}

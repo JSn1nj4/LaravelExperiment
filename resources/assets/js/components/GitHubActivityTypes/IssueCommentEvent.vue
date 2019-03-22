@@ -30,7 +30,7 @@
 
       <p class="font-grey align-middle mt-2">
         <a :href="event.payload.comment.user.html_url">
-          <img width="18" height="18" class="align-bottom" :src="event.payload.comment.user.avatar_url">
+          <img width="18" height="18" class="inline align-bottom" :src="event.payload.comment.user.avatar_url">
         </a>
 
         {{ issueComment }}
