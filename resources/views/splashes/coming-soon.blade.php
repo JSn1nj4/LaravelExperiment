@@ -16,7 +16,7 @@
                 <p class="mb-4">
                     @include('partials.socials', [
                         'classes' => 'text-3xl text-center',
-                        'linkClasses' => 'text-white hover:text-sea-green'
+                        'linkClasses' => 'text-white hover:text-sea-green-500'
                     ])
                 </p>
 

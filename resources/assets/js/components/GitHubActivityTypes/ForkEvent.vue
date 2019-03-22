@@ -15,7 +15,7 @@
 
           {{ action }}
 
-          <a :href="repoUrl" target="_blank" class="text-sea-green">
+          <a :href="repoUrl" target="_blank" class="text-sea-green-500">
             {{ event.repo.name }}
           </a>
 

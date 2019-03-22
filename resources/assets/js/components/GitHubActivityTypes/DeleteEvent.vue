@@ -15,7 +15,7 @@
 
           {{ action }}
 
-          <span class="text-sea-green-darker">
+          <span class="text-sea-green-800">
             {{ branchName }}
           </span>
 

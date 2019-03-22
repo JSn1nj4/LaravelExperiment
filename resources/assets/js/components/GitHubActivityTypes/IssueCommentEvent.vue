@@ -15,7 +15,7 @@
 
           {{ action }}
 
-          <a :href="event.payload.comment.html_url" target="_blank" class="text-sea-green">
+          <a :href="event.payload.comment.html_url" target="_blank" class="text-sea-green-500">
             {{ issueNumberString }}
           </a>
 
