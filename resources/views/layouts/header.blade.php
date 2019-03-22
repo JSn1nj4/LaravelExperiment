@@ -1,6 +1,6 @@
 @php
     $headerClasses          = 'flex items-center justify-between flex-wrap';
-    $logoWrapperClasses     = 'flex items-center flex-no-shrink';
+    $logoWrapperClasses     = 'flex items-center flex-shrink-0';
     $logoClasses            = '';
     $logoTextClasses        = 'text-xl';
     $fullHeader             = true;
