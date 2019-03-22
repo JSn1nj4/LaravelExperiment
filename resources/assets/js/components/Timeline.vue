@@ -28,7 +28,7 @@ export default {
 
   computed: {
     commonClasses() {
-      return `absolute ${this.linePositionClass} border-r border-grey-dark`
+      return `absolute ${this.linePositionClass} border-r border-gray-600`
     }
   },
 }

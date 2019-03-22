@@ -132,7 +132,7 @@ a {
 
 .mobile-menu {
     top: 100%;
-    @apply bg-black;
+    @apply bg-gray-900;
     @include transitions((opacity $default-speed));
     z-index: -10;
     opacity: 0;

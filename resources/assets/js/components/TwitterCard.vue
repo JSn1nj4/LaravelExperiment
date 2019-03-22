@@ -15,7 +15,7 @@
             <a :href="profile_url" target="_blank" class="font-bold" @click.stop>
               {{ tweet.user.name }}
             </a><br>
-            <a :href="profile_url" target="_blank" class="text-grey-dark" @click.stop>
+            <a :href="profile_url" target="_blank" class="text-gray-600" @click.stop>
               @{{ tweet.user.screen_name }}
             </a>
           </p>

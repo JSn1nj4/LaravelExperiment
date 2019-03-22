@@ -15,7 +15,7 @@
 @endphp
 
 <header id="header" class="container-flexible-large m-auto">
-    <nav class="{{ $headerClasses }} bg-black relative">
+    <nav class="{{ $headerClasses }} bg-gray-900 relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
             <a href="/" class="{{ $logoClasses }} text-white p-2">

@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-row relative">
-    <div class="text-grey text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
+    <div class="text-gray-500 text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
 
     <div class="pl-4 flex-grow relative">
-      <p class="text-grey">
+      <p class="text-gray-500">
         about {{ formattedDate }}
       </p>
 
@@ -28,7 +28,7 @@
         </strong>
       </p>
 
-      <p class="font-grey align-middle mt-2">
+      <p class="font-gray-500 align-middle mt-2">
         <a :href="event.payload.comment.user.html_url">
           <img width="18" height="18" class="inline align-bottom" :src="event.payload.comment.user.avatar_url">
         </a>
