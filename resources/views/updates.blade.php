@@ -6,7 +6,7 @@
 
             <div class="w-full pb-6">
                 <div class="px-2">
-                    <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
+                    <h1 class="content-title text-4xl pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
                         Updates
                     </h1>
                     <p class="mb-4">
@@ -20,12 +20,12 @@
         <section class="block md:flex">
 
             <div class="block md:w-1/2 pb-8">
-                <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">Recent Tweets</h2>
+                <h2 class="content-title text-2xl pt-6 mt-4 md:pt-0 md:mt-0 text-center">Recent Tweets</h2>
                 <section id="twitter" class="block md:flex"></section>
             </div>
 
             <div class="block md:w-1/2 pb-8">
-                <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
+                <h2 class="content-title text-2xl pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
                 <section id="github_activity_feed" class="block md:flex"></section>
             </div>
 
