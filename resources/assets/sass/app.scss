@@ -49,7 +49,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     &.content-title {
-        @apply .mb-4 .font-normal;
+        @apply mb-4 font-normal;
     }
 }
 
@@ -59,7 +59,7 @@ h1 {
     }
 
     &.banner-title {
-        @apply .text-3xl .font-normal;
+        @apply text-3xl font-normal;
         @include text-glow(3, #fff);
     }
 }
@@ -84,17 +84,17 @@ h6 {
 
 p {
     &.banner-paragraph {
-        @apply .text-base;
+        @apply text-base;
         @include text-glow(2, #fff);
     }
 }
 
 a {
-    @apply .text-sea-green .trans-color;
+    @apply text-sea-green trans-color;
 
     &:hover,
     &.active {
-        @apply .text-white;
+        @apply text-white;
     }
 
     &.active {
@@ -116,7 +116,7 @@ button {
 
 .mobile-menu {
     top: 100%;
-    @apply .bg-black;
+    @apply bg-black;
     @include transitions((opacity $default-speed));
     z-index: -10;
     opacity: 0;
@@ -139,15 +139,15 @@ button {
 .status-code {
     font-size: 200px;
     @include text-glow(5);
-    @apply .font-thin;
+    @apply font-thin;
 }
 
 .status-description {
-    @apply .text-2xl .leading-normal .py-4;
+    @apply text-2xl leading-normal py-4;
 }
 
 .status-title {
-    @apply .font-thin;
+    @apply font-thin;
 }
 
 @media only screen and (min-width: 600px) {
@@ -160,17 +160,17 @@ button {
 @media only screen and (min-width: 768px) {
     .mobile-menu {
         top: auto;
-        @apply .bg-transparent .h-auto;
+        @apply bg-transparent h-auto;
         z-index: 10;
         opacity: 1;
     }
 
     h1.banner-title {
-        @apply .text-5xl .font-normal;
+        @apply text-5xl font-normal;
     }
 
     p.banner-paragraph {
-        @apply .text-3xl;
+        @apply text-3xl;
     }
 }
 
