@@ -9,19 +9,19 @@
 
       <p class="font-white mt-1 text-sm">
         <strong>
-          <a :href="profileUrl" target="_blank" class="no-underline">
+          <a :href="profileUrl" target="_blank">
             {{ event.actor.display_login }}
           </a>
 
           {{ action }}
 
-          <a :href="event.payload.issue.html_url" target="_blank" class="no-underline text-sea-green">
+          <a :href="event.payload.issue.html_url" target="_blank" class="text-sea-green">
             {{ issueNumberString }}
           </a>
 
           {{ preposition }}
 
-          <a :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
         </strong>

@@ -9,13 +9,13 @@
 
       <p class="font-white mt-1 text-sm">
         <strong>
-          <a :href="profileUrl" target="_blank" class="no-underline">
+          <a :href="profileUrl" target="_blank">
             {{ event.actor.display_login }}
           </a>
 
           {{ action }}
 
-          <a :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
 

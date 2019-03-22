@@ -9,21 +9,21 @@
 
       <p class="font-white mt-1 text-sm">
         <strong>
-          <a :href="profileUrl" target="_blank" class="no-underline">
+          <a :href="profileUrl" target="_blank">
             {{ event.actor.display_login }}
           </a>
 
           {{ action }}
 
           <template v-if="event.payload.ref_type !== 'repository'">
-            <a :href="branchUrl" target="_blank" class="no-underline">
+            <a :href="branchUrl" target="_blank">
               {{ branchName }}
             </a>
 
             {{ preposition }}
           </template>
 
-          <a :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
 

@@ -9,19 +9,19 @@
 
       <p class="font-white mt-1 text-sm">
         <strong>
-          <a :href="profileUrl" target="_blank" class="no-underline">
+          <a :href="profileUrl" target="_blank">
             {{ event.actor.display_login }}
           </a>
 
           {{ action }}
 
-          <a :href="branchUrl" target="_blank" class="no-underline">
+          <a :href="branchUrl" target="_blank">
             {{ branchName }}
           </a>
 
           {{ preposition }}
 
-          <a :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
 
@@ -29,16 +29,16 @@
       </p>
 
       <p v-for="commit in displayCommits" :key="commit.sha" class="font-grey align-middle mt-2">
-        <a :href="profileUrl" target="_blank" class="no-underline font-bold">
+        <a :href="profileUrl" target="_blank" class="font-bold">
           <img width="18" height="18" class="inline align-bottom" :src="tmpAvatarUrl">
         </a>
-        <a :href="commitUrl(commit.sha)" target="_blank" class="no-underline">
+        <a :href="commitUrl(commit.sha)" target="_blank">
           {{ shortHash(commit.sha) }}
         </a>
         {{ shortMsg(commit.message) }}
       </p>
       <p v-if="extraCommitsCount > 0" class="font-grey align-middle mt-2">
-        <a :href="branchCommitsUrl" target="_blank" class="no-underline font-bold">
+        <a :href="branchCommitsUrl" target="_blank" class="font-bold">
           +{{extraCommitsCount}} more
         </a>
       </p>
