@@ -19,7 +19,7 @@
 
         <div class="{{ $logoWrapperClasses }} text-white">
             <a href="/" class="{{ $logoClasses }} text-white no-underline p-2">
-                <img src="https://www.gravatar.com/avatar/8754c5b823c1f0b00e989447a0345a33" width="60" height="60" alt="ElliotDerhay.com logo" title="Elliot Derhay" class="border-solid border-2 border-white rounded-full align-middle">
+                <img src="https://www.gravatar.com/avatar/8754c5b823c1f0b00e989447a0345a33" width="60" height="60" alt="ElliotDerhay.com logo" title="Elliot Derhay" class="inline border-solid border-2 border-white rounded-full align-middle">
                 <span class="{{ $logoTextClasses }} tracking-tight py-px2 pl-2 align-middle">
                     Elliot Derhay
                 </span>
