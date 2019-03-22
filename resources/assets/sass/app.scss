@@ -16,6 +16,31 @@
  */
 @tailwind base;
 
+html {
+   height: 100%;
+   line-height: 1.15;
+}
+body {
+   min-height: 100%;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: theme('padding.4');
+}
+ol {
+    list-style-type: decimal;
+    padding-left: theme('padding.4');
+}
+
+img {
+    height: auto;
+}
+
+button {
+    @include transitions((color $default-speed, border-color $default-speed));
+}
+
 /**
  * This injects any component classes registered by plugins.
  *
@@ -40,14 +65,6 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
-
-html {
-    height: 100%;
-    line-height: 1.15;
-}
-body {
-    min-height: 100%;
-}
 
 h1, h2, h3, h4, h5, h6 {
     &.content-title {
@@ -102,14 +119,6 @@ a {
     &.active {
         @include text-glow(4);
     }
-}
-
-img {
-    height: auto;
-}
-
-button {
-    @include transitions((color $default-speed, border-color $default-speed));
 }
 
 .container-flexible-large {
