@@ -1,9 +1,9 @@
 <template>
   <div class="timeline relative mb-4">
 
-    <div v-if="showLine" :class="`${commonClasses} pin-t border-solid h-full`">&nbsp;</div>
+    <div v-if="showLine" :class="`${commonClasses} top-0 border-solid h-full`">&nbsp;</div>
     <slot></slot>
-    <div v-if="showDottedLine" :class="`${commonClasses} pin-b border-dashed h-4 -mb-4`">&nbsp;</div>
+    <div v-if="showDottedLine" :class="`${commonClasses} bottom-0 border-dashed h-4 -mb-4`">&nbsp;</div>
 
   </div>
 </template>
