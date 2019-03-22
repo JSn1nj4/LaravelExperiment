@@ -2,7 +2,7 @@
     $headerClasses          = 'flex items-center justify-between flex-wrap';
     $logoWrapperClasses     = 'flex items-center flex-no-shrink';
     $logoClasses            = '';
-    $logoTextClasses        = 'text-xl sm:';
+    $logoTextClasses        = 'text-xl';
     $fullHeader             = true;
 
     if(count($menuItems) < 1) {
