@@ -24,6 +24,8 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
+let defaultConfig = require('tailwindcss/defaultConfig');
+
 module.exports = {
 
   theme: {
@@ -109,6 +111,20 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
+    },
+
+    fontFamily: {
+      ...defaultConfig.fontFamily,
+      mono: [
+        'Source Code Pro',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
     },
 
     fontWeight: {
