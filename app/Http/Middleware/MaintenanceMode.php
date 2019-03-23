@@ -9,8 +9,12 @@ class MaintenanceMode
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @method                              handle
+     * @access public
+     *
+     * @param  \Illuminate\Http\Request     $request
+     * @param  \Closure                     $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -29,8 +33,12 @@ class MaintenanceMode
     /**
      * Check if the user should be redirected
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
+     * @method                              shouldRedirect
+     * @access private
+     *
+     * @param  \Illuminate\Http\Request     $request
+     *
+     * @return boolean
      *
      * This method is used to check if the user should be redirected to the
      * Coming Soon page. This method is used in place of inlining the below
@@ -46,8 +54,12 @@ class MaintenanceMode
     /**
      * Check if the user should be redirected home
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
+     * @method                              shouldRedirectHome
+     * @access private
+     *
+     * @param  \Illuminate\Http\Request     $request
+     *
+     * @return boolean
      *
      * This method is used to check if the user should be redirected to the
      * homepage instead. Similar to the previous method, this method is used

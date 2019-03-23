@@ -9,14 +9,17 @@ class GitHubActivityController extends Controller
     /**
      * Instance of GitHubActivity model
      *
-     * @property object     $github_activity
+     * @property object         $github_activity
+     * @access private
      */
     private $github_activity;
 
     /**
      * GitHubActivityController constructor method
      *
-     * @method              __construct
+     * @method                  __construct
+     * @access public
+     *
      * @return void
      */
     public function __construct()
@@ -27,8 +30,11 @@ class GitHubActivityController extends Controller
     /**
      * Index recent GitHub activity events
      *
-     * @method              index
-     * @param int           $count
+     * @method                  index
+     * @access public
+     *
+     * @param integer           $count
+     *
      * @return array
      *
      * This will return an asociative array that should automatically be

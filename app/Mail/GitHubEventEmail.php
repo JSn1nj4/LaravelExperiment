@@ -11,15 +11,45 @@ class GitHubEventEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * Store email "from" name
+     *
+     * @property                $fromName
+     * @access private
+     */
     private $fromName       = 'ElliotDerhay.com';
+
+    /**
+     * Store email "from" address
+     *
+     * @property                $fromAddress
+     * @access private
+     */
     private $fromAddress    = 'web@elliotderhay.com';
 
+    /**
+     * Store email subject line
+     *
+     * @property                $subject
+     * @access public
+     */
     public $subject        = 'New GitHub Activity Event Type';
 
+    /**
+     * Store GitHub activity types to send email about
+     *
+     * @property                $types
+     * @access public
+     */
     public $types;
 
     /**
-     * Create a new message instance.
+     * Create a new message instance
+     *
+     * @method                  __construct
+     * @access public
+     *
+     * @param array             $eventTypes
      *
      * @return void
      */
@@ -33,7 +63,10 @@ class GitHubEventEmail extends Mailable
     }
 
     /**
-     * Build the message.
+     * Build the email message
+     *
+     * @method                  build
+     * @access public
      *
      * @return $this
      */
