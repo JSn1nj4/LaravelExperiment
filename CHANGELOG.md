@@ -1,7 +1,15 @@
 # Changelog
 
 ### Release 1.4.8
-1.
+1. Update Tailwind CSS: ^0.5.3 -> ^1.0.0-beta.3
+2. Update local Tailwind config
+3. Update classes in SCSS and template files as needed
+4. Update documentation within several PHP classes
+
+Tailwind upgrade guide can be found [here][1].
+- Note: this is from any development release to any beta release. There may yet be more changes.
+
+[1]: https://github.com/tailwindcss/tailwindcss/releases/tag/v1.0.0-beta.1
 
 ### Release 1.4.7
 1. Add support for the `PullRequestEvent` GitHub event type
