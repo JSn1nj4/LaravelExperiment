@@ -1,8 +1,8 @@
 @php
     $headerClasses          = 'flex items-center justify-between flex-wrap';
-    $logoWrapperClasses     = 'flex items-center flex-no-shrink';
+    $logoWrapperClasses     = 'flex items-center flex-shrink-0';
     $logoClasses            = '';
-    $logoTextClasses        = 'text-xl sm:';
+    $logoTextClasses        = 'text-xl';
     $fullHeader             = true;
 
     if(count($menuItems) < 1) {
@@ -15,12 +15,12 @@
 @endphp
 
 <header id="header" class="container-flexible-large m-auto">
-    <nav class="{{ $headerClasses }} bg-black relative">
+    <nav class="{{ $headerClasses }} bg-gray-900 relative">
 
         <div class="{{ $logoWrapperClasses }} text-white">
-            <a href="/" class="{{ $logoClasses }} text-white no-underline p-2">
-                <img src="https://www.gravatar.com/avatar/8754c5b823c1f0b00e989447a0345a33" width="60" height="60" alt="ElliotDerhay.com logo" title="Elliot Derhay" class="border-solid border-2 border-white rounded-full align-middle">
-                <span class="{{ $logoTextClasses }}text-3xl tracking-tight py-px2 pl-2 align-middle">
+            <a href="/" class="{{ $logoClasses }} text-white p-2">
+                <img src="https://www.gravatar.com/avatar/8754c5b823c1f0b00e989447a0345a33" width="60" height="60" alt="ElliotDerhay.com logo" title="Elliot Derhay" class="inline border-solid border-2 border-white rounded-full align-middle">
+                <span class="{{ $logoTextClasses }} sm:text-3xl tracking-tighter py-px2 pl-2 align-middle">
                     Elliot Derhay
                 </span>
             </a>
@@ -30,7 +30,7 @@
 
             <div class="block md:hidden mr-5">
                 <toggle-button inline-template :click-handler="buttonClick">
-                    <button @click="toggle" class="flex items-center text-sea-green hover:text-white">
+                    <button @click="toggle" class="flex items-center text-sea-green-500 hover:text-white">
                         <svg class="fill-current h-8 w-8" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
                     </button>
                 </toggle-button>
@@ -55,7 +55,7 @@
 
                             <a
                                 href="{{ route($value, [], false) }}"
-                                class="{{ $extraClasses }}block md:inline-block px-4 py-6 no-underline uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
+                                class="{{ $extraClasses }}block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
                                 {{ $titleText }}>
                                 {{ $itemText }}
                             </a>

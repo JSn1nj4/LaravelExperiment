@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="github-activity-item">
     <card :size="'sm'" type="transparent">
 

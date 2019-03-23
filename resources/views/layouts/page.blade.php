@@ -17,7 +17,7 @@
 
     @include('layouts.header', $menuItems)
 
-    <main class="bg-grey-darkest layer-shadow pt-4">
+    <main class="bg-gray-800 layer-shadow pt-4">
         @yield('content')
     </main>
 

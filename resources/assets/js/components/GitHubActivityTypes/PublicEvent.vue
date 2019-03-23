@@ -15,14 +15,8 @@
 
           {{ action }}
 
-          <a :href="repoUrl" target="_blank" class="text-sea-green-500">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
-          </a>
-
-          {{ preposition }}
-
-          <a :href="event.payload.forkee.html_url" target="_blank">
-            {{ event.payload.forkee.full_name }}
           </a>
 
         </strong>
@@ -36,12 +30,11 @@
 import GitHubActivityMixin from '../../mixins/GitHubActivity';
 
 export default {
-  name: "git-hub-fork-event",
+  name: "git-hub-create-event",
   mixins: [GitHubActivityMixin],
   data: () => ({
-    icon: 'fas fa-code-branch',
-    action: 'forked',
-    preposition: 'into'
+    icon: 'fas fa-globe',
+    action: 'open sourced'
   })
 }
 </script>

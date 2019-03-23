@@ -12,10 +12,10 @@
 
         <div class="pl-4 flex-grow relative">
           <p>
-            <a :href="profile_url" target="_blank" class="no-underline font-bold" @click.stop>
+            <a :href="profile_url" target="_blank" class="font-bold" @click.stop>
               {{ tweet.user.name }}
             </a><br>
-            <a :href="profile_url" target="_blank" class="no-underline text-grey-dark" @click.stop>
+            <a :href="profile_url" target="_blank" class="text-gray-600" @click.stop>
               @{{ tweet.user.screen_name }}
             </a>
           </p>
@@ -35,13 +35,13 @@
       <div class="pt-4 flex flex-row relative">
         <div class="flex-grow">
           <p>
-            <a class="no-underline font-bold" :href="tweet_url" target="_blank" @click.stop>View on Twitter</a>
+            <a class="font-bold" :href="tweet_url" target="_blank" @click.stop>View on Twitter</a>
           </p>
         </div>
 
         <div class="pl-4 flex-none relative">
           <p>
-            <a class="no-underline font-bold" :href="tweet_url" target="_blank" @click.stop>
+            <a class="font-bold" :href="tweet_url" target="_blank" @click.stop>
               {{formatDate(tweet.created_at)}}
             </a>
           </p>
@@ -78,7 +78,7 @@ export default {
       this.tweet.entities.hashtags.map(elem => {
         text = text.replace(
           `#${elem.text}`,
-          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
+          `<a target="_blank" href="${this.baseLink}/search?q=%23${elem.text}">#${elem.text}</a>`
         );
       });
 
@@ -86,7 +86,7 @@ export default {
       this.tweet.entities.user_mentions.map(elem => {
         text = text.replace(
           `@${elem.screen_name}`,
-          `<a class="no-underline" target="_blank" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
+          `<a target="_blank" href="${this.baseLink}/${elem.screen_name}">@${elem.screen_name}</a>`
         );
       });
 
@@ -94,7 +94,7 @@ export default {
       this.tweet.entities.urls.map(elem => {
         text = text.replace(
           elem.url,
-          `<a class="no-underline" target="_blank" href="${elem.expanded_url}">${elem.display_url}</a>`
+          `<a target="_blank" href="${elem.expanded_url}">${elem.display_url}</a>`
         );
       });
 
@@ -102,7 +102,7 @@ export default {
       this.tweet.entities.symbols.map(elem => {
         text = text.replace(
           `$${elem.text}`,
-          `<a class="no-underline" target="_blank" href="${this.baseLink}/search?q=%24${elem.text}&src=ctag">$${elem.text}</a>`
+          `<a target="_blank" href="${this.baseLink}/search?q=%24${elem.text}&src=ctag">$${elem.text}</a>`
         );
       });
 
@@ -111,7 +111,7 @@ export default {
         this.tweet.entities.media.map(elem => {
           text = text.replace(
             elem.url,
-            `<a class="no-underline" target="_blank" href="${elem.expanded_url}"><img class="mt-4" src="${elem.media_url_https}" width="${elem.sizes.small.w}" height="${elem.sizes.small.h}"></a>`
+            `<a target="_blank" href="${elem.expanded_url}"><img class="mt-4" src="${elem.media_url_https}" width="${elem.sizes.small.w}" height="${elem.sizes.small.h}"></a>`
           );
         });
       }

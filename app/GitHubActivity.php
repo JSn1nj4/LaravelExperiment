@@ -10,32 +10,32 @@ class GitHubActivity extends Model
     /**
      * The base GitHub API URL
      *
-     * @property        $api_url
-     * @var string
+     * @property string         $api_url
+     * @access private
      */
     private $api_url = 'https://api.github.com';
 
     /**
      * The token used for retrieving information from the GitHub API
      *
-     * @property        $token
-     * @var string
+     * @property string         $token
+     * @access private
      */
     private $token;
 
     /**
      * The email address to send notifications to
      *
-     * @property        $email
-     * @var string
+     * @property array          $email
+     * @access private
      */
     private $alertRecipients = [];
 
     /**
      * The list of event types currently supported
      *
-     * @property        $eventTypes
-     * @var array
+     * @property array          $eventTypes
+     * @access private
      *
      * I will make sure to sort these in the order they're listed on GitHub.
      * Reference: https://developer.github.com/v3/activity/events/types/
@@ -46,6 +46,8 @@ class GitHubActivity extends Model
         'ForkEvent',
         'IssueCommentEvent',
         'IssuesEvent',
+        'PublicEvent',
+        'PullRequestEvent',
         'PushEvent',
         'WatchEvent'
     ];
@@ -53,8 +55,11 @@ class GitHubActivity extends Model
     /**
      * Create a new instance of the GitHubActivity model
      *
-     * @method          __construct
-     * @param array     $attributes
+     * @method                  __construct
+     * @access public
+     *
+     * @param array             $attributes
+     *
      * @return void
      *
      * This is necessary to initialize some properties that can't otherwise be
@@ -76,8 +81,11 @@ class GitHubActivity extends Model
     /**
      * Retrieve raw activity via GitHub's API
      *
-     * @method          getRawActivity
-     * @param string    $curl_url
+     * @method                  getRawActivity
+     * @access public
+     *
+     * @param string            $curl_url
+     *
      * @return string
      *
      * @todo: check for error message
@@ -115,8 +123,11 @@ class GitHubActivity extends Model
     /**
      * Filter comment data from issue comment event payloads
      *
-     * @method          filterIssueComment
-     * @param array     $comment
+     * @method                  filterIssueComment
+     * @access public
+     *
+     * @param array             $comment
+     *
      * @return array
      *
      * This helps reduce the size of the payload sent with issue comment event
@@ -124,31 +135,31 @@ class GitHubActivity extends Model
      */
     public function filterIssueComment($comment)
     {
-        $comment = collect($comment)->filter(function($val, $key) {
+        return collect($comment)->filter(function($val, $key) {
             return in_array($key, [
                 'html_url',
                 'user',
                 'body'
             ]);
-        });
-        $comment->put('user',
-            collect($comment->get('user'))->filter(function($val, $key) {
+        })->transform(function($val, $key) {
+            return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'login',
                     'avatar_url',
                     'html_url'
                 ]);
-            })
-        );
-
-        return $comment->toArray();
+            })->toArray();
+        })->toArray();
     }
 
     /**
      * Filter payload from issue event
      *
-     * @method          filterIssueEventPayload
-     * @param array     $payload
+     * @method                  filterIssueEventPayload
+     * @access public
+     *
+     * @param array             $payload
+     *
      * @return array
      *
      * This helps reduce the size of the payload sent with issue event data for
@@ -156,55 +167,115 @@ class GitHubActivity extends Model
      */
     public function filterIssueEventPayload($payload)
     {
-        $payload = collect($payload);
+        return collect($payload)->transform(function($val, $key){
+            if($key === 'issue') { // filter issue data
+                return collect($val)->filter(function($val, $key) {
+                    return in_array($key, [
+                        'html_url',
+                        'number',
+                        'title'
+                    ]);
+                })->toArray();
+            }
 
-        $payload->put('issue',
-            collect($payload->get('issue'))->filter(function($val, $key) {
-                return in_array($key, [
-                    'html_url',
-                    'number',
-                    'title'
-                ]);
-            })->toArray()
-        );
+            if ($key === 'comment') { // filter comment data if it exists
+                return $this->filterIssueComment($val);
+            }
 
-        if($payload->has('comment')) {
-            $payload->put('comment', $this->filterIssueComment(
-                $payload->get('comment')
-            ));
-        }
-
-        return $payload->toArray();
+             // return all other values outright
+            return $val;
+        });
     }
 
     /**
      * Filter payload from fork event
      *
-     * @method          filterForkEventPayload
-     * @param array     $payload
+     * @method                  filterForkEventPayload
+     * @access private
+     *
+     * @param array             $payload
+     *
      * @return array
      */
     private function filterForkEventPayload($payload)
     {
-        $payload = collect($payload);
-
-        $payload->put('forkee',
-            collect($payload->get('forkee'))->filter(function($val, $key) {
+        return collect($payload)->transform(function($val, $key) {
+            return $key !== 'forkee' ? $val : collect($val)->filter(function($val, $key) {
                 return in_array($key, [
                     'full_name',
                     'html_url'
                 ]);
-            })->toArray()
-        )->toArray();
+            })->toArray();
+        })->toArray();
+    }
+
+    /**
+     * Filter payload from public event
+     *
+     * @method                  filterPublicEventPayload
+     * @access private
+     *
+     * @param array             $payload
+     *
+     * @return array
+     */
+    private function filterPublicEventPayload($payload)
+    {
+        $payload = collect($payload);
+
+        // @TODO: Build out when first non-empty payload comes through
 
         return $payload->toArray();
     }
 
     /**
+     * Filter payload from pull request event
+     *
+     * @method                  filterPullRequestEventPayload
+     * @access private
+     *
+     * @param array             $payload
+     *
+     * @return array
+     */
+    private function filterPullRequestEventPayload($payload)
+    {
+        return collect($payload)->filter(function($val, $key) {
+            // Return only desired payload data
+            return in_array($key, [
+                'action',
+                'pull_request',
+                'merged'
+            ]);
+        // Transform the 'pull_request' data inline
+        })->transform(function($val, $key) {
+            return $key !== 'pull_request' ? $val : collect($val)->filter(function($val, $key) {
+                // Return only desired 'pull_request' data
+                return in_array($key, [
+                    'html_url',
+                    'number',
+                    'title',
+                    'body',
+                    'user'
+                ]);
+            // Transform the 'head' data inline
+            })->transform(function($val, $key) {
+                return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
+                    // Return only desired 'user' data
+                    return in_array($key, ['login', 'html_url', 'avatar_url']);
+                })->toArray();
+            })->toArray();
+        })->toArray();
+    }
+
+    /**
      * Default method for filtering event payloads
      *
-     * @method          filterEventPayload
-     * @param array     $payload
+     * @method                  filterEventPayload
+     * @access public
+     *
+     * @param array             $payload
+     *
      * @return array
      *
      * This is the default method used for filtering an event payload.
@@ -232,8 +303,11 @@ class GitHubActivity extends Model
     /**
      * Filter activity data
      *
-     * @method          filterActivityData
-     * @param array     $activity
+     * @method                  filterActivityData
+     * @access public
+     *
+     * @param array             $activity
+     *
      * @return array
      *
      * Strip down data returned by GitHub API. Most of the data returned by the
@@ -281,6 +355,16 @@ class GitHubActivity extends Model
                     ));
                     break;
 
+                case 'PublicEvent':
+                    $item->put('payload', $this->filterPublicEventPayload(
+                        $item->get('payload')
+                    ));
+
+                case 'PullRequestEvent':
+                    $item->put('payload', $this->filterPullRequestEventPayload(
+                        $item->get('payload')
+                    ));
+
                 default:
                     $item->put('payload', $this->filterEventPayload(
                         $item->get('payload')
@@ -302,8 +386,11 @@ class GitHubActivity extends Model
     /**
      * Retrieve GitHub activity
      *
-     * @method          getActivity
-     * @param int       $count
+     * @method                  getActivity
+     * @access public
+     *
+     * @param int               $count
+     *
      * @return string
      *
      * This method returns a list of activity that has been trimmed first.
