@@ -106,6 +106,7 @@ module.exports = {
       '64': '16rem',
     },
 
+    // @TODO: Test new default breakpoints - 640, 768, 1024, 1280
     screens: {
       sm: '576px',
       md: '768px',
@@ -131,14 +132,6 @@ module.exports = {
       thin: 200,
       normal: 400,
       bold: 700,
-    },
-
-    // TODO: come back later and update to match default config
-    // Also replace classes in markup as necessary
-    letterSpacing: {
-      tight: '-0.05em',
-      normal: '0',
-      wide: '0.05em',
     },
 
     textColor: theme => theme('colors'),
