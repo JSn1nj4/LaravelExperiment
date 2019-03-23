@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-animation absolute pin-t pin-l w-full h-full"
+  <div class="loading-animation absolute top-0 left-0 w-full h-full"
     :class="[{ hide: isHidden }, zIndex]">
     <div class="loader-content mx-auto" :style="`max-width: ${this.size}`">
       <socket :size="size" background="#00c49a"></socket>
