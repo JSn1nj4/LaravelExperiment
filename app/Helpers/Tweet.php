@@ -8,11 +8,14 @@ namespace App\Helpers;
 class Tweet
 {
     /**
-     * @param DateTime                      $date
+     * Format a date string from a given date
+     *
+     * @method                  formatDate
+     * @access public
+     *
+     * @param DateTime          $date
      *
      * @return string
-     *
-     * Format a date string from a given date
      */
     public static function formatDate(DateTime $date)
     {
@@ -20,12 +23,15 @@ class Tweet
     }
 
     /**
-     * @param string                        $screen_name
-     * @param string                        $baseLink
+     * Return a valid Twitter profile URL
+     *
+     * @method                  profileUrl
+     * @access public
+     *
+     * @param string            $screen_name
+     * @param string            $baseLink
      *
      * @return string
-     *
-     * Return a valid Twitter profile URL
      */
     public static function profileUrl(string $screen_name, string $baseLink = 'https://twitter.com')
     {
@@ -33,12 +39,15 @@ class Tweet
     }
 
     /**
-     * @param string                        $profileUrl
-     * @param string                        $id
+     * Return a valid Tweet URL
+     *
+     * @method                  tweetUrl
+     * @access public
+     *
+     * @param string            $profileUrl
+     * @param string            $id
      *
      * @return string
-     *
-     * Return a valid Tweet URL
      */
     public static function tweetUrl(string $profileUrl, string $id)
     {
@@ -46,11 +55,14 @@ class Tweet
     }
 
     /**
-     * @param array                         $tweet
+     * Render a given tweet body as HTML
+     *
+     * @method                  formatBody
+     * @access public
+     *
+     * @param array             $tweet
      *
      * @return void
-     *
-     * Render a given tweet body as HTML
      */
     public static function formatBody(array $tweet)
     {

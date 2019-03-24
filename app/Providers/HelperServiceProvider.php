@@ -9,6 +9,9 @@ class HelperServiceProvider extends ServiceProvider
     /**
      * Bootstrap services.
      *
+     * @method                  boot
+     * @access public
+     *
      * @return void
      */
     public function boot()
@@ -18,6 +21,9 @@ class HelperServiceProvider extends ServiceProvider
 
     /**
      * Register services.
+     *
+     * @method                  register
+     * @access public
      *
      * @return void
      */
