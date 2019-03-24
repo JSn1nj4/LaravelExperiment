@@ -15,7 +15,7 @@
             <div class="md:w-1/2 lg:w-1/3 pb-6">
                 <div class="px-2">
 
-                    <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
+                    <h1 class="content-title text-3xl pt-6 mt-4 md:pt-0 md:mt-0 text-center md:text-left">
                         About Me
                     </h1>
 
@@ -46,7 +46,7 @@
 
         <section class="block md:flex">
             <div class="w-full pb-6">
-                <h2 class="content-title pt-6 mt-4 md:pt-0 md:mt-0 text-center">Latest Tweet</h2>
+                <h2 class="content-title text-2xl pt-6 mt-4 md:pt-0 md:mt-0 text-center">Latest Tweet</h2>
                 <div id="newest-tweet"></div>
             </div>
         </section>

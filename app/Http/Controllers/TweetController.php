@@ -7,14 +7,18 @@ use App\Tweet;
 class TweetController extends Controller
 {
     /**
-     * Instance of App\Tweet used for interacting with the Twitter API
+     * Used for interacting with the Twitter API
      *
-     * @var App\Tweet   $tweets
+     * @property App\Tweet      $tweets
+     * @access private
      */
     private $tweets;
 
     /**
      * Store instance of App\Tseet on controller instantiation
+     *
+     * @method                  __construct
+     * @access public
      *
      * @return void
      */
@@ -26,7 +30,12 @@ class TweetController extends Controller
     /**
      * Get a list of tweets for display in a timeline-like view
      *
-     * @return string
+     * @method                  index
+     * @access public
+     *
+     * @param integer           $count
+     *
+     * @return object
      */
     public function index(int $count = 5)
     {
@@ -38,7 +47,12 @@ class TweetController extends Controller
     /**
      * Get a single tweet for display as a tweet-like widget
      *
-     * @return string
+     * @method                  show
+     * @access public
+     *
+     * @param string            $id
+     *
+     * @return object
      */
     public function show(string $id)
     {

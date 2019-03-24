@@ -1,0 +1,23 @@
+# Linter options
+options:
+    merge-default-rules: true
+
+files:
+    include: 'resources/sass/**/*.s+(a|c)ss'
+
+rules:
+    hex-notation:
+        - 1
+        -
+            style: lowercase
+    indentation:
+        - 2
+        -
+            size: 4
+    porperty-sort-order:
+        - 1
+        -
+            order:
+                - display
+                - margin
+    no-color-literals: 2

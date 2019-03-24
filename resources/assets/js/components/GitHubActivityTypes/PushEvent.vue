@@ -1,44 +1,44 @@
 <template>
   <div class="flex flex-row relative">
-    <div class="text-grey text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
+    <div class="text-gray-500 text-center flex-none github-activity-icon" :class="icon" style="width: 2rem; font-size: 22px;"></div>
 
     <div class="pl-4 flex-grow relative">
-      <p class="text-grey">
+      <p class="text-gray-500">
         about {{ formattedDate }}
       </p>
 
       <p class="font-white mt-1 text-sm">
         <strong>
-          <a :href="profileUrl" target="_blank" class="no-underline">
+          <a :href="profileUrl" target="_blank">
             {{ event.actor.display_login }}
           </a>
 
           {{ action }}
 
-          <a :href="branchUrl" target="_blank" class="no-underline">
+          <a :href="branchUrl" target="_blank">
             {{ branchName }}
           </a>
 
           {{ preposition }}
 
-          <a :href="repoUrl" target="_blank" class="no-underline">
+          <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
 
         </strong>
       </p>
 
-      <p v-for="commit in displayCommits" :key="commit.sha" class="font-grey align-middle mt-2">
-        <a :href="profileUrl" target="_blank" class="no-underline font-bold">
-          <img width="18" height="18" class="align-bottom" :src="tmpAvatarUrl">
+      <p v-for="commit in displayCommits" :key="commit.sha" class="font-gray-500 align-middle mt-2">
+        <a :href="profileUrl" target="_blank" class="font-bold">
+          <img width="18" height="18" class="inline align-bottom" :src="tmpAvatarUrl">
         </a>
-        <a :href="commitUrl(commit.sha)" target="_blank" class="no-underline">
+        <a :href="commitUrl(commit.sha)" target="_blank">
           {{ shortHash(commit.sha) }}
         </a>
         {{ shortMsg(commit.message) }}
       </p>
-      <p v-if="extraCommitsCount > 0" class="font-grey align-middle mt-2">
-        <a :href="branchCommitsUrl" target="_blank" class="no-underline font-bold">
+      <p v-if="extraCommitsCount > 0" class="font-gray-500 align-middle mt-2">
+        <a :href="branchCommitsUrl" target="_blank" class="font-bold">
           +{{extraCommitsCount}} more
         </a>
       </p>

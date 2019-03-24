@@ -9,35 +9,43 @@ class Tweet extends Model
     /**
      * The base Twitter API URL
      *
-     * @var string
+     * @property string         $api_url
+     * @access private
      */
     private $api_url = 'https://api.twitter.com';
 
     /**
      * The token used for retrieving tweet information from the Twitter API
      *
-     * @var string
+     * @property string         $token
+     * @access private
      */
     private $token;
 
     /**
      * The API key used for generating the token
      *
-     * @var string
+     * @property string         $key
+     * @access private
      */
     private $key;
 
     /**
      * The API secret key part used for generating the token
      *
-     * @var string
+     * @property string         $secret
+     * @access private
      */
     private $secret;
 
     /**
      * Create a new instance of the Tweet model
      *
-     * @param array     $attributes
+     * @method                  __construct
+     * @access public
+     *
+     * @param array             $attributes
+     *
      * @return void
      *
      * This is necessary to initialize some properties that can't otherwise be
@@ -55,6 +63,9 @@ class Tweet extends Model
 
     /**
      * Generate a new Twitter API token if one doesn't exist
+     *
+     * @method                  createToken
+     * @access public
      *
      * @return void
      *
@@ -106,7 +117,11 @@ class Tweet extends Model
     /**
      * Retrieve raw tweets via Twitter's GET API
      *
-     * @param string    $curl_url
+     * @method                  getRawTweets
+     * @access public
+     *
+     * @param string            $curl_url
+     *
      * @return string
      */
     public function getRawTweets(string $curl_url)
@@ -139,7 +154,11 @@ class Tweet extends Model
     /**
      * Format tweet data
      *
-     * @param string    $tweets
+     * @method                  formatTweetData
+     * @access private
+     *
+     * @param string            $tweets
+     *
      * @return array
      *
      * Strip down tweet data returned by Twitter API. Most of the data returned
@@ -178,7 +197,11 @@ class Tweet extends Model
     /**
      * Retrieve tweets
      *
-     * @param array     $options: count, screen_name, retweets
+     * @method                  getTweet
+     * @access public
+     *
+     * @param array             $options: count, screen_name, retweets
+     *
      * @return string
      *
      * This method returns a list of tweets that their initial API data trimmed
@@ -200,7 +223,11 @@ class Tweet extends Model
     /**
      * Retrieve a single tweet
      *
-     * @param string    $tweet_id
+     * @method                  getTweet
+     * @access public
+     *
+     * @param string            $tweet_id
+     *
      * @return string
      *
      * This method returns a single tweet in an array. It currently needs to be
