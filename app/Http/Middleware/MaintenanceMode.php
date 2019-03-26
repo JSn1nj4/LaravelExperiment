@@ -74,7 +74,7 @@ class MaintenanceMode
     private function shouldRedirectHome($request)
     {
         return !config('app.maintenance')
-            && $request->is('/maintenance')
+            && $request->is('maintenance')
             && !(config('app.env') === 'local');
     }
 }

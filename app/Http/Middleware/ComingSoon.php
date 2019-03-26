@@ -70,7 +70,7 @@ class ComingSoon
     private function shouldRedirectHome($request)
     {
         return !config('app.coming_soon')
-            && $request->is('/coming-soon')
+            && $request->is('coming-soon')
             && !(config('app.env') === 'local');
     }
 }
