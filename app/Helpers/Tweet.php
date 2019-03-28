@@ -17,9 +17,9 @@ class Tweet
      *
      * @return string
      */
-    public static function formatDate(DateTime $date)
+    public static function formatDate(\DateTime $date)
     {
-        return $date->setTimezone(new DateTimeZone('America/New_York'))->format('D MMM YYYY');
+        return $date->setTimezone(new \DateTimeZone('America/New_York'))->format('d M Y');
     }
 
     /**
@@ -60,11 +60,11 @@ class Tweet
      * @method                  formatBody
      * @access public
      *
-     * @param array             $tweet
+     * @param object            $tweet
      *
      * @return void
      */
-    public static function formatBody(array $tweet)
+    public static function formatBody(object $tweet)
     {
         // HTML formatting
 
