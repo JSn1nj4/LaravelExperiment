@@ -22,10 +22,10 @@
 
             <div class="pl-4 flex-grow relative">
                 <p>
-                    <a href="{{ $profileUrl }}" target="_blank" class="no-underline font-bold">
+                    <a href="{{ $profileUrl }}" target="_blank" class="font-bold">
                         {{ $tweet->user->name }}
                     </a><br>
-                    <a href="{{ $profileUrl }}" target="_blank" class="no-underline text-grey-dark">
+                    <a href="{{ $profileUrl }}" target="_blank" class="text-gray-600">
                         {{ "@" . $tweet->user->screen_name }}
                     </a>
                 </p>
@@ -45,13 +45,13 @@
         <div class="pt-4 flex flex-row relative">
             <div class="flex-grow">
                 <p>
-                    <a href="{{ $tweetUrl }}" target="_blank" class="no-underline font-bold">View on Twitter</a>
+                    <a href="{{ $tweetUrl }}" target="_blank" class="font-bold">View on Twitter</a>
                 </p>
             </div>
 
             <div class="pl-4 flex-none relative">
                 <p>
-                    <a href="{{ $tweetUrl }}" target="_blank" class="no-underline font-bold">
+                    <a href="{{ $tweetUrl }}" target="_blank" class="font-bold">
                         {{ TwHelpers::formatDate(new DateTime($tweet->created_at)) }}
                     </a>
                 </p>
