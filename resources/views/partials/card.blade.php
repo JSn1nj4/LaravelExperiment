@@ -3,7 +3,7 @@
     $type = !empty($type) ? $type : 'default';
 
     $typeClasses = [
-        'default' => 'p-4 rounded-lg border border-grey-dark trans-border-color hover:border-sea-green bg-black',
+        'default' => 'p-4 rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
         'transparent' => 'px-4'
     ];
 
