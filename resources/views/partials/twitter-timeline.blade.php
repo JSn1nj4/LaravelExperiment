@@ -7,12 +7,8 @@
     $tweets = json_decode((new TweetController)->index($count));
 @endphp
 
-@extends('partials.timeline', [
-    'showLine' => ($count >= 2)
-])
-
 <div class="max-w-sm m-auto mb-4" style="min-height: {{ $loaderSize }}">
-    @section('timeline-content')
+    @component('partials.timeline', ['showLine' => ($count >= 2)])
         @each('partials.twitter-card', $tweets, 'tweet')
-    @endsection
+    @endcomponent
 </div>
