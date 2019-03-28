@@ -11,5 +11,5 @@
 @endphp
 
 <div class="{{ $classes }}">
-    @yield('card-content')
+    {{ $slot }}
 </div>

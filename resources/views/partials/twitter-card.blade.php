@@ -1,7 +1,3 @@
-@extends('partials.card', [
-    'size' => 'sm'
-])
-
 @php
     use App\Helpers\Tweet as TwHelpers;
 
@@ -11,7 +7,7 @@
 @endphp
 
 <div class="twitter-card">
-    @section('card-content')
+    @component('partials.card', ['size' => 'sm'])
 
         <div class="flex flex-row relative">
             <div>
@@ -58,5 +54,5 @@
             </div>
         </div>
 
-    @endsection
+    @endcomponent
 </div>
