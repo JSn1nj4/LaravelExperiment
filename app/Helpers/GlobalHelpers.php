@@ -53,6 +53,23 @@ class GlobalHelpers
         if (!$full) $string = array_slice($string, 0, 1);
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
+
+    /**
+     * Format a date string from a given date
+     *
+     * @method          formatDate
+     * @access public
+     *
+     * @param string    $date
+     * @param string    $format
+     * @param string    $timeZone
+     *
+     * @return string
+     */
+    public static function formatDate(string $date, string $format = "d M Y", string $timeZone = "America/New_York")
+    {
+        return (new \DateTime($date))->setTimezone(new \DateTimeZone($timeZone))->format($format);
+    }
 }
 
 ?>

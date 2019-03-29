@@ -17,21 +17,6 @@ class Tweet extends GlobalHelpers
     public static $baseLink = 'https://twitter.com';
 
     /**
-     * Format a date string from a given date
-     *
-     * @method                  formatDate
-     * @access public
-     *
-     * @param DateTime          $date
-     *
-     * @return string
-     */
-    public static function formatDate(\DateTime $date)
-    {
-        return $date->setTimezone(new \DateTimeZone('America/New_York'))->format('d M Y');
-    }
-
-    /**
      * Return a valid Twitter profile URL
      *
      * @method                  profileUrl
