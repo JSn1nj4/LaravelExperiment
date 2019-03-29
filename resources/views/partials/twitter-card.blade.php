@@ -34,7 +34,7 @@
         </div>
 
         <div class="pt-4 flex flex-row relative font-bold">
-            <p>{!! TwHelpers::formatBody($tweet) !!}</p>
+            <p>{!! html_entity_decode(TwHelpers::formatBody($tweet)) !!}</p>
         </div>
 
         <div class="pt-4 flex flex-row relative">
