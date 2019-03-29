@@ -114,7 +114,15 @@ class Tweet
         }
 
         // Render images
-
+        if(isset($tweet->entities->media)) {
+            foreach ($tweet->entities->media as $media) {
+                $tweet->text = str_replace(
+                    $media->url,
+                    "<a target=\"_blank\" href=\"$media->expanded_url\"><img class=\"mt-4\" src=\"$media->media_url_https\" width=\"$media->sizes->small->w\" height=\"$media->sizes->small->h\"></a>",
+                    $tweet->text
+                );
+            }
+        }
 
         // Insert HTML line breaks where necessary
         // Hint: regex (?:\r\n|\r|\n)
