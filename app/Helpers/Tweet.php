@@ -77,7 +77,7 @@ class Tweet
     {
         // HTML formatting
 
-        // Link hashtags
+        // Link hashtags, according to Twitter's guidelines
         foreach($tweet->entities->hashtags as $hashtag) {
             $tweet->text = str_replace(
                 "#$hashtag->text",
@@ -86,6 +86,26 @@ class Tweet
             );
         }
 
+        // Link @mentions, according to Twitter's guidelines
+        foreach($tweet->entities->user_mentions as $mention) {
+            $tweet->text = str_replace(
+                "@$mention->screen_name",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/$mention->screen_name\">@$mention->screen_name</a>",
+                $tweet->text
+            );
+        }
+
+        // Link URLs, according to Twitter's guidelines
+
+
+        // Link symbols to Twitter searches
+
+
+        // Render images
+
+
+        // Insert HTML line breaks where necessary
+        // Hint: regex (?:\r\n|\r|\n)
         return $tweet->text; // TEMP: see method description
     }
 }
