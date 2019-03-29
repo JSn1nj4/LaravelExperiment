@@ -77,9 +77,16 @@ class Tweet
     {
         // HTML formatting
 
-        $tweet = collect($tweet);
+        // Link hashtags
+        foreach($tweet->entities->hashtags as $hashtag) {
+            $tweet->text = str_replace(
+                "#$hashtag->text",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->text\">#$hashtag->text</a>",
+                $tweet->text
+            );
+        }
 
-        return $tweet->get('text'); // TEMP: see method description
+        return $tweet->text; // TEMP: see method description
     }
 }
 
