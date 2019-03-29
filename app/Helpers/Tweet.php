@@ -5,7 +5,7 @@ namespace App\Helpers;
 /**
  *  Used for working with Twitter timeline items rendered server-side
  */
-class Tweet
+class Tweet extends GlobalHelpers
 {
     /**
      * The base Twitter link for all web URLs

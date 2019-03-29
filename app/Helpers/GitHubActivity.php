@@ -5,7 +5,7 @@ namespace App\Helpers;
 /**
  * Used to help with rendering GitHub activity items server-side
  */
-class GitHubActivity
+class GitHubActivity extends GlobalHelpers
 {
     //
 }
