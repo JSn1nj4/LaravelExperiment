@@ -166,6 +166,10 @@ a {
     @apply font-thin;
 }
 
+.twitter-card {
+    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
 @media only screen and (min-width: 600px) {
     .banner-section {
         height: 56.25vw;
