@@ -105,7 +105,13 @@ class Tweet
         }
 
         // Link symbols to Twitter searches
-
+        foreach($tweet->entities->symbols as $symbol) {
+            $tweet->text = str_replace(
+                "\$$symbol->text",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "\"/search?q=%24$symbol->text&src=ctag\">\$$symbol->text</a>",
+                $tweet->text
+            );
+        }
 
         // Render images
 
