@@ -1,7 +1,6 @@
 @php
     use App\Helpers\Tweet as TwHelpers;
 
-    $baseLink = 'https://twitter.com';
     $profileUrl = TwHelpers::profileUrl('JSn1nj4');
     $tweetUrl = TwHelpers::tweetUrl($profileUrl, $tweet->id_str);
 @endphp
@@ -28,7 +27,7 @@
             </div>
 
             <div class="pl-4 flex-none relative">
-                <a href="{{ $baseLink }}" target="_blank">
+                <a href="{{ TwHelpers::$baseLink }}" target="_blank">
                     <i class="fab fa-twitter text-4xl text-white"></i>
                 </a>
             </div>

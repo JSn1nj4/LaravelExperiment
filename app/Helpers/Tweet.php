@@ -8,6 +8,15 @@ namespace App\Helpers;
 class Tweet
 {
     /**
+     * The base Twitter link for all web URLs
+     *
+     * @property string         $baseLink
+     * @access public
+     * @static
+     */
+    public static $baseLink = 'https://twitter.com';
+
+    /**
      * Format a date string from a given date
      *
      * @method                  formatDate
@@ -33,9 +42,9 @@ class Tweet
      *
      * @return string
      */
-    public static function profileUrl(string $screen_name, string $baseLink = 'https://twitter.com')
+    public static function profileUrl(string $screen_name)
     {
-        return "$baseLink/$screen_name";
+        return self::$baseLink . "/$screen_name";
     }
 
     /**
