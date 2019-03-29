@@ -96,7 +96,13 @@ class Tweet
         }
 
         // Link URLs, according to Twitter's guidelines
-
+        foreach($tweet->entities->urls as $url) {
+            $tweet->text = str_replace(
+                $url->url,
+                "<a target=\"_blank\" href=\"$url->expanded_url\">$url->display_url</a>",
+                $tweet->text
+            );
+        }
 
         // Link symbols to Twitter searches
 
