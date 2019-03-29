@@ -124,9 +124,8 @@ class Tweet
             }
         }
 
-        // Insert HTML line breaks where necessary
-        // Hint: regex (?:\r\n|\r|\n)
-        return $tweet->text; // TEMP: see method description
+        // Insert HTML line breaks where necessary and return
+        return preg_replace("/(?:\r\n|\r|\n)/", "<br>", $tweet->text);
     }
 }
 
