@@ -118,7 +118,6 @@ module.exports = {
       ...defaultConfig.fontFamily,
       mono: [
         'Source Code Pro',
-        'SFMono-Regular',
         'Menlo',
         'Monaco',
         'Consolas',

@@ -1,9 +1,12 @@
 # Changelog
 
-### Release 1.4.9
+### Release 1.5
 1. Create new helper classes for GitHub activities and tweets
 2. Add HelperServiceProvider class to automatically load all helper classes
 3. Add Tweet helper methods for formatting data/content
+4. Build out partials needed for displaying cards and timelines
+5. Render tweets server-side
+6. Update Tailwind to v1.0-beta.4
 
 ### Release 1.4.8
 1. Update Tailwind CSS: ^0.5.3 -> ^1.0.0-beta.3
