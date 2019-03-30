@@ -59,6 +59,7 @@ class GlobalHelpers
      *
      * @method          formatDate
      * @access public
+     * @static
      *
      * @param string    $date
      * @param string    $format
