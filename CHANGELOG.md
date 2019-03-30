@@ -1,6 +1,6 @@
 # Changelog
 
-### Release 1.4.9
+### Release 1.5
 1. Create new helper classes for GitHub activities and tweets
 2. Add HelperServiceProvider class to automatically load all helper classes
 3. Add Tweet helper methods for formatting data/content
