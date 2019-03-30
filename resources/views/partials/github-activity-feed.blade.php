@@ -9,6 +9,6 @@
 
 <div class="max-w-sm m-auto mb-4" style="min-height: {{ $loaderSize }};">
     @component('partials.timeline', ['showLine' => ($count >= 2)])
-        @each('partials.github-activity-card', $events, 'event')
+        @each('partials.github-activity-wrapper', $events, 'event')
     @endcomponent
 </div>
