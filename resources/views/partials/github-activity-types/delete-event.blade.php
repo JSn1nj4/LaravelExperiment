@@ -6,7 +6,7 @@
     $action = 'deleted';
     $preposition = 'from';
 
-    // Values that will be reused multiple times
+    // Reusable values
     $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
     $repoUrl = GhHelpers::repoUrl($event->repo->name);
     $branchName = GhHelpers::branchName($event->payload->ref);
