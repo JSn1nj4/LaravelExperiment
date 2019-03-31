@@ -190,8 +190,10 @@ class GitHubActivity extends GlobalHelpers
      */
     public static function commitSubject(string $msg)
     {
-      $msgEnd = strpos($msg, '\n');
-      return $msgEnd >= 0 ? substr($msg, 0, $msgEnd) : $msg;
+      $msgEnd = strpos($msg, "\n");
+      return (!empty($msgEnd) && $msgEnd >= 0) ?
+        substr($msg, 0, $msgEnd) :
+        $msg;
     }
 
     /**
