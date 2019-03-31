@@ -86,7 +86,7 @@
                     <h2 class="content-title text-2xl pt-6 mt-4 text-center">GitHub Activity</h2>
                     <section id="github_activity_feed-home" class="block md:flex">
                         {{-- SSR GitHub activity feed --}}
-                        {{-- @include('partials.github-activity-feed', ['count' => 3]) --}}
+                        @include('partials.github-activity-feed', ['count' => 3])
                     </section>
                 </div>
 
