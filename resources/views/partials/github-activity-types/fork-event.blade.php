@@ -2,9 +2,9 @@
     use App\Helpers\GitHubActivity as GhHelpers;
 
     // Settings with common names shared with other activity components
-    $icon = 'far fa-arrow-alt-circle-up';
-    $action = 'pushed to';
-    $preposition = 'at';
+    $icon = 'fas fa-code-branch';
+    $action = 'forked';
+    $preposition = 'into';
 
     // Reusable values
     $profileUrl = GhHelpers::profileUrl($event->actor->display_login);

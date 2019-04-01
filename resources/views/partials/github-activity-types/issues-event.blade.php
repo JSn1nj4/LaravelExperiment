@@ -3,12 +3,17 @@
 
     // Settings with common names shared with other activity components
     $icon = 'far fa-file-alt';
-    $action = 'opened';
+    $action = !empty($event->payload->action) ? $event->payload->action : 'opened';
     $preposition = 'at';
 
     // Reusable values
     $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
     $repoUrl = GhHelpers::repoUrl($event->repo->name);
+
+    // Check for different action value
+    if($action == 'closed') {
+        $icon = 'fas fa-minus-circle';
+    }
 @endphp
 
 <div class="flex flex-row relative">

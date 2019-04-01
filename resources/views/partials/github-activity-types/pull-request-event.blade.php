@@ -2,8 +2,8 @@
     use App\Helpers\GitHubActivity as GhHelpers;
 
     // Settings with common names shared with other activity components
-    $icon = 'far fa-arrow-alt-circle-up';
-    $action = 'pushed to';
+    $icon = 'fas fa-file-upload';
+    $action = !empty($event->payload->action) ? $event->payload->action : 'opened';
     $preposition = 'at';
 
     // // Reusable values
@@ -11,7 +11,7 @@
     $repoUrl = GhHelpers::repoUrl($event->repo->name);
 
     // Modify settings according to PR action and merge status
-    switch ($event->payload->action) {
+    switch ($action) {
         case 'assigned':
             break;
 
