@@ -229,6 +229,21 @@ class GitHubActivity extends GlobalHelpers
       return "$repoUrl/commit/$hash";
     }
 
+    /**
+     * Format a string referencing a pull request
+     *
+     * @method                  pullRequestNumberString
+     * @access public
+     * @static
+     *
+     * @param string            $pullRequestNumber
+     *
+     * @return string
+     */
+    public static function pullRequestNumberString(string $pullRequestNumber) {
+        return "Pull Request #$pullRequestNumber";
+    }
+
 }
 
 ?>
