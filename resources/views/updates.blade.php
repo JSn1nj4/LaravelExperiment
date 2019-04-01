@@ -21,15 +21,15 @@
 
             <div class="block md:w-1/2 pb-8">
                 <h2 class="content-title text-2xl pt-6 mt-4 md:pt-0 md:mt-0 text-center">Recent Tweets</h2>
-                <section id="twitter" class="block md:flex">
+                <section id="twitter">
                     @include('partials.twitter-timeline')
                 </section>
             </div>
 
             <div class="block md:w-1/2 pb-8">
                 <h2 class="content-title text-2xl pt-6 mt-4 md:pt-0 md:mt-0 text-center">GitHub Activity</h2>
-                <section id="github_activity_feed" class="block md:flex">
-                    {{-- @include('partials.github-activity-feed') --}}
+                <section id="github_activity_feed">
+                    @include('partials.github-activity-feed')
                 </section>
             </div>
 

@@ -47,7 +47,7 @@
             <div class="pl-4 flex-none relative">
                 <p>
                     <a href="{{ $tweetUrl }}" target="_blank" class="font-bold">
-                        {{ TwHelpers::formatDate(new DateTime($tweet->created_at)) }}
+                        {{ TwHelpers::formatDate($tweet->created_at, "d M Y") }}
                     </a>
                 </p>
             </div>

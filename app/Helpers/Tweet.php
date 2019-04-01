@@ -5,7 +5,7 @@ namespace App\Helpers;
 /**
  *  Used for working with Twitter timeline items rendered server-side
  */
-class Tweet
+class Tweet extends GlobalHelpers
 {
     /**
      * The base Twitter link for all web URLs
@@ -15,21 +15,6 @@ class Tweet
      * @static
      */
     public static $baseLink = 'https://twitter.com';
-
-    /**
-     * Format a date string from a given date
-     *
-     * @method                  formatDate
-     * @access public
-     *
-     * @param DateTime          $date
-     *
-     * @return string
-     */
-    public static function formatDate(\DateTime $date)
-    {
-        return $date->setTimezone(new \DateTimeZone('America/New_York'))->format('d M Y');
-    }
 
     /**
      * Return a valid Twitter profile URL
