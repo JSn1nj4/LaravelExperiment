@@ -51,6 +51,11 @@ class Tweet extends GlobalHelpers
     /**
      * Render a given tweet body as HTML
      *
+     * lesson learned: if there are nested values more than 1 level
+     * deep, string interpolation won't work on them. When building the
+     * markup for the embedded images, I ended up needing to use string
+     * concatenation instead.
+     *
      * @method                  formatBody
      * @access public
      *
@@ -103,7 +108,7 @@ class Tweet extends GlobalHelpers
             foreach ($tweet->entities->media as $media) {
                 $tweet->text = str_replace(
                     $media->url,
-                    "<a target=\"_blank\" href=\"$media->expanded_url\"><img class=\"mt-4\" src=\"$media->media_url_https\" width=\"$media->sizes->small->w\" height=\"$media->sizes->small->h\"></a>",
+                    "<a target=\"_blank\" href=\"$media->expanded_url\"><img class=\"mt-4\" src=\"$media->media_url_https\" width=\"" . $media->sizes->small->w . "\" height=\"" . $media->sizes->small->h . "\"></a>",
                     $tweet->text
                 );
             }
