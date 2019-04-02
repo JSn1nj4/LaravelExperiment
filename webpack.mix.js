@@ -18,13 +18,13 @@ mix.webpackConfig({
     publicPath: '/',
     chunkFilename: 'js/modules/[name].js'
   }
-}).js('resources/assets/js/app.js', 'public/js')
-  .js('resources/assets/js/TwitterTimelineWidget.js', 'public/js')
-  .js('resources/assets/js/NewestTweetWidget.js', 'public/js')
-  .js('resources/assets/js/home.js', 'public/js')
-  .js('resources/assets/js/GitHubActivityTimelineWidget.js', 'public/js')
+}).js('resources/js/app.js', 'public/js')
+  .js('resources/js/TwitterTimelineWidget.js', 'public/js')
+  .js('resources/js/NewestTweetWidget.js', 'public/js')
+  .js('resources/js/home.js', 'public/js')
+  .js('resources/js/GitHubActivityTimelineWidget.js', 'public/js')
   .extract(['vue', 'axios', 'moment'])
-  .sass('resources/assets/sass/app.scss', 'public/css')
+  .sass('resources/sass/app.scss', 'public/css')
   .options({
     postCss: [
       require('tailwindcss')('./tailwind.config.js')
