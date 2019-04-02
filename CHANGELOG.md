@@ -8,6 +8,7 @@
 5. Render tweets server-side
 6. Update Tailwind to v1.0-beta.4
 7. Render GitHub activities server-side
+8. Remove duplicate computed properties from a couple of Vue components
 
 ### Release 1.4.8
 1. Update Tailwind CSS: ^0.5.3 -> ^1.0.0-beta.3
