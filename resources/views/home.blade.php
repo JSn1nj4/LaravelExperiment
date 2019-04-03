@@ -76,12 +76,18 @@
 
                 <div class="block md:w-1/2">
                     <h2 class="content-title text-2xl pt-6 mt-4 text-center">Recent Tweets</h2>
-                    <section id="twitter_timeline-home" class="block md:flex"></section>
+                    <section id="twitter_timeline-home">
+                        {{-- SSR Twitter timeline --}}
+                        @include('partials.twitter-timeline', ['count' => 2])
+                    </section>
                 </div>
 
                 <div class="block md:w-1/2">
                     <h2 class="content-title text-2xl pt-6 mt-4 text-center">GitHub Activity</h2>
-                    <section id="github_activity_feed-home" class="block md:flex"></section>
+                    <section id="github_activity_feed-home">
+                        {{-- SSR GitHub activity feed --}}
+                        @include('partials.github-activity-feed', ['count' => 3])
+                    </section>
                 </div>
 
             </div>

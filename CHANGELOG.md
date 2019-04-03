@@ -1,5 +1,19 @@
 # Changelog
 
+### Release 1.5
+1. Create new helper classes for GitHub activities and tweets
+2. Add HelperServiceProvider class to automatically load all helper classes
+3. Add Tweet helper methods for formatting data/content
+4. Build out partials needed for displaying cards and timelines
+5. Render tweets server-side
+6. Update Tailwind to v1.0-beta.4
+7. Render GitHub activities server-side
+8. Remove duplicate computed properties from a couple of Vue components
+9. Update Laravel framework: 5.7.* -> 5.8.*
+    - This includes some boilerplate updates left over from the 5.6.* -> 5.7.* update
+10. Fix an issue related to string interpolation and deeply nested objects
+    - Only immediate children of a given object can be accessed during interpolation
+
 ### Release 1.4.8
 1. Update Tailwind CSS: ^0.5.3 -> ^1.0.0-beta.3
 2. Update local Tailwind config

@@ -51,12 +51,6 @@ export default {
     preposition: 'at'
   }),
   computed: {
-    profileUrl() {
-      return `${this.baseLink}/${this.event.actor.login}`;
-    },
-    repoUrl() {
-      return `${this.baseLink}/${this.event.repo.name}`;
-    },
     pullRequestNumberString() {
       return `Pull Request #${this.event.payload.pull_request.number}`;
     },

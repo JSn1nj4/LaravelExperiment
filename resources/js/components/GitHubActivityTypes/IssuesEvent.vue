@@ -50,20 +50,6 @@ export default {
     action: 'opened',
     preposition: 'at'
   }),
-  computed: {
-    formattedDate() {
-      return moment(this.event.created_at).fromNow();
-    },
-    profileUrl() {
-      return `${this.baseLink}/${this.event.actor.login}`;
-    },
-    repoUrl() {
-      return `${this.baseLink}/${this.event.repo.name}`;
-    },
-    issueNumberString() {
-      return `Issue #${this.event.payload.issue.number}`;
-    },
-  },
   mounted() {
     this.action = this.event.payload.action;
 

@@ -45,10 +45,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-  .github-activity-icon {
-    &:before {
-      background: #151515;
-    }
-  }
-</style>

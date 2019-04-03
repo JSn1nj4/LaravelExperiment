@@ -136,8 +136,3 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-  .twitter-card {
-    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
-  }
-</style>
