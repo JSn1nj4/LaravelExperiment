@@ -1,5 +1,9 @@
 # Changelog
 
+### Release 1.5.1
+1. Update project version number
+2. Regenerate public assets
+
 ### Release 1.5
 1. Create new helper classes for GitHub activities and tweets
 2. Add HelperServiceProvider class to automatically load all helper classes
