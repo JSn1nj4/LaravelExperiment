@@ -174,7 +174,7 @@ class GitHubActivity extends GlobalHelpers
      */
     public static function formatIssueComment(string $comment, int $limit = 208)
     {
-      return (count($comment) > $limit) ? substr(substr($comment, 0, $limit), 0, strrpos($comment, ' ')) . '...' : $comment;
+      return (strlen($comment) > $limit) ? substr(substr($comment, 0, $limit), 0, strrpos($comment, ' ')) . '...' : $comment;
     }
 
     /**
