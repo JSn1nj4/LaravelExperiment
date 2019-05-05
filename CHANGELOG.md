@@ -1,5 +1,20 @@
 # Changelog
 
+### Release 1.6
+1. Update Tailwind CSS -> 1.0.0-beta.8
+2. Update moment -> 2.24.0
+3. Update imagemin -> 6.1.0
+4. Update ajv -> 6.10.0
+5. Update vue & vue-template-compiler -> 2.6.10
+6. Update cross-env -> 5.2.0
+7. Update popper.js -> 1.15.0
+8. Load tailwind directly in mix config and use as function in postcss plugins option
+9. Disable CSS URL processing in postcss
+10. Remove node-sass in favor of sass 1.20.1
+11. Generate sourcemaps for debugging JS in production
+12. Remove old comments from app.scss
+13. Use `strlen()` to count string characters in PHP instead of `count()` :man_facepalming:
+
 ### Release 1.5.1
 1. Update project version number
 2. Regenerate public assets

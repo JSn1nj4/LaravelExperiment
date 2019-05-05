@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+const tailwindcss = require('tailwindcss');
+
 require('laravel-mix-purgecss');
 
 /*
@@ -24,10 +26,12 @@ mix.webpackConfig({
   .js('resources/js/home.js', 'public/js')
   .js('resources/js/GitHubActivityTimelineWidget.js', 'public/js')
   .extract(['vue', 'axios', 'moment'])
+  .sourceMaps()
   .sass('resources/sass/app.scss', 'public/css')
   .options({
+    processCssUrls: false,
     postCss: [
-      require('tailwindcss')('./tailwind.config.js')
+      tailwindcss()
     ],
   })
   .purgeCss()
