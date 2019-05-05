@@ -18,11 +18,6 @@
 
 html {
    height: 100%;
-
-   //@TODO: look into better default line-height from built-in line-height scale
-   // Recommended by Tailwind team so that standards are followed. Also
-   // recommended is to find individual situations that would look better with
-   // a different line-height and set those individually.
    line-height: 1.15;
 }
 body {
