@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+const tailwindcss = require('tailwindcss');
+
 require('laravel-mix-purgecss');
 
 /*
@@ -26,8 +28,9 @@ mix.webpackConfig({
   .extract(['vue', 'axios', 'moment'])
   .sass('resources/sass/app.scss', 'public/css')
   .options({
+    processCssUrls: false,
     postCss: [
-      require('tailwindcss')
+      tailwindcss()
     ],
   })
   .purgeCss()
