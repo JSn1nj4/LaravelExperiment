@@ -27,7 +27,7 @@ mix.webpackConfig({
   .sass('resources/sass/app.scss', 'public/css')
   .options({
     postCss: [
-      require('tailwindcss')('./tailwind.config.js')
+      require('tailwindcss')
     ],
   })
   .purgeCss()
