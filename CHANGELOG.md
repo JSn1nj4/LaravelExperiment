@@ -1,5 +1,16 @@
 # Changelog
 
+### Release 1.7
+1. Create Projects controllers and model for API use
+2. Create migration and first seeder and factory
+    - Seeder and factory are for generating dummy data
+3. Create Projects grid on new Projects page
+4. Update Card component somewhat for more flexibility
+5. Update Projects page written content
+6. Update how GitHub activity items use Card component
+    - This is to fix a padding issue introduced by the Card component update
+7. ...
+
 ### Release 1.6.1
 1. Include required 'user' data in IssuesEvent payload
 2. Rename a payload filtering method for consistency
