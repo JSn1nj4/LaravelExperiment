@@ -173,8 +173,15 @@ class GitHubActivity extends Model
                     return in_array($key, [
                         'html_url',
                         'number',
-                        'title'
+                        'title',
+                        'user',
                     ]);
+                // Transform the 'issue' data inline
+                })->transform(function($val, $key) {
+                    return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
+                        // Return only desired 'user' data
+                        return in_array($key, ['login', 'html_url', 'avatar_url']);
+                    })->toArray();
                 })->toArray();
             }
 
