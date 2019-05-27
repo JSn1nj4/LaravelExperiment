@@ -11,6 +11,7 @@
 
         if(config('app.env') === 'local') {
             array_push($menuItems, 'home');
+            array_push($menuItems, 'projects');
             array_push($menuItems, 'updates');
         }
     @endphp

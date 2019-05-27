@@ -25,6 +25,7 @@ mix.webpackConfig({
   .js('resources/js/NewestTweetWidget.js', 'public/js')
   .js('resources/js/home.js', 'public/js')
   .js('resources/js/GitHubActivityTimelineWidget.js', 'public/js')
+  .js('resources/assets/js/MainProjectsList.js', 'public/js')
   .extract(['vue', 'axios', 'moment'])
   .sourceMaps()
   .sass('resources/sass/app.scss', 'public/css')
