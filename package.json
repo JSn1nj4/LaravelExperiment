@@ -1,6 +1,6 @@
 {
     "name": "elliotderhay.com",
-    "version": "1.5.1",
+    "version": "1.7",
     "sasslintConfig": ".sass-lint.yml",
     "private": true,
     "scripts": {
