@@ -41,11 +41,15 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
+import IssuesMixin from '../../mixins/GitHubActivity/IssuesMixin';
 
 export default {
   name: "git-hub-issue-comment-event",
-  mixins: [GitHubActivityMixin],
+  mixins: [
+    BaseMixin,
+    IssuesMixin,
+  ],
   data: () => ({
     icon: 'fas fa-comment',
     action: 'commented on',
