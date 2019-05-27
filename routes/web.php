@@ -17,7 +17,7 @@ Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
 
 // standard views
 Route::view('/', 'home')->name('home');
-// Route::view('/projects', 'projects')->name('projects');
+Route::view('/projects', 'projects')->name('projects');
 // Route::view('/updates', 'updates')->name('updates');
 Route::get('/updates', function() {
     if(!(config('app.env') === 'local')) {
