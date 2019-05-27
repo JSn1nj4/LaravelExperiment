@@ -155,7 +155,7 @@ class GitHubActivity extends Model
     /**
      * Filter payload from issue event
      *
-     * @method                  filterIssueEventPayload
+     * @method                  filterIssuesEventPayload
      * @access public
      *
      * @param array             $payload
@@ -165,7 +165,7 @@ class GitHubActivity extends Model
      * This helps reduce the size of the payload sent with issue event data for
      * use on the client.
      */
-    public function filterIssueEventPayload($payload)
+    public function filterIssuesEventPayload($payload)
     {
         return collect($payload)->transform(function($val, $key){
             if($key === 'issue') { // filter issue data
@@ -351,7 +351,7 @@ class GitHubActivity extends Model
             // Remove unnecessary items from 'payload' data
             switch($type) {
                 case preg_match('/Issue(s|Comment)?Event/', $type) === 1:
-                    $item->put('payload', $this->filterIssueEventPayload(
+                    $item->put('payload', $this->filterIssuesEventPayload(
                         $item->get('payload')
                     ));
                     break;
