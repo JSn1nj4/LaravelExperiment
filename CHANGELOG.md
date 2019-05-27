@@ -1,5 +1,9 @@
 # Changelog
 
+### Release 1.6.1
+1. Include required 'user' data in IssuesEvent payload
+2. Rename a payload filtering method for consistency
+
 ### Release 1.6
 1. Update Tailwind CSS -> 1.0.0-beta.8
 2. Update moment -> 2.24.0
