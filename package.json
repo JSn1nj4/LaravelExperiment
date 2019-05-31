@@ -1,6 +1,12 @@
 {
     "name": "elliotderhay.com",
-    "version": "1.7",
+    "version": "1.7.0",
+    "description": "My personal website",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JSn1nj4/ElliotDerhay.com.git"
+    },
     "sasslintConfig": ".sass-lint.yml",
     "private": true,
     "scripts": {
