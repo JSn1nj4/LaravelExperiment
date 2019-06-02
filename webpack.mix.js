@@ -1,7 +1,6 @@
 const mix = require('laravel-mix');
-
+const atImport = require('postcss-import');
 const tailwindcss = require('tailwindcss');
-
 require('laravel-mix-purgecss');
 
 /*
@@ -31,7 +30,8 @@ mix.webpackConfig({
   .options({
     processCssUrls: false,
     postCss: [
-      tailwindcss()
+      atImport(),
+      tailwindcss(),
     ],
   })
   .purgeCss()
