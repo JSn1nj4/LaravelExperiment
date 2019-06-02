@@ -1,7 +1,7 @@
 <template>
   <div class="md:w-1/2 lg:w-1/3 project">
 
-    <card :size="'md'" :margin="'my-4 md:m-2'" :padding="''" :full-width="false">
+    <card :size="'md'">
 
       <a :href="project.demo_link || project.link" :target="project.demo_link ? '_self' : '_blank'">
         <img :src="project.thumbnail" class="block rounded-lg rounded-b-none">
