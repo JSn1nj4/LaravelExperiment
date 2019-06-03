@@ -1,9 +1,8 @@
 <template>
   <div class="md:w-1/2 lg:w-1/3 project">
+    <div class="px-4">
+      <card :size="'md'" :padding="'p-0'">
 
-    <card :size="'md'">
-
-      <div class="-m-4">
         <a :href="project.demo_link || project.link" :target="project.demo_link ? '_self' : '_blank'">
           <img :src="project.thumbnail" class="block rounded-lg rounded-b-none">
         </a>
@@ -26,10 +25,9 @@
             </p>
           </div>
         </div>
-      </div>
 
-    </card>
-
+      </card>
+    </div>
   </div>
 </template>
 
