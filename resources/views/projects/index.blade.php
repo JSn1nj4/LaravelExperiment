@@ -4,9 +4,9 @@
     <div class="container mx-auto px-4 pt-6">
         <section class="block">
 
-            <div class="w-full max-w-md mx-auto pb-6 text-center">
+            <div class="w-full pb-6 text-center">
                 <div class="px-2">
-                    <h1 class="content-title pt-6 mt-4 md:pt-0 md:mt-0">
+                    <h1 class="content-title text-4xl pt-6 mt-4 md:pt-0 md:mt-0">
                         Projects
                     </h1>
                     <p class="mb-4">
