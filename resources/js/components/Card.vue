@@ -13,21 +13,23 @@ export default {
     type: {
       type: String,
       default: 'default'
-    }
+    },
+    margin: null,
+    padding: null,
   },
 
   data: () => ({
     urlIsSet: false,
     cursorClass: '',
     typeClasses: {
-      'default': 'p-4 rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
-      'transparent': 'px-4'
+      'default': 'rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
+      'transparent': ''
     }
   }),
 
   computed: {
     classes() {
-      return `relative my-4 max-w-${this.size} w-full${this.cursorClass} z-30 ${this.typeClasses[this.type]}`;
+      return `relative ${this.margin || 'my-4'} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding || 'p-4'} ${this.typeClasses[this.type]}`;
     }
   },
 
@@ -43,6 +45,14 @@ export default {
     if(this.url && this.url.length > 0) {
       this.cursorClass = ' cursor-pointer';
       this.urlIsSet = true;
+    }
+
+    // Update margin and padding settings for transparent cards, if none passed directly
+    if(this.type === 'transparent' && !this.margin) {
+      this.margin = '';
+    }
+    if(this.type === 'transparent' && !this.padding) {
+      this.padding = 'px-4';
     }
   }
 }
