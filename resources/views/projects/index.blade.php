@@ -21,7 +21,7 @@
 
       <div class="w-full pb-8 px-2 pt-6 mt-4 md:pt-0 md:mt-0">
         <section id="main-projects-list-wrapper">
-
+          @include('partials.projects-list', ['projects' => $projects])
         </section>
       </div>
 
