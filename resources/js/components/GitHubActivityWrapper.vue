@@ -1,6 +1,6 @@
 <template>
   <div class="github-activity-item">
-    <card :size="'sm'" type="transparent">
+    <card :size="'sm'" type="transparent" :margin="''" :padding="'px-4'">
 
       <component :is="component" :event="event" v-if="component"></component>
 
