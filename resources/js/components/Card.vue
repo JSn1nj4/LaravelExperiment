@@ -14,8 +14,8 @@ export default {
       type: String,
       default: 'default'
     },
-    margin: null,
-    padding: null,
+    margin: String,
+    padding: String,
   },
 
   data: () => ({
@@ -30,7 +30,7 @@ export default {
   computed: {
     classes() {
       return `relative ${this.margin || 'my-4'} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding || 'p-4'} ${this.typeClasses[this.type]}`;
-    }
+    },
   },
 
   methods: {
