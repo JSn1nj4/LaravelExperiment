@@ -46,14 +46,6 @@ export default {
       this.cursorClass = ' cursor-pointer';
       this.urlIsSet = true;
     }
-
-    // Update margin and padding settings for transparent cards, if none passed directly
-    if(this.type === 'transparent' && !this.margin) {
-      this.margin = '';
-    }
-    if(this.type === 'transparent' && !this.padding) {
-      this.padding = 'px-4';
-    }
   }
 }
 </script>
