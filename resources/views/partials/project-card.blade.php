@@ -26,7 +26,7 @@
             <p>
               <a href="{{ $project->demo_link }}"
                 class="no-underline uppercase p-4 rounded-br-lg"
-                title="Open project demo">Demo <i class="fas fa-laptop"></i></a>
+                title="Open project demo">Demo <i class="fas fa-laptop" style="display: inline !important;"></i></a>
             </p>
           </div>
         @endif
