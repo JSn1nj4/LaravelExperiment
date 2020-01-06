@@ -9,7 +9,19 @@
 5. Update Projects page written content
 6. Update how GitHub activity items use Card component
     - This is to fix a padding issue introduced by the Card component update
-7. ...
+7. Update some packages
+    - Manual package updates:
+        - axios to version 0.19.0
+        - cross-env to version 6.0.3
+        - eslint to version 6.8.0
+        - imagemin to version 7.0.1
+        - vue to version 2.6.11
+        - vue-template-compiler to version 2.6.11    
+    - Automatic updates (to manually-installed packages):
+        - ajv to version 6.10.2
+        - popper.js to version 1.16.0
+        - sass to version 1.24.2
+        - tailwindcss to version 1.1.14
 
 ### Release 1.6.1
 1. Include required 'user' data in IssuesEvent payload
