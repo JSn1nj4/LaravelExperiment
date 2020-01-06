@@ -1,15 +1,32 @@
 @php
-    $size = !empty($size) ? $size : 'sm';
-    $type = !empty($type) ? $type : 'default';
+  // Size and type defaults
+  $size = $size ?? 'sm';
+  $type = $type ?? 'default';
 
-    $typeClasses = [
-        'default' => 'p-4 rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
-        'transparent' => 'px-4'
-    ];
+  // Decide what $margin would be set to
+  if(!isset($margin) && $type === 'transparent') {
+    $margin = '';
+  } else {
+    $margin = $margin ?? 'my-4';
+  }
 
-    $classes = "relative my-4 max-w-$size w-full z-30 $typeClasses[$type]"
+  // Decide what $padding would be set to
+  if(!isset($padding) && $type === 'transparent') {
+    $padding = 'px-4';
+  } else {
+    $padding = $padding ?? 'p-4';
+  }
+
+  // Classes to be used for different types of 'cards'
+  $typeClasses = [
+    'default' => 'rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
+    'transparent' => ''
+  ];
+
+  // Final class string
+  $classes = "relative $margin max-w-$size w-full z-30 $padding $typeClasses[$type]";
 @endphp
 
 <div class="{{ $classes }}">
-    {{ $slot }}
+  {{ $slot }}
 </div>

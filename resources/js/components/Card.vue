@@ -14,8 +14,8 @@ export default {
       type: String,
       default: 'default'
     },
-    margin: null,
-    padding: null,
+    margin: String,
+    padding: String,
   },
 
   data: () => ({
@@ -30,7 +30,7 @@ export default {
   computed: {
     classes() {
       return `relative ${this.margin || 'my-4'} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding || 'p-4'} ${this.typeClasses[this.type]}`;
-    }
+    },
   },
 
   methods: {
@@ -45,14 +45,6 @@ export default {
     if(this.url && this.url.length > 0) {
       this.cursorClass = ' cursor-pointer';
       this.urlIsSet = true;
-    }
-
-    // Update margin and padding settings for transparent cards, if none passed directly
-    if(this.type === 'transparent' && !this.margin) {
-      this.margin = '';
-    }
-    if(this.type === 'transparent' && !this.padding) {
-      this.padding = 'px-4';
     }
   }
 }
