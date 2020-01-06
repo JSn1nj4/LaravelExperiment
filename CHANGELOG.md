@@ -13,6 +13,8 @@
     - Manual package updates:
         - axios to version 0.19.0
         - cross-env to version 6.0.3
+        - eslint to version 6.8.0
+        - imagemin to version 7.0.1
         - vue to version 2.6.11
         - vue-template-compiler to version 2.6.11    
     - Automatic updates (to manually-installed packages):
