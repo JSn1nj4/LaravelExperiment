@@ -36,7 +36,7 @@
 
       <input type="checkbox" id="menu-toggle" name="menu-toggle" class="hidden absolute top-0 left-0 -z-50">
 
-      <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu" :style="{'z-index': zIndex, opacity: opacity}">
+      <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu">
         <div class="text-md md:flex-grow">
 
           @foreach ($menuItems as $key => $value)
