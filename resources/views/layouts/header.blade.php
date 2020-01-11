@@ -29,40 +29,38 @@
     @if ($fullHeader)
 
       <div class="block md:hidden mr-5">
-        <toggle-button inline-template :click-handler="buttonClick">
-          <button @click="toggle" class="flex items-center text-sea-green-500 hover:text-white">
-            <svg class="fill-current h-8 w-8" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-          </button>
-        </toggle-button>
+        <label for="menu-toggle" class="flex items-center text-sea-green-500 hover:text-white">
+          <svg class="fill-current h-8 w-8" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </label>
       </div>
 
-      <header-menu inline-template>
-        <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu" :style="{'z-index': zIndex, opacity: opacity}">
-          <div class="text-md md:flex-grow">
+      <input type="checkbox" id="menu-toggle" name="menu-toggle" class="hidden absolute top-0 left-0 -z-50">
 
-            @foreach ($menuItems as $key => $value)
-              @php
-                $extraClasses = '';
-                $titleText = '';
-                $itemText = $value;
+      <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu" :style="{'z-index': zIndex, opacity: opacity}">
+        <div class="text-md md:flex-grow">
 
-                if($value === 'home') {
-                  $extraClasses = 'fas fa-home ';
-                  $titleText = 'title=Home';
-                  $itemText = '';
-                }
-              @endphp
+          @foreach ($menuItems as $key => $value)
+            @php
+              $extraClasses = '';
+              $titleText = '';
+              $itemText = $value;
 
-              <a href="{{ route($value, [], false) }}"
-                class="{{ $extraClasses }}block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
-                {{ $titleText }}>
-                {{ $itemText }}
-              </a>
-            @endforeach
+              if($value === 'home') {
+                $extraClasses = 'fas fa-home ';
+                $titleText = 'title=Home';
+                $itemText = '';
+              }
+            @endphp
 
-          </div>
+            <a href="{{ route($value, [], false) }}"
+              class="{{ $extraClasses }}block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
+              {{ $titleText }}>
+              {{ $itemText }}
+            </a>
+          @endforeach
+
         </div>
-      </header-menu>
+      </div>
     @endif
 
   </nav>
