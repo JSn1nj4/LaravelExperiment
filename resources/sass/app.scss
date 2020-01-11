@@ -125,6 +125,11 @@ a {
     max-width: 1600px;
 }
 
+#menu-toggle:checked + div {
+    z-index: 50;
+    opacity: 1;
+}
+
 .mobile-menu {
     top: 100%;
     @apply bg-gray-900;
