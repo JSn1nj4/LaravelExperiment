@@ -18,13 +18,15 @@ Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
 // standard views
 Route::view('/', 'home')->name('home');
 Route::get('/projects', 'ProjectsController@index')->name('projects');
-// Route::view('/updates', 'updates')->name('updates');
+
 Route::get('/updates', function() {
-    if(!(config('app.env') === 'local')) {
+    $routeName = Route::currentRouteName();
+
+    if(!in_array($routeName, config('app.enabled-pages'))) {
         abort(404);
     }
 
-    return view('updates');
+    return view($routeName);
 })->name('updates');
 
 /*

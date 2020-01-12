@@ -49,12 +49,14 @@
 
 <script>
 import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
+import BranchesMixin from '../../mixins/GitHubActivity/BranchesMixin';
 import CommitsMixin from '../../mixins/GitHubActivity/CommitsMixin';
 
 export default {
   name: "git-hub-push-event",
   mixins: [
     BaseMixin,
+    BranchesMixin,
     CommitsMixin,
   ],
   data: () => ({

@@ -133,6 +133,7 @@ return [
 
     'coming_soon' => env('APP_COMING_SOON', false),
     'maintenance' => env('APP_MAINTENANCE', false),
+    'enabled-pages' => explode(',', env('ENABLED_PAGES', '')),
 
     /*
     |--------------------------------------------------------------------------
