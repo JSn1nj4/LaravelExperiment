@@ -9,8 +9,10 @@
   @php
     $menuItems = [];
 
-    if(config('app.env') === 'local') {
-      array_push($menuItems, 'updates');
+    foreach(['projects', 'updates'] as $page) {
+      if(in_array($page, config('app.enabled-pages'))) {
+        $menuItems[] = $page;
+      }
     }
 
     if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
