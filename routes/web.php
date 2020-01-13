@@ -22,7 +22,7 @@ Route::get('/projects', 'ProjectsController@index')->name('projects');
 Route::get('/updates', function() {
     $routeName = Route::currentRouteName();
 
-    if(!config('app.enabled-' . $routeName)) {
+    if(!config('app.enable-' . $routeName)) {
         abort(404);
     }
 
