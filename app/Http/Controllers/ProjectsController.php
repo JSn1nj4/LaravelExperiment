@@ -12,7 +12,7 @@ class ProjectsController extends Controller
 
     public function __construct()
     {
-        if (!in_array(Route::currentRouteName(), config('app.enabled-pages'))) {
+        if (!config('app.enable-' . Route::currentRouteName())) {
             abort(404);
         }
 
