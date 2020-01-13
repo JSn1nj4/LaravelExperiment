@@ -8,11 +8,13 @@
 
   @php
     $menuItems = [];
+    $optionalMenuItems = [
+      'projects',
+      'updates',
+    ];
 
-    foreach(['projects', 'updates'] as $page) {
-      if(in_array($page, config('app.enabled-pages'))) {
-        $menuItems[] = $page;
-      }
+    foreach($optionalMenuItems as $item) {
+      if(config("app.enable-" . $item)) $menuItems[] = $item;
     }
 
     if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
