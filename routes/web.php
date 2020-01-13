@@ -22,7 +22,7 @@ Route::view('/', 'home')->name('home');
 Route::get('/updates', function() {
     $routeName = Route::currentRouteName();
 
-    if(!in_array($routeName, config('app.enabled-pages'))) {
+    if(!config('app.enabled-' . $routeName)) {
         abort(404);
     }
 

@@ -7,7 +7,15 @@
 @section('body')
 
   @php
-    $menuItems = config('app.enabled-pages');
+    $menuItems = [];
+    $optionalMenuItems = [
+      'projects',
+      'updates',
+    ];
+
+    foreach($optionalMenuItems as $item) {
+      if(config("app.enable-" . $item)) $menuItems[] = $item;
+    }
 
     if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
   @endphp
