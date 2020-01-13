@@ -7,13 +7,7 @@
 @section('body')
 
   @php
-    $menuItems = [];
-
-    foreach(['projects', 'updates'] as $page) {
-      if(in_array($page, config('app.enabled-pages'))) {
-        $menuItems[] = $page;
-      }
-    }
+    $menuItems = config('app.enabled-pages');
 
     if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
   @endphp
