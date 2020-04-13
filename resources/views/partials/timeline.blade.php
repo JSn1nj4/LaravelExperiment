@@ -1,7 +1,7 @@
 @php
-  $showLine = !empty($showLine) ? $showLine : true;
-  $showDottedLine = !empty($showDottedLine) ? $showDottedLine : false;
-  $linePositionClass = !empty($linePositionClass) ? $linePositionClass : 'w-10';
+  $showLine = $showLine ?? true;
+  $showDottedLine = $showDottedLine ?? false;
+  $linePositionClass = $linePositionClass ?? 'w-10';
   $commonClasses = "absolute $linePositionClass border-r border-gray-600";
 @endphp
 

@@ -1,4 +1,4 @@
-@extends('layouts.master', ['bodyClasses' => !empty($bodyClasses) ? $bodyClasses : ''])
+@extends('layouts.master', ['bodyClasses' => $bodyClasses ?? ''])
 
 @section('head-extras')
   @yield('head-extras')
