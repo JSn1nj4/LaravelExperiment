@@ -22,6 +22,8 @@
         - popper.js to version 1.16.0
         - sass to version 1.24.2
         - tailwindcss to version 1.1.14
+8. Fix vertical spacing difference issue in Vue card component
+9. Explicitly set vertical margins for GitHub cards both client- and server-side
 
 ### Release 1.6.1
 1. Include required 'user' data in IssuesEvent payload
