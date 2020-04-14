@@ -1,6 +1,6 @@
 @php
-  $classes = isset($classes) ? $classes : '';
-  $linkClasses = isset($linkClasses) ? $linkClasses : '';
+  $classes = $classes ?? '';
+  $linkClasses = $linkClasses ?? '';
 @endphp
 
 <p class="{{ $classes }}">

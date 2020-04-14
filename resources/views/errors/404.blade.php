@@ -1,6 +1,6 @@
 @extends('layouts.error', [
     'errorCode' => '404',
-    'errorTitle' => !empty($exception->getMessage()) ? $exception->getMessage() : 'Not Found'
+    'errorTitle' => $exception->getMessage() ?? 'Not Found'
 ])
 
 @section('status-body')

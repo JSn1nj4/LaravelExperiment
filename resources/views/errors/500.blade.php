@@ -1,6 +1,6 @@
 @extends('layouts.error', [
     'errorCode' => '500',
-    'errorTitle' => !empty($exception->getMessage()) ? $exception->getMessage() : 'Internal Server Error'
+    'errorTitle' => $exception->getMessage() ?? 'Internal Server Error'
 ])
 
 @section('status-body')
