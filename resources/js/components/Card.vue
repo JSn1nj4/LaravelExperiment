@@ -29,7 +29,13 @@ export default {
 
   computed: {
     classes() {
-      return `relative ${this.margin || 'my-4'} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding || 'p-4'} ${this.typeClasses[this.type]}`;
+      this.margin = (!this.margin && this.type === 'transparent' ? ''
+        : (this.margin || 'my-4'));
+
+      this.padding = (!this.padding && this.type === 'transparent' ? 'px-4'
+        : (this.padding || 'p-4'));
+
+      return `relative ${this.margin} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding} ${this.typeClasses[this.type]}`;
     },
   },
 

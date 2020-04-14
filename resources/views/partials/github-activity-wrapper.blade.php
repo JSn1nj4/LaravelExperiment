@@ -6,7 +6,8 @@
 <div class="github-activity-item">
   @component('partials.card', [
     'size' => 'sm',
-    'type' => 'transparent'
+    'type' => 'transparent',
+    'margin' => 'my-4'
   ])
     @include("partials.github-activity-types.$type", [
       'event' => $event
