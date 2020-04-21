@@ -17,7 +17,7 @@ Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
 
 // standard views
 Route::view('/', 'home')->name('home');
-// Route::view('/projects', 'projects')->name('projects');
+Route::get('/projects', 'ProjectsController@index')->name('projects');
 
 Route::get('/updates', function() {
     $routeName = Route::currentRouteName();

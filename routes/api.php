@@ -17,6 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// For working with projects
+Route::prefix('/projects')->group(function() {
+    Route::get('/', 'ProjectsApiController@index');
+    Route::get('/{count}', 'ProjectsApiController@index');
+});
+
 // Retrieve list of tweets
 Route::get('/tweets', 'TweetController@index');
 Route::get('/tweets/{count}', 'TweetController@index');
