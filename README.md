@@ -1,5 +1,5 @@
 # ElliotDerhay.com
 
-This project is meant to be my personal website, which will eventually link to extra projects I've worked on and host smaller experiment-like projects.
+This project is my personal website. It's primarily a short "About" page with some social feeds, but it also has a page that is meant to be a list of projects I work on or have contributed to.
 
 [View the changelog](CHANGELOG.md)
