@@ -20,5 +20,5 @@ indent_size = 2
 [*.vue]
 indent_size = 2
 
-[*.yml]
+[*.{yml,yaml}]
 indent_size = 2
