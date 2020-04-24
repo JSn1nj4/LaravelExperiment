@@ -1,18 +1,11 @@
 {
-    "/js/home.js": "/js/home.js?id=c4be7ebdc64ea7bb97ec",
-    "/js/home.js.map": "/js/home.js.map?id=3fb343446b891263d386",
-    "/js/GitHubActivityTimelineWidget.js": "/js/GitHubActivityTimelineWidget.js?id=1952c4aa8d3ec5b49b8a",
-    "/js/GitHubActivityTimelineWidget.js.map": "/js/GitHubActivityTimelineWidget.js.map?id=c041083331cac51efc54",
-    "/js/TwitterTimelineWidget.js": "/js/TwitterTimelineWidget.js?id=d64ca209e68a31fabaa0",
-    "/js/TwitterTimelineWidget.js.map": "/js/TwitterTimelineWidget.js.map?id=e7da0e5358fcab3d88da",
-    "/js/NewestTweetWidget.js": "/js/NewestTweetWidget.js?id=f02d2f740e192bc3e4fe",
-    "/js/NewestTweetWidget.js.map": "/js/NewestTweetWidget.js.map?id=1d79d977d609499ca3e4",
-    "/js/vendor.js": "/js/vendor.js?id=0f660592addfa0116ff5",
-    "/js/vendor.js.map": "/js/vendor.js.map?id=6a52d2667dcc95fd7388",
-    "/js/app.js": "/js/app.js?id=6040218fa79ccda76b46",
-    "/css/app.css": "/css/app.css?id=dfa3d115b756215d72be",
-    "/js/app.js.map": "/js/app.js.map?id=598431731dd1977755dd",
-    "/css/app.css.map": "/css/app.css.map?id=e317a448876e0f19bbf2",
-    "/js/manifest.js": "/js/manifest.js?id=63bc248172614c0bc8ea",
-    "/js/manifest.js.map": "/js/manifest.js.map?id=e650bdf91f3fd402548a"
+    "/js/home.js": "/js/home.js?id=3cc1840cbba346601702",
+    "/js/GitHubActivityTimelineWidget.js": "/js/GitHubActivityTimelineWidget.js?id=d78cc6aa8b7add04ad1d",
+    "/js/TwitterTimelineWidget.js": "/js/TwitterTimelineWidget.js?id=43d19cb0a7b571f7ba41",
+    "/js/NewestTweetWidget.js": "/js/NewestTweetWidget.js?id=8d4d709dce97393dc250",
+    "/js/MainProjectsList.js": "/js/MainProjectsList.js?id=4f07c3288e4662c2743f",
+    "/js/vendor.js": "/js/vendor.js?id=53cca86e9e6d056a3385",
+    "/js/app.js": "/js/app.js?id=0a4afb0ed7daa7e2079b",
+    "/css/app.css": "/css/app.css?id=7e0d3f630ae7d1e2d7fa",
+    "/js/manifest.js": "/js/manifest.js?id=4b45afc368ea889791f6"
 }
