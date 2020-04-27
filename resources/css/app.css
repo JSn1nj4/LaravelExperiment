@@ -1,5 +1,4 @@
 @import "_variables.css";
-@import "_mixins.css";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
 @import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
 
@@ -74,37 +73,37 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     &.content-title {
-        @mixin text-glow 5;
+        @mixin textGlow 5;
     }
 
     &.banner-title {
         @apply text-3xl font-normal;
-        @mixin text-glow 3, #fff;
+        @mixin textGlow 3, #fff;
     }
 }
 
 h2, h3 {
     &.content-title {
-        @mixin text-glow 4;
+        @mixin textGlow 4;
     }
 }
 
 h4, h5 {
     &.content-title {
-        @mixin text-glow 3;
+        @mixin textGlow 3;
     }
 }
 
 h6 {
     &.content-title {
-        @mixin text-glow 2;
+        @mixin textGlow 2;
     }
 }
 
 p {
     &.banner-paragraph {
         @apply text-base;
-        @mixin text-glow 2, #fff;
+        @mixin textGlow 2, #fff;
     }
 }
 
@@ -117,7 +116,7 @@ a {
     }
 
     &.active {
-        @mixin text-glow 4;
+        @mixin textGlow 4;
     }
 }
 
@@ -155,7 +154,7 @@ a {
 
 .status-code {
     font-size: 200px;
-    @mixin text-glow 5;
+    @mixin textGlow 5;
     @apply font-thin;
 }
 
