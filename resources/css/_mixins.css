@@ -22,7 +22,7 @@
     $size: 2;
     $set: null;
     @for $i from 1 through $number {
-        $set: $set, 0 0 #{$size}px $color;
+        $set: $set, 0 0 $(size)px $color;
         $size: $size * $base;
     }
 
