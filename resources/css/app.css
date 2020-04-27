@@ -1,5 +1,4 @@
-@import "variables";
-@import "mixins";
+@import "_variables.css";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
 @import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
 
@@ -38,7 +37,7 @@ img {
 }
 
 button {
-    @include transitions((color $default-speed, border-color $default-speed));
+    @mixin transitions color $default-speed|border-color $default-speed;
 }
 
 /**
@@ -74,37 +73,37 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     &.content-title {
-        @include text-glow(5);
+        @mixin textGlow 5;
     }
 
     &.banner-title {
         @apply text-3xl font-normal;
-        @include text-glow(3, #fff);
+        @mixin textGlow 3, #fff;
     }
 }
 
 h2, h3 {
     &.content-title {
-        @include text-glow(4);
+        @mixin textGlow 4;
     }
 }
 
 h4, h5 {
     &.content-title {
-        @include text-glow(3);
+        @mixin textGlow 3;
     }
 }
 
 h6 {
     &.content-title {
-        @include text-glow(2);
+        @mixin textGlow 2;
     }
 }
 
 p {
     &.banner-paragraph {
         @apply text-base;
-        @include text-glow(2, #fff);
+        @mixin textGlow 2, #fff;
     }
 }
 
@@ -117,7 +116,7 @@ a {
     }
 
     &.active {
-        @include text-glow(4);
+        @mixin textGlow 4;
     }
 }
 
@@ -128,9 +127,15 @@ a {
 .mobile-menu {
     top: 100%;
     @apply bg-gray-900;
-    @include transitions((opacity $default-speed));
-    z-index: -10;
+    z-index: 50;
+    visibility: hidden;
     opacity: 0;
+    @mixin transitions $default-speed ease;
+
+    #menu-toggle:checked + & {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .banner-section {
@@ -149,7 +154,7 @@ a {
 
 .status-code {
     font-size: 200px;
-    @include text-glow(5);
+    @mixin textGlow 5;
     @apply font-thin;
 }
 
@@ -183,6 +188,7 @@ a {
         top: auto;
         @apply bg-transparent h-auto;
         z-index: 10;
+        visibility: visible;
         opacity: 1;
     }
 
@@ -242,11 +248,11 @@ a {
 }
 
 .trans-color {
-    @include transitions((color $default-speed));
+    @mixin transitions color $default-speed;
 }
 
 .trans-border-color {
-    @include transitions((border-color $default-speed));
+    @mixin transitions border-color $default-speed;
 }
 
 .box-glow {

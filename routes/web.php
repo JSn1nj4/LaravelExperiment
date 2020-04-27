@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +19,16 @@ Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
 
 // standard views
 Route::view('/', 'home')->name('home');
-// Route::view('/projects', 'projects')->name('projects');
-// Route::view('/updates', 'updates')->name('updates');
+Route::get('/projects', 'ProjectsController@index')->name('projects');
+
 Route::get('/updates', function() {
-    if(!(config('app.env') === 'local')) {
+    $routeName = Route::currentRouteName();
+
+    if(!config('app.enable-' . $routeName)) {
         abort(404);
     }
 
-    return view('updates');
+    return view($routeName);
 })->name('updates');
 
 /*

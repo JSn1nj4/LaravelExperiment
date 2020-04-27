@@ -48,11 +48,17 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
+import BranchesMixin from '../../mixins/GitHubActivity/BranchesMixin';
+import CommitsMixin from '../../mixins/GitHubActivity/CommitsMixin';
 
 export default {
   name: "git-hub-push-event",
-  mixins: [GitHubActivityMixin],
+  mixins: [
+    BaseMixin,
+    BranchesMixin,
+    CommitsMixin,
+  ],
   data: () => ({
     icon: 'far fa-arrow-alt-circle-up',
     action: 'pushed to',

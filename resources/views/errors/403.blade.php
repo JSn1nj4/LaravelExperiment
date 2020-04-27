@@ -1,6 +1,6 @@
 @extends('layouts.error', [
     'errorCode' => '403',
-    'errorTitle' => !empty($exception->getMessage()) ? $exception->getMessage() : 'Forbidden'
+    'errorTitle' => $exception->getMessage() ?? 'Forbidden'
 ])
 
 @section('status-body')

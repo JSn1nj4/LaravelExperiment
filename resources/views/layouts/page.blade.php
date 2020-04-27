@@ -1,35 +1,40 @@
-@extends('layouts.master', ['bodyClasses' => !empty($bodyClasses) ? $bodyClasses : ''])
+@extends('layouts.master', ['bodyClasses' => $bodyClasses ?? ''])
 
 @section('head-extras')
-    @yield('head-extras')
+  @yield('head-extras')
 @endsection
 
 @section('body')
 
-    @php
-        $menuItems = [];
+  @php
+    $menuItems = [];
+    $optionalMenuItems = [
+      'projects',
+      'updates',
+    ];
 
-        if(config('app.env') === 'local') {
-            array_push($menuItems, 'home');
-            array_push($menuItems, 'updates');
-        }
-    @endphp
+    foreach($optionalMenuItems as $item) {
+      if(config("app.enable-" . $item)) $menuItems[] = $item;
+    }
 
-    @include('layouts.header', $menuItems)
+    if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
+  @endphp
 
-    <main class="bg-gray-800 layer-shadow pt-4">
-        @yield('content')
-    </main>
+  @include('layouts.header', $menuItems)
 
-    @include('layouts.footer')
+  <main class="bg-gray-800 layer-shadow pt-4 pb-6">
+    @yield('content')
+  </main>
 
-    {{-- Footer JS files --}}
-    <script src="{{ mix('/js/manifest.js') }}"></script>
-    <script src="{{ mix('/js/vendor.js') }}"></script>
-    <script src="{{ mix('/js/app.js') }}"></script>
+  @include('layouts.footer')
+
+  {{-- Footer JS files --}}
+  <script src="{{ mix('/js/manifest.js') }}"></script>
+  <script src="{{ mix('/js/vendor.js') }}"></script>
+  <script src="{{ mix('/js/app.js') }}"></script>
 
 @endsection
 
 @section('footer-extras')
-    @yield('footer-extras')
+  @yield('footer-extras')
 @endsection

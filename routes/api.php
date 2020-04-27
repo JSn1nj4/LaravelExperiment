@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,12 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// For working with projects
+Route::prefix('/projects')->group(function() {
+    Route::get('/', 'ProjectsApiController@index');
+    Route::get('/{count}', 'ProjectsApiController@index');
 });
 
 // Retrieve list of tweets

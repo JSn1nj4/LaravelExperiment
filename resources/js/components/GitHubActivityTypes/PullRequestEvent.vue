@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
 
 export default {
   name: "git-hub-pull-request-event",
-  mixins: [GitHubActivityMixin],
+  mixins: [BaseMixin],
   data: () => ({
     icon: 'fas fa-file-upload',
     action: 'opened',

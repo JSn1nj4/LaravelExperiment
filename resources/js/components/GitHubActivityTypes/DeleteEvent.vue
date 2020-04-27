@@ -33,11 +33,15 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
+import BranchesMixin from '../../mixins/GitHubActivity/BranchesMixin';
 
 export default {
   name: "git-hub-delete-event",
-  mixins: [GitHubActivityMixin],
+  mixins: [
+    BaseMixin,
+    BranchesMixin,
+  ],
   data: () => ({
     icon: 'far fa-trash-alt',
     action: 'deleted',

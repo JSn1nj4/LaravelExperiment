@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
 
 export default {
   name: "git-hub-activity-item",
-  mixins: [GitHubActivityMixin],
+  mixins: [BaseMixin],
   data: () => ({
     icon: 'fas fa-star',
     action: 'starred'

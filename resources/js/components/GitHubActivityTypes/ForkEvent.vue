@@ -33,11 +33,11 @@
 </template>
 
 <script>
-import GitHubActivityMixin from '../../mixins/GitHubActivity';
+import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
 
 export default {
   name: "git-hub-fork-event",
-  mixins: [GitHubActivityMixin],
+  mixins: [BaseMixin],
   data: () => ({
     icon: 'fas fa-code-branch',
     action: 'forked',
