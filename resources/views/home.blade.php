@@ -94,8 +94,6 @@
     </div>
   </section>
 
-  @include('partials.made-with')
-
 @endsection
 
 @section('footer-extras')
