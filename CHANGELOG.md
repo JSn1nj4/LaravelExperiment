@@ -16,17 +16,30 @@
         - eslint to version 6.8.0
         - imagemin to version 7.0.1
         - vue to version 2.6.11
-        - vue-template-compiler to version 2.6.11    
+        - vue-template-compiler to version 2.6.11
     - Automatic updates (to manually-installed packages):
         - ajv to version 6.10.2
         - popper.js to version 1.16.0
-        - sass to version 1.24.2
         - tailwindcss to version 1.1.14
 8. Fix vertical spacing difference issue in Vue card component
 9. Explicitly set vertical margins for GitHub cards both client- and server-side
 10. Upgrade from Laravel 5.8 to 7.x
 11. Ensure both Yarn and NPM are using the same Node executable
-12. Fully replace Sass with PostCSS
+12. Fully replace Sass with PostCSS—package changes:
+    - Add postcss-mixins ^6.2.3
+    - Add postcss-nested ^4.2.1
+    - Add postcss-simple-vars ^5.0.2
+    - Remove sass ^1.20.1
+13. Move 'Made With' icon row to its own partial
+14. Fix Vue.js icon title and alt text
+15. Turn 'Made With' icon markup into template to loop over with similar icon data sets
+    - Links: main offsite link and icon source
+    - Text elements: resource name, and title/alt text for icon
+    - Icon width and height
+16. Completely remove 'Made With' content from homepage
+    - I was starting to feel like this really didn't belong on the homepage, or that it was too big for what a section like this should be. May revisit in the future, but at least the markup is self-contained now.
+17. Update to FontAwesome's new JS type kit
+18. Add dev.to social icon to footer
 
 ### Release 1.6.1
 1. Include required 'user' data in IssuesEvent payload
