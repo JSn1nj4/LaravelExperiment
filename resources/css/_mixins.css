@@ -8,14 +8,14 @@
  * This generates as many transitions as required by the requesting element,
  * with vendor variants included.
  */
-@define-mixin transitions $settings... {
+/* @define-mixin transitions $settings... {
     $set: null;
     @each $transition in $settings {
         $set: $set, $transition;
     }
 
     transition: $set;
-}
+} */
 
 @define-mixin text-glow $number: 1, $color: #00C49A {
     $base: 2;

@@ -38,7 +38,7 @@ img {
 }
 
 button {
-    @mixin transitions (color $default-speed, border-color $default-speed);
+    @mixin transitions color $default-speed|border-color $default-speed;
 }
 
 /**
@@ -131,7 +131,7 @@ a {
     z-index: 50;
     visibility: hidden;
     opacity: 0;
-    @mixin transitions ($default-speed ease);
+    @mixin transitions $default-speed ease;
 
     #menu-toggle:checked + & {
         visibility: visible;
@@ -249,11 +249,11 @@ a {
 }
 
 .trans-color {
-    @mixin transitions (color $default-speed);
+    @mixin transitions color $default-speed;
 }
 
 .trans-border-color {
-    @mixin transitions (border-color $default-speed);
+    @mixin transitions border-color $default-speed;
 }
 
 .box-glow {

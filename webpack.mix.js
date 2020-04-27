@@ -35,7 +35,24 @@ mix
   .postCss("resources/css/app.css", "public/css", [
     atImport(),
     tailwindcss(),
-    mixins(),
+    mixins({
+      mixins: {
+        transitions(mixin, settings) {
+          console.log(settings);
+
+          settings = settings.indexOf('|') >= 0 ? settings.split('|') : [settings];
+
+          let set = settings.reduce((set, val) => {
+            return set === '' ? val : `${set}, ${val}`;
+          }, '');
+
+          mixin.replaceWith({
+            prop: 'transition',
+            value: set,
+          });
+        },
+      }
+    }),
     simpleVars(),
     nested(),
   ])
