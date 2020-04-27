@@ -17,29 +17,30 @@ require('laravel-mix-purgecss');
  |
  */
 
-mix.webpackConfig({
-  output: {
-    publicPath: '/',
-    chunkFilename: 'js/modules/[name].js'
-  }
-}).js('resources/js/app.js', 'public/js')
-  .js('resources/js/TwitterTimelineWidget.js', 'public/js')
-  .js('resources/js/NewestTweetWidget.js', 'public/js')
-  .js('resources/js/home.js', 'public/js')
-  .js('resources/js/GitHubActivityTimelineWidget.js', 'public/js')
-  .js('resources/js/MainProjectsList.js', 'public/js')
-  .extract(['vue', 'axios', 'moment'])
+mix
+  .webpackConfig({
+    output: {
+      publicPath: "/",
+      chunkFilename: "js/modules/[name].js"
+    }
+  })
+  .js("resources/js/app.js", "public/js")
+  .js("resources/js/TwitterTimelineWidget.js", "public/js")
+  .js("resources/js/NewestTweetWidget.js", "public/js")
+  .js("resources/js/home.js", "public/js")
+  .js("resources/js/GitHubActivityTimelineWidget.js", "public/js")
+  .js("resources/js/MainProjectsList.js", "public/js")
+  .extract(["vue", "axios", "moment"])
   .sourceMaps()
-  .css('resources/css/app.css', 'public/css')
+  .postCss("resources/css/app.css", "public/css", [
+    atImport(),
+    tailwindcss(),
+    mixins(),
+    simpleVars(),
+    nested(),
+  ])
   .options({
-    processCssUrls: false,
-    postCss: [
-      atImport(),
-      tailwindcss(),
-      mixins(),
-      simpleVars(),
-      nested(),
-    ],
+    processCssUrls: false
   })
   .purgeCss()
   .version();
