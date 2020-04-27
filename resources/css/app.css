@@ -38,7 +38,7 @@ img {
 }
 
 button {
-    @mixin transitions((color $default-speed, border-color $default-speed));
+    @mixin transitions (color $default-speed, border-color $default-speed);
 }
 
 /**
@@ -74,37 +74,37 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     &.content-title {
-        @mixin text-glow(5);
+        @mixin text-glow 5;
     }
 
     &.banner-title {
         @apply text-3xl font-normal;
-        @mixin text-glow(3, #fff);
+        @mixin text-glow 3, #fff;
     }
 }
 
 h2, h3 {
     &.content-title {
-        @mixin text-glow(4);
+        @mixin text-glow 4;
     }
 }
 
 h4, h5 {
     &.content-title {
-        @mixin text-glow(3);
+        @mixin text-glow 3;
     }
 }
 
 h6 {
     &.content-title {
-        @mixin text-glow(2);
+        @mixin text-glow 2;
     }
 }
 
 p {
     &.banner-paragraph {
         @apply text-base;
-        @mixin text-glow(2, #fff);
+        @mixin text-glow 2, #fff;
     }
 }
 
@@ -117,7 +117,7 @@ a {
     }
 
     &.active {
-        @mixin text-glow(4);
+        @mixin text-glow 4;
     }
 }
 
@@ -131,7 +131,7 @@ a {
     z-index: 50;
     visibility: hidden;
     opacity: 0;
-    @mixin transitions(($default-speed ease));
+    @mixin transitions ($default-speed ease);
 
     #menu-toggle:checked + & {
         visibility: visible;
@@ -155,7 +155,7 @@ a {
 
 .status-code {
     font-size: 200px;
-    @mixin text-glow(5);
+    @mixin text-glow 5;
     @apply font-thin;
 }
 
@@ -249,11 +249,11 @@ a {
 }
 
 .trans-color {
-    @mixin transitions((color $default-speed));
+    @mixin transitions (color $default-speed);
 }
 
 .trans-border-color {
-    @mixin transitions((border-color $default-speed));
+    @mixin transitions (border-color $default-speed);
 }
 
 .box-glow {
