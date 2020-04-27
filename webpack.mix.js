@@ -1,6 +1,9 @@
 const mix = require('laravel-mix');
 const atImport = require('postcss-import');
 const tailwindcss = require('tailwindcss');
+const mixins = require('postcss-mixins');
+const simpleVars = require('postcss-simple-vars');
+const nested = require('postcss-nested');
 require('laravel-mix-purgecss');
 
 /*
@@ -27,12 +30,15 @@ mix.webpackConfig({
   .js('resources/js/MainProjectsList.js', 'public/js')
   .extract(['vue', 'axios', 'moment'])
   .sourceMaps()
-  .sass('resources/sass/app.scss', 'public/css')
+  .css('resources/css/app.css', 'public/css')
   .options({
     processCssUrls: false,
     postCss: [
       atImport(),
       tailwindcss(),
+      mixins(),
+      simpleVars(),
+      nested(),
     ],
   })
   .purgeCss()
