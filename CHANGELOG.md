@@ -26,6 +26,7 @@
 9. Explicitly set vertical margins for GitHub cards both client- and server-side
 10. Upgrade from Laravel 5.8 to 7.x
 11. Ensure both Yarn and NPM are using the same Node executable
+12. Fully replace Sass with PostCSS
 
 ### Release 1.6.1
 1. Include required 'user' data in IssuesEvent payload
