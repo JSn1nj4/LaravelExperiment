@@ -42,6 +42,4 @@ Route::get('/updates', function() {
  * This catch-all route should prevent that from happening
  * while still throwing 404s otherwise.
  */
- Route::any('/{any?}', function($any = null) {
-     abort(404);
- })->where('any', '.*');
+ Route::any('/{any?}', fn ($any = null) => abort(404))->where('any', '.*');

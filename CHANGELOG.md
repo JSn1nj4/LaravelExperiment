@@ -1,5 +1,10 @@
 # Changelog
 
+### Release 1.7.1
+1. Use arrow function as callback for Cath-All web route
+2. Adjust About columns
+3. Update About text
+
 ### Release 1.7
 1. Create Projects controllers and model for API use
 2. Create migration and first seeder and factory
