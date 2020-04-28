@@ -28,7 +28,7 @@
     <div class="container mx-auto px-4 pt-6">
       <section class="block md:flex">
 
-        <div class="block lg:flex lg:w-1/6">
+        <div class="hidden xl:flex xl:w-1/12">
           <div class="px-2">
 
             <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow md:hidden">
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <div class="md:w-1/2 lg:w-1/3">
+        <div class="md:w-1/2">
           <div class="px-2">
 
             <h1 class="content-title text-4xl pt-6 mt-4 md:mt-0 md:pt-0 text-center md:text-left">
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="hidden md:flex md:w-1/2 lg:w-1/3">
+        <div class="hidden md:flex md:w-1/2 lg:w-5/12 xl:w-1/3">
           <div class="px-2">
 
             <img src="https://s3.amazonaws.com/elliotderhay-com/Elliot.Color2-hd-v2-square.jpg" title="Elliot Derhay" alt="Photo of Elliot Derhay" class="border-white border-4 rounded-full box-glow">
