@@ -44,15 +44,19 @@
             </h1>
 
             <p class="mb-4">
-              I am a web developer primarily with experience in building WordPress websites. I use CSS, PHP and JS when working on these projects.
+              I am a web developer experienced in building WordPress websites. I primarily use CSS and PHP on these projects, but I do occasionally need to write some JavaScript.
             </p>
 
             <p class="mb-4">
-              My PHP experience is mostly a mix of vanilla PHP and WordPress's framework. Aside from that, I've taken up learning Laravel and have made it the foundation for my personal web project.
+              My PHP experience is mostly a mix of vanilla PHP and WordPress's framework, though I also have some experience with Laravel—and I love every minute I get to work with it.
             </p>
 
             <p class="mb-4">
-              My JavaScript experience is mostly a mix of vanilla JS and jQuery. Next in line is Meteor JS with Blaze (Meteor's default front-end framework). I used Meteor for several months worth of work on another project, and it was quite fun to work with. After Meteor, I began learning React and Vue, though I'm leaning more towards Vue at the moment.
+              My JavaScript experience is mostly vanilla JS and jQuery. Other experience includes a few months worth of MeteorJS with Blaze, and some Vue between a few other projects.
+            </p>
+
+            <p class="mb-4">
+              Lastly, I love being a Linux user. I run Kubuntu on my personal laptop, and I run Ubuntu via WSL on my work laptop so I can access my favorite Linux tools.
             </p>
 
           </div>
