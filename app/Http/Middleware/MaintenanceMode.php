@@ -47,7 +47,6 @@ class MaintenanceMode
     private function shouldRedirect($request)
     {
         return config('app.maintenance')            // Maintenance mode is on
-            && !config('app.coming_soon')           // Coming Soon mode is off
             && !$request->is('maintenance');        // Current request is not for Maintenance page
     }
 

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 // splash page views
-Route::view('/coming-soon', 'splashes.coming-soon')->name('coming-soon');
 Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
 
 // standard views
