@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// splash page views
-Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
-
 // standard views
 Route::view('/', 'home')->name('home');
 Route::get('/projects', 'ProjectsController@index')->name('projects');

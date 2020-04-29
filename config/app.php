@@ -131,7 +131,6 @@ return [
     |
     */
 
-    'maintenance' => env('APP_MAINTENANCE', false),
     'enable-projects' => env('ENABLE_PROJECTS', false),
     'enable-updates' => env('ENABLE_UPDATES', false),
 
