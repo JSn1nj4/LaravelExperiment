@@ -27,6 +27,15 @@ Route::get('/updates', function() {
     return view($routeName);
 })->name('updates');
 
+// error page testing route (only works locally)
+Route::get('/error/{code}', function($code = null) {
+    if(config('app.env') !== 'local') abort(404);
+
+    if(!$code || $code === '') abort(404);
+
+    return view("errors.$code");
+});
+
 /*
  * A catch-all route for throwing 404s
  *
