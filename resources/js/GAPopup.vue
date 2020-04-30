@@ -1,0 +1,23 @@
+<template>
+  <div id="dnt-box" class="fixed bottom-0 left-0 z-30 bg-gray-900 w-full p-8">
+    <div class="flex container mx-auto">
+      <div class="flex flex-grow h-full">
+        <p class="p-4 m-2">Please confirm whether you would like to allow tracking cookies on my site, in accordance with my <a href="/privacy-policy/">privacy policy</a>.</p>
+      </div>
+      <div class="flex w-64">
+        <button class="flex-1 p-4 m-2 bg-sea-green-600 text-gray-900 font-bold" @click="allowTracker(true)">Allow</button>
+        <button class="flex-1 p-4 m-2 bg-gray-800 text-sea-green-500 font-bold" @click="allowTracker(false)">Deny</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    allowTracker(allow) {
+      this.$emit('allow_tracker', allow);
+    }
+  }
+}
+</script>
