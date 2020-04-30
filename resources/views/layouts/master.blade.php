@@ -21,5 +21,6 @@
     @yield('footer-extras')
 
     <div id="ga-request-popup" style="display: none;"></div>
+    <script src="{{ mix('/js/GAPopup.js') }}" charset="utf-8"></script>
   </body>
 </html>
