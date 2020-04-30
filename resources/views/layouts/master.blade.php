@@ -19,5 +19,7 @@
     @yield('body')
 
     @yield('footer-extras')
+
+    <div id="ga-request-popup" style="display: none;"></div>
   </body>
 </html>
