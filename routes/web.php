@@ -33,6 +33,8 @@ Route::get('/error/{code}', function($code = null) {
 
     if(!$code || $code === '') abort(404);
 
+    if(!view()->exists("errors.$code")) abort(404);
+
     return view("errors.$code");
 });
 
