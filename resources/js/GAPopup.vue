@@ -34,6 +34,9 @@ export default {
       this.displayClass = 'hidden';
     }
   },
+  beforeMount() {
+    if(document.cookie.indexOf('DNT=0') !== -1 && navigator.doNotTrack === '1') this.hide();
+  },
   mounted() {
     if(this.displayClass !== 'hidden') this.setBoxHeight();
   },
