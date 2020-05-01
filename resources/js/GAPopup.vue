@@ -24,7 +24,7 @@ export default {
   }),
   methods: {
     allowTracker(allow) {
-      this.$emit('allow_tracker', allow);
+      this.$emit('allow_tracking', allow);
       this.hide();
     },
     setBoxHeight() {
