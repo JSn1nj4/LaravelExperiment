@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted() {
-    this.setBoxHeight();
+    if(this.displayClass !== 'hidden') this.setBoxHeight();
   },
 }
 </script>
