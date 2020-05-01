@@ -1,5 +1,5 @@
 <template>
-  <div class="block w-full bg-gray-900">
+  <div :class="`${displayClass} w-full bg-gray-900`">
     <div id="dnt-box" class="fixed bottom-0 left-0 z-30 bg-gray-900 w-full p-8" ref="dntBox">
       <div class="flex container mx-auto">
         <div class="flex flex-grow h-full">
@@ -20,10 +20,12 @@ export default {
   data: () => ({
     'btnClasses': 'flex-1 p-4 m-2 font-bold',
     'boxHeight': 'auto',
+    'displayClass': 'block',
   }),
   methods: {
     allowTracker(allow) {
       this.$emit('allow_tracker', allow);
+      this.displayClass = 'hidden';
     },
     setBoxHeight() {
       this.boxHeight = `${this.$refs.dntBox.clientHeight}px`;
