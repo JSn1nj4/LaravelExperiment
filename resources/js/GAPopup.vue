@@ -25,11 +25,14 @@ export default {
   methods: {
     allowTracker(allow) {
       this.$emit('allow_tracker', allow);
-      this.displayClass = 'hidden';
+      this.hide();
     },
     setBoxHeight() {
       this.boxHeight = `${this.$refs.dntBox.clientHeight}px`;
     },
+    hide() {
+      this.displayClass = 'hidden';
+    }
   },
   mounted() {
     this.setBoxHeight();
