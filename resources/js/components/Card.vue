@@ -24,18 +24,20 @@ export default {
     typeClasses: {
       'default': 'rounded-lg border border-gray-600 trans-border-color hover:border-sea-green-500 bg-gray-900',
       'transparent': ''
-    }
+    },
+    marginVal: '',
+    paddingVal: '',
   }),
 
   computed: {
     classes() {
-      this.margin = (!this.margin && this.type === 'transparent' ? ''
+      this.marginVal = (!this.margin && this.type === 'transparent' ? ''
         : (this.margin || 'my-4'));
 
-      this.padding = (!this.padding && this.type === 'transparent' ? 'px-4'
+      this.paddingVal = (!this.padding && this.type === 'transparent' ? 'px-4'
         : (this.padding || 'p-4'));
 
-      return `relative ${this.margin} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.padding} ${this.typeClasses[this.type]}`;
+      return `relative ${this.marginVal} max-w-${this.size} w-full${this.cursorClass} z-30 ${this.paddingVal} ${this.typeClasses[this.type]}`;
     },
   },
 
