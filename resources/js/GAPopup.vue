@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { EventBus } from './EventBus';
+
 export default {
   data: () => ({
     'btnClasses': 'flex-1 p-4 m-2 font-bold',
@@ -24,7 +26,7 @@ export default {
   }),
   methods: {
     allowTracker(allow) {
-      this.$emit('allow_tracking', allow);
+      EventBus.$emit('allow_tracking', allow);
       this.hide();
     },
     setBoxHeight() {
