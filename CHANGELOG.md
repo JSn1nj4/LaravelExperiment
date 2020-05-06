@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.8.0
+1. ...
+
 ### Release 1.7.1
 1. Use arrow function as callback for Cath-All web route
 2. Adjust About columns
