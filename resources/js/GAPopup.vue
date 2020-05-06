@@ -25,6 +25,7 @@ export default {
   methods: {
     allowTracker(allow) {
       EventBus.$emit('allow_tracking', allow);
+      document.cookie = 'GA_POPUP_INTERACTION=1';
       this.hide();
     },
     setBoxHeight() {
@@ -35,7 +36,7 @@ export default {
     }
   },
   beforeMount() {
-    if(document.cookie.indexOf('DNT=0') !== -1 && navigator.doNotTrack === '1') this.hide();
+    if(document.cookie.indexOf('GA_POPUP_INTERACTION=1') !== -1 && navigator.doNotTrack === '1') this.hide();
   },
   mounted() {
     if(this.displayClass !== 'hidden') this.setBoxHeight();
