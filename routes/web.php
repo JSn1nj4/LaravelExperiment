@@ -31,10 +31,7 @@ Route::get('/updates', function() {
 Route::get('/error/{code}', function($code = null) {
     if(config('app.env') !== 'local') abort(404);
 
-    if(!$code || $code === '') abort(404);
-
     if(!view()->exists("errors.$code")) abort(404);
 
-    return view("errors.$code");
-});
-
+    abort($code);
+})->where('code', '[1-5][0-9]{2}');
