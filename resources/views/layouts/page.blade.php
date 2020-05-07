@@ -28,14 +28,14 @@
 
   @include('layouts.footer')
 
+@endsection
+
+@section('footer-extras')
   {{-- Footer JS files --}}
   <script src="{{ mix('/js/manifest.js') }}"></script>
   <script src="{{ mix('/js/vendor.js') }}"></script>
   <script src="{{ mix('/js/app.js') }}"></script>
 
-@endsection
-
-@section('footer-extras')
   @yield('footer-extras-pass-thru')
 
   <div id="ga-request-popup" style="display: none;"></div>
