@@ -1,7 +1,7 @@
 @extends('layouts.master', ['bodyClasses' => $bodyClasses ?? ''])
 
 @section('head-extras')
-  @yield('head-extras')
+  @yield('head-extras-pass-thru')
 @endsection
 
 @section('body')
@@ -36,5 +36,5 @@
 @endsection
 
 @section('footer-extras')
-  @yield('footer-extras')
+  @yield('footer-extras-pass-thru')
 @endsection
