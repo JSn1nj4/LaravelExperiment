@@ -37,4 +37,11 @@
 
 @section('footer-extras')
   @yield('footer-extras-pass-thru')
+
+  <div id="ga-request-popup" style="display: none;"></div>
+  <script src="{{ mix('/js/GAPopup.js') }}" charset="utf-8"></script>
+
+  <script type="application/javascript">
+    EventBus.$on('allow_tracking', ga_track);
+  </script>
 @endsection
