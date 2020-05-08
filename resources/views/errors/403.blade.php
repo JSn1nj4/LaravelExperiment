@@ -11,6 +11,14 @@
 
 @section('status-footer')
     <p>
-        <a href="{{ route('home') }}">Back to homepage</a>
+        <a class="text-white hover:text-sea-green-500" href="{{ route('home') }}"><i class="text-sea-green-500 fa fa-caret-square-left"></i> Back to homepage</a>
     </p>
+    <div class="pt-8 font-normal text-gray-500">
+      @include('partials.copyright')
+    </div>
+    <div class="pt-4">
+      @include('partials.socials', [
+        'classes' => 'text-2xl'
+      ])
+    </div>
 @endsection
