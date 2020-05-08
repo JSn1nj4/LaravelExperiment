@@ -1,7 +1,7 @@
-@extends('layouts.page', ['bodyClasses' => 'status-page'])
+@extends('layouts.splash', ['bodyClasses' => 'status-page'])
 
 @section('content')
-  <div class="container mx-auto px-4 py-6">
+  <div class="flex flex-col mx-auto container max-h-screen h-screen px-4 py-6 justify-center">
     <div class="flex pb-4">
       <div class="status-code w-1/3 md:pr-4 leading-none">
         {{ $errorCode }}
