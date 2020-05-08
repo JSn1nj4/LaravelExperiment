@@ -2,23 +2,19 @@
 
 @section('content')
   <div class="flex flex-col mx-auto container max-h-screen h-screen px-4 py-6 justify-center">
-    <div class="flex pb-4">
-      <div class="status-code w-1/3 md:pr-4 leading-none">
-        {{ $errorCode }}
+    <div class="pb-4 w-full max-w-md mx-auto">
+      <h1 class="text-6xl">
+        <span class="align-middle">{{ $errorCode }}</span>
+        <span class="inline-block align-middle w-0 h-16 border-solid border-r-2 border-sea-green-500">&nbsp;</span>
+        <span class="text-3xl align-middle leading-none">{{ $errorTitle }}</span>
+      </h1>
+
+      <div class="pt-4 text-lg leading-normal">
+        @yield('status-body')
       </div>
 
-      <div class="status-description w-2/3">
-        <h1 class="status-title">
-          {{ $errorTitle }}
-        </h1>
-
-        <div class="status-body">
-          @yield('status-body')
-        </div>
-
-        <div class="status-footer">
-          @yield('status-footer')
-        </div>
+      <div class="pt-4">
+        @yield('status-footer')
       </div>
     </div>
   </div>
