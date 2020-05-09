@@ -184,14 +184,6 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
-    .mobile-menu {
-        top: auto;
-        @apply bg-transparent h-auto;
-        z-index: 10;
-        visibility: visible;
-        opacity: 1;
-    }
-
     h1.banner-title {
         @apply text-5xl font-normal;
     }
@@ -202,6 +194,14 @@ a {
 }
 
 @media only screen and (min-width: 992px) {
+    .mobile-menu {
+        top: auto;
+        @apply bg-transparent h-auto;
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+    }
+
     .banner-section {
         height: 46.875vw;
     }

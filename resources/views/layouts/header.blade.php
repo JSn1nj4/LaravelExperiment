@@ -10,7 +10,7 @@
       </a>
     </div>
 
-    <div class="block md:hidden mr-5">
+    <div class="block lg:hidden mr-5">
       <label for="menu-toggle" class="flex items-center text-sea-green-500 hover:text-white">
         <svg class="fill-current h-8 w-8" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
       </label>
@@ -18,12 +18,12 @@
 
     <input type="checkbox" id="menu-toggle" name="menu-toggle" class="hidden absolute top-0 left-0 -z-50">
 
-    <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu">
-      <div class="text-md md:flex-grow">
+    <div class="w-full block absolute lg:relative flex-grow lg:flex lg:items-center lg:w-auto text-center lg:text-right text-xl mobile-menu">
+      <div class="text-md lg:flex-grow">
 
         @foreach ($menuItems as $key => $item)
           <a href="{{ route($item->name, [], false) }}"
-          class="block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $item->name ? ' active' : '' }}">
+          class="block lg:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $item->name ? ' active' : '' }}">
             @if(isset($item->icon))
               <i class="{{$item->icon}}"></i>
             @endif
