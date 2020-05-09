@@ -7,19 +7,20 @@
 @section('body')
 
   @php
-    $menuItems = [];
+    $menuItems = [
+      (object) ['name' => 'home', 'label' => 'Home'],
+    ];
+
     $optionalMenuItems = [
-      'projects',
-      'updates',
+      (object) ['name' => 'projects', 'label' => 'Projects'],
+      (object) ['name' => 'updates', 'label' => 'Updates'],
     ];
 
     foreach($optionalMenuItems as $item) {
-      if(config("app.enable-" . $item)) $menuItems[] = $item;
+      if(config("app.enable-" . $item->name)) $menuItems[] = $item;
     }
 
-    $menuItems[] = 'privacy';
-
-    if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
+    $menuItems[] = (object) ['name' => 'privacy', 'label' => 'Privacy Policy'];
   @endphp
 
   @include('layouts.header', $menuItems)
