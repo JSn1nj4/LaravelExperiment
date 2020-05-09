@@ -160,6 +160,24 @@ module.exports = {
       ...theme('spacing')
     }),
 
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      circle: 'circle',
+      square: 'square',
+      decimal: 'decimal',
+      'lower-roman': 'lower-roman',
+      'upper-roman': 'upper-roman',
+      'lower-alpha': 'lower-alpha',
+      'upper-alpha': 'upper-alpha',
+      plus: '+ ',
+      minus: '- ',
+      dollar: '$ ',
+      hash: '# ',
+      asterisk: '* ',
+      at: '@ ',
+    },
+
   },
 
   variants: {
