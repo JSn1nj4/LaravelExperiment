@@ -17,6 +17,8 @@
       if(config("app.enable-" . $item)) $menuItems[] = $item;
     }
 
+    $menuItems[] = 'privacy';
+
     if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
   @endphp
 
