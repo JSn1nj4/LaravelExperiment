@@ -152,20 +152,6 @@ a {
     padding-top: 15vw;
 }
 
-.status-code {
-    font-size: 200px;
-    @mixin textGlow 5;
-    @apply font-thin;
-}
-
-.status-description {
-    @apply text-2xl leading-normal py-4;
-}
-
-.status-title {
-    @apply font-thin;
-}
-
 .twitter-card {
     font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 }
