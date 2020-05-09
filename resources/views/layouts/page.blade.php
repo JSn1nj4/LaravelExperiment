@@ -8,7 +8,7 @@
 
   @php
     $menuItems = [
-      (object) ['name' => 'home', 'label' => 'Home'],
+      (object) ['name' => 'home', 'label' => 'Home', 'icon' => 'fas fa-home'],
     ];
 
     $optionalMenuItems = [
