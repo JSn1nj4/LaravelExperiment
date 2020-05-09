@@ -14,13 +14,13 @@
 
       <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-      <ul class="mb-4 pl-8 list-disc">
+      <ul class="mb-4 list-outside list-disc">
         <li>List item
-          <ul class="mb-4 pl-5 list-circle">
+          <ul class="mb-4 list-outside list-circle">
             <li>sub list item</li>
             <li>sub list item</li>
             <li>sub list item
-              <ul class="mb-4 pl-5 list-plus">
+              <ul class="mb-4 list-outside list-plus">
                 <li>sub sub list item</li>
                 <li>sub sub list item</li>
                 <li>sub sub list item</li>
@@ -29,7 +29,7 @@
               </ul>
             </li>
             <li>sub list item
-              <ul class="mb-4 pl-5 list-dash">
+              <ul class="mb-4 list-outside list-dash">
                 <li>sub sub list item</li>
                 <li>sub sub list item</li>
                 <li>sub sub list item</li>
@@ -41,27 +41,101 @@
         </li>
         <li>list item</li>
       </ul>
-      <ol class="mb-4 pl-8 list-decimal">
+
+      <ol class="mb-4 list-outside list-decimal">
         <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
-      </ol>
-      <ol class="mb-4 pl-8 list-lower-roman">
         <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
-      </ol>
-      <ol class="mb-4 pl-8 list-upper-roman">
+        <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
       </ol>
-      <ol class="mb-4 pl-8 list-lower-alpha">
+
+      <ol class="mb-4 list-outside list-lower-roman">
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
       </ol>
-      <ol class="mb-4 pl-8 list-upper-alpha">
+
+      <ol class="mb-4 list-outside list-upper-roman">
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+
+      <ol class="mb-4 list-outside list-lower-alpha">
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+
+      <ol class="mb-4 list-outside list-upper-alpha">
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
         <li>Ordered list item</li>
