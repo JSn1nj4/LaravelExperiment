@@ -39,23 +39,13 @@
       <div class="w-full block absolute md:relative flex-grow md:flex md:items-center md:w-auto text-center md:text-right text-xl mobile-menu">
         <div class="text-md md:flex-grow">
 
-          @foreach ($menuItems as $key => $value)
-            @php
-              $extraClasses = '';
-              $titleText = '';
-              $itemText = $value;
-
-              if($value === 'home') {
-                $extraClasses = 'fas fa-home ';
-                $titleText = 'title=Home';
-                $itemText = '';
-              }
-            @endphp
-
-            <a href="{{ route($value, [], false) }}"
-              class="{{ $extraClasses }}block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $value ? ' active' : '' }}"
-              {{ $titleText }}>
-              {{ $itemText }}
+          @foreach ($menuItems as $key => $item)
+            <a href="{{ route($item->name, [], false) }}"
+            class="block md:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $item->name ? ' active' : '' }}">
+              @if(isset($item->icon))
+                <i class="{{$item->icon}}"></i>
+              @endif
+              {{ $item->label }}
             </a>
           @endforeach
 
