@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
 import LoadingAnimation from './components/LoadingAnimation.vue';
 import ProjectCard from './components/ProjectCard.vue';
 

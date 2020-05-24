@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
 import TwitterCard from './components/TwitterCard.vue';
 
 export default {
