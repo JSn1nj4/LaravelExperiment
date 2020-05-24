@@ -28,7 +28,6 @@
         "imagemin": "^7.0.1",
         "laravel-mix": "^3.0.0",
         "laravel-mix-purgecss": "^3.0.0",
-        "popper.js": "^1.15.0",
         "postcss-import": "12.0.1",
         "postcss-mixins": "^6.2.3",
         "postcss-nested": "^4.2.1",
