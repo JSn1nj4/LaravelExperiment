@@ -28,6 +28,13 @@ let defaultConfig = require('tailwindcss/defaultConfig');
 
 module.exports = {
 
+  purge: [
+    'app/**/*.php',
+    'resources/**/*.js',
+    'resources/**/*.vue',
+    'resources/**/*.php',
+  ],
+
   theme: {
 
     colors: {

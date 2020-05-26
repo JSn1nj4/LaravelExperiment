@@ -4,7 +4,6 @@ const tailwindcss = require('tailwindcss');
 const mixins = require('postcss-mixins');
 const simpleVars = require('postcss-simple-vars');
 const nested = require('postcss-nested');
-require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -35,7 +34,6 @@ mix
   .sourceMaps()
   .postCss("resources/css/app.css", "public/css", [
     atImport(),
-    tailwindcss(),
     mixins({
       mixins: {
         transitions(mixin, settings) {
@@ -69,9 +67,9 @@ mix
     }),
     simpleVars(),
     nested(),
+    tailwindcss(),
   ])
   .options({
     processCssUrls: false
   })
-  .purgeCss()
   .version();
