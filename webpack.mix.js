@@ -30,7 +30,7 @@ mix
   .js("resources/js/GitHubActivityTimelineWidget.js", "public/js")
   .js("resources/js/MainProjectsList.js", "public/js")
   .js("resources/js/GAPopup.js", "public/js")
-  .extract(["vue", "axios", "moment"])
+  .extract(["axios", "date-fns/format", "date-fns/formatDistanceToNow", "date-fns/locale/en-US", "vue",])
   .sourceMaps()
   .postCss("resources/css/app.css", "public/css", [
     atImport(),
