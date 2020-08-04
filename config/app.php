@@ -176,7 +176,6 @@ return [
         /*
          * Package Service Providers...
          */
-        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -187,6 +186,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        App\Providers\MarkdownServiceProvider::class,
 
     ],
 
