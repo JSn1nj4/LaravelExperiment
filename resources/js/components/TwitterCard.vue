@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import moment from 'moment';
+import format from 'date-fns/format';
 import Card from './Card.vue';
 
 export default {
@@ -69,9 +69,7 @@ export default {
   }),
   methods: {
     formatDate(created_at) {
-      // `moment` has a warning about the date format in `created_at`
-      // return moment(created_at).local().format('D MMM YYYY');
-      return moment(new Date(created_at)).local().format('D MMM YYYY');
+      return format(new Date(created_at), 'd MMM yyyy');
     },
     formattedText(text) {
       // Link hashtags, according to Twitter's guidelines
