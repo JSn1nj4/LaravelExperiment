@@ -6,140 +6,25 @@
     <div class="container mx-auto px-4 pt6">
       <h1 class="content-title text-4xl">Privacy Policy</h1>
 
-      <h2 class="content-title text-3xl">h2</h2>
-      <h3 class="content-title text-2xl">h3</h3>
-      <h4 class="content-title text-xl">h4</h4>
+      <p class="font-bold mb-4">Last updated August 12, 2020</p>
 
-      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2 class="content-title text-3xl">What this policy covers</h2>
+      <p class="mb-4">This privacy policy applies to this Website (<a href="/">http://elliotderhay.com</a>) and how this Website does or does not collect and/or store information.</p>
 
-      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="mb-4">This policy does not cover how third-party websites linked to from this Website use personally-identifiable information.</p>
 
-      <ul class="mb-4 list-outside list-disc">
-        <li>List item
-          <ul class="mb-4 list-outside list-circle">
-            <li>sub list item</li>
-            <li>sub list item</li>
-            <li>sub list item
-              <ul class="mb-4 list-outside list-plus">
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-              </ul>
-            </li>
-            <li>sub list item
-              <ul class="mb-4 list-outside list-dash">
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-                <li>sub sub list item</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>list item</li>
+      <h2 class="content-title text-3xl">Information Collected by Third Parties</h2>
+      <p class="mb-4">I do not directly collect or store any personal information. I do, however, use the following tools and/or services listed below. Each of these tools is for learning and Website improvement purposes only.</p>
+
+      <p class="mb-4">Additionally, even though this information may be stored according to each tool/service's privacy policy, I do not share this information with any other third parties myself.</p>
+
+      <p class="mb-4">Each item listed below has a link to a webpage about the tool/service itself and an additional link for its privacy policy. Please read and understand the terms of these privacy policies to determine if you are comfortable with how they collect information.</p>
+
+      <h3 class="content-title text-2xl">Third Party Tools &amp; Services</h3>
+
+      <ul class="mb-4 list-inside list-disc">
+        <li><a href="https://marketingplatform.google.com/about/analytics/" target="_blank">Google Analytics</a>   (<a href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank">Privacy Policy</a>)</li>
       </ul>
-
-      <ol class="mb-4 list-outside list-decimal">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
-
-      <ol class="mb-4 list-outside list-lower-roman">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
-
-      <ol class="mb-4 list-outside list-upper-roman">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
-
-      <ol class="mb-4 list-outside list-lower-alpha">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
-
-      <ol class="mb-4 list-outside list-upper-alpha">
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-        <li>Ordered list item</li>
-      </ol>
     </div>
   </section>
 
