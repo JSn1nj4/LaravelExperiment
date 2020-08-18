@@ -7,17 +7,18 @@
 @section('body')
 
   @php
-    $menuItems = [];
+    $menuItems = [
+      (object) ['name' => 'home', 'label' => 'Home', 'icon' => 'fas fa-home'],
+    ];
+
     $optionalMenuItems = [
-      'projects',
-      'updates',
+      (object) ['name' => 'projects', 'label' => 'Projects'],
+      (object) ['name' => 'updates', 'label' => 'Updates'],
     ];
 
     foreach($optionalMenuItems as $item) {
-      if(config("app.enable-" . $item)) $menuItems[] = $item;
+      if(config("app.enable-" . $item->name)) $menuItems[] = $item;
     }
-
-    if(count($menuItems) >= 1) array_unshift($menuItems, 'home');
   @endphp
 
   @include('layouts.header', $menuItems)
