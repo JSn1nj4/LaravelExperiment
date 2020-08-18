@@ -27,6 +27,8 @@ Route::get('/updates', function() {
     return view($routeName);
 })->name('updates');
 
+Route::view('/privacy', 'privacy')->name('privacy');
+
 // error page testing route (only works locally)
 Route::get('/error/{code}', function($code = null) {
     if(config('app.env') !== 'local') abort(404);
