@@ -23,8 +23,9 @@
     - Use `abort` helper to throw an error with the given error code, ensuring that the correct error message is set when rendering the related view.
 10. Update some layout section names to avoid accidentally overriding section output further up view chain.
 11. Redesign error page layout
-13. Move footer copyright to its own partial
-12. Tweak existing error pages
+12. Move footer copyright to its own partial
+13. Tweak existing error pages
+14. Add privacy policy page
 
 [props-data-flow]: https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow
 [fallback-routes]: https://laravel.com/docs/7.x/routing#fallback-routes
