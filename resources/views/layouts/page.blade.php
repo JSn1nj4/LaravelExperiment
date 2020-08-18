@@ -19,8 +19,6 @@
     foreach($optionalMenuItems as $item) {
       if(config("app.enable-" . $item->name)) $menuItems[] = $item;
     }
-
-    $menuItems[] = (object) ['name' => 'privacy', 'label' => 'Privacy Policy'];
   @endphp
 
   @include('layouts.header', $menuItems)
