@@ -26,6 +26,7 @@
 12. Move footer copyright to its own partial
 13. Tweak existing error pages
 14. Add privacy policy page
+15. Finish replacing `vue-loading-spinner` package
 
 [props-data-flow]: https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow
 [fallback-routes]: https://laravel.com/docs/7.x/routing#fallback-routes
