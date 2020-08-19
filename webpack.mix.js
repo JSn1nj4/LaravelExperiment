@@ -36,7 +36,6 @@ mix
     "date-fns/formatDistanceToNow",
     "date-fns/locale/en-US",
     "vue",
-    "vue-loading-spinner",
   ])
   .sourceMaps()
   .postCss("resources/css/app.css", "public/css", [
