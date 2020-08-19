@@ -13,6 +13,10 @@
 </template>
 
 <script>
+/**
+ * Adapted from HTML version of Atom Spinner from "Epic Spinners"
+ * spinner collection website: https://epic-spinners.epicmax.co/
+ */
 export default {
   name: "atom-spinner",
   props: {
