@@ -1,5 +1,9 @@
 # Changelog
 
+### Release 1.8.1
+1. Try again to update previously-updated packages
+2. Rename `heroku-postbuild` script to just `build`
+
 ### Release 1.8.0
 1. Remove old Coming Soon page and related parts
 2. Remove old Maintenance page and related parts
