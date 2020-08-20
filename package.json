@@ -3,6 +3,10 @@
     "version": "1.7.0",
     "description": "My personal website",
     "license": "SEE LICENSE IN LICENSE.md",
+    "engines": {
+        "node": "10.16.x",
+        "yarn": "1.22.x"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/JSn1nj4/ElliotDerhay.com.git"
@@ -14,8 +18,9 @@
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
         "watch-poll": "npm run watch -- --watch-poll",
+        "heroku-postbuild": "yarn run production",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
+        "prod": "yarn run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
