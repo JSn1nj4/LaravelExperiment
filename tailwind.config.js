@@ -28,6 +28,13 @@ let defaultConfig = require('tailwindcss/defaultConfig');
 
 module.exports = {
 
+  purge: [
+    'app/**/*.php',
+    'resources/**/*.js',
+    'resources/**/*.vue',
+    'resources/**/*.php',
+  ],
+
   theme: {
 
     colors: {
@@ -159,6 +166,24 @@ module.exports = {
       'px2': '2px',
       ...theme('spacing')
     }),
+
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      circle: 'circle',
+      square: 'square',
+      decimal: 'decimal',
+      'lower-roman': 'lower-roman',
+      'upper-roman': 'upper-roman',
+      'lower-alpha': 'lower-alpha',
+      'upper-alpha': 'upper-alpha',
+      plus: '+ ',
+      minus: '- ',
+      dollar: '$ ',
+      hash: '# ',
+      asterisk: '* ',
+      at: '@ ',
+    },
 
   },
 

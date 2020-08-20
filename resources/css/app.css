@@ -152,20 +152,6 @@ a {
     padding-top: 15vw;
 }
 
-.status-code {
-    font-size: 200px;
-    @mixin textGlow 5;
-    @apply font-thin;
-}
-
-.status-description {
-    @apply text-2xl leading-normal py-4;
-}
-
-.status-title {
-    @apply font-thin;
-}
-
 .twitter-card {
     font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 }
@@ -184,14 +170,6 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
-    .mobile-menu {
-        top: auto;
-        @apply bg-transparent h-auto;
-        z-index: 10;
-        visibility: visible;
-        opacity: 1;
-    }
-
     h1.banner-title {
         @apply text-5xl font-normal;
     }
@@ -202,6 +180,14 @@ a {
 }
 
 @media only screen and (min-width: 992px) {
+    .mobile-menu {
+        top: auto;
+        @apply bg-transparent h-auto;
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+    }
+
     .banner-section {
         height: 46.875vw;
     }

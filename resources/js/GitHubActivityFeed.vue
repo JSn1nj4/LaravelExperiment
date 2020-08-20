@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import GitHubActivityWrapper from './components/GitHubActivityWrapper.vue';
 import LoadingAnimation from './components/LoadingAnimation.vue';
 import Timeline from './components/Timeline.vue';

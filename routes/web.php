@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// splash page views
-Route::view('/coming-soon', 'splashes.coming-soon')->name('coming-soon');
-Route::view('/maintenance', 'splashes.maintenance')->name('maintenance');
-
 // standard views
 Route::view('/', 'home')->name('home');
 Route::get('/projects', 'ProjectsController@index')->name('projects');
@@ -31,15 +27,13 @@ Route::get('/updates', function() {
     return view($routeName);
 })->name('updates');
 
-/*
- * A catch-all route for throwing 404s
- *
- * This route will be used automatically when another pre-defined route
- * isn't hit by the web browser. The browser would normally throw 404s
- * anyway, but the coming-soon and maintenance routes could also be
- * circumvented.
- *
- * This catch-all route should prevent that from happening
- * while still throwing 404s otherwise.
- */
- Route::any('/{any?}', fn ($any = null) => abort(404))->where('any', '.*');
+Route::view('/privacy', 'privacy')->name('privacy');
+
+// error page testing route (only works locally)
+Route::get('/error/{code}', function($code = null) {
+    if(config('app.env') !== 'local') abort(404);
+
+    if(!view()->exists("errors.$code")) abort(404);
+
+    abort($code);
+})->where('code', '[1-5][0-9]{2}');

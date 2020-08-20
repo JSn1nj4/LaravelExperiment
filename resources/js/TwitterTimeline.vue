@@ -10,7 +10,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
 import TwitterCard from './components/TwitterCard.vue';
 import LoadingAnimation from './components/LoadingAnimation.vue';
 import Timeline from './components/Timeline.vue';

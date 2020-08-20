@@ -131,8 +131,6 @@ return [
     |
     */
 
-    'coming_soon' => env('APP_COMING_SOON', false),
-    'maintenance' => env('APP_MAINTENANCE', false),
     'enable-projects' => env('ENABLE_PROJECTS', false),
     'enable-updates' => env('ENABLE_UPDATES', false),
 

@@ -1,16 +1,16 @@
 @extends('layouts.error', [
     'errorCode' => '500',
-    'errorTitle' => $exception->getMessage() ?? 'Internal Server Error'
+    'errorTitle' => (isset($exception) && $exception !== '' && $exception->getMessage() !== '') ? $exception->getMessage() : 'Internal Server Error'
 ])
 
 @section('status-body')
     <p>
-        Something went wrong on the back-end. If this issue continues, please contact me via <a href="https://twitter.com/JSn1nj4">Twitter</a>.
+        Something went wrong on the back-end. If this issue persists, please contact me via <a class="font-normal" href="https://twitter.com/JSn1nj4">Twitter</a>.
     </p>
 @endsection
 
 @section('status-footer')
     <p>
-        <a href="{{ route('home') }}">Back to homepage</a>
+        <a class="text-white hover:text-sea-green-500" href="{{ route('home') }}"><i class="text-sea-green-500 fa fa-caret-square-left"></i> Back to homepage</a>
     </p>
 @endsection

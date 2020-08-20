@@ -4,7 +4,6 @@ const tailwindcss = require('tailwindcss');
 const mixins = require('postcss-mixins');
 const simpleVars = require('postcss-simple-vars');
 const nested = require('postcss-nested');
-require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -30,11 +29,17 @@ mix
   .js("resources/js/home.js", "public/js")
   .js("resources/js/GitHubActivityTimelineWidget.js", "public/js")
   .js("resources/js/MainProjectsList.js", "public/js")
-  .extract(["vue", "axios", "moment"])
+  .js("resources/js/GAPopup.js", "public/js")
+  .extract([
+    "axios",
+    "date-fns/format",
+    "date-fns/formatDistanceToNow",
+    "date-fns/locale/en-US",
+    "vue",
+  ])
   .sourceMaps()
   .postCss("resources/css/app.css", "public/css", [
     atImport(),
-    tailwindcss(),
     mixins({
       mixins: {
         transitions(mixin, settings) {
@@ -68,9 +73,9 @@ mix
     }),
     simpleVars(),
     nested(),
+    tailwindcss(),
   ])
   .options({
     processCssUrls: false
   })
-  .purgeCss()
   .version();

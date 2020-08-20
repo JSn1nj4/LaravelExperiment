@@ -1,5 +1,37 @@
 # Changelog
 
+### Release 1.8.0
+1. Remove old Coming Soon page and related parts
+2. Remove old Maintenance page and related parts
+3. Add 503 error page for Laravel's own built-in maintenance mode
+4. Add GA tracking allow/deny banner
+    - Banner only shows if its user interaction cookie isn't set
+    - If banner is showing, additional spacing will be added to the bottom of the page to ensure no content gets blocked.
+5. Add global Vue event bus
+6. Add conditional GA tracking code
+    - Defaults to not tracking if user hasn't allowed it yet or has browser Do Not Track enabled
+    - Will not track if DNT cookie is set to 1, will if set to 0
+    - Listens for `allow_tracking` event via global event bus to let user select whether tracking will be allowed
+7. No longer directly mutate props on Card component, as mentioned in Vue error message
+    - See [Props: One-Way Data Flow][props-data-flow]
+8. Remove catch-all route since Laravel will automatically handle 404s for non-existant routes
+    - See [Routing: Fallback Routes][fallback-routes]
+        >Typically, unhandled requests will automatically render a "404" page via your application's exception handler.
+9. Make error code testing route more efficient
+    - Use `where` routing method to ensure error route only serves requests for a specific pattern.
+    - No longer check for `$code` being set or containing an empty string, since the route requires a specific pattern to even run.
+    - Use `abort` helper to throw an error with the given error code, ensuring that the correct error message is set when rendering the related view.
+10. Update some layout section names to avoid accidentally overriding section output further up view chain.
+11. Redesign error page layout
+12. Move footer copyright to its own partial
+13. Tweak existing error pages
+14. Add privacy policy page
+15. Finish replacing `vue-loading-spinner` package
+16. Configure package.json scripts for auto-build on Heroku
+
+[props-data-flow]: https://vuejs.org/v2/guide/components-props.html#One-Way-Data-Flow
+[fallback-routes]: https://laravel.com/docs/7.x/routing#fallback-routes
+
 ### Release 1.7.1
 1. Use arrow function as callback for Cath-All web route
 2. Adjust About columns

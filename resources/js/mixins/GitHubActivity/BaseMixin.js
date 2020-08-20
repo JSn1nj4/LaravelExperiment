@@ -1,4 +1,5 @@
-import moment from 'moment';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import en_US_Locale from 'date-fns/locale/en-US';
 
 export default {
   name: "git-hub-activity-base-mixin",
@@ -11,7 +12,7 @@ export default {
   }),
   computed: {
     formattedDate() {
-      return moment(this.event.created_at).fromNow();
+      return formatDistanceToNow(new Date(this.event.created_at), {addSuffix: true, locale: en_US_Locale});
     },
     profileUrl() {
       return `${this.baseLink}/${this.event.actor.login}`;
