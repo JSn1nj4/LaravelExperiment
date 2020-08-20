@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.8.3
+Update accidentally-outdated yarn.lock file
+
 ### Release 1.8.2
 Remove grave character accidentally slipped into Tailwind version number.
 
