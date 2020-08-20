@@ -1,5 +1,8 @@
 # Changelog
 
+### Release 1.8.2
+Remove grave character accidentally slipped into Tailwind version number.
+
 ### Release 1.8.1
 1. Try again to update previously-updated packages
 2. Rename `heroku-postbuild` script to just `build`
