@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\GitHubActivity;
+use App\Models\GitHubActivity;
 
 class GitHubActivityController extends Controller
 {
