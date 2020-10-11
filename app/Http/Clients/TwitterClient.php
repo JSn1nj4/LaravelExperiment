@@ -116,7 +116,7 @@ class TwitterClient
         $this->token = $result->access_token;
     }
 
-    public function getTweets(string $username, ?string $since = null, ?int $count = null)
+    public function getTweets(string $username, ?string $since = null, bool $retweets = true, ?int $count = null)
     {
         //
     }
