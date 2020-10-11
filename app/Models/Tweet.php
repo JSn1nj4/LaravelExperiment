@@ -22,18 +22,18 @@ class Tweet extends Model
      * @method                  formatTweetData
      * @access private
      *
-     * @param string            $tweets
+     * @param array             $tweets
      *
      * @return array
      *
      * Strip down tweet data returned by Twitter API. Most of the data returned
      * by the Twitter API isn't necessary in this case.
      */
-    private function formatTweetData($tweets)
+    private function formatTweetData(array $tweets)
     {
         $formattedTweets = collect([]);
 
-        foreach(json_decode($tweets, true) as $tweet) {
+        foreach($tweets as $tweet) {
             $tweet = collect($tweet)->reject(function($val, $key) {
                 return !in_array($key, [
                     'created_at',
@@ -102,6 +102,6 @@ class Tweet extends Model
      */
     public function getTweet($tweet_id)
     {
-        return $this->formatTweetData("[" . $this->twitter->getSingleTweet($tweet_id) . "]");
+        return $this->formatTweetData([$this->twitter->getSingleTweet($tweet_id)]);
     }
 }
