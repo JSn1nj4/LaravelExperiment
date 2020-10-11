@@ -2,8 +2,7 @@
 
 namespace App\Http\Clients;
 
-// use Exception;
-// use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Http;
 
 class TwitterClient
 {
@@ -88,31 +87,21 @@ class TwitterClient
             abort(500);
         }
 
-        $post_url = "$this->api_url/oauth2/token";
+        $auth_hash = base64_encode(urlencode($this->key) . ':' . urlencode($this->secret));
 
-        $twitter_str = base64_encode(urlencode($this->key) . ':' . urlencode($this->secret));
-
-        $ch = curl_init();
-
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $post_url,
-            CURLOPT_POST => 1,
-            CURLOPT_HTTPHEADER => [
-                "Authorization: Basic $twitter_str",
-                "Content-Type: application/x-www-form-urlencoded;charset=UTF-8"
-            ],
-            CURLOPT_POSTFIELDS => "grant_type=client_credentials",
-            CURLOPT_RETURNTRANSFER => true
+        $response = Http::asForm()->withHeaders([
+            'Authorization' => "Basic {$auth_hash}",
+        ])->post("{$this->api_url}/oauth2/token", [
+            'grant_type' => 'client_credentials',
         ]);
 
-        $result = json_decode(curl_exec($ch));
-        curl_close($ch);
-
-        if (isset($result->errors)) {
-            abort(500);
+        if($response->failed()) {
+            $response->throw();
         }
 
-        return $result->access_token;
+        $this->token = $response['access_token'];
+
+        return $this->token;
     }
 
     /**
@@ -128,25 +117,13 @@ class TwitterClient
                ($since ? "since_id={$since}" : "") .
                "screen_name={$username}&include_rts={$retweets}";
 
-        $ch = curl_init();
+        $response = Http::withToken($this->getToken())->get($url);
 
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url,
-            CURLOPT_HTTPHEADER => [
-                "Authorization: Bearer {$this->getToken()}"
-            ],
-            CURLOPT_RETURNTRANSFER => true
-        ]);
-
-        $tweets = curl_exec($ch);
-
-        if (isset(json_decode($tweets)->errors)) {
-            abort(500);
+        if($response->failed()) {
+            $response->throw();
         }
 
-        curl_close($ch);
-
-        return $tweets;
+        return $response->json();
     }
 
     /**
@@ -156,24 +133,12 @@ class TwitterClient
     {
         $url = "{$this->api_url}/1.1/statuses/show.json?id={$tweet_id}";
 
-        $ch = curl_init();
+        $response = Http::withToken($this->getToken())->get($url);
 
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url,
-            CURLOPT_HTTPHEADER => [
-                "Authorization: Bearer {$this->getToken()}"
-            ],
-            CURLOPT_RETURNTRANSFER => true
-        ]);
-
-        $tweet = curl_exec($ch);
-
-        if (isset(json_decode($tweet)->errors)) {
-            abort(500);
+        if ($response->failed()) {
+            $response->throw();
         }
 
-        curl_close($ch);
-
-        return $tweet;
+        return $response->json();
     }
 }
