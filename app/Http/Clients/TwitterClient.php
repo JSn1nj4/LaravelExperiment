@@ -54,10 +54,8 @@ class TwitterClient
      * initialized. Initializing properties outside of a constrctor requires
      * that the initial values be static.
      */
-    public function __construct(array $attributes = [])
+    public function __construct()
     {
-        parent::__construct($attributes);
-
         $this->token = config('services.twitter.token', false);
         $this->key = config('services.twitter.key', false);
         $this->secret = config('services.twitter.secret', false);
