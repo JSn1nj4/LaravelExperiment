@@ -62,9 +62,11 @@ class TwitterClient
     }
 
     /**
-     * Generate a new Twitter API token if one doesn't exist
+     * Get the Twitter API token
      *
-     * @method                  createToken
+     * Generate a new one if necessary.
+     *
+     * @method                  getToken
      * @access public
      *
      * @return void
@@ -77,7 +79,7 @@ class TwitterClient
      * This method will also only be called if the token doesn't already exist
      * in the environment.
      */
-    public function createToken()
+    public function getToken()
     {
         if ($this->token) {
             return true;
