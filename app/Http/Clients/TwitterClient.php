@@ -118,6 +118,26 @@ class TwitterClient
 
     public function getTweets(string $username, ?string $since = null, bool $retweets = true, ?int $count = null)
     {
-        //
+        $url = "{$this->api_url}/1.1/statuses/user_timeline.json?count={$count}&screen_name={$username}&include_rts={$retweets}";
+
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer {$this->getToken()}"
+            ],
+            CURLOPT_RETURNTRANSFER => true
+        ]);
+
+        $tweets = curl_exec($ch);
+
+        if (isset(json_decode($tweets)->errors)) {
+            abort(500);
+        }
+
+        curl_close($ch);
+
+        return $tweets;
     }
 }
