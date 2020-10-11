@@ -43,19 +43,4 @@ class TweetController extends Controller
             'count' => $count
         ]);
     }
-
-    /**
-     * Get a single tweet for display as a tweet-like widget
-     *
-     * @method                  show
-     * @access public
-     *
-     * @param string            $id
-     *
-     * @return object
-     */
-    public function show(string $id)
-    {
-        return $this->tweets->getTweet($id);
-    }
 }

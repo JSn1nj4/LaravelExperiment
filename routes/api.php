@@ -32,9 +32,6 @@ Route::get('/tweets', [TweetController::class, 'index']);
 Route::get('/tweets/{count}', [TweetController::class, 'index']);
 Route::get('/tweets/{count}/demo', [TweetController::class, 'index']);
 
-// Retrieve single tweets
-Route::get('/tweet/{id}', [TweetController::class, 'show']);
-
 // Retrieve GitHub activity
 Route::get('/github/activity', [GitHubActivityController::class, 'index']);
 Route::get('/github/activity/{count}', [GitHubActivityController::class, 'index']);

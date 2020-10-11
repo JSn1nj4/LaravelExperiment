@@ -85,23 +85,4 @@ class Tweet extends Model
             $this->twitter->getTweets($screen_name, null, $retweets, $count)
         );
     }
-
-    /**
-     * Retrieve a single tweet
-     *
-     * @method                  getTweet
-     * @access public
-     *
-     * @param string            $tweet_id
-     *
-     * @return string
-     *
-     * This method returns a single tweet in an array. It currently needs to be
-     * in this format due to the formateTweetData method being made to work on
-     * arrays.
-     */
-    public function getTweet($tweet_id)
-    {
-        return $this->formatTweetData([$this->twitter->getSingleTweet($tweet_id)]);
-    }
 }
