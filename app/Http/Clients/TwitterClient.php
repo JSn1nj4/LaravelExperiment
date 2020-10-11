@@ -116,9 +116,18 @@ class TwitterClient
         $this->token = $result->access_token;
     }
 
+    /**
+     * Get tweets from the Twitter API
+     *
+     * The argument for `$since` must be an ID because this is what the
+     * Twitter API requires to find tweets after a certain point.
+     */
     public function getTweets(string $username, ?string $since = null, bool $retweets = true, ?int $count = null)
     {
-        $url = "{$this->api_url}/1.1/statuses/user_timeline.json?count={$count}&screen_name={$username}&include_rts={$retweets}";
+        $url = "{$this->api_url}/1.1/statuses/user_timeline.json?" .
+               ($count ? "count={$count}&" : "") .
+               ($since ? "since_id={$since}" : "") .
+               "screen_name={$username}&include_rts={$retweets}";
 
         $ch = curl_init();
 
