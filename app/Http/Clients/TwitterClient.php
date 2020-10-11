@@ -2,7 +2,6 @@
 
 namespace App\Http\Clients;
 
-// use Carbon\Carbon;
 // use Exception;
 // use Illuminate\Support\Facades\Http;
 
@@ -82,7 +81,7 @@ class TwitterClient
     public function getToken()
     {
         if ($this->token) {
-            return true;
+            return $this->token;
         }
 
         if (!$this->key || !$this->secret) {
@@ -113,7 +112,7 @@ class TwitterClient
             abort(500);
         }
 
-        $this->token = $result->access_token;
+        return $result->access_token;
     }
 
     /**
