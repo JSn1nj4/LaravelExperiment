@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\GitHubActivity;
+use App\Models\GitHubActivityOld;
 
 class GitHubActivityController extends Controller
 {
     /**
-     * Instance of GitHubActivity model
+     * Used for interacting with the GitHub API
      *
-     * @property object         $github_activity
+     * @property App\Models\GitHubActivityOld         $github_activity
      * @access private
      */
     private $github_activity;
@@ -24,7 +25,7 @@ class GitHubActivityController extends Controller
      */
     public function __construct()
     {
-        $this->github_activity = new GitHubActivity;
+        $this->github_activity = new GitHubActivityOld;
     }
 
     /**

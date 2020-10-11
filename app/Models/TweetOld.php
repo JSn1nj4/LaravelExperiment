@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Http\Clients\TwitterClient;
 use Illuminate\Database\Eloquent\Model;
 
-class Tweet extends Model
+class TweetOld extends Model
 {
     private ?TwitterClient $twitter = null;
 

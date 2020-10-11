@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tweet;
+use App\Models\TweetOld;
 
 class TweetController extends Controller
 {
     /**
      * Used for interacting with the Twitter API
      *
-     * @property App\Tweet      $tweets
+     * @property App\Models\TweetOld      $tweets
      * @access private
      */
     private $tweets;
@@ -24,7 +25,7 @@ class TweetController extends Controller
      */
     public function __construct()
     {
-        $this->tweets = new Tweet;
+        $this->tweets = new TweetOld;
     }
 
     /**

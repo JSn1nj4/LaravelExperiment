@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Mail\GitHubEventEmail;
 
-class GitHubActivity extends Model
+class GitHubActivityOld extends Model
 {
     /**
      * The base GitHub API URL
