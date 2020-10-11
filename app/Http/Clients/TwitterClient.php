@@ -148,4 +148,32 @@ class TwitterClient
 
         return $tweets;
     }
+
+    /**
+     * Get a single tweet by its ID
+     */
+    public function getSingleTweet(string $tweet_id)
+    {
+        $url = "{$this->api_url}/1.1/statuses/show.json?id={$tweet_id}";
+
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $url,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer {$this->getToken()}"
+            ],
+            CURLOPT_RETURNTRANSFER => true
+        ]);
+
+        $tweet = curl_exec($ch);
+
+        if (isset(json_decode($tweet)->errors)) {
+            abort(500);
+        }
+
+        curl_close($ch);
+
+        return $tweet;
+    }
 }
