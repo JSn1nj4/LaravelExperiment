@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
     use HasFactory;
+
+    protected array $casts = [
+        'entities' => 'array',
+    ];
 }
