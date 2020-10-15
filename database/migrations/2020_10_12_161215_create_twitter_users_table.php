@@ -15,6 +15,9 @@ class CreateTwitterUsersTable extends Migration
     {
         Schema::create('twitter_users', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
+            $table->text('screen_name');
+            $table->text('profile_image_url_https');
             $table->timestamps();
         });
     }

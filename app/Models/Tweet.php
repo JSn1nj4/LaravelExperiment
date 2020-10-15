@@ -12,4 +12,9 @@ class Tweet extends Model
     protected array $casts = [
         'entities' => 'array',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(TwitterUser::class);
+    }
 }

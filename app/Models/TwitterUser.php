@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class TwitterUser extends Model
 {
     use HasFactory;
+
+    public function tweet()
+    {
+        return $this->belongsTo(Tweet::class);
+    }
 }
