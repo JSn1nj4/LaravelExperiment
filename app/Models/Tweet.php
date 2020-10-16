@@ -15,6 +15,6 @@ class Tweet extends Model
 
     public function user()
     {
-        return $this->hasOne(TwitterUser::class);
+        return $this->belongsTo(TwitterUser::class);
     }
 }

@@ -9,8 +9,8 @@ class TwitterUser extends Model
 {
     use HasFactory;
 
-    public function tweet()
+    public function tweets()
     {
-        return $this->belongsTo(Tweet::class);
+        return $this->hasMany(Tweet::class);
     }
 }
