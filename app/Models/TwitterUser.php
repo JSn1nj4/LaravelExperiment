@@ -9,6 +9,13 @@ class TwitterUser extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'name',
+        'screen_name',
+        'profile_image_url_https',
+    ];
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);

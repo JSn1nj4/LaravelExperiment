@@ -13,6 +13,15 @@ class Tweet extends Model
         'entities' => 'array',
     ];
 
+    protected $fillable = [
+        'tweet_id',
+        'user_id',
+        'body',
+        'date',
+        'sub_tweet_id',
+        'entities',
+    ];
+
     public function user()
     {
         return $this->belongsTo(TwitterUser::class);
