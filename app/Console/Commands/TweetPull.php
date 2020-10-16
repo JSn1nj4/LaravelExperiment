@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Clients\TwitterClient;
 use Illuminate\Console\Command;
+use Illuminate\Routing\Pipeline;
 
 class TweetPull extends Command
 {
@@ -45,6 +46,14 @@ class TweetPull extends Command
             dd($twitter->getTweets($user, null, true, 1));
         }
 
-        return $twitter->getTweets($user);
+        $tweets = app(Pipeline::class)
+                    ->send(collect($twitter->getTweets($user)))
+                    ->through([
+
+                    ])
+                    ->thenReturn()
+                    ->get();
+
+        return $tweets;
     }
 }
