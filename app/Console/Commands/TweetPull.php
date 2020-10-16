@@ -3,8 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Http\Clients\TwitterClient;
+use App\Models\Tweet;
+use App\Models\TwitterUser;
 use Illuminate\Console\Command;
-use Illuminate\Routing\Pipeline;
+use Illuminate\Support\Facades\DB;
 
 class TweetPull extends Command
 {
@@ -46,14 +48,25 @@ class TweetPull extends Command
             dd($twitter->getTweets($user, null, true, 1));
         }
 
-        $tweets = app(Pipeline::class)
-                    ->send(collect($twitter->getTweets($user)))
-                    ->through([
+        $newest_id = optional(DB::table('tweets')->latest('date')->first())->tweet_id;
 
-                    ])
-                    ->thenReturn()
-                    ->get();
+        collect($twitter->getTweets($user, $newest_id))->map(function($tweet_data, $key) {
+            $user_data = $tweet_data['user'];
 
-        return $tweets;
+            $user = TwitterUser::firstOrCreate(['id' => $user_data['id']], [
+                'name' => $user_data['name'],
+                'screen_name' => $user_data['screen_name'],
+                'profile_image_url_https' => $user_data['profile_image_url_https'],
+            ]);
+
+            $tweet = Tweet::firstOrCreate(['tweet_id' => $tweet_data['id']], [
+                'user_id' => $user,
+                'body' => $tweet_data['text'],
+                'date' => $tweet_data['created_at'],
+                'entities' => $tweet_data['entities'],
+            ]);
+        });
+
+        return 0;
     }
 }
