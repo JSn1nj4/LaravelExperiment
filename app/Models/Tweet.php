@@ -9,7 +9,7 @@ class Tweet extends Model
 {
     use HasFactory;
 
-    protected array $casts = [
+    protected $casts = [
         'entities' => 'array',
     ];
 
