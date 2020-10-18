@@ -10,7 +10,7 @@ class Tweet extends Model
     use HasFactory;
 
     protected $casts = [
-        'entities' => 'array',
+        'entities' => 'object',
     ];
 
     protected $fillable = [
