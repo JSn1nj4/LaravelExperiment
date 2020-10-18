@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Http\Clients\TwitterClient;
 use Illuminate\Console\Command;
 
-class TweetPullSingle extends Command
+class TweetPullSingleCommand extends Command
 {
     /**
      * The name and signature of the console command.

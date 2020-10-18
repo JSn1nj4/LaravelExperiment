@@ -8,7 +8,7 @@ use App\Models\TwitterUser;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-class TweetPull extends Command
+class TweetPullCommand extends Command
 {
     /**
      * The name and signature of the console command.
