@@ -62,7 +62,7 @@ class TweetPullCommand extends Command
             ]);
 
             $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id']], [
-                'user_id' => $user,
+                'user_id' => $user->id,
                 'body' => $tweet_data['text'],
                 'date' => $tweet_data['created_at'],
                 'entities' => $tweet_data['entities'],
