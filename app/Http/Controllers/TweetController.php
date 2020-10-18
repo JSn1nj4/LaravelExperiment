@@ -39,6 +39,6 @@ class TweetController extends Controller
      */
     public function index(int $count = 5)
     {
-        return Tweet::orderBy('date')->take($count)->get();
+        return Tweet::with('user')->orderBy('date')->take($count)->get();
     }
 }
