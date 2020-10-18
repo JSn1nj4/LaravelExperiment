@@ -2,7 +2,7 @@
   use App\Helpers\Tweet as TwHelpers;
 
   $profileUrl = TwHelpers::profileUrl($tweet->user->screen_name);
-  $tweetUrl = TwHelpers::tweetUrl($profileUrl, $tweet->id_str);
+  $tweetUrl = TwHelpers::tweetUrl($profileUrl, $tweet->id);
 @endphp
 
 <div class="twitter-card">
