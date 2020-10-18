@@ -1,7 +1,7 @@
 @php
   use App\Helpers\Tweet as TwHelpers;
 
-  $profileUrl = TwHelpers::profileUrl('JSn1nj4');
+  $profileUrl = TwHelpers::profileUrl($tweet->user->screen_name);
   $tweetUrl = TwHelpers::tweetUrl($profileUrl, $tweet->id_str);
 @endphp
 
