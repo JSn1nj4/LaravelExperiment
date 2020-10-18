@@ -48,7 +48,9 @@ class TweetPull extends Command
             dd($twitter->getTweets($user, null, true, 1));
         }
 
-        $newest_id = optional(DB::table('tweets')->latest('date')->first())->tweet_id;
+        $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
+
+        $this->info("Fetching tweets since tweet {$newest_id}...");
 
         collect($twitter->getTweets($user, $newest_id))->map(function($tweet_data, $key) {
             $user_data = $tweet_data['user'];
@@ -66,6 +68,8 @@ class TweetPull extends Command
                 'entities' => $tweet_data['entities'],
             ]);
         });
+
+        $this->info('Tweets fetched');
 
         return 0;
     }
