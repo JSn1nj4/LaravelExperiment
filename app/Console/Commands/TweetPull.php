@@ -59,7 +59,7 @@ class TweetPull extends Command
                 'profile_image_url_https' => $user_data['profile_image_url_https'],
             ]);
 
-            $tweet = Tweet::firstOrCreate(['tweet_id' => $tweet_data['id']], [
+            $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id']], [
                 'user_id' => $user,
                 'body' => $tweet_data['text'],
                 'date' => $tweet_data['created_at'],
