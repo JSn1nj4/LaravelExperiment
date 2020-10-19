@@ -10,6 +10,7 @@ class Tweet extends Model
     use HasFactory;
 
     protected $casts = [
+        'id' => 'string',
         'entities' => 'object',
     ];
 
