@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\TweetsPulled;
 use App\Http\Clients\TwitterClient;
 use App\Models\Tweet;
 use App\Models\TwitterUser;
@@ -73,6 +74,8 @@ class TweetPullCommand extends Command
         }
 
         $this->info('Tweets fetched');
+
+        TweetsPulled::dispatch();
 
         return 0;
     }
