@@ -4,7 +4,7 @@
   $count = !empty($count) ? (int) $count : 5;
   $loaderSize = !empty($loaderSize) ? $loaderSize : '40px';
 
-  $tweets = json_decode((new TweetController)->index($count));
+  $tweets = (new TweetController)->index($count);
 @endphp
 
 <div class="max-w-sm m-auto mb-4" style="min-height: {{ $loaderSize }};">

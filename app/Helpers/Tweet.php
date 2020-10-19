@@ -69,53 +69,53 @@ class Tweet extends GlobalHelpers
 
         // Link hashtags, according to Twitter's guidelines
         foreach($tweet->entities->hashtags as $hashtag) {
-            $tweet->text = str_replace(
-                "#$hashtag->text",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->text\">#$hashtag->text</a>",
-                $tweet->text
+            $tweet->body = str_replace(
+                "#$hashtag->body",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->body\">#$hashtag->body</a>",
+                $tweet->body
             );
         }
 
         // Link @mentions, according to Twitter's guidelines
         foreach($tweet->entities->user_mentions as $mention) {
-            $tweet->text = str_replace(
+            $tweet->body = str_replace(
                 "@$mention->screen_name",
                 "<a target=\"_blank\" href=\"" . self::$baseLink . "/$mention->screen_name\">@$mention->screen_name</a>",
-                $tweet->text
+                $tweet->body
             );
         }
 
         // Link URLs, according to Twitter's guidelines
         foreach($tweet->entities->urls as $url) {
-            $tweet->text = str_replace(
+            $tweet->body = str_replace(
                 $url->url,
                 "<a target=\"_blank\" href=\"$url->expanded_url\">$url->display_url</a>",
-                $tweet->text
+                $tweet->body
             );
         }
 
         // Link symbols to Twitter searches
         foreach($tweet->entities->symbols as $symbol) {
-            $tweet->text = str_replace(
-                "\$$symbol->text",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "\"/search?q=%24$symbol->text&src=ctag\">\$$symbol->text</a>",
-                $tweet->text
+            $tweet->body = str_replace(
+                "\$$symbol->body",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "\"/search?q=%24$symbol->body&src=ctag\">\$$symbol->body</a>",
+                $tweet->body
             );
         }
 
         // Render images
         if(isset($tweet->entities->media)) {
             foreach ($tweet->entities->media as $media) {
-                $tweet->text = str_replace(
+                $tweet->body = str_replace(
                     $media->url,
                     "<a target=\"_blank\" href=\"$media->expanded_url\"><img class=\"mt-4\" src=\"$media->media_url_https\" width=\"" . $media->sizes->small->w . "\" height=\"" . $media->sizes->small->h . "\"></a>",
-                    $tweet->text
+                    $tweet->body
                 );
             }
         }
 
         // Insert HTML line breaks where necessary and return
-        return preg_replace("/(?:\r\n|\r|\n)/", "<br>", $tweet->text);
+        return preg_replace("/(?:\r\n|\r|\n)/", "<br>", $tweet->body);
     }
 }
 

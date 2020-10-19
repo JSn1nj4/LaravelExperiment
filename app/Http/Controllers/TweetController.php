@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tweet;
-use App\Models\TweetOld;
 
 class TweetController extends Controller
 {
@@ -25,7 +24,7 @@ class TweetController extends Controller
      */
     public function __construct()
     {
-        $this->tweets = new TweetOld;
+        $this->tweets = new Tweet;
     }
 
     /**
@@ -40,8 +39,6 @@ class TweetController extends Controller
      */
     public function index(int $count = 5)
     {
-        return $this->tweets->getTweets([
-            'count' => $count
-        ]);
+        return Tweet::with('user')->orderBy('date', 'DESC')->take($count)->get();
     }
 }

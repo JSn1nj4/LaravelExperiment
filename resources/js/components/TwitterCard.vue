@@ -29,7 +29,7 @@
       </div>
 
       <div class="pt-4 flex flex-row relative font-bold">
-        <p @click.stop v-html="formattedText(tweet.text)"></p>
+        <p @click.stop v-html="formattedText(tweet.body)"></p>
       </div>
 
       <div class="pt-4 flex flex-row relative">
@@ -42,7 +42,7 @@
         <div class="pl-4 flex-none relative">
           <p>
             <a class="font-bold" :href="tweet_url" target="_blank" @click.stop>
-              {{formatDate(tweet.created_at)}}
+              {{formatDate(tweet.date)}}
             </a>
           </p>
         </div>
@@ -68,8 +68,8 @@ export default {
     baseLink: 'https://twitter.com'
   }),
   methods: {
-    formatDate(created_at) {
-      return format(new Date(created_at), 'd MMM yyyy');
+    formatDate(date) {
+      return format(new Date(date), 'd MMM yyyy');
     },
     formattedText(text) {
       // Link hashtags, according to Twitter's guidelines
@@ -129,7 +129,7 @@ export default {
      * recalculated when dependencies update.
      */
     tweet_url() {
-      return `${this.profile_url}/status/${this.tweet.id_str}`;
+      return `${this.profile_url}/status/${this.tweet.id}`;
     }
   },
 }
