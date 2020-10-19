@@ -15,7 +15,7 @@ class TweetPullCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'tweet:pull {--d|debug}';
+    protected $signature = 'tweet:pull {--d|debug} {--f|fake}';
 
     /**
      * The console command description.
@@ -48,26 +48,29 @@ class TweetPullCommand extends Command
             dd($twitter->getTweets($user, null, true, 1));
         }
 
-        $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
+        // Run the command without actually connecting to the Twitter API
+        if(!$this->option('fake')) {
+            $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
 
-        $this->info("Fetching tweets since tweet {$newest_id}...");
+            $this->info("Fetching tweets since tweet {$newest_id}...");
 
-        collect($twitter->getTweets($user, $newest_id))->map(function($tweet_data, $key) {
-            $user_data = $tweet_data['user'];
+            collect($twitter->getTweets($user, $newest_id))->map(function ($tweet_data, $key) {
+                $user_data = $tweet_data['user'];
 
-            $user = TwitterUser::firstOrCreate(['id' => $user_data['id']], [
-                'name' => $user_data['name'],
-                'screen_name' => $user_data['screen_name'],
-                'profile_image_url_https' => $user_data['profile_image_url_https'],
-            ]);
+                $user = TwitterUser::firstOrCreate(['id' => $user_data['id']], [
+                    'name' => $user_data['name'],
+                    'screen_name' => $user_data['screen_name'],
+                    'profile_image_url_https' => $user_data['profile_image_url_https'],
+                ]);
 
-            $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id_str']], [
-                'user_id' => $user->id,
-                'body' => $tweet_data['text'],
-                'date' => $tweet_data['created_at'],
-                'entities' => $tweet_data['entities'],
-            ]);
-        });
+                $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id_str']], [
+                    'user_id' => $user->id,
+                    'body' => $tweet_data['text'],
+                    'date' => $tweet_data['created_at'],
+                    'entities' => $tweet_data['entities'],
+                ]);
+            });
+        }
 
         $this->info('Tweets fetched');
 
