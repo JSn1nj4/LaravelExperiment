@@ -49,14 +49,14 @@ class TweetPullCommand extends Command
             dd($twitter->getTweets($user, null, true, 1));
         }
 
+        $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
+
+        $this->info("Fetching tweets" .
+            ($newest_id !== null ? " since tweet {$newest_id}" : "") .
+            "...");
+
         // Run the command without actually connecting to the Twitter API
         if(!$this->option('fake')) {
-            $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
-
-            $this->info("Fetching tweets" .
-                ($newest_id !== null ? " since tweet {$newest_id}" : "") .
-                "...");
-
             collect($twitter->getTweets($user, $newest_id))->map(function ($tweet_data, $key) {
                 $user_data = $tweet_data['user'];
 
