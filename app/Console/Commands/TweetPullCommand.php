@@ -53,7 +53,9 @@ class TweetPullCommand extends Command
         if(!$this->option('fake')) {
             $newest_id = optional(DB::table('tweets')->latest('date')->first())->id;
 
-            $this->info("Fetching tweets since tweet {$newest_id}...");
+            $this->info("Fetching tweets" .
+                ($newest_id !== null ? " since tweet {$newest_id}" : "") .
+                "...");
 
             collect($twitter->getTweets($user, $newest_id))->map(function ($tweet_data, $key) {
                 $user_data = $tweet_data['user'];
