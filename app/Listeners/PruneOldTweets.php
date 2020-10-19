@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\TweetsPulled;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -20,10 +21,10 @@ class PruneOldTweets
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param  \App\Events\TweetsPulled  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(TweetsPulled $event)
     {
         //
     }
