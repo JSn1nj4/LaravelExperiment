@@ -42,7 +42,13 @@ class TweetPruneCommand extends Command
     {
         $keep_count = $this->option('keep');
 
-        // Tweet::orderBy('date', 'DESC')->skip($keep_count)->delete();
+        $keep_ids = Tweet::orderBy('date', 'DESC')
+                    ->take($keep_count)
+                    ->get()
+                    ->map(fn($item, $key) => $item->id)
+                    ->toArray();
+
+        $delete = Tweet::whereNotIn('id', $keep_ids)->delete();
 
         return 0;
     }
