@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\TweetsPulled;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class PruneOldTweets
 {
