@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\GitHubActivityController;
-use App\Http\Controllers\ProjectsApiController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\TweetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // For working with projects
 Route::prefix('/projects')->group(function() {
-    Route::get('/', [ProjectsApiController::class, 'index']);
-    Route::get('/{count}', [ProjectsApiController::class, 'index']);
+    Route::get('/', [ProjectsController::class, 'index']);
+    Route::get('/{count}', [ProjectsController::class, 'index']);
 });
 
 // Retrieve list of tweets
