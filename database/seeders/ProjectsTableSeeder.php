@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use Illuminate\Database\Seeder;
 
 class ProjectsTableSeeder extends Seeder
@@ -26,6 +27,6 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        collect($this->project_list)->each(fn ($item, $key) => App\Project::create($item));
+        collect($this->project_list)->each(fn ($item, $key) => Project::create($item));
     }
 }
