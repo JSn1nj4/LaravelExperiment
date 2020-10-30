@@ -6,6 +6,7 @@ use App\Events\TweetsPulled;
 use App\Http\Clients\TwitterClient;
 use App\Models\Tweet;
 use App\Models\TwitterUser;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
@@ -69,7 +70,7 @@ class TweetPullCommand extends Command
                 $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id_str']], [
                     'user_id' => $user->id,
                     'body' => $tweet_data['text'],
-                    'date' => $tweet_data['created_at'],
+                    'date' => Carbon::make($tweet_data['created_at'])->format('Y-m-d H:i:s'),
                     'entities' => $tweet_data['entities'],
                 ]);
             });
