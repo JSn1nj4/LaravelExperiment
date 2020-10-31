@@ -14,6 +14,10 @@ class Tweet extends Model
         'entities' => 'object',
     ];
 
+    protected $dates = [
+        'date',
+    ];
+
     protected $fillable = [
         'id',
         'user_id',
