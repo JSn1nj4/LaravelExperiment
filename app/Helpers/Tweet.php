@@ -45,7 +45,7 @@ class Tweet extends GlobalHelpers
      */
     public static function tweetUrl(string $profileUrl, string $id)
     {
-        return "$profileUrl/status/$id";
+        return "{$profileUrl}/status/{$id}";
     }
 
     /**
@@ -70,8 +70,8 @@ class Tweet extends GlobalHelpers
         // Link hashtags, according to Twitter's guidelines
         foreach($tweet->entities->hashtags as $hashtag) {
             $tweet->body = str_replace(
-                "#$hashtag->text",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->text\">#$hashtag->text</a>",
+                "#{$hashtag->text}",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23{$hashtag->text}\">#{$hashtag->text}</a>",
                 $tweet->body
             );
         }
@@ -79,8 +79,8 @@ class Tweet extends GlobalHelpers
         // Link @mentions, according to Twitter's guidelines
         foreach($tweet->entities->user_mentions as $mention) {
             $tweet->body = str_replace(
-                "@$mention->screen_name",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "/$mention->screen_name\">@$mention->screen_name</a>",
+                "@{$mention->screen_name}",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/{$mention->screen_name}\">@{$mention->screen_name}</a>",
                 $tweet->body
             );
         }
@@ -89,7 +89,7 @@ class Tweet extends GlobalHelpers
         foreach($tweet->entities->urls as $url) {
             $tweet->body = str_replace(
                 $url->url,
-                "<a target=\"_blank\" href=\"$url->expanded_url\">$url->display_url</a>",
+                "<a target=\"_blank\" href=\"{$url->expanded_url}\">{$url->display_url}</a>",
                 $tweet->body
             );
         }
@@ -97,8 +97,8 @@ class Tweet extends GlobalHelpers
         // Link symbols to Twitter searches
         foreach($tweet->entities->symbols as $symbol) {
             $tweet->body = str_replace(
-                "\$$symbol->body",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "\"/search?q=%24$symbol->body&src=ctag\">\$$symbol->body</a>",
+                "\${$symbol->text}",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "\"/search?q=%24{$symbol->text}&src=ctag\">\${$symbol->text}</a>",
                 $tweet->body
             );
         }
@@ -108,7 +108,7 @@ class Tweet extends GlobalHelpers
             foreach ($tweet->entities->media as $media) {
                 $tweet->body = str_replace(
                     $media->url,
-                    "<a target=\"_blank\" href=\"$media->expanded_url\"><img class=\"mt-4\" src=\"$media->media_url_https\" width=\"" . $media->sizes->small->w . "\" height=\"" . $media->sizes->small->h . "\"></a>",
+                    "<a target=\"_blank\" href=\"{$media->expanded_url}\"><img class=\"mt-4\" src=\"{$media->media_url_https}\" width=\"{$media->sizes->small->w}\" height=\"{$media->sizes->small->h}\"></a>",
                     $tweet->body
                 );
             }
