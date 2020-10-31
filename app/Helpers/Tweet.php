@@ -70,8 +70,8 @@ class Tweet extends GlobalHelpers
         // Link hashtags, according to Twitter's guidelines
         foreach($tweet->entities->hashtags as $hashtag) {
             $tweet->body = str_replace(
-                "#$hashtag->body",
-                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->body\">#$hashtag->body</a>",
+                "#$hashtag->text",
+                "<a target=\"_blank\" href=\"" . self::$baseLink . "/search?q=%23$hashtag->text\">#$hashtag->text</a>",
                 $tweet->body
             );
         }
