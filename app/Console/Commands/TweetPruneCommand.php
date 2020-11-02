@@ -41,7 +41,7 @@ class TweetPruneCommand extends Command
     {
         $keep_count = $this->option('keep');
 
-        $keep_ids = Tweet::orderBy('date', 'DESC')
+        $keep_ids = Tweet::latest('date')
                     ->take($keep_count)
                     ->get()
                     ->map(fn($item, $key) => $item->id)
