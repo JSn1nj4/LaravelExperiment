@@ -122,7 +122,7 @@ class TwitterClient
                ($since ? "since_id={$since}" : "") .
                "screen_name={$username}&include_rts={$retweets}";
 
-        $response = Http::withToken($this->getToken())->get($url);
+        $response = Http::withToken($this->getToken()->value)->get($url);
 
         if($response->failed()) {
             $response->throw();
@@ -138,7 +138,7 @@ class TwitterClient
     {
         $url = "{$this->api_url}/1.1/statuses/show.json?id={$tweet_id}";
 
-        $response = Http::withToken($this->getToken())->get($url);
+        $response = Http::withToken($this->getToken()->value)->get($url);
 
         if ($response->failed()) {
             $response->throw();
