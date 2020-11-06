@@ -15,7 +15,7 @@ class CreateTokensTable extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
-            $table->string('service', )->unique();
+            $table->string('service', 255);
             $table->string('value', 255);
             $table->boolean('expired')->default(false);
             $table->timestamp('expires_at')->nullable();
