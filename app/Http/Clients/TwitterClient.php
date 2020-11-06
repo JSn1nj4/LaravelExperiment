@@ -2,6 +2,7 @@
 
 namespace App\Http\Clients;
 
+use App\Models\Token;
 use Illuminate\Support\Facades\Http;
 
 class TwitterClient
@@ -54,7 +55,7 @@ class TwitterClient
      */
     public function __construct()
     {
-        $this->token = config('services.twitter.token', false);
+        $this->token = Token::where('service', 'ilike', '%twitter%')->latest()->first();
         $this->key = config('services.twitter.key', false);
         $this->secret = config('services.twitter.secret', false);
     }
