@@ -68,7 +68,7 @@ class TwitterClient
      * @method                  getToken
      * @access public
      *
-     * @return void
+     * @return App\Models\Token;
      *
      * The 'if' in this case has to do with whether Twitter already has a token
      * for use. If the token hasn't been generated previously or if the previous
@@ -100,7 +100,11 @@ class TwitterClient
             $response->throw();
         }
 
-        $this->token = $response['access_token'];
+        // $this->token = $response['access_token'];
+        $this->token = Token::create([
+            'service' => 'twitter',
+            'value' => $response['access_token'],
+        ]);
 
         return $this->token;
     }
