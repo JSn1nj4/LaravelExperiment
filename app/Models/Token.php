@@ -14,7 +14,7 @@ class Token extends Model
     ];
 
     protected $fillable = [
-        'services',
+        'service',
         'expires_at',
         'value',
     ];
