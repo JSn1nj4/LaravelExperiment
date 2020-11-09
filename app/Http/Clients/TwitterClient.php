@@ -2,6 +2,7 @@
 
 namespace App\Http\Clients;
 
+use App\Models\Token;
 use Illuminate\Support\Facades\Http;
 
 class TwitterClient
@@ -54,7 +55,7 @@ class TwitterClient
      */
     public function __construct()
     {
-        $this->token = config('services.twitter.token', false);
+        $this->token = Token::whereRaw("LOWER('service') like '%twitter%'")->latest()->first();
         $this->key = config('services.twitter.key', false);
         $this->secret = config('services.twitter.secret', false);
     }
@@ -67,7 +68,7 @@ class TwitterClient
      * @method                  getToken
      * @access public
      *
-     * @return void
+     * @return App\Models\Token;
      *
      * The 'if' in this case has to do with whether Twitter already has a token
      * for use. If the token hasn't been generated previously or if the previous
@@ -99,7 +100,11 @@ class TwitterClient
             $response->throw();
         }
 
-        $this->token = $response['access_token'];
+        // $this->token = $response['access_token'];
+        $this->token = Token::create([
+            'service' => 'twitter',
+            'value' => $response['access_token'],
+        ]);
 
         return $this->token;
     }
@@ -117,7 +122,7 @@ class TwitterClient
                ($since ? "since_id={$since}" : "") .
                "screen_name={$username}&include_rts={$retweets}";
 
-        $response = Http::withToken($this->getToken())->get($url);
+        $response = Http::withToken($this->getToken()->value)->get($url);
 
         if($response->failed()) {
             $response->throw();
@@ -133,7 +138,7 @@ class TwitterClient
     {
         $url = "{$this->api_url}/1.1/statuses/show.json?id={$tweet_id}";
 
-        $response = Http::withToken($this->getToken())->get($url);
+        $response = Http::withToken($this->getToken()->value)->get($url);
 
         if ($response->failed()) {
             $response->throw();
