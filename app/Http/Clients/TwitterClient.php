@@ -55,7 +55,7 @@ class TwitterClient
      */
     public function __construct()
     {
-        $this->token = Token::where('service', 'like', '%twitter%')->latest()->first();
+        $this->token = Token::whereRaw("LOWER('service') like '%twitter%'")->latest()->first();
         $this->key = config('services.twitter.key', false);
         $this->secret = config('services.twitter.secret', false);
     }
