@@ -24,5 +24,9 @@ class Token extends Model
     {
         return $query->where('expires_at', '<=', Carbon::today()->toDateTimeString());
     }
+
+    public function scopeValid($query)
+    {
+        return $query->where('expires_at', '>', Carbon::today()->toDateTimeString());
     }
 }
