@@ -22,7 +22,7 @@ class Token extends Model
 
     public function scopeExpired($query)
     {
-        return $query->where('expires_at', '<=', Carbon::today()->toDateTimeString())
-                    ->orWhere('expired', true);
+        return $query->where('expires_at', '<=', Carbon::today()->toDateTimeString());
+    }
     }
 }

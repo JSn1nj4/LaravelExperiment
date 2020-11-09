@@ -17,7 +17,6 @@ class CreateTokensTable extends Migration
             $table->id();
             $table->string('service', 255);
             $table->string('value', 255);
-            $table->boolean('expired')->default(false);
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
