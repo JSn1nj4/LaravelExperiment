@@ -16,6 +16,11 @@ class TwitterUser extends Model
         'profile_image_url_https',
     ];
 
+    public function getProfileUrlAttribute(): string
+    {
+        return "https://twitter.com/{$this->screen_name}";
+    }
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
