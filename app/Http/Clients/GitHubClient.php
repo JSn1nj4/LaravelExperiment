@@ -42,33 +42,17 @@ class GitHubClient
      */
     public function getActivity(string $user, int $count)
     {
-        $url = "{$this->api_url}/users/{$user}/events/public?per_page={$count}";
-
         if(!$this->token) {
             dump('GitHub token not set!');
             abort(500);
         }
 
-        $ch = curl_init();
-
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url,
-            CURLOPT_HTTPHEADER => [
+        $response = Http::withToken($this->token)
+            ->withHeaders([
                 "Accept: application/vnd.github.v3+json",
-                "Authorization: token {$this->token}",
-                "User-Agent: Elliot-Derhay-App"
-            ],
-            CURLOPT_RETURNTRANSFER => true
-        ]);
+                "User-Agent: Elliot-Derhay-App",
+            ])->get("{$this->api_url}/users/{$user}/events/public?per_page={$count}");
 
-        $activity = curl_exec($ch);
-
-        /**
-         * check for cURL errors here
-         */
-
-        curl_close($ch);
-
-        return $activity;
+        return $response;
     }
 }
