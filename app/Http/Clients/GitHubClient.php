@@ -2,7 +2,11 @@
 
 namespace App\Http\Clients;
 
+use App\Mail\GitHubEventEmail;
+use Illuminate\Http\Client\Response;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class GitHubClient
 {
@@ -15,6 +19,35 @@ class GitHubClient
     private $api_url = 'https://api.github.com';
 
     /**
+     * The email address to send notifications to
+     *
+     * @property array          $email
+     * @access private
+     */
+    private $alertRecipients = [];
+
+    /**
+     * The list of event types currently supported
+     *
+     * @property array          $eventTypes
+     * @access private
+     *
+     * I will make sure to sort these in the order they're listed on GitHub.
+     * Reference: https://developer.github.com/v3/activity/events/types/
+     */
+    private $eventTypes = [
+        'CreateEvent',
+        'DeleteEvent',
+        'ForkEvent',
+        'IssueCommentEvent',
+        'IssuesEvent',
+        'PublicEvent',
+        'PullRequestEvent',
+        'PushEvent',
+        'WatchEvent'
+    ];
+
+    /**
      * The token used for retrieving information from the GitHub API
      *
      * @property string         $token
@@ -25,6 +58,34 @@ class GitHubClient
     public function __construct()
     {
         $this->token = config('services.github.token', false);
+
+        array_push($this->alertRecipients, [
+            'name' => config('mail.to.name'),
+            'email' => config('mail.to.address')
+        ]);
+    }
+
+    public function filterEventTypes(Response $response): Collection
+    {
+        $newEventTypes = collect([]);
+
+        $events = collect($response->json())
+            ->filter(function($event, $key) use ($newEventTypes) {
+                if(!in_array($event->get('type'), $this->eventTypes)) {
+                    $newEventTypes->push($event->get('type'));
+                    return false;
+                }
+
+                return true;
+            });
+
+        if($newEventTypes->count() > 0) {
+            Mail::to($this->alertRecipients)->send(new GitHubEventEmail(
+                $newEventTypes->unique()->values()->toArray()
+            ));
+        }
+
+        return $events;
     }
 
     /**
@@ -40,7 +101,7 @@ class GitHubClient
      *
      * @todo: check for error message
      */
-    public function getActivity(string $user, int $count)
+    public function getActivity(string $user, int $count): Collection
     {
         if(!$this->token) {
             dump('GitHub token not set!');
@@ -53,6 +114,6 @@ class GitHubClient
                 "User-Agent: Elliot-Derhay-App",
             ])->get("{$this->api_url}/users/{$user}/events/public?per_page={$count}");
 
-        return $response;
+        return $this->filterEventTypes($response);
     }
 }

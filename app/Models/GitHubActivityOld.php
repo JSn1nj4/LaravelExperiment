@@ -4,40 +4,9 @@ namespace App\Models;
 
 use App\Http\Clients\GitHubClient;
 use Illuminate\Database\Eloquent\Model;
-use App\Mail\GitHubEventEmail;
-use Illuminate\Support\Facades\Mail;
 
 class GitHubActivityOld extends Model
 {
-    /**
-     * The email address to send notifications to
-     *
-     * @property array          $email
-     * @access private
-     */
-    private $alertRecipients = [];
-
-    /**
-     * The list of event types currently supported
-     *
-     * @property array          $eventTypes
-     * @access private
-     *
-     * I will make sure to sort these in the order they're listed on GitHub.
-     * Reference: https://developer.github.com/v3/activity/events/types/
-     */
-    private $eventTypes = [
-        'CreateEvent',
-        'DeleteEvent',
-        'ForkEvent',
-        'IssueCommentEvent',
-        'IssuesEvent',
-        'PublicEvent',
-        'PullRequestEvent',
-        'PushEvent',
-        'WatchEvent'
-    ];
-
     /**
      * Client for accessing GitHub API
      */
@@ -62,11 +31,6 @@ class GitHubActivityOld extends Model
         parent::__construct($attributes);
 
         $this->github = new GitHubClient;
-
-        array_push($this->alertRecipients, [
-            'name' => config('mail.to.name'),
-            'email' => config('mail.to.address')
-        ]);
     }
 
     /**
@@ -272,17 +236,10 @@ class GitHubActivityOld extends Model
     public function filterActivityData($activity)
     {
         $formattedActivity = collect([]);
-        $newEventTypes = collect([]);
 
         foreach($activity as $item) {
             $item = collect($item);
             $type = $item->get('type');
-
-            // Skip $item if type is currently unsupported
-            if(!in_array($type, $this->eventTypes)) {
-                $newEventTypes->push($type);
-                continue;
-            }
 
             $item->forget('id');
             $item->forget('public');
@@ -330,12 +287,6 @@ class GitHubActivityOld extends Model
             $formattedActivity->push($item->toArray());
         }
 
-        if($newEventTypes->count() >= 1) {
-            Mail::to($this->alertRecipients)->send(new GitHubEventEmail(
-                $newEventTypes->unique()->values()->toArray()
-            ));
-        }
-
         return $formattedActivity;
     }
 
@@ -353,8 +304,8 @@ class GitHubActivityOld extends Model
      */
     public function getActivity(int $count = 7)
     {
-        return $this->filterActivityData(json_decode(
-            $this->github->getActivity('JSn1nj4', $count)
-        ));
+        return $this->filterActivityData(
+            $this->github->getActivity('JSn1nj4', $count)->toArray()
+        );
     }
 }
