@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Http\Clients\GitHubClient;
 use Illuminate\Database\Eloquent\Model;
 use App\Mail\GitHubEventEmail;
+use Illuminate\Support\Facades\Mail;
 
 class GitHubActivityOld extends Model
 {
@@ -330,7 +331,7 @@ class GitHubActivityOld extends Model
         }
 
         if($newEventTypes->count() >= 1) {
-            \Mail::to($this->alertRecipients)->send(new GitHubEventEmail(
+            Mail::to($this->alertRecipients)->send(new GitHubEventEmail(
                 $newEventTypes->unique()->values()->toArray()
             ));
         }
