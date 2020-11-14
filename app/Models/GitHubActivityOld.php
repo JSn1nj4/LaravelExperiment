@@ -256,7 +256,8 @@ class GitHubActivityOld extends Model
 
             // Remove unnecessary items from 'payload' data
             switch($type) {
-                case preg_match('/Issue(s|Comment)?Event/', $type) === 1:
+                case 'IssuesEvent':
+                case 'IssueCommentEvent':
                     $item->put('payload', $this->filterIssuesEventPayload(
                         $item->get('payload')
                     ));
