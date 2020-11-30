@@ -44,7 +44,9 @@ class GitHubActivityPull extends Command
         $github = new GitHubClient;
 
         if($this->option('debug')) {
+            $activity = $github->getActivity('JSn1nj4', $this->option('count'));
 
+            dd($activity);
         }
 
         return 0;
