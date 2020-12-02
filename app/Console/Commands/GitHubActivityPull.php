@@ -49,6 +49,8 @@ class GitHubActivityPull extends Command
 
         if($this->option('file')) {
             Storage::disk('debug')->put($this->option('file'), $activity->toJson());
+
+            return 0;
         }
 
         if($this->option('debug')) {
