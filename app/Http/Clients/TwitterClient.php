@@ -123,7 +123,7 @@ class TwitterClient
     {
         $url = "{$this->api_url}/1.1/statuses/user_timeline.json?" .
                ($count ? "count={$count}&" : "") .
-               ($since ? "since_id={$since}" : "") .
+               ($since ? "since_id={$since}&" : "") .
                "screen_name={$username}&include_rts={$retweets}";
 
         $response = Http::withToken($this->getToken()->value)->get($url);
