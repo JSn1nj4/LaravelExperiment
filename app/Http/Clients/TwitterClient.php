@@ -121,12 +121,17 @@ class TwitterClient
      */
     public function getTweets(string $username, ?string $since = null, bool $retweets = true, ?int $count = null)
     {
-        $url = "{$this->api_url}/1.1/statuses/user_timeline.json?" .
-               ($count ? "count={$count}&" : "") .
-               ($since ? "since_id={$since}&" : "") .
-               "screen_name={$username}&include_rts={$retweets}";
+        $url = "{$this->api_url}/1.1/statuses/user_timeline.json";
 
-        $response = Http::withToken($this->getToken()->value)->get($url);
+        $query = collect([
+            'count' => $count,
+            'include_rts' => $retweets,
+            'screen_name' => $username,
+            'since_id' => $since,
+        ])->reject(fn($value, $key) => is_null($value));
+
+        $response = Http::withToken($this->getToken()->value)
+            ->get($url, $query->toArray());
 
         if($response->failed()) {
             $response->throw();
@@ -140,9 +145,12 @@ class TwitterClient
      */
     public function getSingleTweet(string $tweet_id)
     {
-        $url = "{$this->api_url}/1.1/statuses/show.json?id={$tweet_id}";
+        $url = "{$this->api_url}/1.1/statuses/show.json";
 
-        $response = Http::withToken($this->getToken()->value)->get($url);
+        $response = Http::withToken($this->getToken()->value)
+            ->get($url, [
+                'id' => $tweet_id,
+            ]);
 
         if ($response->failed()) {
             $response->throw();
