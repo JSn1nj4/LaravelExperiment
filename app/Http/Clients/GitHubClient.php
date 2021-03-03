@@ -112,7 +112,9 @@ class GitHubClient
             ->withHeaders([
                 "Accept: application/vnd.github.v3+json",
                 "User-Agent: Elliot-Derhay-App",
-            ])->get("{$this->api_url}/users/{$user}/events/public?per_page={$count}");
+            ])->get("{$this->api_url}/users/{$user}/events/public", [
+                'per_page' => $count
+            ]);
 
         return $this->filterEventTypes($response);
     }
