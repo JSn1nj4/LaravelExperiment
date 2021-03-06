@@ -34,38 +34,6 @@ class GitHubActivityOld extends Model
     }
 
     /**
-     * Filter comment data from issue comment event payloads
-     *
-     * @method                  filterIssueComment
-     * @access public
-     *
-     * @param array             $comment
-     *
-     * @return array
-     *
-     * This helps reduce the size of the payload sent with issue comment event
-     * data to be used on the client.
-     */
-    public function filterIssueComment($comment)
-    {
-        return collect($comment)->filter(function($val, $key) {
-            return in_array($key, [
-                'html_url',
-                'user',
-                'body'
-            ]);
-        })->transform(function($val, $key) {
-            return $key !== 'user' ? $val : collect($val)->filter(function($val, $key) {
-                return in_array($key, [
-                    'login',
-                    'avatar_url',
-                    'html_url'
-                ]);
-            })->toArray();
-        })->toArray();
-    }
-
-    /**
      * Filter payload from issue event
      *
      * @method                  filterIssuesEventPayload
@@ -98,13 +66,11 @@ class GitHubActivityOld extends Model
                 })->toArray();
             }
 
-            if ($key === 'comment') { // filter comment data if it exists
-                return $this->filterIssueComment($val);
-            }
-
              // return all other values outright
             return $val;
-        });
+        })->reject(fn($val, $key) => in_array($key, [
+            'comment',
+        ]));
     }
 
     /**
@@ -215,7 +181,8 @@ class GitHubActivityOld extends Model
                 'head',
                 'before',
                 'description',
-                'pusher_type'
+                'pusher_type',
+                'commits',
             ]);
         })->toArray();
     }

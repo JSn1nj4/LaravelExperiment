@@ -10,7 +10,6 @@
   $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
   $repoUrl = GhHelpers::repoUrl($event->repo->name);
   $branchName = GhHelpers::branchName($event->payload->ref);
-  $extraCommits = GhHelpers::countExtraCommits($event->payload->commits);
 @endphp
 
 <div class="flex flex-row relative">
@@ -38,29 +37,7 @@
         <a href="{{ $repoUrl }}" target="_blank">
           {{ $event->repo->name }}
         </a>
-
       </strong>
     </p>
-
-    @foreach(GhHelpers::displayCommits($event->payload->commits) as $commit)
-      <p class="font-gray-500 align-middle mt-2">
-        <a href="{{ $profileUrl }}" target="_blank" class="font-bold">
-          <img width="18" height="18" class="inline align-bottom" src="{{ GhHelpers::$tmpAvatarUrl }}">
-        </a>
-        <a href="{{ GhHelpers::commitUrl($repoUrl, $commit->sha) }}" target="_blank">
-          {{ GhHelpers::shortHash($commit->sha) }}
-        </a>
-        {{ GhHelpers::commitSubject($commit->message) }}
-      </p>
-    @endforeach
-
-    @if($extraCommits > 0)
-      <p class="font-gray-500 align-middle mt-2">
-        <a href="{{ GhHelpers::branchCommitsUrl($repoUrl, $branchName) }}" target="_blank" class="font-bold">
-          +{{ $extraCommits }} more
-        </a>
-      </p>
-    @endif
-
   </div>
 </div>

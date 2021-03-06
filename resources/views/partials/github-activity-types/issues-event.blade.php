@@ -43,14 +43,5 @@
         </a>
       </strong>
     </p>
-
-    <p class="font-gray-500 align-middle mt-2">
-      <a href="{{ $event->payload->issue->user->html_url}}">
-        <img width="18" height="18" class="inline align-bottom" src="{{ $event->payload->issue->user->avatar_url }}">
-      </a>
-
-      {{ $event->payload->issue->title }}
-    </p>
-
   </div>
 </div>

@@ -94,57 +94,6 @@ class GitHubActivity extends GlobalHelpers
     }
 
     /**
-     * Return a URL that takes the user to a list of commits on a branch
-     *
-     * @method                  branchCommitsUrl
-     * @access public
-     * @static
-     *
-     * @param string            $repoUrl
-     * @param string            $branchName
-     *
-     * @return string
-     */
-    public static function branchCommitsUrl(string $repoUrl, string $branchName)
-    {
-      return "$repoUrl/commits/$branchName";
-    }
-
-    /**
-     * Return a list of commits that are meant for display
-     *
-     * @method                  displayCommits
-     * @access public
-     * @static
-     *
-     * @param array             commits
-     * @param int               displayCount
-     *
-     * @return array
-     */
-    public static function displayCommits(array $commits, int $displayCount = 4)
-    {
-      return count($commits) > $displayCount ? array_slice($commits, 0, $displayCount) : $commits;
-    }
-
-    /**
-     * Count the commits beyond the display count
-     *
-     * @method                  countExtraCommits
-     * @access public
-     * @static
-     *
-     * @param array             $commits
-     * @param int               $displayCount
-     *
-     * @return int
-     */
-    public static function countExtraCommits(array $commits, int $displayCount = 4)
-    {
-      return count($commits) > $displayCount ? count($commits) - 4 : 0;
-    }
-
-    /**
      * Build a formatted issue number string
      *
      * @method                  issueNumberString
@@ -158,75 +107,6 @@ class GitHubActivity extends GlobalHelpers
     public static function issueNumberString(string $issueNumber)
     {
       return "Issue #$issueNumber";
-    }
-
-    /**
-     * Format an issue comment according to a character limit
-     *
-     * @method                  formatIssueComment
-     * @access public
-     * @static
-     *
-     * @param string            $comment
-     * @param int               $limit
-     *
-     * @return string
-     */
-    public static function formatIssueComment(string $comment, int $limit = 208)
-    {
-      return (strlen($comment) > $limit) ? substr(substr($comment, 0, $limit), 0, strrpos($comment, ' ')) . '...' : $comment;
-    }
-
-    /**
-     * Return the subject line of a commit message
-     *
-     * @method                  commitSubject
-     * @access public
-     * @static
-     *
-     * @param string            $msg
-     *
-     * @return string
-     */
-    public static function commitSubject(string $msg)
-    {
-      $msgEnd = strpos($msg, "\n");
-      return (!empty($msgEnd) && $msgEnd >= 0) ?
-        substr($msg, 0, $msgEnd) :
-        $msg;
-    }
-
-    /**
-     * Return a shortened commit hash
-     *
-     * @method                  shortHash
-     * @access public
-     * @static
-     *
-     * @param string            $hash
-     *
-     * @return string
-     */
-    public static function shortHash(string $hash)
-    {
-      return substr($hash, 0, 6);
-    }
-
-    /**
-     * Return the web URL for a commit
-     *
-     * @method                  commitUrl
-     * @access public
-     * @static
-     *
-     * @param string            $repoUrl
-     * @param string            $hash
-     *
-     * @return string
-     */
-    public static function commitUrl(string $repoUrl, string $hash)
-    {
-      return "$repoUrl/commit/$hash";
     }
 
     /**
