@@ -21,6 +21,6 @@ class GithubEvent extends Model
 
     public function user()
     {
-        return $this->hasOne(GithubUser::class);
+        return $this->belongsTo(GithubUser::class);
     }
 }
