@@ -16,7 +16,7 @@ class CreateGithubEventsTable extends Migration
         Schema::create('github_events', function (Blueprint $table) {
             $table->id();
             $table->text('type');
-            $table->text('type_variant')->nullable();
+            $table->text('variant')->nullable();
             $table->timestamp('date');
             $table->integer('user_id');
             $table->text('source');
