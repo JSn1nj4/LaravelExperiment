@@ -9,6 +9,16 @@ class GithubEvent extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+		'id',
+		'type',
+        'variant',
+        'date',
+        'user_id',
+        'source',
+        'repo',
+    ];
+
     public function user()
     {
         return $this->hasOne(GithubUser::class);
