@@ -3,6 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Http\Clients\GitHubClient;
+use App\Models\GithubEvent;
+use App\Models\GithubUser;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,6 +40,50 @@ class GitHubActivityPull extends Command
     }
 
     /**
+     * Determine the source of the event based on its type
+     */
+    private function getEventSource(array $event_data): ?string
+    {
+        if(in_array($event_data['type'], [
+            'CreateEvent',
+            'DeleteEvent',
+            'PushEvent',
+        ])) {
+            return $event_data['payload']['ref'];
+        }
+
+        if($event_data['type'] === 'ForkEvent') {
+            return $event_data['payload']['forkee']['full_name'];
+        }
+
+        if(in_array($event_data['type'], [
+            'IssueCommentEvent',
+            'IssuesEvent',
+        ])) {
+            return $event_data['payload']['issue']['number'];
+        }
+
+        if($event_data['type'] === 'PullRequestEvent') {
+            return $event_data['payload']['pull_request']['number'];
+        }
+
+        /**
+         * Events that don't have an "event source":
+         *  - PublicEvent
+         *  - WatchEvent
+         */
+        return null;
+    }
+
+    /**
+     * Set event variant if necessary
+     */
+    private function getEventVariant(array $event_data): ?string
+    {
+        return null;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return int
@@ -56,6 +103,24 @@ class GitHubActivityPull extends Command
         if($this->option('debug')) {
             dd($activity);
         }
+
+        collect($activity)->map(function($event_data, $key) {
+            $user_data = $event_data['actor'];
+            $user = GithubUser::firstOrCreate(['id' => $user_data['id']], [
+                'login' => $user_data['login'],
+                'display_login' => $user_data['display_login'],
+                'avatar_url' => $user_data['avatar_url'],
+            ]);
+
+            $event = GithubEvent::firstOrCreate(['id' => intval($event_data['id'])], [
+                'type' => $event_data['type'],
+                'variant' => $this->getEventVariant($event_data),
+                'date' => Carbon::make($event_data['created_at'])->format('Y-m-d H:i:s'),
+                'user_id' => $user->id,
+                'source' => $this->getEventSource($event_data),
+                'repo' => $event_data['repo']['name'],
+            ]);
+        });
 
         return 0;
     }
