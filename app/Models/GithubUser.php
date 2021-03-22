@@ -9,6 +9,13 @@ class GithubUser extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'login',
+        'display_login',
+        'avatar_url',
+    ];
+
     public function events()
     {
         return $this->hasMany(GithubEvent::class);
