@@ -76,9 +76,9 @@ class GitHubActivityPull extends Command
     }
 
     /**
-     * Set event variant if necessary
+     * Set event action name if necessary
      */
-    private function getEventVariant(array $event_data): ?string
+    private function getAction(array $event_data): ?string
     {
         return null;
     }
@@ -114,7 +114,7 @@ class GitHubActivityPull extends Command
 
             $event = GithubEvent::firstOrCreate(['id' => intval($event_data['id'])], [
                 'type' => $event_data['type'],
-                'variant' => $this->getEventVariant($event_data),
+                'action' => $this->getAction($event_data),
                 'date' => Carbon::make($event_data['created_at'])->format('Y-m-d H:i:s'),
                 'user_id' => $user->id,
                 'source' => $this->getEventSource($event_data),

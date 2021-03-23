@@ -12,7 +12,7 @@ class GithubEvent extends Model
     protected $fillable = [
 		'id',
 		'type',
-        'variant',
+        'action',
         'date',
         'user_id',
         'source',
