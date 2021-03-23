@@ -80,7 +80,20 @@ class GitHubActivityPull extends Command
      */
     private function getAction(array $event_data): ?string
     {
-        return null;
+        $types_map = [
+            'CreateEvent' => fn($data) => null,
+            'DeleteEvent' => fn($data) => null,
+            'ForkEvent' => fn($data) => null,
+            'IssueCommentEvent' => fn($data) => null,
+            'IssuesEvent' => function($data) {
+                return \optional($data['payload'])['action'];
+            },
+            'PushEvent' => fn($data) => null,
+            'PublicEvent' => fn($data) => null,
+            'WatchEvent' => fn($data) => null,
+        ];
+
+        return $types_map[$event_data['type']]($event_data);
     }
 
     /**
