@@ -44,35 +44,19 @@ class GitHubActivityPull extends Command
      */
     private function getEventSource(array $event_data): ?string
     {
-        if(in_array($event_data['type'], [
-            'CreateEvent',
-            'DeleteEvent',
-            'PushEvent',
-        ])) {
-            return $event_data['payload']['ref'];
-        }
+        $types_map = [
+            'CreateEvent' => fn($data) => $data['payload']['ref'],
+            'DeleteEvent' => fn($data) => $data['payload']['ref'],
+            'ForkEvent' => fn($data) => $data['payload']['forkee']['full_name'],
+            'IssueCommentEvent' => fn($data) => $data['payload']['issue']['number'],
+            'IssuesEvent' => fn($data) => $data['payload']['issue']['number'],
+            'PullRequestEvent' => fn($data) => $data['payload']['pull_request']['number'],
+            'PushEvent' => fn($data) => $data['payload']['ref'],
+            'PublicEvent' => fn($data) => null,
+            'WatchEvent' => fn($data) => null,
+        ];
 
-        if($event_data['type'] === 'ForkEvent') {
-            return $event_data['payload']['forkee']['full_name'];
-        }
-
-        if(in_array($event_data['type'], [
-            'IssueCommentEvent',
-            'IssuesEvent',
-        ])) {
-            return $event_data['payload']['issue']['number'];
-        }
-
-        if($event_data['type'] === 'PullRequestEvent') {
-            return $event_data['payload']['pull_request']['number'];
-        }
-
-        /**
-         * Events that don't have an "event source":
-         *  - PublicEvent
-         *  - WatchEvent
-         */
-        return null;
+        return $types_map[$event_data['type']]($event_data);
     }
 
     /**
@@ -86,6 +70,9 @@ class GitHubActivityPull extends Command
             'ForkEvent' => fn($data) => null,
             'IssueCommentEvent' => fn($data) => null,
             'IssuesEvent' => function($data) {
+                return \optional($data['payload'])['action'];
+            },
+            'PullRequestEvent' => function($data) {
                 return \optional($data['payload'])['action'];
             },
             'PushEvent' => fn($data) => null,
