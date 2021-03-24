@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\TokenPrune;
+use App\Console\Commands\GitHubActivityPull;
 use App\Console\Commands\TweetPullCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -26,6 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command(GitHubActivityPull::class)->daily();
         $schedule->command(TweetPullCommand::class)->daily();
         $schedule->command(TokenPrune::class)->daily();
     }
