@@ -9,6 +9,14 @@ class GithubEvent extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'id' => 'string',
+    ];
+
+    protected $dates = [
+        'date',
+    ];
+
     protected $fillable = [
 		'id',
 		'type',
