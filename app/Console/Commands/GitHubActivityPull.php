@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\GithubEventsPulled;
 use App\Http\Clients\GitHubClient;
 use App\Models\GithubEvent;
 use App\Models\GithubUser;
@@ -26,7 +27,7 @@ class GitHubActivityPull extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Fetch events from GitHub\'s events API.';
 
     /**
      * Create a new command instance.
@@ -111,7 +112,7 @@ class GitHubActivityPull extends Command
                 'avatar_url' => $user_data['avatar_url'],
             ]);
 
-            $event = GithubEvent::firstOrCreate(['id' => intval($event_data['id'])], [
+            GithubEvent::firstOrCreate(['id' => intval($event_data['id'])], [
                 'type' => $event_data['type'],
                 'action' => $this->getAction($event_data),
                 'date' => Carbon::make($event_data['created_at'])->format('Y-m-d H:i:s'),
@@ -120,6 +121,10 @@ class GitHubActivityPull extends Command
                 'repo' => $event_data['repo']['name'],
             ]);
         });
+
+        $this->info('GitHub activity fetched');
+
+        GithubEventsPulled::dispatch();
 
         return 0;
     }
