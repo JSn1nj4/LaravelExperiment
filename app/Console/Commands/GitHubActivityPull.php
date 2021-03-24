@@ -19,8 +19,7 @@ class GitHubActivityPull extends Command
     protected $signature = 'github:activity:pull
                             {--d|debug : Dump response data or log API errors.}
                             {--f|file= : Name of file to store JSON response to. Assumes response is for debugging only, not database storage. Response will also not be dumped to the console.}
-                            {--c|count=5 : Choose how many events to pull from GitHub API. Only works if --debug is used.}
-                            {--s|since= : Event ID to reference for fetching other events.}';
+                            {--c|count=5 : Choose how many events to pull from GitHub API. Only works if --debug is used.}';
 
     /**
      * The console command description.
