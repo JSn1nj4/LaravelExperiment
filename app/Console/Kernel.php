@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Commands\TokenPrune;
 use App\Console\Commands\GitHubActivityPull;
+use App\Console\Commands\TokenPrune;
 use App\Console\Commands\TweetPullCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
