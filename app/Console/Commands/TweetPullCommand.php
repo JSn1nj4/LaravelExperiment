@@ -67,7 +67,7 @@ class TweetPullCommand extends Command
                     'profile_image_url_https' => $user_data['profile_image_url_https'],
                 ]);
 
-                $tweet = Tweet::firstOrCreate(['id' => $tweet_data['id_str']], [
+                Tweet::firstOrCreate(['id' => $tweet_data['id_str']], [
                     'user_id' => $user->id,
                     'body' => $tweet_data['text'],
                     'date' => Carbon::make($tweet_data['created_at'])->format('Y-m-d H:i:s'),
