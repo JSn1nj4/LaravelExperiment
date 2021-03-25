@@ -71,6 +71,8 @@ class GitHubClient
 
         $events = collect($response->json())
             ->filter(function($event, $key) use ($newEventTypes) {
+                $event = collect($event);
+
                 if(!in_array($event->get('type'), $this->eventTypes)) {
                     $newEventTypes->push($event->get('type'));
                     return false;

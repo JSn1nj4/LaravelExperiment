@@ -2,19 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GitHubActivity;
-use App\Models\GitHubActivityOld;
+use App\Models\GithubEvent;
 
 class GitHubActivityController extends Controller
 {
-    /**
-     * Used for interacting with the GitHub API
-     *
-     * @property App\Models\GitHubActivityOld         $github_activity
-     * @access private
-     */
-    private $github_activity;
-
     /**
      * GitHubActivityController constructor method
      *
@@ -25,7 +16,7 @@ class GitHubActivityController extends Controller
      */
     public function __construct()
     {
-        $this->github_activity = new GitHubActivityOld;
+        // 
     }
 
     /**
@@ -43,6 +34,9 @@ class GitHubActivityController extends Controller
      */
     public function index(int $count = 7)
     {
-        return $this->github_activity->getActivity($count);
+        return GithubEvent::with('user')
+                ->latest('date')
+                ->take($count)
+                ->get();
     }
 }

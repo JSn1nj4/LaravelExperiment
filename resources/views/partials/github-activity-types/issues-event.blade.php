@@ -3,12 +3,12 @@
 
   // Settings with common names shared with other activity components
   $icon = 'far fa-file-alt';
-  $action = !empty($event->payload->action) ? $event->payload->action : 'opened';
+  $action = !empty($event->action) ? $event->action : 'opened';
   $preposition = 'at';
 
   // Reusable values
-  $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
-  $repoUrl = GhHelpers::repoUrl($event->repo->name);
+  $profileUrl = GhHelpers::profileUrl($event->user->display_login);
+  $repoUrl = GhHelpers::repoUrl($event->repo);
 
   // Check for different action value
   if($action == 'closed') {
@@ -21,36 +21,27 @@
 
   <div class="pl-4 flex-grow relative">
     <p class="text-gray-500">
-      {{ GhHelpers::timeElapsedString($event->created_at) }}
+      {{ GhHelpers::timeElapsedString($event->date) }}
     </p>
 
     <p class="font-white mt-1 text-sm">
       <strong>
         <a href="{{ $profileUrl }}" target="_blank">
-          {{ $event->actor->display_login }}
+          {{ $event->user->display_login }}
         </a>
 
         {{ $action }}
 
-        <a href="{{ $event->payload->issue->html_url }}" target="_blank" class="text-sea-green-500">
-          {{ GhHelpers::issueNumberString($event->payload->issue->number) }}
+        <a href="{{ $repoUrl }}/issues/{{ $event->source }}" target="_blank" class="text-sea-green-500">
+          {{ GhHelpers::issueNumberString($event->source) }}
         </a>
 
         {{ $preposition }}
 
         <a href="{{ $repoUrl }}" target="_blank">
-          {{ $event->repo->name }}
+          {{ $event->repo }}
         </a>
       </strong>
     </p>
-
-    <p class="font-gray-500 align-middle mt-2">
-      <a href="{{ $event->payload->issue->user->html_url}}">
-        <img width="18" height="18" class="inline align-bottom" src="{{ $event->payload->issue->user->avatar_url }}">
-      </a>
-
-      {{ $event->payload->issue->title }}
-    </p>
-
   </div>
 </div>

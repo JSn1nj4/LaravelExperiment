@@ -24,18 +24,8 @@
           <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
-
         </strong>
       </p>
-
-      <p class="font-gray-500 align-middle mt-2">
-        <a :href="event.payload.comment.user.html_url">
-          <img width="18" height="18" class="inline align-bottom" :src="event.payload.comment.user.avatar_url">
-        </a>
-
-        {{ issueComment }}
-      </p>
-
     </div>
   </div>
 </template>

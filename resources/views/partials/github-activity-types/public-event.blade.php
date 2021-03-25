@@ -3,11 +3,11 @@
 
   // Settings with common names shared with other activity components
   $icon = 'fas fa-globe';
-  $action = 'open sourced';
+  $action = $event->action ?? 'open sourced';
 
   // Reusable values
-  $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
-  $repoUrl = GhHelpers::repoUrl($event->repo->name);
+  $profileUrl = GhHelpers::profileUrl($event->user->display_login);
+  $repoUrl = GhHelpers::repoUrl($event->repo);
 @endphp
 
 <div class="flex flex-row relative">
@@ -21,13 +21,13 @@
     <p class="font-white mt-1 text-sm">
       <strong>
         <a href="{{ $profileUrl }}" target="_blank">
-          {{ $event->actor->display_login }}
+          {{ $event->user->display_login }}
         </a>
 
         {{ $action }}
 
         <a href="{{ $repoUrl }}" target="_blank">
-          {{ $event->repo->name }}
+          {{ $event->repo }}
         </a>
 
       </strong>

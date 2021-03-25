@@ -24,25 +24,8 @@
           <a :href="repoUrl" target="_blank">
             {{ event.repo.name }}
           </a>
-
         </strong>
       </p>
-
-      <p v-for="commit in displayCommits" :key="commit.sha" class="font-gray-500 align-middle mt-2">
-        <a :href="profileUrl" target="_blank" class="font-bold">
-          <img width="18" height="18" class="inline align-bottom" :src="tmpAvatarUrl">
-        </a>
-        <a :href="commitUrl(commit.sha)" target="_blank">
-          {{ shortHash(commit.sha) }}
-        </a>
-        {{ shortMsg(commit.message) }}
-      </p>
-      <p v-if="extraCommitsCount > 0" class="font-gray-500 align-middle mt-2">
-        <a :href="branchCommitsUrl" target="_blank" class="font-bold">
-          +{{extraCommitsCount}} more
-        </a>
-      </p>
-
     </div>
   </div>
 </template>
@@ -50,14 +33,12 @@
 <script>
 import BaseMixin from '../../mixins/GitHubActivity/BaseMixin';
 import BranchesMixin from '../../mixins/GitHubActivity/BranchesMixin';
-import CommitsMixin from '../../mixins/GitHubActivity/CommitsMixin';
 
 export default {
   name: "git-hub-push-event",
   mixins: [
     BaseMixin,
     BranchesMixin,
-    CommitsMixin,
   ],
   data: () => ({
     icon: 'far fa-arrow-alt-circle-up',
