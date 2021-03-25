@@ -7,14 +7,6 @@ use App\Models\Tweet;
 class TweetController extends Controller
 {
     /**
-     * Used for interacting with the Twitter API
-     *
-     * @property App\Models\TweetOld      $tweets
-     * @access private
-     */
-    private $tweets;
-
-    /**
      * Store instance of App\Tseet on controller instantiation
      *
      * @method                  __construct
@@ -24,7 +16,7 @@ class TweetController extends Controller
      */
     public function __construct()
     {
-        $this->tweets = new Tweet;
+        // 
     }
 
     /**
