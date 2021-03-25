@@ -3,48 +3,12 @@
 
   // Settings with common names shared with other activity components
   $icon = 'fas fa-file-upload';
-  $action = !empty($event->payload->action) ? $event->payload->action : 'opened';
+  $action = !empty($event->action) ? $event->action : 'opened';
   $preposition = 'at';
 
   // // Reusable values
-  $profileUrl = GhHelpers::profileUrl($event->actor->display_login);
-  $repoUrl = GhHelpers::repoUrl($event->repo->name);
-
-  // Modify settings according to PR action and merge status
-  switch ($action) {
-    case 'assigned':
-      break;
-
-    case 'review_requested':
-      break;
-
-    case 'review_request_removed':
-      break;
-
-    case 'labeled':
-      break;
-
-    case 'unlabeled':
-      break;
-
-    case 'edited':
-      break;
-
-    case 'closed':
-      if($event->payload->merged) {
-        $action = 'merged';
-        $icon = 'fas fa-download';
-      } else {
-        $icon = 'fas fa-minus-circle';
-      }
-      break;
-
-    case 'reopened':
-      $action = 'reopened';
-      break;
-
-    default:
-  }
+  $profileUrl = GhHelpers::profileUrl($event->user->display_login);
+  $repoUrl = GhHelpers::repoUrl($event->repo);
 @endphp
 
 <div class="flex flex-row relative">
@@ -52,25 +16,25 @@
 
   <div class="pl-4 flex-grow relative">
     <p class="text-gray-500">
-      {{ GhHelpers::timeElapsedString($event->created_at) }}
+      {{ GhHelpers::timeElapsedString($event->date) }}
     </p>
 
     <p class="font-white mt-1 text-sm">
       <strong>
         <a href="{{ $profileUrl }}" target="_blank">
-          {{ $event->actor->display_login }}
+          {{ $event->user->display_login }}
         </a>
 
         {{ $action }}
 
-        <a href="{{ $event->payload->pull_request->html_url}}" target="_blank" class="text-sea-green-500">
-          {{ GhHelpers::pullRequestNumberString($event->payload->pull_request->number) }}
+        <a href="{{ $$repoUrl }}/pull/{{ $event->source }}" target="_blank" class="text-sea-green-500">
+          {{ GhHelpers::pullRequestNumberString($event->source) }}
         </a>
 
         {{ $preposition }}
 
         <a href="{{ $repoUrl }}" target="_blank">
-          {{ $event->repo->name }}
+          {{ $event->repo }}
         </a>
       </strong>
     </p>

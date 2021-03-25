@@ -73,6 +73,10 @@ class GitHubActivityPull extends Command
                 return \optional($data['payload'])['action'];
             },
             'PullRequestEvent' => function($data) {
+                if(\optional($data['payload'])['merged'] === true) {
+                    return 'merged';
+                }
+
                 return \optional($data['payload'])['action'];
             },
             'PushEvent' => fn($data) => null,
