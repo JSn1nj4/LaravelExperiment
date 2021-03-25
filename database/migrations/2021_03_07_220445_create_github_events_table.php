@@ -19,7 +19,7 @@ class CreateGithubEventsTable extends Migration
             $table->text('action')->nullable();
             $table->timestamp('date');
             $table->integer('user_id');
-            $table->text('source');
+            $table->text('source')->nullable();
             $table->text('repo');
             $table->timestamps();
         });
