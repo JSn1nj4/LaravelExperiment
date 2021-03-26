@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GitHubActivityController;
+use App\Http\Controllers\GithubActivityController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\TweetController;
 use Illuminate\Http\Request;
@@ -33,5 +33,5 @@ Route::get('/tweets/{count}', [TweetController::class, 'index']);
 Route::get('/tweets/{count}/demo', [TweetController::class, 'index']);
 
 // Retrieve GitHub activity
-Route::get('/github/activity', [GitHubActivityController::class, 'index']);
-Route::get('/github/activity/{count}', [GitHubActivityController::class, 'index']);
+Route::get('/github/activity', [GithubActivityController::class, 'index']);
+Route::get('/github/activity/{count}', [GithubActivityController::class, 'index']);

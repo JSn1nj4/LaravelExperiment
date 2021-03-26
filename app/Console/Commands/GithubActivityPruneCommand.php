@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\GithubEvent;
 use Illuminate\Console\Command;
 
-class GithubActivityPrune extends Command
+class GithubActivityPruneCommand extends Command
 {
     /**
      * The name and signature of the console command.

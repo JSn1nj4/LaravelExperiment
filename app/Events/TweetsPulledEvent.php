@@ -4,7 +4,7 @@ namespace App\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 
-class TweetsPulled
+class TweetsPulledEvent
 {
     use Dispatchable;
 

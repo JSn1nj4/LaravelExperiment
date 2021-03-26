@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Token;
 use Illuminate\Console\Command;
 
-class TokenPrune extends Command
+class TokenPruneCommand extends Command
 {
     /**
      * The name and signature of the console command.

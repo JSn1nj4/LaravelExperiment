@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\GithubEventsPulled;
+use App\Events\GithubEventsPulledEvent;
 use Illuminate\Support\Facades\Artisan;
 
 class PruneOldGithubEvents
@@ -23,7 +23,7 @@ class PruneOldGithubEvents
      * @param  object  $event
      * @return void
      */
-    public function handle(GithubEventsPulled $event)
+    public function handle(GithubEventsPulledEvent $event)
     {
         Artisan::call('github:activity:prune');
     }

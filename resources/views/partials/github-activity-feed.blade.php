@@ -1,10 +1,10 @@
 @php
-  use App\Http\Controllers\GitHubActivityController;
+  use App\Http\Controllers\GithubActivityController;
 
   $count = !empty($count) ? (int) $count : 7;
   $loaderSize = !empty($loaderSize) ? $loaderSize : '40px';
 
-  $events = json_decode((new GitHubActivityController)->index($count));
+  $events = json_decode((new GithubActivityController)->index($count));
 @endphp
 
 <div class="max-w-sm m-auto mb-4" style="min-height: {{ $loaderSize }};">

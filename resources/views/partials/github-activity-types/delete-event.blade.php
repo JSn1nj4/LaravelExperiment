@@ -1,5 +1,5 @@
 @php
-  use App\Helpers\GitHubActivity as GhHelpers;
+  use App\Helpers\GithubActivityHelpers as GhHelpers;
 
   // Settings with common names shared with other activity components
   $icon = 'far fa-trash-alt';

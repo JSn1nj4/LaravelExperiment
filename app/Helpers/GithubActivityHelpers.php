@@ -5,7 +5,7 @@ namespace App\Helpers;
 /**
  * Used to help with rendering GitHub activity items server-side
  */
-class GitHubActivity extends GlobalHelpers
+class GithubActivityHelpers extends GlobalHelpers
 {
     /**
      * The base link to use for all GitHub web links

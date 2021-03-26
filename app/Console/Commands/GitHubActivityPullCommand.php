@@ -2,15 +2,15 @@
 
 namespace App\Console\Commands;
 
-use App\Events\GithubEventsPulled;
-use App\Http\Clients\GitHubClient;
+use App\Events\GithubEventsPulledEvent;
+use App\Http\Clients\GithubClient;
 use App\Models\GithubEvent;
 use App\Models\GithubUser;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-class GitHubActivityPull extends Command
+class GithubActivityPullCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -94,7 +94,7 @@ class GitHubActivityPull extends Command
      */
     public function handle()
     {
-        $github = new GitHubClient;
+        $github = new GithubClient;
 
         $activity = $github->getActivity('JSn1nj4', $this->option('count'));
 
@@ -128,7 +128,7 @@ class GitHubActivityPull extends Command
 
         $this->info('GitHub activity fetched');
 
-        GithubEventsPulled::dispatch();
+        GithubEventsPulledEvent::dispatch();
 
         return 0;
     }
