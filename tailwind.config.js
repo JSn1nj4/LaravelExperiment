@@ -143,8 +143,8 @@ module.exports = {
     backgroundColor: theme => theme("colors"),
 
     borderColor: theme => ({
-      default: theme("colors.grey-light"),
-      ...theme("colors")
+      ...theme("colors"),
+      DEFAULT: theme("colors.grey.200", "currentColor")
     }),
 
     maxWidth: {
