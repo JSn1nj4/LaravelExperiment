@@ -33,8 +33,9 @@
         "postcss-nested": "^5.0.5",
         "postcss-simple-vars": "^6.0.3",
         "tailwindcss": "^1.7.2",
-        "vue": "^2.6.11",
-        "vue-template-compiler": "^2.6.11"
+        "vue": "^2.6.12",
+        "vue-loader": "^15.9.6",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "date-fns": "^2.14.0"
