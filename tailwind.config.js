@@ -27,10 +27,6 @@ View the full documentation at https://tailwindcss.com.
 let defaultConfig = require('tailwindcss/defaultConfig');
 
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true
-  },
-
   purge: [
     "app/**/*.php",
     "resources/**/*.js",
