@@ -14,23 +14,24 @@
     "private": true,
     "scripts": {
         "dev": "yarn run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "yarn run development -- --watch",
         "watch-poll": "yarn run watch -- --watch-poll",
         "build": "yarn run production",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "yarn run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
         "axios": "^0.19.2",
         "cross-env": "^7.0.2",
         "eslint": "^7.7.0",
-        "laravel-mix": "^3.0.0",
-        "postcss-import": "12.0.1",
-        "postcss-mixins": "^6.2.3",
-        "postcss-nested": "^4.2.3",
-        "postcss-simple-vars": "^5.0.2",
+        "laravel-mix": "^6.0.13",
+        "postcss": "^8.1",
+        "postcss-import": "^14.0.0",
+        "postcss-mixins": "^7.0.3",
+        "postcss-nested": "^5.0.5",
+        "postcss-simple-vars": "^6.0.3",
         "tailwindcss": "^1.7.2",
         "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.11"
