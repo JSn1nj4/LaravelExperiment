@@ -52,7 +52,3 @@
     </section>
   </div>
 @endsection
-
-@section('footer-extras-pass-thru')
-  <script src="{{ mix('/js/NewestTweetWidget.js') }}" charset="utf-8"></script>
-@endsection

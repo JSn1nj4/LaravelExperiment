@@ -24,11 +24,6 @@ mix
     }
   })
   .js("resources/js/app.js", "public/js")
-  .js("resources/js/TwitterTimelineWidget.js", "public/js")
-  .js("resources/js/NewestTweetWidget.js", "public/js")
-  .js("resources/js/home.js", "public/js")
-  .js("resources/js/GitHubActivityTimelineWidget.js", "public/js")
-  .js("resources/js/MainProjectsList.js", "public/js")
   .js("resources/js/GAPopup.js", "public/js")
   .extract([
     "axios",

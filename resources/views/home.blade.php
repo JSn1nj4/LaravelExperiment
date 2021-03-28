@@ -99,7 +99,3 @@
   </section>
 
 @endsection
-
-@section('footer-extras-pass-thru')
-  <script src="{{ mix('/js/home.js') }}" charset="utf-8"></script>
-@endsection

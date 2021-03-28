@@ -36,8 +36,3 @@
     </section>
   </div>
 @endsection
-
-@section('footer-extras-pass-thru')
-  <script src="{{ mix('/js/TwitterTimelineWidget.js') }}" charset="utf-8"></script>
-  <script src="{{ mix('/js/GitHubActivityTimelineWidget.js') }}" charset="utf-8"></script>
-@endsection

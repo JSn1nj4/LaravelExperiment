@@ -28,7 +28,3 @@
     </section>
   </div>
 @endsection
-
-@section('footer-extras')
-  <script src="{{ mix('/js/MainProjectsList.js') }}" charset="utf-8"></script>
-@endsection
