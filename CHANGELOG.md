@@ -13,6 +13,7 @@ Large feature and maintenance update
 6. Register events and event handlers related to fetching and pruning data storage
 7. Remove Vue components and related JS modules for tweets, GitHub events, and another upcoming feature
     - These were overkill for parts of the page that are unlikely to update after page load in the future
+8. Upgrade Laravel Mix to version 6
 
 ### Minor changes
 1. Add Xdebug config for VS Code
