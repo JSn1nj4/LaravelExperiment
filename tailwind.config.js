@@ -212,7 +212,7 @@ module.exports = {
     fontSize: ["responsive"],
     fontSmoothing: ["responsive", "hover"],
     fontStyle: ["responsive", "hover"],
-    fontWeight: ["responsive", "hover"],
+    fontWeight: ["responsive"],
     height: ["responsive"],
     inset: ["responsive"],
     justifyContent: ["responsive"],
