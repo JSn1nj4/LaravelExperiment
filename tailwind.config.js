@@ -133,7 +133,7 @@ module.exports = {
     },
 
     fontWeight: {
-      thin: 200,
+      extralight: 200,
       normal: 400,
       bold: 700
     },
