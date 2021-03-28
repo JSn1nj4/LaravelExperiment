@@ -33,7 +33,7 @@ class GithubClient
      * @access private
      *
      * I will make sure to sort these in the order they're listed on GitHub.
-     * Reference: https://developer.github.com/v3/activity/events/types/
+     * Reference: https://docs.github.com/en/developers/webhooks-and-events/github-event-types
      */
     private $eventTypes = [
         'CreateEvent',
@@ -91,9 +91,9 @@ class GithubClient
     }
 
     /**
-     * Retrieve raw activity via GitHub's API
+     * Retrieve raw events via GitHub's API
      *
-     * @method                  getActivity
+     * @method                  getEvents
      * @access public
      *
      * @param string            $user
@@ -103,7 +103,7 @@ class GithubClient
      *
      * @todo: check for error message
      */
-    public function getActivity(string $user, int $count): Collection
+    public function getEvents(string $user, int $count): Collection
     {
         if(!$this->token) {
             dump('GitHub token not set!');

@@ -10,14 +10,14 @@ use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-class GithubActivityPullCommand extends Command
+class GithubEventPullCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'github:activity:pull
+    protected $signature = 'github:event:pull
                             {--d|debug : Dump response data or log API errors.}
                             {--f|file= : Name of file to store JSON response to. Assumes response is for debugging only, not database storage. Response will also not be dumped to the console.}
                             {--c|count=5 : Choose how many events to pull from GitHub API. Only works if --debug is used.}';
@@ -96,19 +96,19 @@ class GithubActivityPullCommand extends Command
     {
         $github = new GithubClient;
 
-        $activity = $github->getActivity('JSn1nj4', $this->option('count'));
+        $events = $github->getEvents('JSn1nj4', $this->option('count'));
 
         if($this->option('file')) {
-            Storage::disk('debug')->put($this->option('file'), $activity->toJson());
+            Storage::disk('debug')->put($this->option('file'), $events->toJson());
 
             return 0;
         }
 
         if($this->option('debug')) {
-            dd($activity);
+            dd($events);
         }
 
-        collect($activity)->map(function($event_data, $key) {
+        collect($events)->map(function($event_data, $key) {
             $user_data = $event_data['actor'];
             $user = GithubUser::firstOrCreate(['id' => $user_data['id']], [
                 'login' => $user_data['login'],
@@ -126,7 +126,7 @@ class GithubActivityPullCommand extends Command
             ]);
         });
 
-        $this->info('GitHub activity fetched');
+        $this->info('GitHub events fetched');
 
         GithubEventsPulledEvent::dispatch();
 

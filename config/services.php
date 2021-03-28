@@ -48,7 +48,7 @@ return [
     ],
 
     'github' => [
-        'model' => App\GitHubActivity::class,
+        'model' => App\Models\GithubEvent::class,
         'token' => env('GITHUB_API_TOKEN'),
     ]
 

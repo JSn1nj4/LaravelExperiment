@@ -25,6 +25,6 @@ class PruneOldGithubEvents
      */
     public function handle(GithubEventsPulledEvent $event)
     {
-        Artisan::call('github:activity:prune');
+        Artisan::call('github:event:prune');
     }
 }

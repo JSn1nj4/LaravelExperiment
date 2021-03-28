@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use App\Models\GithubEvent;
 use Illuminate\Console\Command;
 
-class GithubActivityPruneCommand extends Command
+class GithubEventPruneCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'github:activity:prune ' .
+    protected $signature = 'github:event:prune ' .
                            '{--k|keep=10 : The number of events to keep when pruning} ';
 
     /**
@@ -20,7 +20,7 @@ class GithubActivityPruneCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Prune GitHub activity to keep storage small.';
+    protected $description = 'Prune GitHub events to keep storage small.';
 
     /**
      * Create a new command instance.

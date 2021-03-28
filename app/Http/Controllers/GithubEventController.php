@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\GithubEvent;
 
-class GithubActivityController extends Controller
+class GithubEventController extends Controller
 {
     /**
-     * GitHubActivityController constructor method
+     * GitHubEventController constructor method
      *
      * @method                  __construct
      * @access public
@@ -20,7 +20,7 @@ class GithubActivityController extends Controller
     }
 
     /**
-     * Index recent GitHub activity events
+     * Index recent GitHub events
      *
      * @method                  index
      * @access public

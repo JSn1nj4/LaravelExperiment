@@ -33,10 +33,10 @@ class GithubEventEmail extends Mailable
      * @property                $subject
      * @access public
      */
-    public $subject        = 'New GitHub Activity Event Type';
+    public $subject        = 'New GitHub Event Type';
 
     /**
-     * Store GitHub activity types to send email about
+     * Store GitHub event types to send email about
      *
      * @property                $types
      * @access public

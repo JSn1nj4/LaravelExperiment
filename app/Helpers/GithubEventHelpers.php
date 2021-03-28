@@ -3,9 +3,9 @@
 namespace App\Helpers;
 
 /**
- * Used to help with rendering GitHub activity items server-side
+ * Used to help with rendering GitHub events server-side
  */
-class GithubActivityHelpers extends GlobalHelpers
+class GithubEventHelpers extends GlobalHelpers
 {
     /**
      * The base link to use for all GitHub web links
@@ -17,10 +17,10 @@ class GithubActivityHelpers extends GlobalHelpers
     public static $baseLink = 'https://github.com';
 
     /**
-     * A temporary URL used to display my avatar for my own activity
+     * A temporary URL used to display my avatar for my own events
      *
      * @TODO: Check for presence of user avatar directly in GitHub
-     * activities and use instead of this one.
+     * event and use instead of this one.
      *
      * @property string         $tmpAvatarUrl
      * @access public
