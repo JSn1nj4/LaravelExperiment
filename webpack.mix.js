@@ -5,17 +5,6 @@ const mixins = require('postcss-mixins');
 const simpleVars = require('postcss-simple-vars');
 const nested = require('postcss-nested');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
 mix
   .webpackConfig({
     output: {

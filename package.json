@@ -11,7 +11,6 @@
         "type": "git",
         "url": "https://github.com/JSn1nj4/ElliotDerhay.com.git"
     },
-    "sasslintConfig": ".sass-lint.yml",
     "private": true,
     "scripts": {
         "dev": "yarn run development",
@@ -39,7 +38,6 @@
         "lodash": "4.17.20",
         "mem": "^6.1.0",
         "minimist": "^1.2.3",
-        "node-sass": "4.14.1",
         "postcss-import": "12.0.1",
         "postcss-mixins": "^6.2.3",
         "postcss-nested": "^4.2.3",
