@@ -106,7 +106,6 @@ class GithubClient
     public function getEvents(string $user, int $count): Collection
     {
         if(!$this->token) {
-            dump('GitHub token not set!');
             abort(500);
         }
 
