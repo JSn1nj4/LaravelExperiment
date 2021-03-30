@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -43,5 +45,5 @@ if (token) {
  * Load and configure Vue
  */
 
-window.Vue = require("vue");
+window.Vue = Vue;
 window.EventBus = new Vue();
