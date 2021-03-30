@@ -79,10 +79,10 @@
       <div class="block md:flex">
 
         <div class="block md:w-1/2">
-          <h2 class="content-title text-2xl pt-6 mt-4 text-center">Recent Tweets</h2>
+          <h2 class="content-title text-2xl pt-6 mt-4 text-center">Latest Tweet</h2>
           <section id="twitter_timeline-home">
             {{-- SSR Twitter timeline --}}
-            @include('partials.twitter-timeline', ['count' => 2])
+            @include('partials.twitter-timeline', ['count' => 1])
           </section>
         </div>
 

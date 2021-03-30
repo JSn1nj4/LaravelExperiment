@@ -20,7 +20,7 @@
       {{ GhHelpers::timeElapsedString($event->date) }}
     </p>
 
-    <p class="font-white mt-1 text-sm">
+    <p class="font-white mt-1 text-sm leading-none">
       <strong>
         <a href="{{ $profileUrl }}" target="_blank">
           {{ $event->user->display_login }}

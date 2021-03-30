@@ -152,6 +152,16 @@ a {
     padding-top: 15vw;
 }
 
+.twitter-card {
+    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.github-event-icon {
+    &:before {
+      background: #151515;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     .banner-section {
         height: 56.25vw;
