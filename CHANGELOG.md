@@ -1,7 +1,7 @@
 # Changelog
 
 ## Release 1.9
-Large feature and maintenance update
+Large maintenance release
 
 ### Major changes
 1. Upgrade to Laravel 8
@@ -14,6 +14,7 @@ Large feature and maintenance update
 7. Remove Vue components and related JS modules for tweets, GitHub events, and another upcoming feature
     - These were overkill for parts of the page that are unlikely to update after page load in the future
 8. Upgrade Laravel Mix to version 6
+9. Upgrade Tailwind CSS to v2
 
 ### Minor changes
 1. Add Xdebug config for VS Code
@@ -21,7 +22,9 @@ Large feature and maintenance update
 3. Mass-rename GitHub-related modules, HTML classes, and some related wording
     - Even though GitHub's events API is related to GitHub user activity, the data being worked with is called "events" and should be referred to that way
 4. Remove some dependencies and configuration related to Vue code that has been trimmed
-5. Fix various minor issue
+5. Remove an old icon stylesheet
+6. Switch to using ES6 `import` to load Vue into bootstrap.js
+7. Fix various minor issues
 
 ## Release 1.8.3
 Update accidentally-outdated yarn.lock file
