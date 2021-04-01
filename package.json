@@ -24,7 +24,7 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.2.5",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "cross-env": "^7.0.2",
         "eslint": "^7.7.0",
         "laravel-mix": "^6.0.13",
