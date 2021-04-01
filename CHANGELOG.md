@@ -4,7 +4,7 @@
 Large maintenance release
 
 ### Major changes
-1. Upgrade to Laravel 8
+1. Update to Laravel 8
 2. Convert completely from SCSS to PostCSS
 3. Create dedicated HTTP clients for Twitter and GitHub
 4. Create storage for Tweets, GitHub events, and tokens
@@ -13,8 +13,9 @@ Large maintenance release
 6. Register events and event handlers related to fetching and pruning data storage
 7. Remove Vue components and related JS modules for tweets, GitHub events, and another upcoming feature
     - These were overkill for parts of the page that are unlikely to update after page load in the future
-8. Upgrade Laravel Mix to version 6
-9. Upgrade Tailwind CSS to v2
+8. Update Laravel Mix to version 6
+9. Update Tailwind CSS to v2
+10. Update Axios to v0.21.1
 
 ### Minor changes
 1. Add Xdebug config for VS Code
@@ -24,7 +25,9 @@ Large maintenance release
 4. Remove some dependencies and configuration related to Vue code that has been trimmed
 5. Remove an old icon stylesheet
 6. Switch to using ES6 `import` to load Vue into bootstrap.js
-7. Fix various minor issues
+7. Disable Axios code in "bootstrap.js"
+8. Fix various minor issues
+9. Minor config tweaks
 
 ## Release 1.8.3
 Update accidentally-outdated yarn.lock file
