@@ -82,7 +82,7 @@
 					<h2 class="content-title text-2xl pt-6 mt-4 text-center">Latest Tweet</h2>
 					<section id="twitter_timeline-home">
 						{{-- SSR Twitter timeline --}}
-						@include('partials.twitter-timeline', ['count' => 1])
+						<x-twitter-timeline count="1"/>
 					</section>
 				</div>
 
