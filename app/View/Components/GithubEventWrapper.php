@@ -11,6 +11,8 @@ class GithubEventWrapper extends Component
 {
 	public GithubEvent $event;
 
+	public string $eventTypeComponent;
+
 	/**
 	 * Kebab-case version of a GitHub event's type
 	 *
@@ -27,6 +29,7 @@ class GithubEventWrapper extends Component
     {
         $this->event = $event;
 		$this->type_kebab = Str::kebab($this->event->type);
+		$this->eventTypeComponent = "GithubEventTypes\\{$this->event->type}";
     }
 
     /**
