@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\GithubEventController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\TweetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,18 +23,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // For working with projects
 Route::prefix('/projects')->group(function() {
-    Route::get('/', 'ProjectsApiController@index');
-    Route::get('/{count}', 'ProjectsApiController@index');
+    Route::get('/', [ProjectsController::class, 'index']);
+    Route::get('/{count}', [ProjectsController::class, 'index']);
 });
 
 // Retrieve list of tweets
-Route::get('/tweets', 'TweetController@index');
-Route::get('/tweets/{count}', 'TweetController@index');
-Route::get('/tweets/{count}/demo', 'TweetController@index');
+Route::get('/tweets', [TweetController::class, 'index']);
+Route::get('/tweets/{count}', [TweetController::class, 'index']);
+Route::get('/tweets/{count}/demo', [TweetController::class, 'index']);
 
-// Retrieve single tweets
-Route::get('/tweet/{id}', 'TweetController@show');
-
-// Retrieve GitHub activity
-Route::get('/github/activity', 'GitHubActivityController@index');
-Route::get('/github/activity/{count}', 'GitHubActivityController@index');
+// Retrieve GitHub events
+Route::get('/github/events', [GithubEventController::class, 'index']);
+Route::get('/github/events/{count}', [GithubEventController::class, 'index']);

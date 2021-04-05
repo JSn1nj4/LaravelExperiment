@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // standard views
 Route::view('/', 'home')->name('home');
-Route::get('/projects', 'ProjectsController@index')->name('projects');
+Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
 
 Route::get('/updates', function() {
     $routeName = Route::currentRouteName();

@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectsApiController;
 
 class ProjectsController extends Controller
 {
-    private $projectsApi;
 
     public function __construct()
     {
         if (!config('app.enable-' . Route::currentRouteName())) {
             abort(404);
         }
-
-        $this->projectsApi = new ProjectsApiController;
     }
 
-    public function index(int $count = 10)
+    public function index(Request $request, int $count = 10)
     {
-        $projects = $this->projectsApi->index($count);
+        $projects = Project::take($count)->get();
+
+        if($request->wantsJson()) {
+            return $projects;
+        }
 
         return view('projects.index', compact('projects'));
     }

@@ -1,48 +1,47 @@
 @extends('layouts.master', ['bodyClasses' => $bodyClasses ?? ''])
 
 @section('head-extras')
-  @yield('head-extras-pass-thru')
+	@yield('head-extras-pass-thru')
 @endsection
 
 @section('body')
 
-  @php
-    $menuItems = [
-      (object) ['name' => 'home', 'label' => 'Home', 'icon' => 'fas fa-home'],
-    ];
+	@php
+		$menuItems = [
+			(object) ['name' => 'home', 'label' => 'Home', 'icon' => 'fas fa-home'],
+		];
 
-    $optionalMenuItems = [
-      (object) ['name' => 'projects', 'label' => 'Projects'],
-      (object) ['name' => 'updates', 'label' => 'Updates'],
-    ];
+		$optionalMenuItems = [
+			(object) ['name' => 'projects', 'label' => 'Projects'],
+			(object) ['name' => 'updates', 'label' => 'Updates'],
+		];
 
-    foreach($optionalMenuItems as $item) {
-      if(config("app.enable-" . $item->name)) $menuItems[] = $item;
-    }
-  @endphp
+		foreach($optionalMenuItems as $item) {
+			if(config("app.enable-" . $item->name)) $menuItems[] = $item;
+		}
+	@endphp
 
-  @include('layouts.header', $menuItems)
+	@include('layouts.header', $menuItems)
 
-  <main class="bg-gray-800 layer-shadow pt-4 pb-6">
-    @yield('content')
-  </main>
+	<main class="bg-gray-800 layer-shadow pt-4 pb-6">
+		@yield('content')
+	</main>
 
-  @include('layouts.footer')
+	@include('layouts.footer')
 
 @endsection
 
 @section('footer-extras')
-  {{-- Footer JS files --}}
-  <script src="{{ mix('/js/manifest.js') }}"></script>
-  <script src="{{ mix('/js/vendor.js') }}"></script>
-  <script src="{{ mix('/js/app.js') }}"></script>
+	<script src="{{ mix('/js/manifest.js') }}"></script>
+	<script src="{{ mix('/js/vendor.js') }}"></script>
+	<script src="{{ mix('/js/app.js') }}"></script>
 
-  @yield('footer-extras-pass-thru')
+	@yield('footer-extras-pass-thru')
 
-  <div id="ga-request-popup" style="display: none;"></div>
-  <script src="{{ mix('/js/GAPopup.js') }}" charset="utf-8"></script>
+	<div id="ga-request-popup" style="display: none;"></div>
+	<script src="{{ mix('/js/GAPopup.js') }}" charset="utf-8"></script>
 
-  <script type="application/javascript">
-    EventBus.$on('allow_tracking', ga_track);
-  </script>
+	<script type="application/javascript">
+		EventBus.$on('allow_tracking', ga_track);
+	</script>
 @endsection

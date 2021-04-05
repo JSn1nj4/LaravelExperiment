@@ -59,15 +59,14 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style>
 .loading-animation {
   opacity: 1;
   transition: opacity 1s;
   background: rgba(21, 21, 21, 0.8);
-
-  &.hide {
-    opacity: 0;
-  }
+}
+.loading-animation.hide {
+  opacity: 0;
 }
 
 /**
@@ -88,6 +87,4 @@ export default {
     background: #fff;
   }
 }
-</style>
-<style lang="scss" scoped>
 </style>

@@ -2,18 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Tweet;
+use App\Models\Tweet;
 
 class TweetController extends Controller
 {
-    /**
-     * Used for interacting with the Twitter API
-     *
-     * @property App\Tweet      $tweets
-     * @access private
-     */
-    private $tweets;
-
     /**
      * Store instance of App\Tseet on controller instantiation
      *
@@ -24,7 +16,7 @@ class TweetController extends Controller
      */
     public function __construct()
     {
-        $this->tweets = new Tweet;
+        // 
     }
 
     /**
@@ -39,23 +31,9 @@ class TweetController extends Controller
      */
     public function index(int $count = 5)
     {
-        return $this->tweets->getTweets([
-            'count' => $count
-        ]);
-    }
-
-    /**
-     * Get a single tweet for display as a tweet-like widget
-     *
-     * @method                  show
-     * @access public
-     *
-     * @param string            $id
-     *
-     * @return object
-     */
-    public function show(string $id)
-    {
-        return $this->tweets->getTweet($id);
+        return Tweet::with('user')
+                ->latest('date')
+                ->take($count)
+                ->get();
     }
 }

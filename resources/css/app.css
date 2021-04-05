@@ -1,6 +1,5 @@
 @import "_variables.css";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,700');
-@import url('https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh');
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -156,7 +155,7 @@ a {
     font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.github-activity-icon {
+.github-event-icon {
     &:before {
       background: #151515;
     }

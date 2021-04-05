@@ -5,14 +5,14 @@
     </head>
     <body>
 
-        <h3>New GitHub activity event types are listed below.</h3>
+        <h3>New GitHub event types are listed below.</h3>
 
         <p>Click an item to view its description and payload info.</p>
 
         <ol>
             @foreach ($types as $value)
             <li>
-                <a href="https://developer.github.com/v3/activity/events/types/#{{strtolower($value)}}" target="_blank">{{ $value }}</a>
+                <a href="https://docs.github.com/en/developers/webhooks-and-events/github-event-types#{{strtolower($value)}}" target="_blank">{{ $value }}</a>
             </li>
             @endforeach
         </ol>
