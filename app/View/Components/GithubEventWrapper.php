@@ -29,7 +29,7 @@ class GithubEventWrapper extends Component
     {
         $this->event = $event;
 		$this->type_kebab = Str::kebab($this->event->type);
-		$this->eventTypeComponent = "GithubEventTypes\\{$this->event->type}";
+		$this->eventTypeComponent = "github-event-types.{$this->type_kebab}";
     }
 
     /**
