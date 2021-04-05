@@ -15,7 +15,7 @@
 				{{ $action }}
 
 				<a href="{{ $$repoUrl() }}/pull/{{ $event->source }}" target="_blank" class="text-sea-green-500">
-					{{ GhHelpers::pullRequestNumberString($event->source) }}
+					{{ $pullRequestNumberText }}
 				</a>
 
 				{{ $preposition }}
