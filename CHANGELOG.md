@@ -16,6 +16,7 @@ Large maintenance release
 8. Update Laravel Mix to version 6
 9. Update Tailwind CSS to v2
 10. Update Axios to v0.21.1
+11. Convert a large number of blade partials to components
 
 ### Minor changes
 1. Add Xdebug config for VS Code
