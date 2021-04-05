@@ -14,14 +14,14 @@
 
         {{ $action }}
 
-        <a href="{{ $repoUrl() }}" target="_blank" class="text-sea-green-500">
-          {{ $event->repo }}
+        <a href="https://github.com/{{ $event->source }}" target="_blank">
+          {{ $event->source }}
         </a>
 
         {{ $preposition }}
 
-        <a href="https://github.com/{{ $event->source }}" target="_blank">
-          {{ $event->source }}
+        <a href="{{ $repoUrl() }}" target="_blank" class="text-sea-green-500">
+          {{ $event->repo }}
         </a>
       </strong>
     </p>

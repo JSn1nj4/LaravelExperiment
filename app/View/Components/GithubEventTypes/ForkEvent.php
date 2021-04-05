@@ -22,6 +22,6 @@ class ForkEvent extends BaseComponent
 			$event
 		);
 
-		$this->preposition = 'into';
+		$this->preposition = 'from';
     }
 }
