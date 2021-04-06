@@ -1,6 +1,6 @@
 @extends('layouts.error', [
     'errorCode' => '403',
-    'errorTitle' => (isset($exception) && $exception !== '' && $exception->getMessage() !== '') ? $exception->getMessage() : 'Forbidden'
+    'errorTitle' => (isset($exception) && $exception !== '' && $exception->getMessage() !== '' && config('app.env') !== 'production') ? $exception->getMessage() : 'Forbidden'
 ])
 
 @section('status-body')
