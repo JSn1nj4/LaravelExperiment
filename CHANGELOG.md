@@ -1,5 +1,12 @@
 # Changelog
 
+## Release 1.9.1
+Small maintenance release
+
+1. Plug leak in custom error pages
+2. Run migrations after composer install
+3. Remove default user migration, factory, and model
+
 ## Release 1.9
 Large maintenance release
 
