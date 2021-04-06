@@ -1,6 +1,6 @@
 @extends('layouts.error', [
     'errorCode' => '503',
-    'errorTitle' => (isset($exception) && $exception !== '' && $exception->getMessage() !== '') ? $exception->getMessage() : 'Service Unavailable'
+    'errorTitle' => (isset($exception) && $exception !== '' && $exception->getMessage() !== '' && config('app.env') !== 'production') ? $exception->getMessage() : 'Service Unavailable'
 ])
 
 @section('status-body')
