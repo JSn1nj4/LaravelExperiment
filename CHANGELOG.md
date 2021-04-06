@@ -1,5 +1,12 @@
 # Changelog
 
+## Release 1.9.2
+
+### Changes
+
+1. Force migration script to run in production
+2. Update composer dependencies and update lock file
+
 ## Release 1.9.1
 Small maintenance release
 
