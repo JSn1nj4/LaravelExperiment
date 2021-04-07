@@ -1,5 +1,9 @@
 # Changelog
 
+## Release 1.9.3
+
+Fix incorrect column type in "tweets" table.
+
 ## Release 1.9.2
 
 ### Changes
