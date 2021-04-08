@@ -1,5 +1,9 @@
 # Changelog
 
+## Release 1.9.4
+
+Fix incorrect column type in "github_events_table"
+
 ## Release 1.9.3
 
 Fix incorrect column type in "tweets" table.

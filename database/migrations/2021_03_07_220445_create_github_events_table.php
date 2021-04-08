@@ -18,7 +18,7 @@ class CreateGithubEventsTable extends Migration
             $table->text('type');
             $table->text('action')->nullable();
             $table->timestamp('date');
-            $table->integer('user_id');
+            $table->bigInteger('user_id');
             $table->text('source')->nullable();
             $table->text('repo');
             $table->timestamps();
