@@ -1,0 +1,21 @@
+name: elliotderhay
+recipe: laravel
+config:
+  php: '7.4'
+  composer_version: '2.0.12'
+  database: mysql:8.0
+services:
+  appserver:
+    webroot: public
+    xdebug: true
+    config:
+      php: .vscode/php.ini
+  node:
+    type: node:14
+    build:
+      - yarn
+tooling:
+  node:
+    service: node
+  yarn:
+    service: node
