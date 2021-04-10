@@ -12,8 +12,6 @@ services:
       php: .vscode/php.ini
   node:
     type: node:14
-    build:
-      - yarn
 tooling:
   node:
     service: node
