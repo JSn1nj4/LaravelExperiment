@@ -96,6 +96,8 @@ class GithubEventPullCommand extends Command
     {
         $github = new GithubClient;
 
+		$this->info("Fetching GitHub events...");
+
         $events = $github->getEvents('JSn1nj4', $this->option('count'));
 
         if($this->option('file')) {
