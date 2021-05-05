@@ -84,7 +84,7 @@ class Tweet extends Model
 
     public function getUrlAttribute(): string
     {
-        return "https://twitter.com/{$this->user->profile_url}/{$this->id}";
+        return "{$this->user->profile_url}/status/{$this->id}";
     }
 
     public function user()
