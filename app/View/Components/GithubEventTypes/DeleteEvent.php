@@ -26,6 +26,6 @@ class DeleteEvent extends BaseComponent
 
 		$this->preposition = 'from';
 		$this->setRefName($this->event->source);
-		$this->setRefUrl($this->event->repo);
+		$this->setRefUrl($this->repoUrl());
 	}
 }

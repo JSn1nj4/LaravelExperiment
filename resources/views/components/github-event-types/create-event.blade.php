@@ -25,6 +25,5 @@
 				</a>
 			</strong>
 		</p>
-
 	</div>
 </div>
