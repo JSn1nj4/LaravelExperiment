@@ -26,6 +26,6 @@ class PushEvent extends BaseComponent
 
 		$this->preposition = 'at';
 		$this->setRefName($this->event->source);
-		$this->setRefUrl($this->event->repo);
+		$this->setRefUrl($this->repoUrl());
 	}
 }
