@@ -1,5 +1,11 @@
 # Changelog
 
+## Release 1.9.5
+
+A few bug fixes:
+- Fix how a given tweet's URL was being generated
+- Fix how repo URLs were being generated
+- Fix source URLs for Pull Request and Issue Comment events
 ## Release 1.9.4
 
 Fix incorrect column type in "github_events_table"
