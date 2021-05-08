@@ -1,5 +1,19 @@
 # Changelog
 
+## Release 1.9.6
+Updates installed packages.
+
+### Changes
+- Update laravel/framework @^8.40 to address [GHSA-4mg9-vhxq-vm7j][GHSA-4mg9-vhxq-vm7j]
+- Update laravel-mix to @6.0.19 to address [GHSA-7r28-3m3f-r2pr][GHSA-7r28-3m3f-r2pr]
+	- This also indirectly updates lodash to [4.17.21][lodash_4.17.21] to fix a [command injection issue][lodash_pr_5085]
+- Update "sentry/sentry-laravel" to ^2.5
+
+[GHSA-4mg9-vhxq-vm7j]: https://github.com/advisories/GHSA-4mg9-vhxq-vm7j
+[GHSA-7r28-3m3f-r2pr]: https://github.com/advisories/GHSA-7r28-3m3f-r2pr
+[lodash_4.17.21]: https://github.com/lodash/lodash/releases/tag/4.17.21
+[lodash_pr_5085]: https://github.com/lodash/lodash/pull/5085
+
 ## Release 1.9.5
 
 A few bug fixes:
