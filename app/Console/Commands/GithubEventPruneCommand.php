@@ -47,7 +47,7 @@ class GithubEventPruneCommand extends Command
                     ->map(fn($item, $key) => $item->id)
                     ->toArray();
 
-        $delete = GithubEvent::whereNotIn('id', $keep_ids)->delete();
+        GithubEvent::whereNotIn('id', $keep_ids)->delete();
 
         return 0;
     }

@@ -47,7 +47,7 @@ class TweetPruneCommand extends Command
                     ->map(fn($item, $key) => $item->id)
                     ->toArray();
 
-        $delete = Tweet::whereNotIn('id', $keep_ids)->delete();
+        Tweet::whereNotIn('id', $keep_ids)->delete();
 
         return 0;
     }
