@@ -9,10 +9,10 @@ use Tests\TestCase;
 
 class GithubClientTest extends TestCase
 {
-    public function test_we_can_create_a_github_client_instance(): void
-    {
+	public function test_we_can_create_a_github_client_instance(): void
+	{
 		$this->assertInstanceOf(GithubClient::class, (new GithubClient));
-    }
+	}
 
 	public function test_we_can_fetch_github_events(): void
 	{
