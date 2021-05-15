@@ -7,28 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class GithubEvent extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $casts = [
-        'id' => 'string',
-    ];
+	protected $casts = [
+		'id' => 'string',
+	];
 
-    protected $dates = [
-        'date',
-    ];
+	protected $dates = [
+		'date',
+	];
 
-    protected $fillable = [
+	protected $fillable = [
 		'id',
 		'type',
-        'action',
-        'date',
-        'user_id',
-        'source',
-        'repo',
-    ];
+		'action',
+		'date',
+		'user_id',
+		'source',
+		'repo',
+	];
 
-    public function user()
-    {
-        return $this->belongsTo(GithubUser::class);
-    }
+	public function user()
+	{
+		return $this->belongsTo(GithubUser::class);
+	}
 }

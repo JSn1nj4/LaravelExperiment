@@ -1,13 +1,13 @@
 @extends('layouts.master', ['bodyClasses' => $bodyClasses ?? ''])
 
 @section('head-extras')
-  @yield('head-extras-pass-thru')
+	@yield('head-extras-pass-thru')
 @endsection
 
 @section('body')
-  @yield('content')
+	@yield('content')
 @endsection
 
 @section('footer-extras')
-  @yield('footer-extras-pass-thru')
+	@yield('footer-extras-pass-thru')
 @endsection

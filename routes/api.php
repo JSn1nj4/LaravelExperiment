@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+	return $request->user();
 });
 
 // For working with projects
 Route::prefix('/projects')->group(function() {
-    Route::get('/', [ProjectsController::class, 'index']);
-    Route::get('/{count}', [ProjectsController::class, 'index']);
+	Route::get('/', [ProjectsController::class, 'index']);
+	Route::get('/{count}', [ProjectsController::class, 'index']);
 });
 
 // Retrieve list of tweets

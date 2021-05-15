@@ -10,113 +10,113 @@ use Illuminate\Support\Facades\Mail;
 
 class GithubClient
 {
-    /**
-     * The base GitHub API URL
-     *
-     * @property string         $api_url
-     * @access private
-     */
-    private $api_url = 'https://api.github.com';
+	/**
+	 * The base GitHub API URL
+	 *
+	 * @property string         $api_url
+	 * @access private
+	 */
+	private $api_url = 'https://api.github.com';
 
-    /**
-     * The email address to send notifications to
-     *
-     * @property array          $email
-     * @access private
-     */
-    private $alertRecipients = [];
+	/**
+	 * The email address to send notifications to
+	 *
+	 * @property array          $email
+	 * @access private
+	 */
+	private $alertRecipients = [];
 
-    /**
-     * The list of event types currently supported
-     *
-     * @property array          $eventTypes
-     * @access private
-     *
-     * I will make sure to sort these in the order they're listed on GitHub.
-     * Reference: https://docs.github.com/en/developers/webhooks-and-events/github-event-types
-     */
-    private $eventTypes = [
-        'CreateEvent',
-        'DeleteEvent',
-        'ForkEvent',
-        'IssueCommentEvent',
-        'IssuesEvent',
-        'PublicEvent',
-        'PullRequestEvent',
-        'PushEvent',
-        'WatchEvent'
-    ];
+	/**
+	 * The list of event types currently supported
+	 *
+	 * @property array          $eventTypes
+	 * @access private
+	 *
+	 * I will make sure to sort these in the order they're listed on GitHub.
+	 * Reference: https://docs.github.com/en/developers/webhooks-and-events/github-event-types
+	 */
+	private $eventTypes = [
+		'CreateEvent',
+		'DeleteEvent',
+		'ForkEvent',
+		'IssueCommentEvent',
+		'IssuesEvent',
+		'PublicEvent',
+		'PullRequestEvent',
+		'PushEvent',
+		'WatchEvent'
+	];
 
-    /**
-     * The token used for retrieving information from the GitHub API
-     *
-     * @property string         $token
-     * @access private
-     */
-    private $token;
+	/**
+	 * The token used for retrieving information from the GitHub API
+	 *
+	 * @property string         $token
+	 * @access private
+	 */
+	private $token;
 
-    public function __construct()
-    {
-        $this->token = config('services.github.token', false);
+	public function __construct()
+	{
+		$this->token = config('services.github.token', false);
 
-        array_push($this->alertRecipients, [
-            'name' => config('mail.to.name'),
-            'email' => config('mail.to.address')
-        ]);
-    }
+		array_push($this->alertRecipients, [
+			'name' => config('mail.to.name'),
+			'email' => config('mail.to.address')
+		]);
+	}
 
-    public function filterEventTypes(Response $response): Collection
-    {
-        $newEventTypes = collect([]);
+	public function filterEventTypes(Response $response): Collection
+	{
+		$newEventTypes = collect([]);
 
-        $events = collect($response->json())
-            ->filter(function($event, $key) use ($newEventTypes) {
-                $event = collect($event);
+		$events = collect($response->json())
+			->filter(function($event, $key) use ($newEventTypes) {
+				$event = collect($event);
 
-                if(!in_array($event->get('type'), $this->eventTypes)) {
-                    $newEventTypes->push($event->get('type'));
-                    return false;
-                }
+				if(!in_array($event->get('type'), $this->eventTypes)) {
+					$newEventTypes->push($event->get('type'));
+					return false;
+				}
 
-                return true;
-            });
+				return true;
+			});
 
-        if($newEventTypes->count() > 0) {
-            Mail::to($this->alertRecipients)->send(new GithubEventEmail(
-                $newEventTypes->unique()->values()->toArray()
-            ));
-        }
+		if($newEventTypes->count() > 0) {
+			Mail::to($this->alertRecipients)->send(new GithubEventEmail(
+				$newEventTypes->unique()->values()->toArray()
+			));
+		}
 
-        return $events;
-    }
+		return $events;
+	}
 
-    /**
-     * Retrieve raw events via GitHub's API
-     *
-     * @method                  getEvents
-     * @access public
-     *
-     * @param string            $user
-     * @param int               $count
-     *
-     * @return string
-     *
-     * @todo: check for error message
-     */
-    public function getEvents(string $user, int $count): Collection
-    {
-        if(!$this->token) {
-            abort(500);
-        }
+	/**
+	 * Retrieve raw events via GitHub's API
+	 *
+	 * @method                  getEvents
+	 * @access public
+	 *
+	 * @param string            $user
+	 * @param int               $count
+	 *
+	 * @return string
+	 *
+	 * @todo: check for error message
+	 */
+	public function getEvents(string $user, int $count): Collection
+	{
+		if(!$this->token) {
+			abort(500);
+		}
 
-        $response = Http::withToken($this->token)
-            ->withHeaders([
-                "Accept: application/vnd.github.v3+json",
-                "User-Agent: Elliot-Derhay-App",
-            ])->get("{$this->api_url}/users/{$user}/events/public", [
-                'per_page' => $count
-            ]);
+		$response = Http::withToken($this->token)
+			->withHeaders([
+				"Accept: application/vnd.github.v3+json",
+				"User-Agent: Elliot-Derhay-App",
+			])->get("{$this->api_url}/users/{$user}/events/public", [
+				'per_page' => $count
+			]);
 
-        return $this->filterEventTypes($response);
-    }
+		return $this->filterEventTypes($response);
+	}
 }

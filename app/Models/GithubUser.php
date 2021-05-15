@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class GithubUser extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
-    protected $fillable = [
-        'id',
-        'login',
-        'display_login',
-        'avatar_url',
-    ];
+	protected $fillable = [
+		'id',
+		'login',
+		'display_login',
+		'avatar_url',
+	];
 
-    public function events()
-    {
-        return $this->hasMany(GithubEvent::class);
-    }
+	public function events()
+	{
+		return $this->hasMany(GithubEvent::class);
+	}
 }
