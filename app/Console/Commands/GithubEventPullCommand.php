@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Events\GithubEventsPulledEvent;
-use App\Http\Clients\GithubClient;
 use App\Models\GithubEvent;
 use App\Models\GithubUser;
+use App\Services\GithubService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -92,10 +92,8 @@ class GithubEventPullCommand extends Command
 	 *
 	 * @return int
 	 */
-	public function handle()
+	public function handle(GithubService $github)
 	{
-		$github = new GithubClient;
-
 		$this->info("Fetching GitHub events...");
 
 		$events = $github->getEvents('JSn1nj4', $this->option('count'));
