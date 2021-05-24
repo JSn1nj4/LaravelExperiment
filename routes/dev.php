@@ -12,3 +12,14 @@ Route::get('/error/{code}', function ($code = null) {
 
 	abort($code);
 })->where('code', '[1-5][0-9]{2}');
+
+
+Route::prefix('admin')->group(function() {
+	Route::get('/login', function() {
+		return view('admin.login');
+	})->name('admin.login');
+
+	Route::middleware('auth')->group(function () {
+
+	});
+});
