@@ -16,7 +16,7 @@ class LoginController extends Controller
 		return view('login');
 	}
 
-	public function store(Request $request, string $email, string $password)
+	public function store(Request $request)
 	{
 
 	}
