@@ -18,6 +18,6 @@ class LoginController extends Controller
 
 	public function store(Request $request)
 	{
-
+		return view('login', ['data' => $request->all()]);
 	}
 }
