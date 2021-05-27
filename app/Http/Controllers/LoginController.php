@@ -27,11 +27,17 @@ class LoginController extends Controller
 		if(Auth::attempt($request->only('email', 'password'))) {
 			$request->session()->regenerate();
 
-			return redirect()->intended(route('dashboard'));
+			return redirect()->intended(route('admin.dashboard'));
 		}
 
 		return back()->withErrors([
 			'login' => 'Login information is incorrect.',
 		])->withInput();
+	}
+
+	public function destroy(Request $request)
+	{
+		Auth::logout();
+		return redirect()->route('login');
 	}
 }

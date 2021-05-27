@@ -16,6 +16,7 @@ Route::get('/error/{code}', function ($code = null) {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.attempt');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::prefix('admin')->middleware('auth')->group(function() {
 	Route::get('/', function() {
