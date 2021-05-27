@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -18,6 +19,19 @@ class LoginController extends Controller
 
 	public function store(Request $request)
 	{
-		return view('login', ['data' => $request->all()]);
+		// Validator::make($request->all(), [
+		// 	'email' => 'required|email',
+		// 	'password' => 'required'
+		// ])->validate();
+
+		if(Auth::attempt($request->only('email', 'password'))) {
+			$request->session()->regenerate();
+
+			return redirect()->intended(route('dashboard'));
+		}
+
+		return back()->withErrors([
+			'login' => 'Login information is incorrect.',
+		])->withInput();
 	}
 }
