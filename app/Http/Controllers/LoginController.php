@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -26,6 +27,8 @@ class LoginController extends Controller
 
 		if(Auth::attempt($request->only('email', 'password'))) {
 			$request->session()->regenerate();
+
+			Login::create(['user_id' => $request->user()->id]);
 
 			return redirect()->intended(route('admin.dashboard'));
 		}
