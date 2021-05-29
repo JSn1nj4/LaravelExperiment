@@ -25,14 +25,14 @@ class HomePage extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-			->assertPresent('@header')
-			->assertPresent('@main')
-			->assertPresent('@banner')
+			->assertVisible('@header')
+			->assertVisible('@main')
+			->assertVisible('@banner')
 			->assertSee('ElliotDerhay.com')
 			->assertSee('A personal profile')
-			->assertPresent('@twitter')
-			->assertPresent('@github')
-			->assertPresent('@footer');
+			->assertVisible('@twitter')
+			->assertVisible('@github')
+			->assertVisible('@footer');
     }
 
     /**
