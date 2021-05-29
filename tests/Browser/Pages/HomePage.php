@@ -24,7 +24,15 @@ class HomePage extends Page
      */
     public function assert(Browser $browser)
     {
-        //
+        $browser->assertPathIs($this->url())
+			->assertPresent('@header')
+			->assertPresent('@main')
+			->assertPresent('@banner')
+			->assertSee('ElliotDerhay.com')
+			->assertSee('A personal profile')
+			->assertPresent('@twitter')
+			->assertPresent('@github')
+			->assertPresent('@footer');
     }
 
     /**
@@ -35,7 +43,9 @@ class HomePage extends Page
     public function elements()
     {
         return [
-            '@element' => '#selector',
+			'@banner' => '.home-banner',
+            '@twitter' => '#twitter_timeline-home',
+			'@github' => '#github_events_feed-home',
         ];
     }
 }
