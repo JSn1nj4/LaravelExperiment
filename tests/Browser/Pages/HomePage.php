@@ -24,15 +24,7 @@ class HomePage extends Page
      */
     public function assert(Browser $browser)
     {
-        $browser->assertPathIs($this->url())
-			->assertVisible('@header')
-			->assertVisible('@main')
-			->assertVisible('@banner')
-			->assertSee('ElliotDerhay.com')
-			->assertSee('A personal profile')
-			->assertVisible('@twitter')
-			->assertVisible('@github')
-			->assertVisible('@footer');
+        $browser->assertPathIs($this->url());
     }
 
     /**
