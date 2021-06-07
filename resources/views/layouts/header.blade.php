@@ -23,7 +23,7 @@
 				<div class="text-md lg:flex-grow">
 
 					@foreach ($menuItems as $key => $item)
-						<a href="{{ route($item->name, [], false) }}"
+						<a href="{{ route($item->name, absolute: false) }}"
 						class="block lg:inline-block px-4 py-6 uppercase{{ Route::currentRouteName() === $item->name ? ' active' : '' }}">
 							@if(isset($item->icon))
 								<i class="{{$item->icon}}"></i>
