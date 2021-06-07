@@ -14,7 +14,10 @@ abstract class Page extends BasePage
 	{
 		$this->components = (object)[];
 
-		$this->registerComponents();
+		$this->registerComponents([
+			'header' => new Header,
+			'footer' => new Footer,
+		]);
 	}
 
 	public function __get($property): mixed
@@ -37,14 +40,11 @@ abstract class Page extends BasePage
 	/**
 	 * Get the global components for the site.
 	 */
-	protected function registerComponents(): void
+	protected function registerComponents(array $components): void
 	{
 		$this->components = (object) array_merge(
 			(array) $this->components,
-			[
-				'header' => new Header,
-				'footer' => new Footer,
-			]
+			$components
 		);
 	}
 }
