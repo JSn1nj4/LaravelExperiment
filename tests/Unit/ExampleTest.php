@@ -1,19 +1,7 @@
 <?php
 
-namespace Tests\Unit;
+use function PHPUnit\Framework\assertTrue;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
-class ExampleTest extends TestCase
-{
-	/**
-	 * A basic test example.
-	 *
-	 * @return void
-	 */
-	public function testBasicTest()
-	{
-		$this->assertTrue(true);
-	}
-}
+test('example', function () {
+    assertTrue(true);
+});
