@@ -23,7 +23,7 @@
 
 	@include('layouts.header', $menuItems)
 
-	<main class="bg-gray-800 layer-shadow pt-4 pb-6">
+	<main class="bg-gray-800 layer-shadow pt-4 pb-6 flex-grow">
 		@yield('content')
 	</main>
 
@@ -32,13 +32,14 @@
 @endsection
 
 @section('footer-extras')
+	<div id="ga-request-popup" style="display: none;"></div>
+
 	<script src="{{ mix('/js/manifest.js') }}"></script>
 	<script src="{{ mix('/js/vendor.js') }}"></script>
 	<script src="{{ mix('/js/app.js') }}"></script>
 
 	@yield('footer-extras-pass-thru')
 
-	<div id="ga-request-popup" style="display: none;"></div>
 	<script src="{{ mix('/js/GAPopup.js') }}" charset="utf-8"></script>
 
 	<script type="application/javascript">

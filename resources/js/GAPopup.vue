@@ -11,7 +11,6 @@
 				</div>
 			</div>
 		</div>
-		<div id="dnt-spacer" class="block w-full" :style="`height: ${boxHeight};`"></div>
 	</div>
 </template>
 
@@ -28,18 +27,12 @@ export default {
 			document.cookie = 'GA_POPUP_INTERACTION=1';
 			this.hide();
 		},
-		setBoxHeight() {
-			this.boxHeight = `${this.$refs.dntBox.clientHeight}px`;
-		},
 		hide() {
 			this.displayClass = 'hidden';
 		}
 	},
 	beforeMount() {
 		if(document.cookie.indexOf('GA_POPUP_INTERACTION=1') !== -1 && navigator.doNotTrack === '1') this.hide();
-	},
-	mounted() {
-		if(this.displayClass !== 'hidden') this.setBoxHeight();
 	},
 }
 </script>
