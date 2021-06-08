@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6a41d052abba58acc1c72a6f44fc5d",
+    "content-hash": "8c42435366320ffd470131dbb4e91591",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7314,6 +7314,79 @@
                 }
             ],
             "time": "2021-01-03T15:45:09+00:00"
+        },
+        {
+            "name": "pestphp/pest-plugin-mock",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest-plugin-mock.git",
+                "reference": "e4fbdd3cb4ff70903927a7bf0d579b0688622206"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-mock/zipball/e4fbdd3cb4ff70903927a7bf0d579b0688622206",
+                "reference": "e4fbdd3cb4ff70903927a7bf0d579b0688622206",
+                "shasum": ""
+            },
+            "require": {
+                "mockery/mockery": "^1.4",
+                "pestphp/pest": "^1.0",
+                "pestphp/pest-plugin": "^1.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest-dev-tools": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\Mock\\": "src/"
+                },
+                "files": [
+                    "src/Autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Adds mocking capabilities to Pest or PHPUnit",
+            "keywords": [
+                "framework",
+                "mock",
+                "mocking",
+                "pest",
+                "php",
+                "plugin",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "support": {
+                "issues": "https://github.com/pestphp/pest-plugin-mock/issues",
+                "source": "https://github.com/pestphp/pest-plugin-mock/tree/v1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/nunomaduro",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-05-16T00:24:04+00:00"
         },
         {
             "name": "phar-io/manifest",
