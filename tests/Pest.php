@@ -11,8 +11,12 @@
 |
 */
 
-uses(Tests\TestCase::class)->in('Feature');
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\DuskTestCase;
+use Tests\TestCase;
 
+uses(TestCase::class, RefreshDatabase::class)->in('Feature', 'Unit');
+uses(DuskTestCase::class)->in('Browser');
 /*
 |--------------------------------------------------------------------------
 | Expectations
