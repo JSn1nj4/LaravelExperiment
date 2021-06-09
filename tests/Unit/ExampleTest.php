@@ -2,6 +2,6 @@
 
 use function PHPUnit\Framework\assertTrue;
 
-test('example', function () {
+it('asserts true', function () {
     assertTrue(true);
 });
