@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Contracts\GitHostService;
 use App\Mail\GithubEventEmail;
+use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -44,11 +45,21 @@ class GithubService implements GitHostService {
 
 	public function __construct()
 	{
-		$this->token = config('services.github.token', false);
+		foreach ([
+			'services.github.token',
+			'mail.to.name',
+			'mail.to.address',
+		] as $key) {
+			if (config($key) === null) {
+				throw new Exception("Config option '{$key}' not set.");
+			}
+		}
+
+		$this->token = config('services.github.token');
 
 		array_push($this->alertRecipients, [
 			'name' => config('mail.to.name'),
-			'email' => config('mail.to.address')
+			'email' => config('mail.to.address'),
 		]);
 	}
 
@@ -84,10 +95,6 @@ class GithubService implements GitHostService {
 	 */
 	public function getEvents(string $user, int $count): Collection
 	{
-		if (!$this->token) {
-			abort(500);
-		}
-
 		$response = Http::withToken($this->token)
 			->withHeaders([
 				"Accept: application/vnd.github.v3+json",
