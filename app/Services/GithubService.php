@@ -3,12 +3,11 @@
 namespace App\Services;
 
 use App\Contracts\GitHostService;
-use App\Mail\GithubEventEmail;
+use App\Events\NewGithubEventTypesEvent;
 use Exception;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 
 class GithubService implements GitHostService {
 	/**
@@ -81,7 +80,7 @@ class GithubService implements GitHostService {
 		$events = collect($response->json())
 			->filter(fn ($event) => $this->eventTypeSupported($event['type']));
 
-		$this->sendNewEventTypesEmail();
+		$this->sendNewEventTypesNotifications();
 
 		return $events;
 	}
@@ -112,16 +111,12 @@ class GithubService implements GitHostService {
 		return "{$this->api_url}/{$url}";
 	}
 
-	private function sendNewEventTypesEmail(): void
+	private function sendNewEventTypesNotifications(): void
 	{
-		if ($this->unsupportedEventTypes->count() > 0) {
-			Mail::to($this->alertRecipients)
-				->send(new GithubEventEmail(
-					$this->unsupportedEventTypes
-						->unique()
-						->values()
-						->toArray()
-				));
-		}
+		NewGithubEventTypesEvent::dispatchIf(
+			$this->unsupportedEventTypes->count() > 0,
+			$this->unsupportedEventTypes,
+			$this->alertRecipients
+		);
 	}
 }
