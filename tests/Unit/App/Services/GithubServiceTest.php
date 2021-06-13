@@ -77,8 +77,6 @@ it('handles api errors', function (): void {
 });
 
 it('processes response data received from the github events api', function (): void {
-	$this->githubService = new GithubService;
-
 	$response = (object) [
 		'body' => [
 			1, 2, 3,
@@ -93,7 +91,7 @@ it('processes response data received from the github events api', function (): v
 		"{$this->api_base}/users/jsn1nj4/events/public" => Http::response($response->body, $response->status, $response->headers),
 	]);
 
-	$this->assertTrue(true);
+	$this->githubService = new GithubService;
 });
 
 it('filters out unsupported types of github events', function (): void {
