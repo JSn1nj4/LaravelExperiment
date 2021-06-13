@@ -26,7 +26,7 @@ class GithubService implements GitHostService {
 	 *
 	 * Reference: https://docs.github.com/en/developers/webhooks-and-events/github-event-types
 	 */
-	private array $eventTypes = [
+	private array $supportedEventTypes = [
 		'CreateEvent',
 		'DeleteEvent',
 		'ForkEvent',
@@ -42,6 +42,8 @@ class GithubService implements GitHostService {
 	 * The token used for interacting with the API
 	 */
 	private string $token;
+
+	private Collection $unsupportedEventTypes;
 
 	public function __construct()
 	{
@@ -61,29 +63,29 @@ class GithubService implements GitHostService {
 			'name' => config('mail.to.name'),
 			'email' => config('mail.to.address'),
 		]);
+
+		$this->unsupportedEventTypes = collect([]);
+	}
+
+	private function eventTypeSupported(string $type): bool
+	{
+		if (in_array($type, $this->supportedEventTypes)) return true;
+
+		$this->unsupportedEventTypes->push($type);
+
+		return false;
 	}
 
 	public function filterEventTypes(Response $response): Collection
 	{
-		$newEventTypes = collect([]);
-
 		$events = collect($response->json())
-			->filter(function ($event, $key) use ($newEventTypes) {
+			->filter(function ($event, $key) {
 				$event = collect($event);
 
-				if (!in_array($event->get('type'), $this->eventTypes)) {
-					$newEventTypes->push($event->get('type'));
-					return false;
-				}
-
-				return true;
+				return $this->eventTypeSupported($event->get('type'));
 			});
 
-		if ($newEventTypes->count() > 0) {
-			Mail::to($this->alertRecipients)->send(new GithubEventEmail(
-				$newEventTypes->unique()->values()->toArray()
-			));
-		}
+		$this->sendNewEventTypesEmail();
 
 		return $events;
 	}
@@ -112,5 +114,18 @@ class GithubService implements GitHostService {
 	public function getUrl(string $url): string
 	{
 		return "{$this->api_url}/{$url}";
+	}
+
+	private function sendNewEventTypesEmail(): void
+	{
+		if ($this->unsupportedEventTypes->count() > 0) {
+			Mail::to($this->alertRecipients)
+				->send(new GithubEventEmail(
+					$this->unsupportedEventTypes
+						->unique()
+						->values()
+						->toArray()
+				));
+		}
 	}
 }
