@@ -50,7 +50,7 @@ it('uses a correctly-formatted event api request', function (): void {
 	// need to match the request it sends with the one defined here
 });
 
-it('rejects an incorrectly-formatted event api response', function(): void {
+it('rejects incorrectly-formatted event api responses', function(): void {
 	$this->githubService = new GithubService;
 
 	// ...
