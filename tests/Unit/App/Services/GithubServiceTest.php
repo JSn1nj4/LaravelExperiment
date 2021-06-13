@@ -45,9 +45,22 @@ it('constructs the correct api url', function (): void {
 });
 
 it('uses a correctly-formatted event api request', function (): void {
+	$request = (object) [];
+
+	$response = (object) [
+		'body' => [],
+		'status' => 200,
+		'headers' => [],
+	];
+
+	Http::fake([
+		"{$this->api_base}/users/jsn1nj4/events/public" =>
+		Http::response($response->body, $response->status, $response->headers)
+	]);
+
 	$this->githubService = new GithubService;
 
-	// need to match the request it sends with the one defined here
+	// compare sent request with expected request
 });
 
 it('rejects incorrectly-formatted event api responses', function(): void {
