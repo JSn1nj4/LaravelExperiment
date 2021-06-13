@@ -8,7 +8,6 @@ use function Pest\Laravel\mock;
 
 beforeEach(function (): void {
 	$this->api_base = 'https://api.github.com';
-	// $this->githubService = new GithubService;
 });
 
 it('creates an instance of App\Services\GithubService', function (): void {
