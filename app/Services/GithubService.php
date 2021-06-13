@@ -79,11 +79,7 @@ class GithubService implements GitHostService {
 	public function filterEventTypes(Response $response): Collection
 	{
 		$events = collect($response->json())
-			->filter(function ($event, $key) {
-				$event = collect($event);
-
-				return $this->eventTypeSupported($event->get('type'));
-			});
+			->filter(fn ($event) => $this->eventTypeSupported($event['type']));
 
 		$this->sendNewEventTypesEmail();
 
