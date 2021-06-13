@@ -23,7 +23,7 @@ class GithubService implements GitHostService {
 	/**
 	 * Currently-supported GitHub event types
 	 *
-	 * Reference: https://docs.github.com/en/developers/webhooks-and-events/github-event-types
+	 * Reference: https://docs.github.com/en/developers/webhooks-and-events/events/github-event-types
 	 */
 	private array $supportedEventTypes = [
 		'CreateEvent',
