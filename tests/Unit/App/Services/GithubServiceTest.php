@@ -13,35 +13,35 @@ beforeEach(function (): void {
 });
 
 it('creates an instance of App\Services\GithubService', function (): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
-	expect($this->githubService)->toBeInstanceOf(GithubService::class);
+	expect($githubService)->toBeInstanceOf(GithubService::class);
 });
 
 it('throws an exception if no token is found', function (): void {
 	Config::offsetUnset('services.github.token');
 
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 })->throws(Exception::class, "Config option 'services.github.token' not set.");
 
 it('throws an exception if email recipient name is not set', function (): void {
 	Config::offsetUnset('mail.to.name');
 
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 })->throws(Exception::class, "Config option 'mail.to.name' not set.");
 
 it('throws an exception if email recipient address is not set', function (): void {
 	Config::offsetUnset('mail.to.address');
 
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 })->throws(Exception::class, "Config option 'mail.to.address' not set.");
 
 it('constructs the correct api url', function (): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
 	$api_endpoint = 'users/jsn1nj4/events/public';
 
-	expect($this->githubService->getUrl($api_endpoint))
+	expect($githubService->getUrl($api_endpoint))
 		->toBeString()
 		->toEqual("{$this->api_base}/{$api_endpoint}");
 });
@@ -97,13 +97,13 @@ it('fetches user events with a correctly-formatted event api request', function 
 });
 
 it('rejects incorrectly-formatted event api responses', function(): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
 	// ...
 });
 
 it('handles api errors', function (): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
 	// determine what happens currently when an error is received.
 	// sending a request with a bad token should be enough
@@ -124,17 +124,17 @@ it('processes response data received from the github events api', function (): v
 		"{$this->api_base}/users/jsn1nj4/events/public" => Http::response($response->body, $response->status, $response->headers),
 	]);
 
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 });
 
 it('filters out unsupported types of github events', function (): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
 	// for this to work, need to spy on service object to see supported event types
 });
 
 it('emails a list of new event types that should be supported', function (): void {
-	$this->githubService = new GithubService;
+	$githubService = new GithubService;
 
 	// requires email connection be configured
 
