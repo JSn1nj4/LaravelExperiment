@@ -39,7 +39,7 @@ it('throws an exception if email recipient address is not set', function (): voi
 it('constructs the correct api url', function (): void {
 	$githubService = new GithubService;
 
-	$api_endpoint = 'users/jsn1nj4/events/public';
+	$api_endpoint = "users/{$this->faker->userName()}/events/public";
 
 	expect($githubService->getUrl($api_endpoint))
 		->toBeString()
