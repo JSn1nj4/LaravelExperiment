@@ -48,7 +48,7 @@ it('constructs the correct api url', function (): void {
 
 it('fetches user events with a correctly-formatted event api request', function (): void {
 	$user = $this->faker->userName();
-	$eventCount = 1;
+	$eventCount = $this->faker->numberBetween(1, 100);
 
 	$response = (object) [
 		'body' => [
