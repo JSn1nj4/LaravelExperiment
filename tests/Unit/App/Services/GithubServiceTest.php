@@ -94,7 +94,18 @@ it('fetches user events with a correctly-formatted event api request', function 
 	});
 });
 
-it('rejects incorrectly-formatted event api responses', function(): void {
+it('throws an exception if requested event count is < 1', function (): void {
+	(new GithubService)->getEvents($this->faker->userName(), 0 - $this->faker->numberBetween());
+})->throws(Exception::class, "'\$count' value must be 1 or higher.");
+
+it('throws an exception if requested event count is > 100', function (): void {
+	(new GithubService)->getEvents($this->faker->userName(), $this->faker->numberBetween(101));
+})->throws(Exception::class, "'\$count' value must be 100 or less.");
+
+it('rejects incorrectly-formatted event api responses', function (): void {
+	$user = $this->faker->userName();
+	$eventCount = $this->faker->numberBetween(1, 50);
+
 	$githubService = new GithubService;
 
 	// ...

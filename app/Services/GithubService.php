@@ -92,6 +92,14 @@ class GithubService implements GitHostService {
 	 */
 	public function getEvents(string $user, int $count): Collection
 	{
+		if($count < 1) {
+			throw new Exception("'\$count' value must be 1 or higher. Value is '{$count}'.");
+		}
+
+		if($count > 100) {
+			throw new Exception("'\$count' value must be 100 or less. Value is '{$count}'.");
+		}
+
 		$response = Http::withToken($this->token)
 			->withHeaders([
 				"Accept" => "application/vnd.github.v3+json",
