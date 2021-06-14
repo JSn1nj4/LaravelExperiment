@@ -6,8 +6,6 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
-use function Pest\Laravel\mock;
-
 beforeEach(function (): void {
 	$this->api_base = 'https://api.github.com';
 });
