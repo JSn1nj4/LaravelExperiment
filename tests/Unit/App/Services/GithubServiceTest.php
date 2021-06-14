@@ -1,6 +1,8 @@
 <?php
 
 use App\Services\GithubService;
+use Carbon\Carbon;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
@@ -44,23 +46,54 @@ it('constructs the correct api url', function (): void {
 		->toEqual("{$this->api_base}/{$api_endpoint}");
 });
 
-it('uses a correctly-formatted event api request', function (): void {
-	$request = (object) [];
+it('fetches user events with a correctly-formatted event api request', function (): void {
+	$faker = \Faker\Factory::create();
+
+	$user = 'githubuser';
+	$eventCount = 1;
 
 	$response = (object) [
-		'body' => [],
+		'body' => [
+			[
+				'actor' => [
+					'id' => $faker->randomNumber(6, true),
+					'login' => $user,
+					'display_login' => $user,
+					'avatar_url' => $faker->imageUrl(50, 50, 'cats'),
+				],
+				'type' => 'PushEvent',
+				'created_at' => Carbon::now()->toDateTimeString(),
+				'repo' => [
+					'name' => "{$user}/repo_name",
+				],
+				'payload' => [
+					'ref' => 'refs/heads/fake_branch_name'
+				],
+			]
+		],
 		'status' => 200,
 		'headers' => [],
 	];
 
 	Http::fake([
-		"{$this->api_base}/users/jsn1nj4/events/public" =>
-		Http::response($response->body, $response->status, $response->headers)
+		"api.github.com/users/{$user}/events/public*" =>
+		Http::response(json_encode($response->body), $response->status, $response->headers)
 	]);
 
-	$this->githubService = new GithubService;
+	(new GithubService)->getEvents($user, $eventCount);
 
-	// compare sent request with expected request
+	Http::assertSent(function (Request $request) use ($user, $eventCount) {
+		$token = config('services.github.token');
+
+		$events_url = "{$this->api_base}/users/{$user}/events/public?per_page={$eventCount}";
+
+		return $request->url() === $events_url &&
+			$request->hasHeaders([
+				'Authorization' => "Bearer {$token}",
+				'Accept' => 'application/vnd.github.v3+json',
+				'User-Agent' => 'Elliot-Derhay-App',
+			]);
+	});
 });
 
 it('rejects incorrectly-formatted event api responses', function(): void {
