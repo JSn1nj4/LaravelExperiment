@@ -94,8 +94,8 @@ class GithubService implements GitHostService {
 	{
 		$response = Http::withToken($this->token)
 			->withHeaders([
-				"Accept: application/vnd.github.v3+json",
-				"User-Agent: Elliot-Derhay-App",
+				"Accept" => "application/vnd.github.v3+json",
+				"User-Agent" =>  "Elliot-Derhay-App",
 			])->get($this->getUrl("users/{$user}/events/public"), [
 				'per_page' => $count
 			]);
