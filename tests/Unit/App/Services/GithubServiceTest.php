@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Http;
 
 beforeEach(function (): void {
 	$this->api_base = 'https://api.github.com';
+
+	$this->faker = \Faker\Factory::create();
 });
 
 it('creates an instance of App\Services\GithubService', function (): void {
@@ -45,19 +47,17 @@ it('constructs the correct api url', function (): void {
 });
 
 it('fetches user events with a correctly-formatted event api request', function (): void {
-	$faker = \Faker\Factory::create();
-
-	$user = 'githubuser';
+	$user = $this->faker->userName();
 	$eventCount = 1;
 
 	$response = (object) [
 		'body' => [
 			[
 				'actor' => [
-					'id' => $faker->randomNumber(6, true),
+					'id' => $this->faker->randomNumber(6, true),
 					'login' => $user,
 					'display_login' => $user,
-					'avatar_url' => $faker->imageUrl(50, 50, 'cats'),
+					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
 				],
 				'type' => 'PushEvent',
 				'created_at' => Carbon::now()->toDateTimeString(),
