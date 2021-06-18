@@ -3,6 +3,7 @@
 use App\Services\GithubService;
 use Carbon\Carbon;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
@@ -103,27 +104,172 @@ it('throws an exception if requested event count is > 100', function (): void {
 })->throws(Exception::class, "'\$count' value must be 100 or less.");
 
 it('processes response data received from the github events api', function (): void {
+	$user = $this->faker->userName();
+	$eventCount = $this->faker->numberBetween(1, 100);
+
 	$response = (object) [
 		'body' => [
-			1, 2, 3,
+			[
+				'actor' => [
+					'id' => $this->faker->randomNumber(6, true),
+					'login' => $user,
+					'display_login' => $user,
+					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
+				],
+				'type' => 'PushEvent',
+				'created_at' => Carbon::now()->toDateTimeString(),
+				'repo' => [
+					'name' => "{$user}/repo_name",
+				],
+				'payload' => [
+					'ref' => 'refs/heads/fake_branch_name'
+				],
+			]
 		],
 		'status' => 200,
-		'headers' => [
-			'test1', 'test2', 'test3',
-		],
+		'headers' => [],
 	];
 
 	Http::fake([
-		"{$this->api_base}/users/jsn1nj4/events/public" => Http::response($response->body, $response->status, $response->headers),
+		"api.github.com/users/{$user}/events/public*" =>
+		Http::response(json_encode($response->body), $response->status, $response->headers),
 	]);
 
-	$githubService = new GithubService;
+	$events = (new GithubService)->getEvents($user, $eventCount);
+
+	expect($events)
+		->toBeInstanceOf(Collection::class);
+
+	expect(count($events))
+		->toBeLessThanOrEqual($eventCount);
 });
 
 it('filters out unsupported types of github events', function (): void {
+	$user = $this->faker->userName();
+	$eventCount = $this->faker->numberBetween(1, 100);
+
+	$response = (object) [
+		'body' => [
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CommitCommentEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'CreateEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'DeleteEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'ForkEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'GollumEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssueCommentEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'IssuesEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'MemberEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PublicEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PullRequestReviewCommentEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'PushEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'ReleaseEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'SponsorshipEvent'],
+			['type' => 'WatchEvent'],
+			['type' => 'WatchEvent'],
+			['type' => 'WatchEvent'],
+			['type' => 'WatchEvent'],
+			['type' => 'WatchEvent'],
+			['type' => 'WatchEvent'],
+		],
+		'status' => 200,
+		'headers' => [],
+	];
+
+	Http::fake([
+		"api.github.com/users/{$user}/events/public*" =>
+		Http::response(json_encode($response->body), $response->status, $response->headers),
+	]);
+
 	$githubService = new GithubService;
 
-	// for this to work, need to spy on service object to see supported event types
+	// Make supportedEventTypes list accessible
+	$reflector = new ReflectionObject($githubService);
+	$supportedEventTypes = $reflector->getProperty('supportedEventTypes');
+	$supportedEventTypes->setAccessible(true);
+
+	// determine if any unsupported event types get through
+	$unsupportedEventTypes = $githubService->getEvents($user, $eventCount)
+		->whereNotInStrict('type', $supportedEventTypes->getValue($githubService))
+		->unique()
+		->values();
+
+	expect($unsupportedEventTypes)->toHaveCount(0);
 });
 
 it('emails a list of new event types that should be supported', function (): void {
