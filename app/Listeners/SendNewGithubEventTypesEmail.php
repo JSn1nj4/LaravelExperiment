@@ -15,7 +15,7 @@ class SendNewGithubEventTypesEmail
 
 	public function handle(NewGithubEventTypesEvent $event): void
 	{
-		Mail::to($event->alertRecipients)
+		Mail::to($event->emailRecipients)
 			->send(new GithubEventEmail(
 				$event->newEventTypes
 					->unique()
