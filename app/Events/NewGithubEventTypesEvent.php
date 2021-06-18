@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Foundation\Events\Dispatchable;
 
 class NewGithubEventTypesEvent
