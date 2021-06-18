@@ -75,7 +75,7 @@ it('fetches user events with a correctly-formatted event api request', function 
 
 	Http::fake([
 		"api.github.com/users/{$user}/events/public*" =>
-		Http::response(json_encode($response->body), $response->status, $response->headers)
+		Http::response(json_encode($response->body), $response->status, $response->headers),
 	]);
 
 	(new GithubService)->getEvents($user, $eventCount);
@@ -101,22 +101,6 @@ it('throws an exception if requested event count is < 1', function (): void {
 it('throws an exception if requested event count is > 100', function (): void {
 	(new GithubService)->getEvents($this->faker->userName(), $this->faker->numberBetween(101));
 })->throws(Exception::class, "'\$count' value must be 100 or less.");
-
-it('rejects incorrectly-formatted event api responses', function (): void {
-	$user = $this->faker->userName();
-	$eventCount = $this->faker->numberBetween(1, 50);
-
-	$githubService = new GithubService;
-
-	// ...
-});
-
-it('handles api errors', function (): void {
-	$githubService = new GithubService;
-
-	// determine what happens currently when an error is received.
-	// sending a request with a bad token should be enough
-});
 
 it('processes response data received from the github events api', function (): void {
 	$response = (object) [
