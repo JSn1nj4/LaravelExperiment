@@ -47,7 +47,7 @@ it('constructs the correct api url', function (): void {
 		->toEqual("{$this->api_base}/{$api_endpoint}");
 });
 
-it('fetches user events with a correctly-formatted event api request', function (): void {
+it('constructs a correctly-formatted user event api request', function (): void {
 	$user = $this->faker->userName();
 	$eventCount = $this->faker->numberBetween(1, 100);
 
