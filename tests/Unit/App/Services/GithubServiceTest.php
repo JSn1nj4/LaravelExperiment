@@ -1,11 +1,14 @@
 <?php
 
+use App\Mail\GithubEventEmail;
 use App\Services\GithubService;
 use Carbon\Carbon;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
+use Tests\Support\PrivatePropertyAccessor;
 
 beforeEach(function (): void {
 	$this->api_base = 'https://api.github.com';
@@ -135,6 +138,8 @@ it('processes response data received from the github events api', function (): v
 		Http::response(json_encode($response->body), $response->status, $response->headers),
 	]);
 
+	Mail::fake();
+
 	$events = (new GithubService)->getEvents($user, $eventCount);
 
 	expect($events)
@@ -256,20 +261,36 @@ it('filters out unsupported types of github events', function (): void {
 		Http::response(json_encode($response->body), $response->status, $response->headers),
 	]);
 
+	Mail::fake();
+
 	$githubService = new GithubService;
 
 	// Make supportedEventTypes list accessible
-	$reflector = new ReflectionObject($githubService);
-	$supportedEventTypes = $reflector->getProperty('supportedEventTypes');
-	$supportedEventTypes->setAccessible(true);
+	$supportedEventTypes = PrivatePropertyAccessor::make()
+		->from($githubService)
+		->get('supportedEventTypes');
 
-	// determine if any unsupported event types get through
-	$unsupportedEventTypes = $githubService->getEvents($user, $eventCount)
-		->whereNotInStrict('type', $supportedEventTypes->getValue($githubService))
+	// Build and sum lists of supported and unsupported events
+	[$supportedEvents, $unsupportedEvents] = collect($response->body)
+		->partition(function ($event) use ($supportedEventTypes) {
+			return in_array($event['type'], $supportedEventTypes);
+		});
+
+	// "fetch" events
+	$events = $githubService->getEvents($user, $eventCount);
+
+	// List unsupported event types that were missed in filtering
+	$eventTypesMissed = $events->whereNotInStrict('type', $supportedEventTypes)
 		->unique()
 		->values();
 
-	expect($unsupportedEventTypes)->toHaveCount(0);
+	// Confirm expectations
+	expect($events->toArray())
+		->toHaveCount($supportedEvents->count())
+		->and($events->count())
+		->toBeLessThanOrEqual($eventCount)
+		->and($eventTypesMissed)
+		->toHaveCount(0);
 });
 
 it('emails a list of new event types that should be supported', function (): void {
