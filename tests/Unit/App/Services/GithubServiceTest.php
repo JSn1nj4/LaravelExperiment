@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use Tests\Support\PrivatePropertyAccessor;
+use Tests\Support\PrivateMemberAccessor;
 
 beforeEach(function (): void {
 	$this->api_base = 'https://api.github.com';
@@ -266,9 +266,9 @@ it('filters out unsupported types of github events', function (): void {
 	$githubService = new GithubService;
 
 	// Make supportedEventTypes list accessible
-	$supportedEventTypes = PrivatePropertyAccessor::make()
+	$supportedEventTypes = PrivateMemberAccessor::make()
 		->from($githubService)
-		->get('supportedEventTypes');
+		->getProperty('supportedEventTypes');
 
 	// Build and sum lists of supported and unsupported events
 	[$supportedEvents, $unsupportedEvents] = collect($response->body)

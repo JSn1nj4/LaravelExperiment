@@ -4,9 +4,11 @@ namespace Tests\Support;
 
 use ReflectionObject;
 
-class PrivatePropertyAccessor
+class PrivateMemberAccessor
 {
 	private object $object;
+
+	private ReflectionObject $reflector;
 
 	public function __construct()
 	{
@@ -17,13 +19,14 @@ class PrivatePropertyAccessor
 	{
 		$this->object = $object;
 
+		$this->reflector = new ReflectionObject($this->object);
+
 		return $this;
 	}
 
-	public function get(string $propertyName): mixed
+	public function getProperty(string $propertyName): mixed
 	{
-		$reflector = new ReflectionObject($this->object);
-		$property = $reflector->getProperty($propertyName);
+		$property = $this->reflector->getProperty($propertyName);
 		$property->setAccessible(true);
 
 		return $property->getValue($this->object);
