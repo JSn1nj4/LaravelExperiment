@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Contracts\GitHostService;
+use App\DataTransferObjects\GithubEventDTO;
+use App\DataTransferObjects\GithubUserDTO;
 use App\Events\NewGithubEventTypesEvent;
 use Exception;
 use Illuminate\Http\Client\Response;
@@ -78,7 +80,16 @@ class GithubService implements GitHostService {
 	public function filterEventTypes(Response $response): Collection
 	{
 		$events = collect($response->json())
-			->filter(fn ($event) => $this->eventTypeSupported($event['type']));
+			->filter(fn ($event) => $this->eventTypeSupported($event['type']))
+			->transform(fn ($event) => new GithubEventDTO(
+				id: $event['id'],
+				type: $event['type'],
+				action: GithubEventDTO::getAction($event),
+				date: GithubEventDTO::getDate($event),
+				user: GithubUserDTO::fromArray($event['actor']),
+				source: GithubEventDTO::getEventSource($event),
+				repo: $event['repo']['name'],
+			));
 
 		$this->sendNewEventTypesNotifications();
 
