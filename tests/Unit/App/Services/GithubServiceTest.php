@@ -114,8 +114,9 @@ it('processes response data received from the github events api', function (): v
 	$response = (object) [
 		'body' => [
 			[
+				'id' => $this->faker->numerify('###########'),
 				'actor' => [
-					'id' => $this->faker->randomNumber(6, true),
+					'id' => $this->faker->randomNumber(7, true),
 					'login' => $user,
 					'display_login' => $user,
 					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
