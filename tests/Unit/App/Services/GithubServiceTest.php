@@ -57,8 +57,9 @@ it('constructs a correctly-formatted user event api request', function (): void 
 	$response = (object) [
 		'body' => [
 			[
+				'id' => $this->faker->numerify('###########'),
 				'actor' => [
-					'id' => $this->faker->randomNumber(6, true),
+					'id' => $this->faker->randomNumber(7, true),
 					'login' => $user,
 					'display_login' => $user,
 					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
@@ -69,7 +70,7 @@ it('constructs a correctly-formatted user event api request', function (): void 
 					'name' => "{$user}/repo_name",
 				],
 				'payload' => [
-					'ref' => 'refs/heads/fake_branch_name'
+					'ref' => "refs/heads/{$this->faker->slug()}",
 				],
 			]
 		],
