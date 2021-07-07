@@ -23,8 +23,5 @@ abstract class BaseFactory
 		return new static();
 	}
 
-	public function make(): array
-	{
-
-	}
+	abstract public function make(): array;
 }

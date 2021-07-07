@@ -2,14 +2,10 @@
 
 namespace Tests\Support;
 
-use App\DataTransferObjects\GithubEventDTO;
-use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
-class GithubEventDTOFactory extends BaseFactory
+class GithubEventDataFactory extends BaseFactory
 {
-	private string $class = GithubEventDTO::class;
-
 	private array $eventTypes = [
 		'CommitCommentEvent',
 		'CreateEvent',
@@ -39,6 +35,22 @@ class GithubEventDTOFactory extends BaseFactory
 	private function definition(): array
 	{
 		$user = $this->faker->userName();
+		$type = Arr::random($this->eventTypes);
+
+		$payload = array_merge([
+			'ref' => "refs/heads/{$this->faker->slug()}",
+		], match ($type) {
+			'ForkEvent' => ['forkee' => [
+				'full_name' => "{$user}/{$this->faker->slug}",
+			]],
+			'IssueCommentEvent', 'IssuesEvent' => ['issue' => [
+				'number' => $this->faker->randomNumber(5),
+			]],
+			'PullRequestEvent' => ['pull_request' => [
+				'number' => $this->faker->randomNumber(5),
+			]],
+			default => [],
+		});
 
 		return [
 			'id' => $this->faker->numerify('###########'),
@@ -48,14 +60,23 @@ class GithubEventDTOFactory extends BaseFactory
 				'display_login' => $user,
 				'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
 			],
-			'type' => Arr::random($this->eventTypes),
+			'type' => $type,
 			'created_at' => now()->toDateTimeString(),
 			'repo' => [
 				'name' => "{$user}/{$this->faker->slug()}",
 			],
-			'payload' => [
-				'ref' => "refs/heads/{$this->faker->slug()}",
-			],
+			'payload' => $payload,
 		];
+	}
+
+	public function make(): array
+	{
+		$data = [];
+
+		for ($i = 0; $i < $this->count; $i++) {
+			array_push($data, $this->definition());
+		}
+
+		return $data;
 	}
 }

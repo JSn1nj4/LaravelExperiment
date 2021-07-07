@@ -1,13 +1,12 @@
 <?php
 
-use App\Mail\GithubEventEmail;
 use App\Services\GithubService;
-use Carbon\Carbon;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Tests\Support\GithubEventDataFactory;
 use Tests\Support\PrivateMemberAccessor;
 
 beforeEach(function (): void {
@@ -55,25 +54,9 @@ it('constructs a correctly-formatted user event api request', function (): void 
 	$eventCount = $this->faker->numberBetween(1, 100);
 
 	$response = (object) [
-		'body' => [
-			[
-				'id' => $this->faker->numerify('###########'),
-				'actor' => [
-					'id' => $this->faker->randomNumber(7, true),
-					'login' => $user,
-					'display_login' => $user,
-					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
-				],
-				'type' => 'PushEvent',
-				'created_at' => Carbon::now()->toDateTimeString(),
-				'repo' => [
-					'name' => "{$user}/repo_name",
-				],
-				'payload' => [
-					'ref' => "refs/heads/{$this->faker->slug()}",
-				],
-			]
-		],
+		'body' => GithubEventDataFactory::init()
+			->count($eventCount)
+			->make(),
 		'status' => 200,
 		'headers' => [],
 	];
@@ -112,25 +95,9 @@ it('processes response data received from the github events api', function (): v
 	$eventCount = $this->faker->numberBetween(1, 100);
 
 	$response = (object) [
-		'body' => [
-			[
-				'id' => $this->faker->numerify('###########'),
-				'actor' => [
-					'id' => $this->faker->randomNumber(7, true),
-					'login' => $user,
-					'display_login' => $user,
-					'avatar_url' => $this->faker->imageUrl(50, 50, 'cats'),
-				],
-				'type' => 'PushEvent',
-				'created_at' => Carbon::now()->toDateTimeString(),
-				'repo' => [
-					'name' => "{$user}/repo_name",
-				],
-				'payload' => [
-					'ref' => 'refs/heads/fake_branch_name'
-				],
-			]
-		],
+		'body' => GithubEventDataFactory::init()
+			->count($eventCount)
+			->make(),
 		'status' => 200,
 		'headers' => [],
 	];
@@ -156,104 +123,9 @@ it('filters out unsupported types of github events', function (): void {
 	$eventCount = $this->faker->numberBetween(1, 100);
 
 	$response = (object) [
-		'body' => [
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CommitCommentEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'CreateEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'DeleteEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'ForkEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'GollumEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssueCommentEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'IssuesEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'MemberEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PublicEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PullRequestReviewCommentEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'PushEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'ReleaseEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'SponsorshipEvent'],
-			['type' => 'WatchEvent'],
-			['type' => 'WatchEvent'],
-			['type' => 'WatchEvent'],
-			['type' => 'WatchEvent'],
-			['type' => 'WatchEvent'],
-			['type' => 'WatchEvent'],
-		],
+		'body' => GithubEventDataFactory::init()
+			->count($eventCount)
+			->make(),
 		'status' => 200,
 		'headers' => [],
 	];
