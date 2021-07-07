@@ -167,10 +167,18 @@ it('filters out unsupported types of github events', function (): void {
 		->toHaveCount(0);
 });
 
-it('emails a list of new event types that should be supported', function (): void {
+it('does not dispatch notification if no unsupported event types are found', function(): void {
 	$githubService = new GithubService;
 
-	// requires email connection be configured
+	// Force generate only supported event types
 
-	// look into how to fake email being sent
+	// Fake email: https://laravel.com/docs/8.x/mocking#mail-fake
+});
+
+it('dispatches notification if unsupported event types are filtered out', function (): void {
+	$githubService = new GithubService;
+
+	// Force generate 1 of each event type to ensure
+
+	// Fake email
 });
