@@ -1,9 +1,12 @@
 <?php
 
+use App\Events\NewGithubEventTypesEvent;
+use App\Mail\GithubEventEmail;
 use App\Services\GithubService;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Tests\Support\GithubEventDataFactory;
@@ -168,17 +171,76 @@ it('filters out unsupported types of github events', function (): void {
 });
 
 it('does not dispatch notification if no unsupported event types are found', function(): void {
+	$user = $this->faker->userName();
+	$eventCount = $this->faker->numberBetween(1, 100);
+
 	$githubService = new GithubService;
 
-	// Force generate only supported event types
+	// Make supportedEventTypes list accessible
+	$supportedEventTypes = PrivateMemberAccessor::make()
+		->from($githubService)
+		->getProperty('supportedEventTypes');
 
-	// Fake email: https://laravel.com/docs/8.x/mocking#mail-fake
+	$response = (object) [
+		'body' => GithubEventDataFactory::init()
+			->count($eventCount)
+			->withTypes($supportedEventTypes)
+			->make(),
+		'status' => 200,
+		'headers' => [],
+	];
+
+	Http::fake([
+		"api.github.com/users/{$user}/events/public*" =>
+		Http::response(json_encode($response->body), $response->status, $response->headers),
+	]);
+
+	Mail::fake();
+
+	Event::fake();
+
+	// "fetch" events
+	$githubService->getEvents($user, $eventCount);
+
+	Event::assertNotDispatched(NewGithubEventTypesEvent::class);
 });
 
 it('dispatches notification if unsupported event types are filtered out', function (): void {
+	$user = $this->faker->userName();
+	$eventCount = $this->faker->numberBetween(1, 100);
+
 	$githubService = new GithubService;
 
-	// Force generate 1 of each event type to ensure
+	// Force generate only unsupported event types
+	$unsupportedEventTypes = array_diff(
+		PrivateMemberAccessor::make()
+			->from(GithubEventDataFactory::init())
+			->getProperty('eventTypes'),
+		PrivateMemberAccessor::make()
+		->from($githubService)
+		->getProperty('supportedEventTypes')
+	);
 
-	// Fake email
+	$response = (object) [
+		'body' => GithubEventDataFactory::init()
+			->withTypes($unsupportedEventTypes)
+			->count(100)
+			->make(),
+		'status' => 200,
+		'headers' => [],
+	];
+
+	Http::fake([
+		"api.github.com/users/{$user}/events/public*" =>
+		Http::response(json_encode($response->body), $response->status, $response->headers),
+	]);
+
+	Mail::fake();
+
+	Event::fake();
+
+	// "fetch" events
+	$githubService->getEvents($user, $eventCount);
+
+	Event::assertDispatched(NewGithubEventTypesEvent::class);
 });

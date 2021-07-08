@@ -2,6 +2,7 @@
 
 namespace Tests\Support;
 
+use Exception;
 use Illuminate\Support\Arr;
 
 class GithubEventDataFactory extends BaseFactory
@@ -25,6 +26,8 @@ class GithubEventDataFactory extends BaseFactory
 		'WatchEvent',
 	];
 
+	private ?array $limitedEventTypes;
+
 	private \Faker\Generator $faker;
 
 	public function __construct()
@@ -35,7 +38,7 @@ class GithubEventDataFactory extends BaseFactory
 	private function definition(): array
 	{
 		$user = $this->faker->userName();
-		$type = Arr::random($this->eventTypes);
+		$type = Arr::random($this->getEventTypes());
 
 		$payload = array_merge([
 			'ref' => "refs/heads/{$this->faker->slug()}",
@@ -69,6 +72,11 @@ class GithubEventDataFactory extends BaseFactory
 		];
 	}
 
+	private function getEventTypes(): array
+	{
+		return $this->limitedEventTypes ?? $this->eventTypes;
+	}
+
 	public function make(): array
 	{
 		$data = [];
@@ -78,5 +86,29 @@ class GithubEventDataFactory extends BaseFactory
 		}
 
 		return $data;
+	}
+
+	public function withTypes(array $types): self
+	{
+		\throw_if(
+			condition: count($types) <= 0,
+			parameters: ['Parameter \'$types\' requires an array with at least 1 value.'],
+		);
+
+		foreach($types as $type) {
+			\throw_if(
+				condition: gettype($type) !== 'string',
+				parameters: ['Parameter \'$types\' needs to be an array containing only strings'],
+			);
+		}
+
+		\throw_if(
+			condition: count(array_diff($types, $this->eventTypes)) > 0,
+			parameters: ['Parameter \'$types\' must contain legal event types. Please check GitHub\'s events API for the event types it will return.'],
+		);
+
+		$this->limitedEventTypes = $types;
+
+		return $this;
 	}
 }
