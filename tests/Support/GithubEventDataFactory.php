@@ -2,7 +2,6 @@
 
 namespace Tests\Support;
 
-use Exception;
 use Illuminate\Support\Arr;
 
 class GithubEventDataFactory extends BaseFactory

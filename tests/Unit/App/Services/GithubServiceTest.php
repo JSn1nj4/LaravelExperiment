@@ -1,7 +1,6 @@
 <?php
 
 use App\Events\NewGithubEventTypesEvent;
-use App\Mail\GithubEventEmail;
 use App\Services\GithubService;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Collection;
