@@ -47,7 +47,7 @@ class RouteServiceProvider extends ServiceProvider
 				->namespace($this->namespace)
 				->group(base_path('routes/web.php'));
 
-			if(app()->environment('local')) {
+			if(app()->environment(['local', 'testing'])) {
 				Route::prefix('dev')
 					->middleware('web')
 					->namespace($this->namespace)

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\GitHostService;
+use App\Services\GithubService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		//
+		$this->app->singleton(GitHostService::class, fn($app) => new GithubService);
 	}
 
 	/**
