@@ -38,6 +38,7 @@ module.exports = {
 		colors: {
 			transparent: "transparent",
 
+			black: "#000000",
 			"gray-900": "#090909",
 			"gray-800": "#151515",
 			"gray-700": "#606f7b",
@@ -181,6 +182,15 @@ module.exports = {
 			hash: "# ",
 			asterisk: "* ",
 			at: "@ "
+		},
+
+		extend: {
+			backgroundImage: theme => ({
+				"laptop-light":
+					'url("https://s3.amazonaws.com/elliotderhay-com/banners/pexels-lukas-574073-scaled-light.jpg")',
+				"laptop-dark":
+					'url("https://s3.amazonaws.com/elliotderhay-com/banners/pexels-lukas-574073-scaled-dark.jpg")'
+			})
 		}
 	}
 };
